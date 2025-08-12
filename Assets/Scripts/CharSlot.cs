@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,8 +8,10 @@ public class CharSlot : MonoBehaviour
     public bool isChosen;
     public bool isHidden;
 
-    private void Start()
+    public void Load(Character givenCharacter)
     {
-        slotImage.sprite = Resources.Load<Sprite>("FNAF1/" + character.ToString());
+        character = givenCharacter;
+
+        slotImage.sprite = character.sprite;
     }
 }
