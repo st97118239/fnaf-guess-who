@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
-  m_Name: Bonnie
+  m_Name: Toy Bonnie
   m_EditorClassIdentifier: 
   charName: 2
-  type: 0
-  game: 1
-  sprite: {fileID: 21300000, guid: 26236cf9458b10349ad215a36892cc0c, type: 3}
+  type: 2
+  game: 2
+  sprite: {fileID: 21300000, guid: 94210922f33d0b5428d590a3479b3085, type: 3}

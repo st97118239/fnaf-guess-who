@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Foxy
   m_EditorClassIdentifier: 
   charName: 4
+  type: 0
   game: 1
   sprite: {fileID: 21300000, guid: ac2dfb72c07b85549a79aa0bb600889f, type: 3}

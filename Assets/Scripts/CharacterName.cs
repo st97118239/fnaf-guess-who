@@ -2,8 +2,12 @@ public enum CharacterName
 {
     Empty,
     Freddy,
-    GoldenFreddy,
     Bonnie,
+    Chica,
     Foxy,
-    Chica
+    GoldenFreddy,
+    Mangle,
+    BB,
+    JJ,
+    Puppet
 }

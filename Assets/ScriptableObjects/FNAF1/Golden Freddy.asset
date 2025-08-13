@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
   m_Name: Golden Freddy
   m_EditorClassIdentifier: 
-  charName: 2
+  charName: 5
+  type: 0
   game: 1
   sprite: {fileID: 21300000, guid: 4e2781d1a98e8ce4ab98b6e8855c0955, type: 3}
