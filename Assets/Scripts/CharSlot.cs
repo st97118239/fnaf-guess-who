@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,19 +6,13 @@ public class CharSlot : MonoBehaviour
 {
     public Image characterImage;
     public Image slotImage;
+    public Image xImage;
+    public TMP_Text charName;
     public Character character;
     public bool isChosen;
     public bool isHidden;
 
     private Game gameScript;
-    private Button button;
-
-    private void Awake()
-    {
-        button = GetComponentInChildren<Button>();
-        characterImage = button.GetComponent<Image>();
-        slotImage = GetComponent<Image>();
-    }
 
     public void Load(Character givenCharacter, Game givenGameScript)
     {
@@ -25,6 +20,7 @@ public class CharSlot : MonoBehaviour
         gameScript = givenGameScript;
 
         characterImage.sprite = character.sprite;
+        charName.text = character.name;
     }
 
     public void Press()
@@ -39,7 +35,6 @@ public class CharSlot : MonoBehaviour
     {
         gameScript.ChooseCharacter(character);
         isChosen = true;
-        slotImage.sprite = Resources.Load<Sprite>("UI/Selected");
     }
 
     private void Toggle()
@@ -47,12 +42,12 @@ public class CharSlot : MonoBehaviour
         if (isHidden)
         {
             isHidden = false;
-            characterImage.sprite = character.sprite;
+            xImage.color = new Color(255, 255, 255, 0);
         }
         else
         {
             isHidden = true;
-            characterImage.sprite = Resources.Load<Sprite>("UI/Hidden");
+            xImage.color = new Color(255, 255, 255, 255);
         }
     }
 }

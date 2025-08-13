@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
-  m_Name: BB
+  m_Name: Phantom Puppet
   m_EditorClassIdentifier: 
-  charName: 7
-  type: 0
-  game: 2
-  sprite: {fileID: 21300000, guid: 0ec639832238aff468f7017ff3d93dca, type: 3}
+  charName: 9
+  type: 4
+  game: 3
+  sprite: {fileID: 21300000, guid: bb940979aa3a83d4480267c893ef1c13, type: 3}

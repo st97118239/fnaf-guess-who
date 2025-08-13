@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
-  m_Name: Freddy
+  m_Name: Phantom Mangle
   m_EditorClassIdentifier: 
-  charName: 1
-  game: 1
-  sprite: {fileID: 21300000, guid: 2a19861c7c6f2174aae399258e92d367, type: 3}
+  charName: 6
+  type: 4
+  game: 3
+  sprite: {fileID: 21300000, guid: ae8ca3e21b8470e4fa68f0685f02a358, type: 3}

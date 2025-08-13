@@ -14,9 +14,9 @@ public class CharacterSidebar : MonoBehaviour
     {
         character = givenCharacter;
 
-        slotImage.sprite = Resources.Load<Sprite>("UI/Selected");
+        slotImage.color = new Color(255, 255, 255, 255);
         characterImage.sprite = character.sprite;
-        characterImage.color = new Color(255, 255, 255);
+        characterImage.color = new Color(255, 255, 255, 255);
         characterNameText.text = character.name;
     }
 }
