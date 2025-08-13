@@ -14,5 +14,14 @@ public enum CharacterName
     Fredbear,
     Nightmare,
     Plushtrap,
-    Freddles
+    Freddles,
+    Baby,
+    Ballora,
+    Bidybab,
+    Minireena,
+    BonBon,
+    Lolbit,
+    Electrobab,
+    Bonnet,
+    MusicMan
 }

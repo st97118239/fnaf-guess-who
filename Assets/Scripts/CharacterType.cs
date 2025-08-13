@@ -7,5 +7,6 @@ public enum CharacterType
     Phantom,
     SpringlockSuit,
     Nightmare,
-    JackO
+    JackO,
+    Funtime
 }

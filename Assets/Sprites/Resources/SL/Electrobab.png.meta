@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6b978bc88364bb94dbc0277bbda515af
+guid: bdd7c8953fd7ac943b22326bc5dbed01
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4329407632164072968
-    second: Default_0
+      213: 7386987163045447836
+    second: Electrobab_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Default_0
+      name: Electrobab_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 150
-        height: 150
+        height: 117
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 80e2103ad45251c30800000000000000
-      internalID: 4329407632164072968
+      spriteID: c98c1b5dfa9d38660800000000000000
+      internalID: 7386987163045447836
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Default_0: 4329407632164072968
+      Electrobab_0: 7386987163045447836
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

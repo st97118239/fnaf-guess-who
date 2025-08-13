@@ -10,7 +10,7 @@ public class CharSlot : MonoBehaviour
     public TMP_Text charName;
     public Character character;
     public bool isChosen;
-    public bool isHidden;
+    public bool isCrossedOff;
 
     private Game gameScript;
 
@@ -39,15 +39,19 @@ public class CharSlot : MonoBehaviour
 
     private void Toggle()
     {
-        if (isHidden)
+        if (isCrossedOff)
         {
-            isHidden = false;
+            isCrossedOff = false;
             xImage.color = new Color(255, 255, 255, 0);
+            gameScript.crossedOff.Remove(this);
+            gameScript.UpdateSidebar();
         }
         else
         {
-            isHidden = true;
+            isCrossedOff = true;
             xImage.color = new Color(255, 255, 255, 255);
+            gameScript.crossedOff.Add(this);
+            gameScript.UpdateSidebar();
         }
     }
 }

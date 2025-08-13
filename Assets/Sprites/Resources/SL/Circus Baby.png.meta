@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f96a47ac1d1a68940b9ecf5455bc158a
+guid: 9d946d6b40df85c48b940945eafcd11d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1752430859451195970
-    second: Selected_0
+      213: 7422552692684703474
+    second: Circus Baby_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Selected_0
+      name: Circus Baby_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ebd9af80b6d1ea7e0800000000000000
-      internalID: -1752430859451195970
+      spriteID: 2f6471ef854320760800000000000000
+      internalID: 7422552692684703474
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Selected_0: -1752430859451195970
+      Circus Baby_0: 7422552692684703474
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

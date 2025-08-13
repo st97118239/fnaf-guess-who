@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a925597d739775a4da12dfb2c6efb23b
+guid: 638c698cac86ce54b8a06581c924baf0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7171131991008666517
-    second: Postit_0
+      213: 653682252943829812
+    second: Music Man_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,9 +40,9 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -52,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 119, y: 97, z: 98, w: 126}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Postit_0
+      name: Music Man_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 7
         y: 0
-        width: 500
-        height: 500
+        width: 143
+        height: 150
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b6c1d7ec2750b7c90800000000000000
-      internalID: -7171131991008666517
+      spriteID: 43ba1b2bb88521900800000000000000
+      internalID: 653682252943829812
       vertices: []
       indices: 
       edges: []
@@ -126,7 +126,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Postit_0: -7171131991008666517
+      Music Man_0: 653682252943829812
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

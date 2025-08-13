@@ -8,10 +8,9 @@ public class Game : MonoBehaviour
     public CharacterSidebar characterSidebar;
     public GameObject charSlotPrefab;
     public List<CharSlot> charSlots;
+    public List<CharSlot> crossedOff;
     public Character chosenCharacter;
     public bool hasChosen;
-    public Color hiddenColor;
-    public Color defaultColor;
 
     private int slotAmount;
 
@@ -27,6 +26,8 @@ public class Game : MonoBehaviour
             charSlots.Add(slotObj.GetComponent<CharSlot>());
             charSlots[i].Load(characterList.characters[i], this);
         }
+
+        UpdateSidebar();
     }
 
     public void ChooseCharacter(Character givenChar)
@@ -34,5 +35,10 @@ public class Game : MonoBehaviour
         chosenCharacter = givenChar;
         hasChosen = true;
         characterSidebar.SetCharacter(chosenCharacter);
+    }
+
+    public void UpdateSidebar()
+    {
+        characterSidebar.ReloadSidebarStats(crossedOff.Count, charSlots.Count);
     }
 }
