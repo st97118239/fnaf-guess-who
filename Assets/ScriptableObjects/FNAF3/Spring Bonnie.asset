@@ -15,4 +15,4 @@ MonoBehaviour:
   charName: 2
   type: 5
   game: 3
-  sprite: {fileID: 21300000, guid: 14415c5afc91cea489665c422c6e2c44, type: 3}
+  sprite: {fileID: 21300000, guid: 5ac492bb27d797644a75370ce4ad2a3e, type: 3}

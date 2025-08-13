@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charName: 7
   type: 3
-  game: 6
+  game: 7
   sprite: {fileID: 21300000, guid: fc67d0562140cfb4ca0d0f0b5aa86dca, type: 3}
