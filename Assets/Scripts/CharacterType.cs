@@ -2,5 +2,6 @@ public enum CharacterType
 {
     Normal,
     Withered,
-    Toy
+    Toy,
+    Shadow
 }

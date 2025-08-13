@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
-  m_Name: Puppet
+  m_Name: Shadow Bonnie
   m_EditorClassIdentifier: 
-  charName: 9
-  type: 0
+  charName: 2
+  type: 3
   game: 2
-  sprite: {fileID: 21300000, guid: 1be88fb93783b264292e5cec604d1a8b, type: 3}
+  sprite: {fileID: 21300000, guid: 6de12d20b6beb7946b5a4d4b810dbbf0, type: 3}

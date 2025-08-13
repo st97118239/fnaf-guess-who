@@ -3,20 +3,21 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    public List<Character> characters;
+    public CharacterList characterList;
     public GameObject gamePanel;
+    public CharacterSidebar characterSidebar;
     public GameObject charSlotPrefab;
     public List<CharSlot> charSlots;
     public Character chosenCharacter;
     public bool hasChosen;
     public Color hiddenColor;
     public Color defaultColor;
-    
+
     private int slotAmount;
 
     private void Start()
     {
-        slotAmount = characters.Count;
+        slotAmount = characterList.characters.Count;
 
         charSlots = new List<CharSlot>(slotAmount);
 
@@ -24,7 +25,7 @@ public class Game : MonoBehaviour
         {
             GameObject slotObj = Instantiate(charSlotPrefab, gamePanel.transform);
             charSlots.Add(slotObj.GetComponent<CharSlot>());
-            charSlots[i].Load(characters[i], this);
+            charSlots[i].Load(characterList.characters[i], this);
         }
     }
 
@@ -32,5 +33,6 @@ public class Game : MonoBehaviour
     {
         chosenCharacter = givenChar;
         hasChosen = true;
+        characterSidebar.SetCharacter(chosenCharacter);
     }
 }
