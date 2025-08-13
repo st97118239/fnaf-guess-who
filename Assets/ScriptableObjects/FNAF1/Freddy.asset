@@ -12,8 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
   m_Name: Freddy
   m_EditorClassIdentifier: 
-  charName: 1
-  type: 0
-  game: 1
   characterName: Freddy Fazbear
+  year: 1970's
+  affiliation: Freddy Fazbear's Pizza
+  firstAppearance: Five Nights at Freddy's
+  type: Classic Animatronic
+  model: Bear
+  color: Brown
+  eyeColor: Blue
+  pronouns: He/Him
+  aliases: 
   sprite: {fileID: 21300000, guid: 2a19861c7c6f2174aae399258e92d367, type: 3}
+  fullBodySprite: {fileID: 0}

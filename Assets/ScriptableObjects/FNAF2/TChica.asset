@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
   m_Name: TChica
   m_EditorClassIdentifier: 
-  charName: 3
-  type: 2
-  game: 2
+  characterName: Toy Chica
+  year: 1980's
+  affiliation: Freddy Fazbear's Pizza (1987)
+  firstAppearance: Five Nights at Freddy's 2
+  type: Toy Animatronic
+  model: Chicken
+  color: Yellow
+  eyeColor: Blue
+  pronouns: She/Her
+  aliases: New Chica
   sprite: {fileID: 21300000, guid: e5771db8ffcee7241a32fc60cca24607, type: 3}
+  fullBodySprite: {fileID: 0}

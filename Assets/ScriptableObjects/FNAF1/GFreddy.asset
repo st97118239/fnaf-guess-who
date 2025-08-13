@@ -12,8 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
   m_Name: GFreddy
   m_EditorClassIdentifier: 
-  charName: 5
-  type: 0
-  game: 1
   characterName: Golden Freddy
+  year: Unkown
+  affiliation: None
+  firstAppearance: Five Nights at Freddy's
+  type: Unclassified Animatronic
+  model: Bear
+  color: Golden Yellow
+  eyeColor: White Pupils
+  pronouns: He/Him
+  aliases: Yellow Bear
   sprite: {fileID: 21300000, guid: 4e2781d1a98e8ce4ab98b6e8855c0955, type: 3}
+  fullBodySprite: {fileID: 0}

@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
   m_Name: PChica
   m_EditorClassIdentifier: 
-  charName: 3
-  type: 4
-  game: 3
+  characterName: Phantom Chica
+  year: 
+  affiliation: 'Fazbear''s Fright: The Horror Attraction'
+  firstAppearance: Five Nights at Freddy's 3
+  type: Phantom Animatronic
+  model: Chicken (Ghost)
+  color: Burnt Yellow/Dark Green
+  eyeColor: Silver
+  pronouns: She/Her
+  aliases: 
   sprite: {fileID: 21300000, guid: 08186c3a869ac1242bea8ab028de34bd, type: 3}
+  fullBodySprite: {fileID: 0}

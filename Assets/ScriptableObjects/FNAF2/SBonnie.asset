@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
   m_Name: SBonnie
   m_EditorClassIdentifier: 
-  charName: 2
-  type: 3
-  game: 2
+  characterName: Shadow Bonnie
+  year: 
+  affiliation: 
+  firstAppearance: Five Nights at Freddy's 2
+  type: 
+  model: 
+  color: 
+  eyeColor: 
+  pronouns: 
+  aliases: 
   sprite: {fileID: 21300000, guid: 6de12d20b6beb7946b5a4d4b810dbbf0, type: 3}
+  fullBodySprite: {fileID: 0}

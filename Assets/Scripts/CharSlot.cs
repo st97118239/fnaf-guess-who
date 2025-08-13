@@ -1,8 +1,10 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CharSlot : MonoBehaviour
+public class CharSlot : MonoBehaviour, IPointerClickHandler
 {
     public Image characterImage;
     public Image slotImage;
@@ -13,6 +15,18 @@ public class CharSlot : MonoBehaviour
     public bool isCrossedOff;
 
     private Game gameScript;
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            Press();
+        }
+        else if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            gameScript.ShowInfoPanel(character);
+        }
+    }
 
     public void Load(Character givenCharacter, Game givenGameScript)
     {

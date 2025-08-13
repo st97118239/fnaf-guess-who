@@ -6,6 +6,7 @@ public class Game : MonoBehaviour
     public CharacterList characterList;
     public GameObject gamePanel;
     public CharacterSidebar characterSidebar;
+    public InfoPanel infoPanel;
     public GameObject charSlotPrefab;
     public List<CharSlot> charSlots;
     public List<CharSlot> crossedOff;
@@ -40,5 +41,10 @@ public class Game : MonoBehaviour
     public void UpdateSidebar()
     {
         characterSidebar.ReloadSidebarStats(crossedOff.Count, charSlots.Count);
+    }
+
+    public void ShowInfoPanel(Character character)
+    {
+        infoPanel.Show(character);
     }
 }

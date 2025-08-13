@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
   m_Name: FFreddy
   m_EditorClassIdentifier: 
-  charName: 1
-  type: 8
-  game: 5
+  characterName: Funtime Freddy
+  year: 
+  affiliation: 
+  firstAppearance: 
+  type: 
+  model: 
+  color: 
+  eyeColor: 
+  pronouns: 
+  aliases: 
   sprite: {fileID: 21300000, guid: ad9a6417dbd263f4eaa1b9e949bca94d, type: 3}
+  fullBodySprite: {fileID: 0}

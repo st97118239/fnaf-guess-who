@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
   m_Name: NBonnie
   m_EditorClassIdentifier: 
-  charName: 2
-  type: 6
-  game: 4
+  characterName: Nightmare Bonnie
+  year: 
+  affiliation: Bedroom
+  firstAppearance: Five Nights at Freddy's 4
+  type: Nightmare Animatronic
+  model: Rabbit
+  color: Blue
+  eyeColor: Purple
+  pronouns: He/Him
+  aliases: 
   sprite: {fileID: 21300000, guid: deaaaa233c7aafb40b0c5dd465b03ecc, type: 3}
+  fullBodySprite: {fileID: 0}

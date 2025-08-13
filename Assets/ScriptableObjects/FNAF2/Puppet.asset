@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
   m_Name: Puppet
   m_EditorClassIdentifier: 
-  charName: 9
-  type: 0
-  game: 2
+  characterName: Puppet
+  year: 1980's
+  affiliation: Fredbear's Family Diner, Freddy Fazbear's Pizza (1987)
+  firstAppearance: Five Nights at Freddy's 2
+  type: Toy Animatronic
+  model: Humanoid
+  color: Black and White
+  eyeColor: White Pupils
+  pronouns: He/Him/She/her
+  aliases: The Marionette, Sockpuppet
   sprite: {fileID: 21300000, guid: 1be88fb93783b264292e5cec604d1a8b, type: 3}
+  fullBodySprite: {fileID: 0}

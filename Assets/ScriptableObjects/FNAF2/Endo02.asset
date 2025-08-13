@@ -12,8 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
   m_Name: Endo02
   m_EditorClassIdentifier: 
-  charName: 10
-  type: 0
-  game: 2
   characterName: Endo-02
+  year: 1980's
+  affiliation: Freddy Fazbear's Pizza (1987)
+  firstAppearance: Five Nights at Freddy's 2
+  type: Endoskeleton
+  model: Inner Skeleton
+  color: Silver/Grey
+  eyeColor: Blue
+  pronouns: It/Its
+  aliases: Animatronic Skeleton
   sprite: {fileID: 21300000, guid: 998a7a8259176c346925e1904518909a, type: 3}
+  fullBodySprite: {fileID: 0}

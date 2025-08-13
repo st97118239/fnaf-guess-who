@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
   m_Name: XOR
   m_EditorClassIdentifier: 
-  charName: 7
-  type: 3
-  game: 7
+  characterName: XOR
+  year: 
+  affiliation: 
+  firstAppearance: 
+  type: 
+  model: 
+  color: 
+  eyeColor: 
+  pronouns: 
+  aliases: 
   sprite: {fileID: 21300000, guid: fc67d0562140cfb4ca0d0f0b5aa86dca, type: 3}
+  fullBodySprite: {fileID: 0}

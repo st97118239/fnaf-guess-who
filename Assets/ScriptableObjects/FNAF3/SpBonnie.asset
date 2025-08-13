@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
   m_Name: SpBonnie
   m_EditorClassIdentifier: 
-  charName: 2
-  type: 5
-  game: 3
+  characterName: Spring Bonnie
+  year: 1970's
+  affiliation: Fredbear's Family Diner, Freddy Fazbear's Pizza
+  firstAppearance: Five Nights at Freddy's 3
+  type: Springlock Hybrids
+  model: Rabbit
+  color: Dark Gold/Yellow
+  eyeColor: Green
+  pronouns: They/Them
+  aliases: Springbonnie, Bonnie, Yellow One
   sprite: {fileID: 21300000, guid: 5ac492bb27d797644a75370ce4ad2a3e, type: 3}
+  fullBodySprite: {fileID: 0}

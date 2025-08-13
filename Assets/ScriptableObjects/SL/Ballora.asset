@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
   m_Name: Ballora
   m_EditorClassIdentifier: 
-  charName: 16
-  type: 8
-  game: 5
+  characterName: Ballora
+  year: 
+  affiliation: 
+  firstAppearance: 
+  type: 
+  model: 
+  color: 
+  eyeColor: 
+  pronouns: 
+  aliases: 
   sprite: {fileID: 21300000, guid: 3a457f54e414a5f4cbc5e4a568e2bdfe, type: 3}
+  fullBodySprite: {fileID: 0}

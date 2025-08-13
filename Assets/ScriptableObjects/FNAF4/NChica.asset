@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
   m_Name: NChica
   m_EditorClassIdentifier: 
-  charName: 3
-  type: 6
-  game: 4
+  characterName: Nightmare Chica
+  year: 
+  affiliation: Bedroom
+  firstAppearance: Five Nights at Freddy's 4
+  type: Nightmare Animatronic
+  model: Chicken
+  color: Yellow
+  eyeColor: Blue and Red
+  pronouns: She/Her
+  aliases: 
   sprite: {fileID: 21300000, guid: e56d91cf6c7a16347a4ff1d60c97fd2f, type: 3}
+  fullBodySprite: {fileID: 0}

@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
   m_Name: Nightmarionne
   m_EditorClassIdentifier: 
-  charName: 9
-  type: 6
-  game: 4
+  characterName: Nightmarionne
+  year: 
+  affiliation: Bedroom
+  firstAppearance: Five Nights at Freddy's 4 (Halloween Edition)
+  type: Nightmare Animatronic
+  model: Humanoid
+  color: Black and White
+  eyeColor: Black with White Pupils
+  pronouns: He/Him
+  aliases: 
   sprite: {fileID: 21300000, guid: 10244658c3b89e148a372ff5ff321b7b, type: 3}
+  fullBodySprite: {fileID: 0}

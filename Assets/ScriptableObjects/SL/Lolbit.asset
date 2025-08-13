@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
   m_Name: Lolbit
   m_EditorClassIdentifier: 
-  charName: 20
-  type: 8
-  game: 5
+  characterName: Lolbit
+  year: 
+  affiliation: 
+  firstAppearance: 
+  type: 
+  model: 
+  color: 
+  eyeColor: 
+  pronouns: 
+  aliases: 
   sprite: {fileID: 21300000, guid: 6be93117b9473f84ab171c9df3d39844, type: 3}
+  fullBodySprite: {fileID: 0}

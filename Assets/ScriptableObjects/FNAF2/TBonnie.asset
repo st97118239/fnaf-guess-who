@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
   m_Name: TBonnie
   m_EditorClassIdentifier: 
-  charName: 2
-  type: 2
-  game: 2
+  characterName: Toy Bonnie
+  year: 1980's
+  affiliation: Freddy Fazbear's Pizza (1987)
+  firstAppearance: Five Nights at Freddy's 2
+  type: Toy Animatronic
+  model: Rabbit
+  color: Cerulean Blue
+  eyeColor: Lime-Green
+  pronouns: He/Him
+  aliases: New Bonnie
   sprite: {fileID: 21300000, guid: 94210922f33d0b5428d590a3479b3085, type: 3}
+  fullBodySprite: {fileID: 0}
