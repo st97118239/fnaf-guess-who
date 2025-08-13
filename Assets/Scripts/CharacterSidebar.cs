@@ -28,7 +28,7 @@ public class CharacterSidebar : MonoBehaviour
         slotImage.color = new Color(255, 255, 255, 255);
         characterImage.sprite = character.sprite;
         characterImage.color = new Color(255, 255, 255, 255);
-        characterNameText.text = character.name;
+        characterNameText.text = character.characterName;
     }
 
     public void ReloadSidebarStats(int crossedOffCount, int totalAmountSuspects)

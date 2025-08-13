@@ -20,7 +20,7 @@ public class CharSlot : MonoBehaviour
         gameScript = givenGameScript;
 
         characterImage.sprite = character.sprite;
-        charName.text = character.name;
+        charName.text = character.characterName;
     }
 
     public void Press()
