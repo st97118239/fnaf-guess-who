@@ -10,5 +10,9 @@ public enum CharacterName
     BB,
     JJ,
     Puppet,
-    Endo
+    Endo,
+    Fredbear,
+    Nightmare,
+    Plushtrap,
+    Freddles
 }

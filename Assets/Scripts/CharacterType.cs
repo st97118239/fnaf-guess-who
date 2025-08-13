@@ -5,5 +5,7 @@ public enum CharacterType
     Toy,
     Shadow,
     Phantom,
-    SpringlockSuit
+    SpringlockSuit,
+    Nightmare,
+    JackO
 }
