@@ -334,7 +334,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -378,8 +378,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cb5355ffabf169c489d8699b2b62ddca, type: 2}
   - {fileID: 11400000, guid: 9feb0663dca0b94469080ffbf9000ad4, type: 2}
   gamePanel: {fileID: 753471266}
-  charSlotPrefab: {fileID: 5090376536255969768, guid: 89bedd438b0aec845a1f056acf83597b, type: 3}
+  charSlotPrefab: {fileID: 920305166814788680, guid: 89bedd438b0aec845a1f056acf83597b, type: 3}
   charSlots: []
+  chosenCharacter: {fileID: 0}
+  hasChosen: 0
+  hiddenColor: {r: 0, g: 0, b: 0, a: 1}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &753471266
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,7 +442,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 100, y: 150}
+  m_CellSize: {x: 100, y: 100}
   m_Spacing: {x: 25, y: 25}
   m_Constraint: 0
   m_ConstraintCount: 2

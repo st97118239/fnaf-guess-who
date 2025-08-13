@@ -3,8 +3,8 @@ guid: 2a19861c7c6f2174aae399258e92d367
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4679279653989146351
-    second: FreddyFazbear_0
+      213: 530785172178728938
+    second: Freddy_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FreddyFazbear_0
+      name: Freddy_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 500
-        height: 750
+        width: 150
+        height: 150
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fee5cbcad0420f040800000000000000
-      internalID: 4679279653989146351
+      spriteID: ae7f1c74d4abd5700800000000000000
+      internalID: 530785172178728938
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c9ebc2b2aa6c2e44287682aacfebb4c2
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FreddyFazbear_0: 4679279653989146351
+      Freddy_0: 530785172178728938
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

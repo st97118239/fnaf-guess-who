@@ -3,8 +3,8 @@ guid: 26236cf9458b10349ad215a36892cc0c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7024393941858636107
-    second: BonnieTheBunny_0
+      213: 1116130596500702585
+    second: Bonnie_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BonnieTheBunny_0
+      name: Bonnie_0
       rect:
         serializedVersion: 2
-        x: 67
+        x: 0
         y: 0
-        width: 372
-        height: 690
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5be2c1d3de6548e90800000000000000
-      internalID: -7024393941858636107
+      spriteID: 9758e5f2dda4d7f00800000000000000
+      internalID: 1116130596500702585
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BonnieTheBunny_0: -7024393941858636107
+      Bonnie_0: 1116130596500702585
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

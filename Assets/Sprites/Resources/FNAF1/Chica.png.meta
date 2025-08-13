@@ -3,8 +3,8 @@ guid: cdcd0ea853b38384d8edebeb56549d6f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7681347476171451317
-    second: ChicaTheChicken_0
+      213: -2901767600490419824
+    second: Chica_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ChicaTheChicken_0
+      name: Chica_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 500
-        height: 750
+        width: 150
+        height: 150
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5bbea8105d0a99a60800000000000000
-      internalID: 7681347476171451317
+      spriteID: 099e708ddb9dab7d0800000000000000
+      internalID: -2901767600490419824
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: fb06a502118262a4d9b6b134ca0132d5
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ChicaTheChicken_0: 7681347476171451317
+      Chica_0: -2901767600490419824
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

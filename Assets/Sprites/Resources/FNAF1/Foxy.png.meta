@@ -3,8 +3,8 @@ guid: ac2dfb72c07b85549a79aa0bb600889f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9197786745497715845
-    second: FoxyThePirate_0
+      213: 6357066537086400474
+    second: Foxy_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FoxyThePirate_0
+      name: Foxy_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 500
-        height: 750
+        width: 150
+        height: 150
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b7bffcadfa5ea5080800000000000000
-      internalID: -9197786745497715845
+      spriteID: ad7be849556d83850800000000000000
+      internalID: 6357066537086400474
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cf0cd6a5637a8f74db57be3f902ca168
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FoxyThePirate_0: -9197786745497715845
+      Foxy_0: 6357066537086400474
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

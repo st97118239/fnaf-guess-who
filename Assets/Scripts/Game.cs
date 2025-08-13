@@ -7,6 +7,10 @@ public class Game : MonoBehaviour
     public GameObject gamePanel;
     public GameObject charSlotPrefab;
     public List<CharSlot> charSlots;
+    public Character chosenCharacter;
+    public bool hasChosen;
+    public Color hiddenColor;
+    public Color defaultColor;
     
     private int slotAmount;
 
@@ -20,7 +24,13 @@ public class Game : MonoBehaviour
         {
             GameObject slotObj = Instantiate(charSlotPrefab, gamePanel.transform);
             charSlots.Add(slotObj.GetComponent<CharSlot>());
-            charSlots[i].Load(characters[i]);
+            charSlots[i].Load(characters[i], this);
         }
+    }
+
+    public void ChooseCharacter(Character givenChar)
+    {
+        chosenCharacter = givenChar;
+        hasChosen = true;
     }
 }
