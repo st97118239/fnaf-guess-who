@@ -9,5 +9,6 @@ public enum CharacterName
     Mangle,
     BB,
     JJ,
-    Puppet
+    Puppet,
+    Endo
 }

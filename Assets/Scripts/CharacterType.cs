@@ -4,5 +4,6 @@ public enum CharacterType
     Withered,
     Toy,
     Shadow,
-    Phantom
+    Phantom,
+    SpringlockSuit
 }

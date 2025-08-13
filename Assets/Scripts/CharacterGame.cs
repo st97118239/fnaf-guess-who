@@ -5,6 +5,7 @@ public enum CharacterGame
     FNAF2,
     FNAF3,
     FNAF4,
+    FNAF5,
     PizzaSim,
     UCN
 }
