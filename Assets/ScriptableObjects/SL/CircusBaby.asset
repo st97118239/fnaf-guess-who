@@ -13,14 +13,19 @@ MonoBehaviour:
   m_Name: CircusBaby
   m_EditorClassIdentifier: 
   characterName: Circus Baby
+  pronouns: She/Her
   year: 
-  affiliation: 
-  firstAppearance: 
-  type: 
-  model: 
-  color: 
-  eyeColor: 
-  pronouns: 
-  aliases: 
+  owner: 
+  employment: 
+  affiliation: Circus Baby's Pizza World (formerly), Circus Baby's Entertainment
+    and Rental
+  aliases: Baby, Elizabeth
+  type: Funtime Animatronic
+  model: Humanoid
+  height: 
+  weight: 
+  color: White
+  eyeColor: Green
+  firstAppearance: 'Five Nights at Freddy''s: Sister Location'
   sprite: {fileID: 21300000, guid: 9d946d6b40df85c48b940945eafcd11d, type: 3}
   fullBodySprite: {fileID: 0}

@@ -13,14 +13,18 @@ MonoBehaviour:
   m_Name: SFreddy
   m_EditorClassIdentifier: 
   characterName: Shadow Freddy
+  pronouns: He/Him
   year: 
-  affiliation: 
+  owner: 
+  employment: 
+  affiliation: Freddy Fazbear's Pizza (1987)
+  aliases: Dark Freddy, Crumpled Freddy Suit, "The Shadow"
+  type: Shadow Animatronic
+  model: Bear
+  height: 
+  weight: 
+  color: Dark-Purple
+  eyeColor: White Pupils
   firstAppearance: Five Nights at Freddy's 2
-  type: 
-  model: 
-  color: 
-  eyeColor: 
-  pronouns: 
-  aliases: 
   sprite: {fileID: 21300000, guid: cb36d619c973e9541a6de15d2ecede91, type: 3}
-  fullBodySprite: {fileID: 0}
+  fullBodySprite: {fileID: 21300000, guid: c04bf410e0a202d44a2d34b4fc93e6d2, type: 3}

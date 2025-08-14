@@ -13,14 +13,18 @@ MonoBehaviour:
   m_Name: XOR
   m_EditorClassIdentifier: 
   characterName: XOR
+  pronouns: She/Her
   year: 
+  owner: 
+  employment: 
   affiliation: 
-  firstAppearance: 
-  type: 
-  model: 
-  color: 
-  eyeColor: 
-  pronouns: 
   aliases: 
+  type: Shadow Animatronic
+  model: Humanoid
+  height: 
+  weight: 
+  color: Grey
+  eyeColor: Black
+  firstAppearance: Ultimate Custom Night
   sprite: {fileID: 21300000, guid: fc67d0562140cfb4ca0d0f0b5aa86dca, type: 3}
   fullBodySprite: {fileID: 0}

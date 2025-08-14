@@ -13,14 +13,18 @@ MonoBehaviour:
   m_Name: Electrobab
   m_EditorClassIdentifier: 
   characterName: Electrobab
+  pronouns: She/Her
   year: 
-  affiliation: 
-  firstAppearance: 
-  type: 
-  model: 
-  color: 
-  eyeColor: 
-  pronouns: 
+  owner: 
+  employment: 
+  affiliation: Circus Baby's Entertainment and Rental
   aliases: 
+  type: Funtime Animatronic
+  model: Humanoid
+  height: 
+  weight: 
+  color: Peach
+  eyeColor: Yellow
+  firstAppearance: 'Five Nights at Freddy''s: Sister Location'
   sprite: {fileID: 21300000, guid: bdd7c8953fd7ac943b22326bc5dbed01, type: 3}
   fullBodySprite: {fileID: 0}

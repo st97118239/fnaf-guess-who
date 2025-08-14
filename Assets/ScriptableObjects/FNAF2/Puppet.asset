@@ -13,14 +13,18 @@ MonoBehaviour:
   m_Name: Puppet
   m_EditorClassIdentifier: 
   characterName: Puppet
+  pronouns: He/Him/She/her
   year: 1980's
+  owner: Fazbear Entertainment, Inc.
+  employment: 
   affiliation: Fredbear's Family Diner, Freddy Fazbear's Pizza (1987)
-  firstAppearance: Five Nights at Freddy's 2
+  aliases: The Marionette, Sockpuppet
   type: Toy Animatronic
   model: Humanoid
+  height: 
+  weight: 
   color: Black and White
   eyeColor: White Pupils
-  pronouns: He/Him/She/her
-  aliases: The Marionette, Sockpuppet
+  firstAppearance: Five Nights at Freddy's 2
   sprite: {fileID: 21300000, guid: 1be88fb93783b264292e5cec604d1a8b, type: 3}
-  fullBodySprite: {fileID: 0}
+  fullBodySprite: {fileID: 21300000, guid: c6d4c61e10745314c8adbced5b885dec, type: 3}

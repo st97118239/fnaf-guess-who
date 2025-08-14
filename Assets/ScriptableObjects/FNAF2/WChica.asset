@@ -13,14 +13,18 @@ MonoBehaviour:
   m_Name: WChica
   m_EditorClassIdentifier: 
   characterName: Withered Chica
+  pronouns: She/Her
   year: 1980's
+  owner: Fazbear Entertainment, Inc.
+  employment: 
   affiliation: Freddy Fazbear's Pizza
-  firstAppearance: Five Nights at Freddy's 2
+  aliases: 
   type: Withered Animatronic
   model: Chicken
+  height: 6'0"
+  weight: 
   color: Yellow
   eyeColor: Magenta
-  pronouns: She/Her
-  aliases: 
+  firstAppearance: Five Nights at Freddy's 2
   sprite: {fileID: 21300000, guid: d4e159f4f30a96c4ea769227903c86ad, type: 3}
-  fullBodySprite: {fileID: 0}
+  fullBodySprite: {fileID: 21300000, guid: 31325e8ca123c9745aaa085df30b3d57, type: 3}

@@ -13,14 +13,18 @@ MonoBehaviour:
   m_Name: MusicMan
   m_EditorClassIdentifier: 
   characterName: Music Man
+  pronouns: He/Him
   year: 
-  affiliation: 
-  firstAppearance: 
-  type: 
-  model: 
-  color: 
-  eyeColor: 
-  pronouns: 
+  owner: 
+  employment: 
+  affiliation: Freddy Fazbear's Pizza Place
   aliases: 
+  type: Funtime Animatronic
+  model: Arachnid/Humanoid
+  height: 
+  weight: 
+  color: White, Purple and Pink
+  eyeColor: Black
+  firstAppearance: 'Five Nights at Freddy''s: Sister Location'
   sprite: {fileID: 21300000, guid: 638c698cac86ce54b8a06581c924baf0, type: 3}
   fullBodySprite: {fileID: 0}

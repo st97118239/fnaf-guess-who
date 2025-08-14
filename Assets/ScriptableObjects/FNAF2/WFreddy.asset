@@ -13,14 +13,18 @@ MonoBehaviour:
   m_Name: WFreddy
   m_EditorClassIdentifier: 
   characterName: Withered Freddy
+  pronouns: He/Him
   year: 1980's
+  owner: Fazbear Entertainment, Inc.
+  employment: 
   affiliation: Freddy Fazbear's Pizza
-  firstAppearance: Five Nights at Freddy's 2
+  aliases: 
   type: Withered Animatronic
   model: Bear
+  height: 
+  weight: 
   color: Brown
   eyeColor: Blue
-  pronouns: He/Him
-  aliases: 
+  firstAppearance: Five Nights at Freddy's 2
   sprite: {fileID: 21300000, guid: 5a2ca83a3a771c5498fbe7885974664e, type: 3}
-  fullBodySprite: {fileID: 0}
+  fullBodySprite: {fileID: 21300000, guid: b0fb812d0f6e72e4a82450ef39212b2b, type: 3}
