@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Jack-O-Chica
   pronouns: She/Her
-  year: 
   yearMade: 
   yearBorn: 
   familyMembers: 
@@ -31,5 +30,6 @@ MonoBehaviour:
   eyeColor: Hollow with Orange Glow
   firstAppearance: Five Nights at Freddy's 4
   polaroidSprite:
-  - {fileID: 0}
-  fullBodySprite: []
+  - {fileID: 21300000, guid: 01ed7fe1a46065240bee9818ef5aa074, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: f394494029c3c8547ad5df9bd1716f2f, type: 3}

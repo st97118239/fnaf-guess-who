@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Springtrap
   pronouns: He/Him
-  year: 
   yearMade: 
   yearBorn: Unkown
   familyMembers: Michael Afton (Son), Elizabeth Afton (Daughter)
@@ -33,4 +32,5 @@ MonoBehaviour:
   firstAppearance: Five Nights at Freddy's 2
   polaroidSprite:
   - {fileID: 21300000, guid: 14415c5afc91cea489665c422c6e2c44, type: 3}
-  fullBodySprite: []
+  fullBodySprite:
+  - {fileID: 21300000, guid: a0a265a313ae8e24ba19b894b86feefb, type: 3}

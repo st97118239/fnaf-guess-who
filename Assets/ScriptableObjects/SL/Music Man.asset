@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
-  m_Name: MusicMan
+  m_Name: Music Man
   m_EditorClassIdentifier: 
   characterName: Music Man
   pronouns: He/Him

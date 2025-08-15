@@ -15,6 +15,12 @@ public class InfoPanel : MonoBehaviour
     public List<RectTransform> lines;
     public List<TMP_Text> texts;
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Hide();
+    }
+
     public void Show(Character givenCharacter)
     {
         character = givenCharacter;

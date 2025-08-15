@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Spring Bonnie
   pronouns: They/Them
-  year: 
   yearMade: 1970's
   yearBorn: 
   familyMembers: 
@@ -32,4 +31,5 @@ MonoBehaviour:
   firstAppearance: Five Nights at Freddy's 3
   polaroidSprite:
   - {fileID: 21300000, guid: 5ac492bb27d797644a75370ce4ad2a3e, type: 3}
-  fullBodySprite: []
+  fullBodySprite:
+  - {fileID: 21300000, guid: 408672695a0cdc443be0baa0b16607e4, type: 3}

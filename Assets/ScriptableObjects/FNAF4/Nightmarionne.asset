@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Nightmarionne
   pronouns: He/Him
-  year: 
   yearMade: 
   yearBorn: 
   familyMembers: 
@@ -31,5 +30,6 @@ MonoBehaviour:
   eyeColor: Black with White Pupils
   firstAppearance: Five Nights at Freddy's 4 (Halloween Edition)
   polaroidSprite:
-  - {fileID: 0}
-  fullBodySprite: []
+  - {fileID: 21300000, guid: 10244658c3b89e148a372ff5ff321b7b, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: 63f16b096dbbcb94ab0ea12d8cb202a2, type: 3}

@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Phantom Freddy
   pronouns: He/Him
-  year: 
   yearMade: 
   yearBorn: 
   familyMembers: 
@@ -32,4 +31,5 @@ MonoBehaviour:
   firstAppearance: Five Nights at Freddy's 3
   polaroidSprite:
   - {fileID: 21300000, guid: bbc7f247884c710448ea71e94416da4c, type: 3}
-  fullBodySprite: []
+  fullBodySprite:
+  - {fileID: 21300000, guid: 0c0950bd724c7f64aae5435feca54a51, type: 3}

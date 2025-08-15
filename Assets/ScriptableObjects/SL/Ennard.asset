@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
+  m_Name: Ennard
+  m_EditorClassIdentifier: 
+  characterName: Ballora
+  pronouns: She/Her
+  year: 
+  yearMade: 
+  yearBorn: 
+  familyMembers: 
+  owner: 
+  occupation: 
+  employment: 
+  affiliation: Circus Baby's Entertainment and Rental
+  aliases: 
+  type: Funtime Animatronic
+  model: Humanoid
+  height: 
+  weight: 
+  color: White
+  eyeColor: Purple
+  firstAppearance: 'Five Nights at Freddy''s: Sister Location'
+  polaroidSprite:
+  - {fileID: 0}
+  fullBodySprite: []

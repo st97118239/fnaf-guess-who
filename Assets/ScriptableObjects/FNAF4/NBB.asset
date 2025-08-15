@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Nightmare BB
   pronouns: He/Him
-  year: 
   yearMade: 
   yearBorn: 
   familyMembers: 
@@ -31,5 +30,6 @@ MonoBehaviour:
   eyeColor: Red
   firstAppearance: Five Nights at Freddy's 4 (Halloween Edition)
   polaroidSprite:
-  - {fileID: 0}
-  fullBodySprite: []
+  - {fileID: 21300000, guid: 116abe6ca990ffd498471873cc7fe6da, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: 6246e101473f15240970616310eff932, type: 3}

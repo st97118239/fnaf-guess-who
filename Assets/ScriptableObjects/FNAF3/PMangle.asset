@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Phantom Mangle
   pronouns: Any
-  year: 
   yearMade: 
   yearBorn: 
   familyMembers: 
@@ -32,4 +31,6 @@ MonoBehaviour:
   firstAppearance: Five Nights at Freddy's 3
   polaroidSprite:
   - {fileID: 21300000, guid: ae8ca3e21b8470e4fa68f0685f02a358, type: 3}
-  fullBodySprite: []
+  fullBodySprite:
+  - {fileID: 21300000, guid: cc9c252665b95924f871177ade9b7e13, type: 3}
+  - {fileID: 21300000, guid: 5f89917d68c673e4aa97b8854f373241, type: 3}

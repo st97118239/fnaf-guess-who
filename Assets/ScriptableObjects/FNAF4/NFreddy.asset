@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Nightmare Freddy
   pronouns: He/Him
-  year: 
   yearMade: 
   yearBorn: 
   familyMembers: 
@@ -31,5 +30,6 @@ MonoBehaviour:
   eyeColor: Golden-Brown
   firstAppearance: Five Nights at Freddy's 4
   polaroidSprite:
-  - {fileID: 0}
-  fullBodySprite: []
+  - {fileID: 21300000, guid: 024ce86f6ba79ee4a976a93723a427ad, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: 95c0ecb17b4e9f3499cd450416978f37, type: 3}

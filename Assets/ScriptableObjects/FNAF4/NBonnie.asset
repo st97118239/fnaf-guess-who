@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Nightmare Bonnie
   pronouns: He/Him
-  year: 
   yearMade: 
   yearBorn: 
   familyMembers: 
@@ -31,5 +30,6 @@ MonoBehaviour:
   eyeColor: Purple
   firstAppearance: Five Nights at Freddy's 4
   polaroidSprite:
-  - {fileID: 0}
-  fullBodySprite: []
+  - {fileID: 21300000, guid: deaaaa233c7aafb40b0c5dd465b03ecc, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: 8fbc601d654b1c14c961f8f432ac542c, type: 3}

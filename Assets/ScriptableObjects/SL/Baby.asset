@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
-  m_Name: Nightmare Endo
+  m_Name: Baby
   m_EditorClassIdentifier: 
-  characterName: Nightmare Endo
-  pronouns: He/Him
+  characterName: Circus Baby
+  pronouns: She/Her
   year: 
   yearMade: 
   yearBorn: 
@@ -21,15 +21,16 @@ MonoBehaviour:
   owner: 
   occupation: 
   employment: 
-  affiliation: 
-  aliases: 
-  type: Endoskeleton
-  model: Inner Skeleton
+  affiliation: Circus Baby's Pizza World (formerly), Circus Baby's Entertainment
+    and Rental
+  aliases: Baby, Elizabeth
+  type: Funtime Animatronic
+  model: Humanoid
   height: 
   weight: 
-  color: Metallic Silver
-  eyeColor: Red/Orange
-  firstAppearance: 'Five Nights at Freddy''s: Help Wanted'
+  color: White
+  eyeColor: Green
+  firstAppearance: 'Five Nights at Freddy''s: Sister Location'
   polaroidSprite:
   - {fileID: 0}
   fullBodySprite: []
