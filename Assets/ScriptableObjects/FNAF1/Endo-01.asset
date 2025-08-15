@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Endo-01
   pronouns: It/Its
-  year: 1970's
+  year: 
+  yearMade: 1970's
+  yearBorn: 
+  familyMembers: 
   owner: Fazbear Entertainment, Inc.
+  occupation: 
   employment: None
   affiliation: Freddy Fazbear's Pizza
   aliases: Bare Endo
@@ -26,5 +30,7 @@ MonoBehaviour:
   color: Silver/Grey
   eyeColor: Hazel-Blue
   firstAppearance: Five Nights at Freddy's
-  sprite: {fileID: 21300000, guid: 5395f182d4fb5464d957e9647e054f45, type: 3}
-  fullBodySprite: {fileID: 21300000, guid: 6dc6d39be61540f44a4b61413ddde785, type: 3}
+  polaroidSprite:
+  - {fileID: 21300000, guid: 5395f182d4fb5464d957e9647e054f45, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: 6dc6d39be61540f44a4b61413ddde785, type: 3}

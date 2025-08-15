@@ -24,17 +24,17 @@ public class InfoPanel : MonoBehaviour
             lines[i].gameObject.SetActive(true);
         }
 
-        if (character.sprite)
+        if (character.polaroidSprite[0])
         {
-            slotImage.sprite = character.sprite;
+            slotImage.sprite = character.polaroidSprite[0];
             polaroid.SetActive(true);
         }
         else
             polaroid.SetActive(false);
 
-        if (character.fullBodySprite)
+        if (character.fullBodySprite.Count > 0 && character.fullBodySprite[0])
         {
-            fullBodyImage.sprite = character.fullBodySprite;
+            fullBodyImage.sprite = character.fullBodySprite[0];
             fullBodyImage.gameObject.SetActive(true);
         }
         else

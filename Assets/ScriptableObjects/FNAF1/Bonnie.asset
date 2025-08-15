@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Bonnie
   pronouns: He/Him
-  year: 1970's
+  year: 
+  yearMade: 1970's
+  yearBorn: 
+  familyMembers: 
   owner: Fazbear Entertainment, Inc.
+  occupation: 
   employment: Guitarist
   affiliation: Freddy Fazbear's Pizza
   aliases: Bonnie the Bunny
@@ -26,5 +30,7 @@ MonoBehaviour:
   color: Indigo/Blue
   eyeColor: Pink
   firstAppearance: Five Nights at Freddy's
-  sprite: {fileID: 21300000, guid: 26236cf9458b10349ad215a36892cc0c, type: 3}
-  fullBodySprite: {fileID: 21300000, guid: ce7a948a22591b14b84a8791dd8455a0, type: 3}
+  polaroidSprite:
+  - {fileID: 21300000, guid: 26236cf9458b10349ad215a36892cc0c, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: ce7a948a22591b14b84a8791dd8455a0, type: 3}

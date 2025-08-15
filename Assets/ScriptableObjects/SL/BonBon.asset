@@ -15,7 +15,11 @@ MonoBehaviour:
   characterName: Bon-Bon
   pronouns: He/Him
   year: 
+  yearMade: 
+  yearBorn: 
+  familyMembers: 
   owner: 
+  occupation: 
   employment: 
   affiliation: Circus Baby's Entertainment and Rental
   aliases: Bonnie, Bonnie Hand Puppet
@@ -26,5 +30,6 @@ MonoBehaviour:
   color: Blue
   eyeColor: Purple
   firstAppearance: 'Five Nights at Freddy''s: Sister Location'
-  sprite: {fileID: 21300000, guid: e57a0cb6f723cdc40acc9cd546ca2f2d, type: 3}
-  fullBodySprite: {fileID: 0}
+  polaroidSprite:
+  - {fileID: 0}
+  fullBodySprite: []

@@ -13,14 +13,23 @@ MonoBehaviour:
   m_Name: Freddles
   m_EditorClassIdentifier: 
   characterName: Freddles
+  pronouns: They/Them
   year: 
+  yearMade: 
+  yearBorn: 
+  familyMembers: 
+  owner: 
+  occupation: 
+  employment: 
   affiliation: Bedroom
-  firstAppearance: Five Nights at Freddy's 4
+  aliases: 
   type: Nightmare Animatronic
   model: Bear
+  height: 
+  weight: 
   color: Brown
   eyeColor: Golden-Brown
-  pronouns: They/Them
-  aliases: 
-  sprite: {fileID: 21300000, guid: 9ae9449f56f1dcb42bf948dbe8481fe2, type: 3}
-  fullBodySprite: {fileID: 0}
+  firstAppearance: Five Nights at Freddy's 4
+  polaroidSprite:
+  - {fileID: 0}
+  fullBodySprite: []

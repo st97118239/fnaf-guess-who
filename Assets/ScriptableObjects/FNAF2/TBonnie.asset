@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Toy Bonnie
   pronouns: He/Him
-  year: 1980's
+  year: 
+  yearMade: 1980's
+  yearBorn: 
+  familyMembers: 
   owner: Fazbear Entertainment, Inc.
+  occupation: 
   employment: Guitarist
   affiliation: Freddy Fazbear's Pizza (1987)
   aliases: New Bonnie
@@ -26,5 +30,7 @@ MonoBehaviour:
   color: Cerulean Blue
   eyeColor: Lime-Green
   firstAppearance: Five Nights at Freddy's 2
-  sprite: {fileID: 21300000, guid: 94210922f33d0b5428d590a3479b3085, type: 3}
-  fullBodySprite: {fileID: 21300000, guid: ba5e67d63c654e1448c4365085defed7, type: 3}
+  polaroidSprite:
+  - {fileID: 21300000, guid: 94210922f33d0b5428d590a3479b3085, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: ba5e67d63c654e1448c4365085defed7, type: 3}

@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Mangle
   pronouns: Any
-  year: 1980's
+  year: 
+  yearMade: 1980's
+  yearBorn: 
+  familyMembers: 
   owner: Fazbear Entertainment, Inc.
+  occupation: 
   employment: Building Toy
   affiliation: Freddy Fazbear's Pizza (1987)
   aliases: New Foxy, Toy Foxy, Funtime Foxy
@@ -26,5 +30,7 @@ MonoBehaviour:
   color: White
   eyeColor: Yellow
   firstAppearance: Five Nights at Freddy's 2
-  sprite: {fileID: 21300000, guid: 2f769e0d19be17e4fbaf097b38ab43a3, type: 3}
-  fullBodySprite: {fileID: 21300000, guid: 5971221c615dfe24aa85b05df816676e, type: 3}
+  polaroidSprite:
+  - {fileID: 21300000, guid: 2f769e0d19be17e4fbaf097b38ab43a3, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: 5971221c615dfe24aa85b05df816676e, type: 3}

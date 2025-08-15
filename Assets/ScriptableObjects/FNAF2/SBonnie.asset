@@ -15,7 +15,11 @@ MonoBehaviour:
   characterName: RWQFSFASXC
   pronouns: He/Him
   year: 
+  yearMade: 
+  yearBorn: 
+  familyMembers: 
   owner: 
+  occupation: 
   employment: 
   affiliation: Freddy Fazbear's Pizza (1987)
   aliases: Shadow Bonnie, RXQ
@@ -26,5 +30,7 @@ MonoBehaviour:
   color: Black
   eyeColor: White Pupils
   firstAppearance: Five Nights at Freddy's 2
-  sprite: {fileID: 21300000, guid: 6de12d20b6beb7946b5a4d4b810dbbf0, type: 3}
-  fullBodySprite: {fileID: 21300000, guid: 7f2235379c683b94592b7457a36b9a4c, type: 3}
+  polaroidSprite:
+  - {fileID: 21300000, guid: 6de12d20b6beb7946b5a4d4b810dbbf0, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: 7f2235379c683b94592b7457a36b9a4c, type: 3}

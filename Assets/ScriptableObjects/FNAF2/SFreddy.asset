@@ -15,7 +15,11 @@ MonoBehaviour:
   characterName: Shadow Freddy
   pronouns: He/Him
   year: 
+  yearMade: 
+  yearBorn: 
+  familyMembers: 
   owner: 
+  occupation: 
   employment: 
   affiliation: Freddy Fazbear's Pizza (1987)
   aliases: Dark Freddy, Crumpled Freddy Suit, "The Shadow"
@@ -26,5 +30,7 @@ MonoBehaviour:
   color: Dark-Purple
   eyeColor: White Pupils
   firstAppearance: Five Nights at Freddy's 2
-  sprite: {fileID: 21300000, guid: cb36d619c973e9541a6de15d2ecede91, type: 3}
-  fullBodySprite: {fileID: 21300000, guid: c04bf410e0a202d44a2d34b4fc93e6d2, type: 3}
+  polaroidSprite:
+  - {fileID: 21300000, guid: cb36d619c973e9541a6de15d2ecede91, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: c04bf410e0a202d44a2d34b4fc93e6d2, type: 3}

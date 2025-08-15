@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Endo-02
   pronouns: It/Its
-  year: 1980's
+  year: 
+  yearMade: 1980's
+  yearBorn: 
+  familyMembers: 
   owner: 
+  occupation: 
   employment: 
   affiliation: Freddy Fazbear's Pizza (1987)
   aliases: Animatronic Skeleton
@@ -26,5 +30,7 @@ MonoBehaviour:
   color: Silver/Grey
   eyeColor: Blue
   firstAppearance: Five Nights at Freddy's 2
-  sprite: {fileID: 21300000, guid: 998a7a8259176c346925e1904518909a, type: 3}
-  fullBodySprite: {fileID: 21300000, guid: 7734907ea16e5cd42ae514fcbd1d2bfc, type: 3}
+  polaroidSprite:
+  - {fileID: 21300000, guid: 998a7a8259176c346925e1904518909a, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: 7734907ea16e5cd42ae514fcbd1d2bfc, type: 3}

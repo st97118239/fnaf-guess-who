@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -33,8 +32,12 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
         character = givenCharacter;
         gameScript = givenGameScript;
 
-        characterImage.sprite = character.sprite;
-        charName.text = character.characterName;
+        if (character.polaroidSprite[0])
+            characterImage.sprite = character.polaroidSprite[0];
+        else
+            characterImage.gameObject.SetActive(false);
+
+            charName.text = character.characterName;
     }
 
     public void Press()

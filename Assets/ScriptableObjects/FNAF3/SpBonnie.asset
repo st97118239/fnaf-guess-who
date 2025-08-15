@@ -13,14 +13,23 @@ MonoBehaviour:
   m_Name: SpBonnie
   m_EditorClassIdentifier: 
   characterName: Spring Bonnie
-  year: 1970's
+  pronouns: They/Them
+  year: 
+  yearMade: 1970's
+  yearBorn: 
+  familyMembers: 
+  owner: Fazbear Entertainment, Inc.
+  occupation: 
+  employment: Animatronic Entertainer
   affiliation: Fredbear's Family Diner, Freddy Fazbear's Pizza
-  firstAppearance: Five Nights at Freddy's 3
+  aliases: Springbonnie, Bonnie, Yellow One
   type: Springlock Hybrids
   model: Rabbit
+  height: 
+  weight: 
   color: Dark Gold/Yellow
   eyeColor: Green
-  pronouns: They/Them
-  aliases: Springbonnie, Bonnie, Yellow One
-  sprite: {fileID: 21300000, guid: 5ac492bb27d797644a75370ce4ad2a3e, type: 3}
-  fullBodySprite: {fileID: 0}
+  firstAppearance: Five Nights at Freddy's 3
+  polaroidSprite:
+  - {fileID: 21300000, guid: 5ac492bb27d797644a75370ce4ad2a3e, type: 3}
+  fullBodySprite: []

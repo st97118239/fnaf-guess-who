@@ -13,14 +13,23 @@ MonoBehaviour:
   m_Name: PFoxy
   m_EditorClassIdentifier: 
   characterName: Phantom Foxy
+  pronouns: He/Him
   year: 
+  yearMade: 
+  yearBorn: 
+  familyMembers: 
+  owner: 
+  occupation: 
+  employment: 
   affiliation: 'Fazbear''s Fright: The Horror Attraction'
-  firstAppearance: Five Nights at Freddy's 3
+  aliases: 
   type: Phantom Animatronic
   model: Fox (Ghost)
+  height: 
+  weight: 
   color: Burnt Crimson/Dark Green
   eyeColor: Silver
-  pronouns: He/Him
-  aliases: 
-  sprite: {fileID: 21300000, guid: 64a868018a231d0419fea88f7c6a7ed8, type: 3}
-  fullBodySprite: {fileID: 0}
+  firstAppearance: Five Nights at Freddy's 3
+  polaroidSprite:
+  - {fileID: 21300000, guid: 64a868018a231d0419fea88f7c6a7ed8, type: 3}
+  fullBodySprite: []

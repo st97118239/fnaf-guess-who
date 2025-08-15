@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Balloon Boy
   pronouns: He/Him
-  year: 1980's
+  year: 
+  yearMade: 1980's
+  yearBorn: 
+  familyMembers: 
   owner: Fazbear Entertainment, Inc.
+  occupation: 
   employment: Balloon Vendor
   affiliation: Freddy Fazbear's Pizza (1987)
   aliases: BB
@@ -26,5 +30,7 @@ MonoBehaviour:
   color: Peach
   eyeColor: Blue
   firstAppearance: Five Nights at Freddy's 2
-  sprite: {fileID: 21300000, guid: 0ec639832238aff468f7017ff3d93dca, type: 3}
-  fullBodySprite: {fileID: 21300000, guid: 8b2d95421d2ca63459af4667cf1585ba, type: 3}
+  polaroidSprite:
+  - {fileID: 21300000, guid: 0ec639832238aff468f7017ff3d93dca, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: 8b2d95421d2ca63459af4667cf1585ba, type: 3}

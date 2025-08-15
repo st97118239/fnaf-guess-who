@@ -13,14 +13,23 @@ MonoBehaviour:
   m_Name: Nightmarionne
   m_EditorClassIdentifier: 
   characterName: Nightmarionne
+  pronouns: He/Him
   year: 
+  yearMade: 
+  yearBorn: 
+  familyMembers: 
+  owner: 
+  occupation: 
+  employment: 
   affiliation: Bedroom
-  firstAppearance: Five Nights at Freddy's 4 (Halloween Edition)
+  aliases: 
   type: Nightmare Animatronic
   model: Humanoid
+  height: 
+  weight: 
   color: Black and White
   eyeColor: Black with White Pupils
-  pronouns: He/Him
-  aliases: 
-  sprite: {fileID: 21300000, guid: 10244658c3b89e148a372ff5ff321b7b, type: 3}
-  fullBodySprite: {fileID: 0}
+  firstAppearance: Five Nights at Freddy's 4 (Halloween Edition)
+  polaroidSprite:
+  - {fileID: 0}
+  fullBodySprite: []

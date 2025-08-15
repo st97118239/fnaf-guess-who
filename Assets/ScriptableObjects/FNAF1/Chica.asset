@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Chica
   pronouns: She/Her
-  year: 1970's
+  year: 
+  yearMade: 1970's
+  yearBorn: 
+  familyMembers: 
   owner: Fazbear Entertainment, Inc.
+  occupation: 
   employment: Backup Singer
   affiliation: Freddy Fazbear's Pizza
   aliases: Chica
@@ -26,5 +30,7 @@ MonoBehaviour:
   color: Yellow
   eyeColor: Magenta
   firstAppearance: Five Nights at Freddy's
-  sprite: {fileID: 21300000, guid: cdcd0ea853b38384d8edebeb56549d6f, type: 3}
-  fullBodySprite: {fileID: 21300000, guid: d7d68e65f0317ab4f8c8cebe84804a7c, type: 3}
+  polaroidSprite:
+  - {fileID: 21300000, guid: cdcd0ea853b38384d8edebeb56549d6f, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: d7d68e65f0317ab4f8c8cebe84804a7c, type: 3}

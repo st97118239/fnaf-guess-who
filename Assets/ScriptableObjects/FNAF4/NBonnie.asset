@@ -13,14 +13,23 @@ MonoBehaviour:
   m_Name: NBonnie
   m_EditorClassIdentifier: 
   characterName: Nightmare Bonnie
+  pronouns: He/Him
   year: 
+  yearMade: 
+  yearBorn: 
+  familyMembers: 
+  owner: 
+  occupation: 
+  employment: 
   affiliation: Bedroom
-  firstAppearance: Five Nights at Freddy's 4
+  aliases: 
   type: Nightmare Animatronic
   model: Rabbit
+  height: 
+  weight: 
   color: Blue
   eyeColor: Purple
-  pronouns: He/Him
-  aliases: 
-  sprite: {fileID: 21300000, guid: deaaaa233c7aafb40b0c5dd465b03ecc, type: 3}
-  fullBodySprite: {fileID: 0}
+  firstAppearance: Five Nights at Freddy's 4
+  polaroidSprite:
+  - {fileID: 0}
+  fullBodySprite: []

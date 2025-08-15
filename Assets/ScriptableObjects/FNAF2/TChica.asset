@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Toy Chica
   pronouns: She/Her
-  year: 1980's
+  year: 
+  yearMade: 1980's
+  yearBorn: 
+  familyMembers: 
   owner: Fazbear Entertainment, Inc.
+  occupation: 
   employment: Backup Singer
   affiliation: Freddy Fazbear's Pizza (1987)
   aliases: New Chica
@@ -26,5 +30,7 @@ MonoBehaviour:
   color: Yellow
   eyeColor: Blue
   firstAppearance: Five Nights at Freddy's 2
-  sprite: {fileID: 21300000, guid: e5771db8ffcee7241a32fc60cca24607, type: 3}
-  fullBodySprite: {fileID: 21300000, guid: e593f35d6ef89dc44a6244eab767da3d, type: 3}
+  polaroidSprite:
+  - {fileID: 21300000, guid: e5771db8ffcee7241a32fc60cca24607, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: e593f35d6ef89dc44a6244eab767da3d, type: 3}

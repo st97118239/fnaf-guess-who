@@ -15,7 +15,11 @@ MonoBehaviour:
   characterName: Lolbit
   pronouns: They/Them
   year: 
+  yearMade: 
+  yearBorn: 
+  familyMembers: 
   owner: 
+  occupation: 
   employment: 
   affiliation: Circus Baby's Entertainment and Rental
   aliases: 
@@ -26,5 +30,6 @@ MonoBehaviour:
   color: White, Purple and Orange
   eyeColor: White Pupils
   firstAppearance: 'Five Nights at Freddy''s: Sister Location'
-  sprite: {fileID: 21300000, guid: 6be93117b9473f84ab171c9df3d39844, type: 3}
-  fullBodySprite: {fileID: 0}
+  polaroidSprite:
+  - {fileID: 0}
+  fullBodySprite: []

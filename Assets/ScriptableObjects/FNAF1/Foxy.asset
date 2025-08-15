@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Foxy
   pronouns: He/Him
-  year: 1970's
+  year: 
+  yearMade: 1970's
+  yearBorn: 
+  familyMembers: 
   owner: Fazbear Entertainment, Inc.
+  occupation: 
   employment: Pirate Entertainer
   affiliation: Freddy Fazbear's Pizza
   aliases: Foxy the Pirate
@@ -26,5 +30,7 @@ MonoBehaviour:
   color: Crimson
   eyeColor: Yellow
   firstAppearance: Five Nights at Freddy's
-  sprite: {fileID: 21300000, guid: ac2dfb72c07b85549a79aa0bb600889f, type: 3}
-  fullBodySprite: {fileID: 21300000, guid: f1dccb056be996640b2d3cc241459253, type: 3}
+  polaroidSprite:
+  - {fileID: 21300000, guid: ac2dfb72c07b85549a79aa0bb600889f, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: f1dccb056be996640b2d3cc241459253, type: 3}

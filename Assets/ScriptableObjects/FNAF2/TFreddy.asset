@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Toy Freddy
   pronouns: He/Him
-  year: 1980's
+  year: 
+  yearMade: 1980's
+  yearBorn: 
+  familyMembers: 
   owner: Fazbear Entertainment, Inc.
+  occupation: 
   employment: Lead Vocalist, Mascot
   affiliation: Freddy Fazbear's Pizza (1987)
   aliases: New Freddy
@@ -26,5 +30,7 @@ MonoBehaviour:
   color: Brown
   eyeColor: Blue
   firstAppearance: Five Nights at Freddy's 2
-  sprite: {fileID: 21300000, guid: 88ae9cb638b0441408b7b79c3d0f31ed, type: 3}
-  fullBodySprite: {fileID: 21300000, guid: 1faa7b0aa95fa6845a7d4e83dd397041, type: 3}
+  polaroidSprite:
+  - {fileID: 21300000, guid: 88ae9cb638b0441408b7b79c3d0f31ed, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: 1faa7b0aa95fa6845a7d4e83dd397041, type: 3}
