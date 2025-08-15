@@ -10,10 +10,14 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
     public Image xImage;
     public TMP_Text charName;
     public Character character;
-    public bool isChosen;
-    public bool isCrossedOff;
 
     private Game gameScript;
+
+    private void Start()
+    {
+        character.isChosen = false;
+        character.isCrossedOff = false;
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -23,7 +27,8 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
-            gameScript.ShowInfoPanel(character);
+            if (!gameScript.infoPanel.gameObject.activeSelf)
+                gameScript.ShowInfoPanel(character);
         }
     }
 
@@ -42,7 +47,7 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
 
     public void Press()
     {
-        if (gameScript.hasChosen)
+        if (gameScript.chosenCharacter)
             Toggle();
         else
             Choose();
@@ -51,21 +56,21 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
     private void Choose()
     {
         gameScript.ChooseCharacter(character);
-        isChosen = true;
+        character.isChosen = true;
     }
 
     private void Toggle()
     {
-        if (isCrossedOff)
+        if (character.isCrossedOff)
         {
-            isCrossedOff = false;
+            character.isCrossedOff = false;
             xImage.color = new Color(255, 255, 255, 0);
             gameScript.crossedOff.Remove(this);
             gameScript.UpdateSidebar();
         }
         else
         {
-            isCrossedOff = true;
+            character.isCrossedOff = true;
             xImage.color = new Color(255, 255, 255, 255);
             gameScript.crossedOff.Add(this);
             gameScript.UpdateSidebar();

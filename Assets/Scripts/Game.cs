@@ -11,7 +11,6 @@ public class Game : MonoBehaviour
     public List<CharSlot> charSlots;
     public List<CharSlot> crossedOff;
     public Character chosenCharacter;
-    public bool hasChosen;
 
     private int slotAmount;
 
@@ -34,7 +33,6 @@ public class Game : MonoBehaviour
     public void ChooseCharacter(Character givenChar)
     {
         chosenCharacter = givenChar;
-        hasChosen = true;
         characterSidebar.SetCharacter(chosenCharacter);
     }
 

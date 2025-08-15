@@ -23,4 +23,6 @@ public class Character : ScriptableObject
     public string firstAppearance;
     public List<Sprite> polaroidSprite;
     public List<Sprite> fullBodySprite;
+    public bool isCrossedOff;
+    public bool isChosen;
 }

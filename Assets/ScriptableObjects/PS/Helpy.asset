@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
+  m_Name: Helpy
+  m_EditorClassIdentifier: 
+  characterName: Helpy
+  pronouns: He/Him
+  yearMade: Post-1980s
+  yearBorn: 
+  familyMembers: 
+  owner: Fazbear Entertainment, Inc.
+  occupation: 
+  employment: Mascot
+  affiliation: Freddy Fazbear's Pizza Place, Circus Baby's Entertainment and Rental
+  aliases: 
+  type: Unclassified Animatronic
+  model: Bear
+  height: 
+  weight: 
+  color: White and Purple
+  eyeColor: Hazel Blue
+  firstAppearance: Freddy Fazbear's Pizzeria Simulator
+  polaroidSprite:
+  - {fileID: 21300000, guid: d2fdbdad0e1c19049aead2320d57fb05, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: 37155abae6838ac4d844ec619ab10dca, type: 3}
+  isCrossedOff: 0
+  isChosen: 0

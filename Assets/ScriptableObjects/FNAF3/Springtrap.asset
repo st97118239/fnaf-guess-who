@@ -22,15 +22,17 @@ MonoBehaviour:
     Robotics, LLC (Formerly)
   employment: 
   affiliation: Fazbear Entertainment, Inc. (Formerly), Afton Robotics, LLC (Formerly)
-  aliases: Purple Guy, Scraptrap, Afton, Mr. Afton, W.A.
+  aliases: William Afton, Purple Guy, Scraptrap, Afton, Mr. Afton, W.A.
   type: Unclassified Animatronic
-  model: Rabbit
+  model: Human
   height: 
   weight: 
   color: Green
   eyeColor: Silver
-  firstAppearance: Five Nights at Freddy's 2
+  firstAppearance: Five Nights at Freddy's 3
   polaroidSprite:
   - {fileID: 21300000, guid: 14415c5afc91cea489665c422c6e2c44, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: a0a265a313ae8e24ba19b894b86feefb, type: 3}
+  isCrossedOff: 0
+  isChosen: 0
