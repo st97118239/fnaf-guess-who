@@ -14,13 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: XOR
   pronouns: She/Her
-  year: 
-  yearMade: 
+  yearMade: N/A
   yearBorn: 
   familyMembers: 
-  owner: 
+  owner: N/A
   occupation: 
-  employment: 
+  employment: N/A
   affiliation: 
   aliases: 
   type: Shadow Animatronic
@@ -32,4 +31,5 @@ MonoBehaviour:
   firstAppearance: Ultimate Custom Night
   polaroidSprite:
   - {fileID: 21300000, guid: fc67d0562140cfb4ca0d0f0b5aa86dca, type: 3}
-  fullBodySprite: []
+  fullBodySprite:
+  - {fileID: 21300000, guid: 75f4c92f3c1a00c45b8355bf5db54eac, type: 3}

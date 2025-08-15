@@ -2163,7 +2163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a70991f0bce1b345a580ffef19abf8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterList: {fileID: 11400000, guid: 2ce03bd2ace36ab47a03e39e3d9bf71a, type: 2}
+  characterList: {fileID: 11400000, guid: b2bc24d6e78b9da419d5ed1d409e5769, type: 2}
   gamePanel: {fileID: 753471266}
   characterSidebar: {fileID: 2033961762}
   infoPanel: {fileID: 1206637880}

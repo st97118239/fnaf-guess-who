@@ -14,13 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Electrobab
   pronouns: She/Her
-  year: 
-  yearMade: 
+  yearMade: 1980s
   yearBorn: 
   familyMembers: 
-  owner: 
+  owner: Afton Robotics, LLC
   occupation: 
-  employment: 
+  employment: Electric Animatronic
   affiliation: Circus Baby's Entertainment and Rental
   aliases: 
   type: Funtime Animatronic
@@ -31,5 +30,6 @@ MonoBehaviour:
   eyeColor: Yellow
   firstAppearance: 'Five Nights at Freddy''s: Sister Location'
   polaroidSprite:
-  - {fileID: 0}
-  fullBodySprite: []
+  - {fileID: 21300000, guid: bdd7c8953fd7ac943b22326bc5dbed01, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: 3009ae1be1d02f6459d9122e2efa6ce7, type: 3}

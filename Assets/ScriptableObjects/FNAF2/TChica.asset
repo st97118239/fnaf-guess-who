@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Toy Chica
   pronouns: She/Her
-  year: 
-  yearMade: 1980's
+  yearMade: 1980s
   yearBorn: 
   familyMembers: 
   owner: Fazbear Entertainment, Inc.

@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Foxy
   pronouns: He/Him
-  year: 
-  yearMade: 1970's
+  yearMade: 1970s
   yearBorn: 
   familyMembers: 
   owner: Fazbear Entertainment, Inc.

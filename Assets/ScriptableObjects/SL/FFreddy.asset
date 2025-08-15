@@ -14,22 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Funtime Freddy
   pronouns: He/Him
-  year: 
-  yearMade: 
+  yearMade: 1980s
   yearBorn: 
   familyMembers: 
-  owner: 
+  owner: Afton Robotics, LLC
   occupation: 
-  employment: 
+  employment: Entertainer
   affiliation: Circus Baby's Entertainment and Rental
   aliases: 
   type: Funtime Animatronic
   model: Bear
-  height: 
-  weight: 
+  height: 6'0" (182,88cm)
+  weight: 350lbs (158,76kg)
   color: White and Purple
   eyeColor: Hazel-Blue
   firstAppearance: 'Five Nights at Freddy''s: Sister Location'
   polaroidSprite:
-  - {fileID: 0}
-  fullBodySprite: []
+  - {fileID: 21300000, guid: ad9a6417dbd263f4eaa1b9e949bca94d, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: a9dbfd65f259db348ae50f3eeeb8c0b9, type: 3}

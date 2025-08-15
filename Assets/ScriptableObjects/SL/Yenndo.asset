@@ -14,13 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Yenndo
   pronouns: He/Him
-  year: 
-  yearMade: 
+  yearMade: 1980s
   yearBorn: 
   familyMembers: 
-  owner: 
+  owner: Afton Robotics, LLC
   occupation: 
-  employment: 
+  employment: N/A
   affiliation: Circus Baby's Entertainment and Rental
   aliases: 
   type: Endoskeleton
@@ -31,5 +30,6 @@ MonoBehaviour:
   eyeColor: Yellow
   firstAppearance: 'Five Nights at Freddy''s: Sister Location'
   polaroidSprite:
-  - {fileID: 0}
-  fullBodySprite: []
+  - {fileID: 21300000, guid: 15691f251a24b4f48bb841b9aa3d6ab8, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: 4ef5418327d80204a8230e884391c9b7, type: 3}

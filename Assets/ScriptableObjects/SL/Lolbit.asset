@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Lolbit
   pronouns: They/Them
-  year: 
-  yearMade: 
+  yearMade: 1980s
   yearBorn: 
   familyMembers: 
-  owner: 
+  owner: Afton Robotics, LLC
   occupation: 
   employment: 
   affiliation: Circus Baby's Entertainment and Rental
@@ -31,5 +30,6 @@ MonoBehaviour:
   eyeColor: White Pupils
   firstAppearance: 'Five Nights at Freddy''s: Sister Location'
   polaroidSprite:
-  - {fileID: 0}
-  fullBodySprite: []
+  - {fileID: 21300000, guid: 6be93117b9473f84ab171c9df3d39844, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: ab29ce63965e07e42b4875ac7b5332ba, type: 3}

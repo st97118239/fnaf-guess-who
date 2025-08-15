@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Puppet
   pronouns: He/Him/She/her
-  year: 
-  yearMade: 1980's
+  yearMade: 1980s
   yearBorn: 
   familyMembers: 
   owner: Fazbear Entertainment, Inc.

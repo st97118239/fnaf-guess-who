@@ -14,13 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Minireena
   pronouns: She/Her
-  year: 
-  yearMade: 
+  yearMade: 1980s
   yearBorn: 
   familyMembers: 
-  owner: 
+  owner: Afton Robotics, LLC
   occupation: 
-  employment: 
+  employment: Backup Entertainer
   affiliation: Circus Baby's Entertainment and Rental
   aliases: 
   type: Funtime Animatronic
@@ -31,5 +30,6 @@ MonoBehaviour:
   eyeColor: Yellow
   firstAppearance: 'Five Nights at Freddy''s: Sister Location'
   polaroidSprite:
-  - {fileID: 0}
-  fullBodySprite: []
+  - {fileID: 21300000, guid: 05eac343ab5aced4eb162d29bfb915d7, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: dc95a15da69ced2449945ad2f181d043, type: 3}

@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Chica
   pronouns: She/Her
-  year: 
-  yearMade: 1970's
+  yearMade: 1970s
   yearBorn: 
   familyMembers: 
   owner: Fazbear Entertainment, Inc.
@@ -25,7 +24,7 @@ MonoBehaviour:
   aliases: Chica
   type: Classic Animatronic
   model: Chicken
-  height: 6'0"
+  height: 6'0" (182.88 cm)
   weight: 
   color: Yellow
   eyeColor: Magenta

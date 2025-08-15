@@ -10,27 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
-  m_Name: Endo-01
+  m_Name: RChica
   m_EditorClassIdentifier: 
-  characterName: Endo-01
-  pronouns: It/Its
-  year: 
-  yearMade: 1970's
+  characterName: Rockstar Chica
+  pronouns: She/Her
+  yearMade: Post-1980s
   yearBorn: 
   familyMembers: 
   owner: Fazbear Entertainment, Inc.
   occupation: 
-  employment: None
-  affiliation: Freddy Fazbear's Pizza
-  aliases: Bare Endo
-  type: Endoskeleton
-  model: Inner Skeleton
+  employment: Maracaist
+  affiliation: Freddy Fazbear's Pizza Place
+  aliases: 
+  type: Rockstar Animatronic
+  model: Chicken
   height: 
   weight: 
-  color: Silver/Grey
-  eyeColor: Hazel-Blue
-  firstAppearance: Five Nights at Freddy's
+  color: Yellow
+  eyeColor: Pinkish-Magenta
+  firstAppearance: Freddy Fazbear's Pizzeria Simulator
   polaroidSprite:
-  - {fileID: 21300000, guid: 5395f182d4fb5464d957e9647e054f45, type: 3}
+  - {fileID: 21300000, guid: 8a6bba7a588ccf040b48bae2c62a1b3a, type: 3}
   fullBodySprite:
-  - {fileID: 21300000, guid: 6dc6d39be61540f44a4b61413ddde785, type: 3}
+  - {fileID: 21300000, guid: 627695fea5d5332449787f9d33ddd575, type: 3}
