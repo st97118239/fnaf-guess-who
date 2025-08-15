@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
-  m_Name: Lefty
+  m_Name: Orville
   m_EditorClassIdentifier: 
-  characterName: Rockstar Freddy
+  characterName: Orville Elephant
   pronouns: He/Him
-  yearMade: Unkown
+  yearMade: Post-1980s
   yearBorn: 
   familyMembers: 
   owner: Fazbear Entertainment, Inc.
   occupation: 
-  employment: Entertainer
-  affiliation: Freddy Fazbear's Pizza Place
-  aliases: Lure Encapsulate Fuse Transport and Extract (L.E.F.T.E.)
-  type: Rockstar Animatronic
-  model: Bear
+  employment: Magician
+  affiliation: Freddy Fazbear's Pizza Place, Stan's Budget Tech
+  aliases: 
+  type: Mediocre Melodies
+  model: Elephant
   height: 
   weight: 
-  color: Black
-  eyeColor: Light Orange
+  color: Orange
+  eyeColor: Blue
   firstAppearance: Freddy Fazbear's Pizzeria Simulator
   polaroidSprite:
-  - {fileID: 21300000, guid: 1775f0dce55867e43a98e88cd1fe9dc1, type: 3}
+  - {fileID: 21300000, guid: 674701c034ec3784ea61fecad4091241, type: 3}
   fullBodySprite:
-  - {fileID: 21300000, guid: 631f7c2a9ce3e5c499269b1fc507ce03, type: 3}
+  - {fileID: 21300000, guid: a439f9d5523e3344b9f8cb16b68c0913, type: 3}
