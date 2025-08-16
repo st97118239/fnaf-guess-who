@@ -37,7 +37,7 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
         character = givenCharacter;
         gameScript = givenGameScript;
 
-        if (character.polaroidSprite[0])
+        if (character.polaroidSprite.Count > 0 && character.polaroidSprite[0])
             characterImage.sprite = character.polaroidSprite[0];
         else
             characterImage.gameObject.SetActive(false);

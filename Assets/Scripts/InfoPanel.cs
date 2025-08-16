@@ -8,6 +8,8 @@ public class InfoPanel : MonoBehaviour
 {
     public Character character;
     public GameObject polaroid;
+    public GameObject infoPaper;
+    public GameObject fullBodyPaper;
     public Image slotImage;
     public Image fullBodyImage;
     public List<string> variables;
@@ -29,7 +31,7 @@ public class InfoPanel : MonoBehaviour
             lines[i].gameObject.SetActive(true);
         }
 
-        if (character.polaroidSprite[0])
+        if (character.polaroidSprite.Count > 0 && character.polaroidSprite[0])
         {
             slotImage.sprite = character.polaroidSprite[0];
             polaroid.SetActive(true);
@@ -40,18 +42,22 @@ public class InfoPanel : MonoBehaviour
         if (character.fullBodySprite.Count > 0 && character.fullBodySprite[0])
         {
             fullBodyImage.sprite = character.fullBodySprite[0];
-            fullBodyImage.gameObject.SetActive(true);
+            fullBodyPaper.SetActive(true);
         }
         else
-            fullBodyImage.gameObject.SetActive(false);
+            fullBodyPaper.SetActive(false);
 
+        bool hasAtLeastOneText = false;
         for (int i = 0; i < variables.Count; i++)
         {
             var fi = typeof(Character).GetField(variables[i]);
             texts[i].text = fi?.GetValue(character)?.ToString();
+            hasAtLeastOneText |= !string.IsNullOrEmpty(texts[i].text);
         }
 
-        Invoke("RedrawText", 0.1f);
+        infoPaper.SetActive(hasAtLeastOneText);
+
+        Invoke(nameof(RedrawText), 0.1f);
     }
 
     public void Hide()
