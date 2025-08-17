@@ -34,6 +34,7 @@ public class CharacterSidebar : MonoBehaviour
         characterImage.color = new Color(255, 255, 255, 255);
         characterNameText.text = character.characterName;
 
+        slotImage.gameObject.SetActive(true);
         polaroidAnimator.SetTrigger("ChooseCharacter");
     }
 

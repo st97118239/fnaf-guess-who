@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,17 +25,19 @@ public class InfoPanel : MonoBehaviour
 
     private System.Random rnd = new();
     private AudioSource audioPlayer;
+    private Animator animator;
     private List<AudioClip> audioToPlay;
     private bool isPlayingAudio;
 
-    private void Awake()
+    private void Start()
     {
         audioPlayer = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (gameScript.isInfoPanelShown && Input.GetKeyDown(KeyCode.Escape))
             Hide();
     }
 
@@ -155,19 +156,23 @@ public class InfoPanel : MonoBehaviour
 
     private void PutPapersBack()
     {
+        bool needsToWait = false;
+
         while (bodyPapersIdx != 0)
         {
             BodyPapersBack();
+            needsToWait = true;
         }
 
-        StartCoroutine(Close());
+        StartCoroutine(Close(needsToWait));
     }
 
-    private IEnumerator Close()
+    private IEnumerator Close(bool hasToWait)
     {
-        yield return new WaitForSeconds(0.75f);
+        if (hasToWait)
+            yield return new WaitForSeconds(0.75f);
 
-        gameScript.animator.SetTrigger("FolderClose");
+        animator.SetTrigger("FolderClose");
         character = null;
         gameScript.isInfoPanelShown = false;
     }
@@ -224,7 +229,7 @@ public class InfoPanel : MonoBehaviour
 
         lines[0].gameObject.SetActive(true);
 
-        gameScript.animator.SetTrigger("FolderOpen");
+        animator.SetTrigger("FolderOpen");
 
         gameScript.isInfoPanelShown = true;
     }

@@ -9,12 +9,10 @@ public class BodyPapersButton : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            Debug.Log("a");
             infoPanel.BodyPapersNext();
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
-            Debug.Log("b");
             infoPanel.BodyPapersBack();
         }
     }

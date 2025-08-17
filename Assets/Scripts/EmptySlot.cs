@@ -20,12 +20,12 @@ public class EmptySlot : MonoBehaviour
             yield return null;
         }
 
-        // loop over 1 second
         for (float i = 0; i <= 1.5; i += Time.deltaTime)
         {
-            // set color with i as alpha
             canvasGroup.alpha = i / 1.5f;
             yield return null;
         }
+
+        canvasGroup.alpha = 1;
     }
 }
