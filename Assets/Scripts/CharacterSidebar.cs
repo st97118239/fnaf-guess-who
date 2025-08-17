@@ -5,16 +5,20 @@ using UnityEngine.UI;
 
 public class CharacterSidebar : MonoBehaviour
 {
+    public Game gameScript;
     public Image slotImage;
     public Image characterImage;
     public TMP_Text characterNameText;
     public TMP_Text suspectsLeftText;
 
     private Character character;
+    private Animator polaroidAnimator;
     private int suspectsLeft;
 
     private void Start()
     {
+        polaroidAnimator = slotImage.GetComponent<Animator>();
+
         slotImage.color = new Color(255, 255, 255, 255);
         characterImage.sprite = null;
         characterImage.color = new Color(255, 255, 255, 0);
@@ -29,6 +33,8 @@ public class CharacterSidebar : MonoBehaviour
         characterImage.sprite = character.polaroidSprite[0];
         characterImage.color = new Color(255, 255, 255, 255);
         characterNameText.text = character.characterName;
+
+        polaroidAnimator.SetTrigger("ChooseCharacter");
     }
 
     public void ReloadSidebarStats(int crossedOffCount, int totalAmountSuspects)

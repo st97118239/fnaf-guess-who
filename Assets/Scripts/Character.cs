@@ -23,6 +23,8 @@ public class Character : ScriptableObject
     public string firstAppearance;
     public List<Sprite> polaroidSprite;
     public List<Sprite> fullBodySprite;
+    public List<AudioClip> voicelines;
+    
     public bool isCrossedOff;
     public bool isChosen;
 }

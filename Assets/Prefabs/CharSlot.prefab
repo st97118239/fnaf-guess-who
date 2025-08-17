@@ -187,10 +187,10 @@ RectTransform:
   - {fileID: 2917228406972399870}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4035878015217351455
 CanvasRenderer:
@@ -291,8 +291,6 @@ MonoBehaviour:
   xImage: {fileID: 5311072566952055460}
   charName: {fileID: 7584876009988583179}
   character: {fileID: 0}
-  isChosen: 0
-  isCrossedOff: 0
 --- !u!1 &7866389356716923161
 GameObject:
   m_ObjectHideFlags: 0

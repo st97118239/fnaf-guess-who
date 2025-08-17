@@ -27,7 +27,7 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
-            if (!gameScript.infoPanel.gameObject.activeSelf)
+            if (!gameScript.isInfoPanelShown)
                 gameScript.ShowInfoPanel(character);
         }
     }

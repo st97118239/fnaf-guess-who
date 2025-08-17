@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6583a681de5d22a4fa4814f88f96cf03
+guid: c27e27eba948f5f4ba2b354b9b458de6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6121190339222556515
-    second: POSTITNOPIN_0
+      213: 3216587719357985083
+    second: POLAY_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: POSTITNOPIN_0
+      name: POLAY_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 500
-        height: 500
+        x: 164
+        y: 146
+        width: 165
+        height: 233
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d90361461d92d0ba0800000000000000
-      internalID: -6121190339222556515
+      spriteID: b3177311d7d93ac20800000000000000
+      internalID: 3216587719357985083
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      POSTITNOPIN_0: -6121190339222556515
+      POLAY_0: 3216587719357985083
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
