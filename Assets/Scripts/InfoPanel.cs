@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,14 +12,17 @@ public class InfoPanel : MonoBehaviour
     public Character character;
     public GameObject polaroid;
     public GameObject infoPaper;
-    public GameObject fullBodyPaper;
+    public Transform bodyPaperParent;
     public GameObject audioButton;
     public Image slotImage;
-    public Image fullBodyImage;
     public Image audioImage;
+    public GameObject bodyPaperPrefab;
+    public int bodyPapersIdx;
+    public List<BodyPaper> bodyPapers;
     public List<string> variables;
     public List<RectTransform> lines;
     public List<TMP_Text> texts;
+    public Vector3 bodyImageOffset;
 
     private System.Random rnd = new();
     private AudioSource audioPlayer;
@@ -81,6 +85,14 @@ public class InfoPanel : MonoBehaviour
 
     public void Show(Character givenCharacter)
     {
+        for (int i = 0; i < bodyPapers.Count; i++)
+        {
+            Destroy(bodyPapers[i].gameObject);
+        }
+
+        bodyPapers.Clear();
+        bodyPapersIdx = 0;
+
         character = givenCharacter;
 
         for (int i = 0; i < lines.Count; i++)
@@ -88,7 +100,7 @@ public class InfoPanel : MonoBehaviour
             lines[i].gameObject.SetActive(true);
         }
 
-        if (character.polaroidSprite.Count > 0 && character.polaroidSprite[0])
+        if (character.polaroidSprite.Count > 0)
         {
             slotImage.sprite = character.polaroidSprite[0];
             polaroid.SetActive(true);
@@ -96,13 +108,20 @@ public class InfoPanel : MonoBehaviour
         else
             polaroid.SetActive(false);
 
-        if (character.fullBodySprite.Count > 0 && character.fullBodySprite[0])
+        if (character.fullBodySprite.Count > 0)
         {
-            fullBodyImage.sprite = character.fullBodySprite[0];
-            fullBodyPaper.SetActive(true);
+            for (int i = character.fullBodySprite.Count - 1; i >= 0; i--)
+            {
+                BodyPaper paper;
+                if (i == 0)
+                    paper = Instantiate(bodyPaperPrefab, bodyPaperParent.position, bodyPaperParent.rotation, bodyPaperParent).GetComponent<BodyPaper>();
+                else
+                    paper = Instantiate(bodyPaperPrefab, bodyPaperParent.position + bodyImageOffset, bodyPaperParent.rotation, bodyPaperParent).GetComponent<BodyPaper>();
+
+                bodyPapers.Insert(0, paper);
+                paper.Load(character.fullBodySprite[i], i);
+            }
         }
-        else
-            fullBodyPaper.SetActive(false);
 
         if (character.voicelines.Count > 0)
         {;
@@ -131,10 +150,53 @@ public class InfoPanel : MonoBehaviour
     {
         StopAudio();
 
+        PutPapersBack();
+    }
+
+    private void PutPapersBack()
+    {
+        while (bodyPapersIdx != 0)
+        {
+            BodyPapersBack();
+        }
+
+        StartCoroutine(Close());
+    }
+
+    private IEnumerator Close()
+    {
+        yield return new WaitForSeconds(0.75f);
+
         gameScript.animator.SetTrigger("FolderClose");
         character = null;
         gameScript.isInfoPanelShown = false;
     }
+
+    public void BodyPapersNext()
+    {
+        if (bodyPapersIdx < bodyPapers.Count - 1)
+        {
+            if (bodyPapers[bodyPapersIdx].index == 0)
+                bodyPapers[bodyPapersIdx].animator.SetTrigger("FirstNext");
+            else
+                bodyPapers[bodyPapersIdx].animator.SetTrigger("OthersNext");
+
+            bodyPapersIdx++;
+        }
+    }
+
+    public void BodyPapersBack()
+    {
+        if (bodyPapersIdx > 0)
+        {
+            bodyPapersIdx--;
+
+            if (bodyPapers[bodyPapersIdx].index == 0)
+                bodyPapers[bodyPapersIdx].animator.SetTrigger("FirstBack");
+            else
+                bodyPapers[bodyPapersIdx].animator.SetTrigger("OthersBack");
+        }
+    }    
 
     private void RedrawText()
     {
