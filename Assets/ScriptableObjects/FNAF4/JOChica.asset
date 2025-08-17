@@ -22,7 +22,7 @@ MonoBehaviour:
   employment: 
   affiliation: Bedroom
   aliases: Jack O' Chica
-  type: Nightmare Animatronic
+  type: Halloween Animatronic
   model: Chicken
   height: 
   weight: 
@@ -33,3 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 01ed7fe1a46065240bee9818ef5aa074, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: f394494029c3c8547ad5df9bd1716f2f, type: 3}
+  voicelines: []
+  isCrossedOff: 0
+  isChosen: 0
