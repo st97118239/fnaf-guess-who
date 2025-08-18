@@ -9,9 +9,16 @@ public class ListLoader : MonoBehaviour
     [SerializeField] private SaveData saveData;
     [SerializeField] private ListData listData;
 
+    private string savePath;
+
     private void Start()
     {
-        using StreamReader reader = new StreamReader(Application.persistentDataPath + Path.AltDirectorySeparatorChar + "SaveData.json");
+        savePath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "SaveData.json";
+
+        if (!File.Exists(savePath))
+            return;
+
+        using StreamReader reader = new StreamReader(savePath);
         string json = reader.ReadToEnd();
 
         SaveData save = JsonUtility.FromJson<SaveData>(json);
@@ -52,7 +59,7 @@ public class ListLoader : MonoBehaviour
 
         string save = JsonUtility.ToJson(saveData);
 
-        using StreamWriter saveWriter = new(Application.persistentDataPath + Path.AltDirectorySeparatorChar + "SaveData.json");
+        using StreamWriter saveWriter = new(savePath);
         saveWriter.Write(save);
     }
 }

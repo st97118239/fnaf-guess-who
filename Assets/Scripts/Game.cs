@@ -16,24 +16,32 @@ public class Game : MonoBehaviour
     public Animator animator;
     public bool isInfoPanelShown;
     public Vector3 polaroidSpawnPos;
+    private bool hasStarted;
 
     private int slotAmount;
 
-    private void Start()
+    public void StartGame()
     {
-        slotAmount = characterList.characters.Count;
-
-        charSlots = new List<CharSlot>(slotAmount);
-        emptySlots = new List<Transform>(slotAmount);
-
-        for (int i = 0; i < slotAmount; i++)
+        if (!hasStarted)
         {
-            GameObject slotObj = Instantiate(emptySlotPrefab, polaroidGrid.transform);
-            emptySlots.Add(slotObj.transform);
-            slotObj.GetComponent<EmptySlot>().index = i;
+            slotAmount = characterList.characters.Count;
+
+            charSlots = new List<CharSlot>(slotAmount);
+            emptySlots = new List<Transform>(slotAmount);
+
+            for (int i = 0; i < slotAmount; i++)
+            {
+                GameObject slotObj = Instantiate(emptySlotPrefab, polaroidGrid.transform);
+                emptySlots.Add(slotObj.transform);
+                slotObj.GetComponent<EmptySlot>().index = i;
+            }
+
+            Invoke(nameof(SpawnPolaroids), Time.deltaTime);
+
+            hasStarted = true;
         }
 
-        Invoke(nameof(SpawnPolaroids), Time.deltaTime);
+        animator.SetTrigger("GameOpen");
     }
 
     private void SpawnPolaroids()
