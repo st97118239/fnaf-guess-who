@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class InfoPanel : MonoBehaviour
 {
     public Game gameScript;
+    public AudioSource audioManager;
     public Character character;
     public GameObject polaroid;
     public GameObject infoPaper;
@@ -25,8 +26,7 @@ public class InfoPanel : MonoBehaviour
 
     [SerializeField] private float paperTimerBase;
 
-    private System.Random rnd = new();
-    private AudioSource audioPlayer;
+    private readonly System.Random rnd = new();
     private Animator animator;
     private List<AudioClip> audioToPlay;
     private bool isPlayingAudio;
@@ -36,7 +36,6 @@ public class InfoPanel : MonoBehaviour
 
     private void Start()
     {
-        audioPlayer = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
     }
 
@@ -53,9 +52,7 @@ public class InfoPanel : MonoBehaviour
             if (paperTimer > 0)
                 paperTimer -= Time.deltaTime;
             else
-            {
                 playPaperTimer = false;
-            }
         }
         else
         {
@@ -78,7 +75,7 @@ public class InfoPanel : MonoBehaviour
     {
         isPlayingAudio = true;
 
-        audioPlayer.Stop();
+        audioManager.Stop();
 
         if (audioToPlay.Count == 0)
         {
@@ -86,7 +83,7 @@ public class InfoPanel : MonoBehaviour
             audioToPlay = audioToPlay.OrderBy(i => rnd.Next()).ToList();
         }
 
-        audioPlayer.PlayOneShot(audioToPlay[0]);
+        audioManager.PlayOneShot(audioToPlay[0]);
         
         Invoke(nameof(ResetAudioButton), audioToPlay[0].length);
 
@@ -105,7 +102,7 @@ public class InfoPanel : MonoBehaviour
 
     public void StopAudio()
     {
-        audioPlayer.Stop();
+        audioManager.Stop();
         ResetAudioButton();
     }
 
@@ -185,7 +182,13 @@ public class InfoPanel : MonoBehaviour
 
         while (bodyPapersIdx != 0)
         {
-            BodyPapersBack(false);
+            bodyPapersIdx--;
+
+            if (bodyPapers[bodyPapersIdx].index == 0)
+                bodyPapers[bodyPapersIdx].animator.SetTrigger("FirstBack");
+            else
+                bodyPapers[bodyPapersIdx].animator.SetTrigger("OthersBack");
+
             needsToWait = true;
         }
 
