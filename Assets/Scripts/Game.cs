@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
+    public GameManager gameManager;
     public CharacterList characterList;
     public GameObject polaroidGrid;
     public CharacterSidebar characterSidebar;
@@ -16,32 +17,39 @@ public class Game : MonoBehaviour
     public Animator animator;
     public bool isInfoPanelShown;
     public Vector3 polaroidSpawnPos;
-    private bool hasStarted;
 
+    private bool hasLoaded;
     private int slotAmount;
 
     public void StartGame()
     {
-        if (!hasStarted)
+        if (!hasLoaded)
         {
             slotAmount = characterList.characters.Count;
 
             charSlots = new List<CharSlot>(slotAmount);
             emptySlots = new List<Transform>(slotAmount);
 
-            for (int i = 0; i < slotAmount; i++)
-            {
-                GameObject slotObj = Instantiate(emptySlotPrefab, polaroidGrid.transform);
-                emptySlots.Add(slotObj.transform);
-                slotObj.GetComponent<EmptySlot>().index = i;
-            }
+            Invoke(nameof(SpawnEmptySlots), 1f);
 
-            Invoke(nameof(SpawnPolaroids), Time.deltaTime);
+            hasLoaded = true;
 
-            hasStarted = true;
+            gameManager.hasStarted = true;
         }
 
         animator.SetTrigger("GameOpen");
+    }
+
+    private void SpawnEmptySlots()
+    {
+        for (int i = 0; i < slotAmount; i++)
+        {
+            GameObject slotObj = Instantiate(emptySlotPrefab, polaroidGrid.transform);
+            emptySlots.Add(slotObj.transform);
+            slotObj.GetComponent<EmptySlot>().index = i;
+        }
+
+        Invoke(nameof(SpawnPolaroids), Time.deltaTime);
     }
 
     private void SpawnPolaroids()
@@ -60,6 +68,7 @@ public class Game : MonoBehaviour
     {
         chosenCharacter = givenChar;
         characterSidebar.SetCharacter(chosenCharacter);
+        gameManager.player.chosenCharacter = chosenCharacter.directory;
     }
 
     public void UpdateSidebar()
