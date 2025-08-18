@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
+  m_Name: GFoxy
+  m_EditorClassIdentifier: 
+  characterName: Grimm Foxy
+  pronouns: He/Him
+  yearMade: 
+  yearBorn: 
+  familyMembers: 
+  owner: 
+  occupation: 
+  employment: 
+  affiliation: The Freddy Fazbear Virtual Experience
+  aliases: Jack-O-Foxy
+  type: Halloween Animatronic
+  model: Fox
+  height: 
+  weight: 
+  color: Orange
+  eyeColor: Orange Glow
+  firstAppearance: 'Five Nights at Freddy''s: Help Wanted'
+  polaroidSprite:
+  - {fileID: 21300000, guid: 2738d6ba326afe0408e1414a47255dae, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: f13a94fe8bfc5ee4fa534b1e99cea82e, type: 3}
+  voicelines: []
+  directory: Characters/HW/GFoxy
+  isCrossedOff: 0
+  isChosen: 0

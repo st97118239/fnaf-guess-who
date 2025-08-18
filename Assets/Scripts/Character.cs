@@ -24,7 +24,8 @@ public class Character : ScriptableObject
     public List<Sprite> polaroidSprite;
     public List<Sprite> fullBodySprite;
     public List<AudioClip> voicelines;
-    
+
+    public string directory;
     public bool isCrossedOff;
     public bool isChosen;
 }

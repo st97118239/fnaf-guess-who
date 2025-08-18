@@ -23,11 +23,16 @@ public class InfoPanel : MonoBehaviour
     public List<TMP_Text> texts;
     public Vector3 bodyImageOffset;
 
+    [SerializeField] private float paperTimerBase;
+
     private System.Random rnd = new();
     private AudioSource audioPlayer;
     private Animator animator;
     private List<AudioClip> audioToPlay;
     private bool isPlayingAudio;
+    private bool playPaperTimer;
+    private float paperTimer;
+    private int bodyPaperClicksQueue;
 
     private void Start()
     {
@@ -37,8 +42,28 @@ public class InfoPanel : MonoBehaviour
 
     private void Update()
     {
-        if (gameScript.isInfoPanelShown && Input.GetKeyDown(KeyCode.Escape))
+        if (!gameScript.isInfoPanelShown)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
             Hide();
+
+        if (playPaperTimer)
+        {
+            if (paperTimer > 0)
+                paperTimer -= Time.deltaTime;
+            else
+            {
+                playPaperTimer = false;
+            }
+        }
+        else
+        {
+            if (bodyPaperClicksQueue > 0)
+                BodyPapersNext(false);
+            else if (bodyPaperClicksQueue < 0)
+                BodyPapersBack(false);
+        }
     }
 
     public void AudioButtonPressed()
@@ -160,7 +185,7 @@ public class InfoPanel : MonoBehaviour
 
         while (bodyPapersIdx != 0)
         {
-            BodyPapersBack();
+            BodyPapersBack(false);
             needsToWait = true;
         }
 
@@ -177,9 +202,12 @@ public class InfoPanel : MonoBehaviour
         gameScript.isInfoPanelShown = false;
     }
 
-    public void BodyPapersNext()
+    public void BodyPapersNext(bool manualClick)
     {
-        if (bodyPapersIdx < bodyPapers.Count - 1)
+        if (manualClick && bodyPapersIdx < bodyPapers.Count - 1)
+            bodyPaperClicksQueue++;
+
+        if (!playPaperTimer && bodyPapersIdx < bodyPapers.Count - 1)
         {
             if (bodyPapers[bodyPapersIdx].index == 0)
                 bodyPapers[bodyPapersIdx].animator.SetTrigger("FirstNext");
@@ -187,20 +215,37 @@ public class InfoPanel : MonoBehaviour
                 bodyPapers[bodyPapersIdx].animator.SetTrigger("OthersNext");
 
             bodyPapersIdx++;
+            bodyPaperClicksQueue--;
+
+            paperTimer = paperTimerBase;
+            playPaperTimer = true;
         }
+
+        if (bodyPapersIdx >= bodyPapers.Count - 1)
+            bodyPaperClicksQueue = 0;
     }
 
-    public void BodyPapersBack()
+    public void BodyPapersBack(bool manualClick)
     {
-        if (bodyPapersIdx > 0)
+        if (manualClick && bodyPapersIdx > 0)
+            bodyPaperClicksQueue--;
+
+        if (!playPaperTimer && bodyPapersIdx > 0)
         {
             bodyPapersIdx--;
+            bodyPaperClicksQueue++;
 
             if (bodyPapers[bodyPapersIdx].index == 0)
                 bodyPapers[bodyPapersIdx].animator.SetTrigger("FirstBack");
             else
                 bodyPapers[bodyPapersIdx].animator.SetTrigger("OthersBack");
+
+            paperTimer = paperTimerBase;
+            playPaperTimer = true;
         }
+
+        if (bodyPapersIdx <= 0)
+            bodyPaperClicksQueue = 0;
     }    
 
     private void RedrawText()

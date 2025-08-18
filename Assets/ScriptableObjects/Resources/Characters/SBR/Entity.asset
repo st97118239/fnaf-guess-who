@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
+  m_Name: Entity
+  m_EditorClassIdentifier: 
+  characterName: The Entity
+  pronouns: They/Them
+  yearMade: 
+  yearBorn: 
+  familyMembers: 
+  owner: 
+  occupation: 
+  employment: Security Program
+  affiliation: Freddy Fazbear's Mega Pizzaplex
+  aliases: The Entity, Rabbit Thing, Rabbit, Dark Rabbit, Black Rabbit, The Anomaloy
+  type: Artificial Intelligence
+  model: Rabbit
+  height: Interchangable
+  weight: 
+  color: Midnight-Blue
+  eyeColor: White
+  firstAppearance: 'Five Nights at Freddy''s: Security Breach - RUIN'
+  polaroidSprite:
+  - {fileID: 21300000, guid: 1eb04fccc40098641b809c9057c4ff8d, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: a31c7c61563544047a5038a3c279abe1, type: 3}
+  voicelines: []
+  directory: Characters/SBR/Entity
+  isCrossedOff: 0
+  isChosen: 0

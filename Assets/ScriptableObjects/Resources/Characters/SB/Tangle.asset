@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
+  m_Name: Tangle
+  m_EditorClassIdentifier: 
+  characterName: Tangle
+  pronouns: It/Its
+  yearMade: 20XXs
+  yearBorn: 
+  familyMembers: 
+  owner: N/A
+  occupation: 
+  employment: N/A
+  affiliation: Freddy Fazbear's Pizza Place (Abandoned, Under Freddy Fazbear's Mega
+    Pizzaplex)
+  aliases: The Blob, TangleBlob
+  type: Amalgamation
+  model: Bear/Various Animatronics
+  height: 
+  weight: 
+  color: Rust/Metal Colours
+  eyeColor: Scarlet
+  firstAppearance: 'Five Nights at Freddy''s: Security Breach'
+  polaroidSprite:
+  - {fileID: 21300000, guid: 4f5210c4ffb461b4fb1dbffeb4f7a2b4, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: ca6fe41b2213a72449e432da163377ac, type: 3}
+  voicelines: []
+  directory: Characters/SB/Tangle
+  isCrossedOff: 0
+  isChosen: 0

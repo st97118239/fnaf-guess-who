@@ -13,3 +13,9 @@ public class SaveData
     public List<ListData> lists = new();
 }
 
+[System.Serializable]
+public class ListDataChar
+{
+    public string name;
+    public List<Character> characters = new();
+}

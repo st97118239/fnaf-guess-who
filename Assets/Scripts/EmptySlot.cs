@@ -15,14 +15,14 @@ public class EmptySlot : MonoBehaviour
     {
         yield return null;
 
-        for (int i = 0; i < index * 15; i++)
+        for (int i = 0; i < index * 5; i++)
         {
             yield return null;
         }
 
-        for (float i = 0; i <= 1.5; i += Time.deltaTime)
+        for (float i = 0; i <= 1; i += Time.deltaTime)
         {
-            canvasGroup.alpha = i / 1.5f;
+            canvasGroup.alpha = i / 1f;
             yield return null;
         }
 

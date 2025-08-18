@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public class ListLoader : MonoBehaviour
 {
-    public ListData list;
+    public ListDataChar list;
     [SerializeField] private SaveData saveData;
     [SerializeField] private ListData listData;
 
@@ -18,16 +20,35 @@ public class ListLoader : MonoBehaviour
 
         for (int i = 0; i < save.lists.Count; i++)
         {
-            foreach (string character in save.lists[i].characters)
+            foreach (string characterDirectory in save.lists[i].characters)
             {
-                Debug.Log("Found character: " + character);
+                Character character = Resources.Load<Character>(characterDirectory);
+
+                Debug.Log("Found character: " + character.characterName);
+
+                if (i == 0)
+                {
+                    list.characters.Add(character);
+                    list.name = save.lists[i].name;
+                }
             }
         }
     }
 
     public void SaveIntoJson()
     {
-        saveData.lists.Add(listData);
+        int idxToCreateNewListAt = saveData.lists.FindIndex(l => l.name == list.name);
+
+        if (idxToCreateNewListAt != -1)
+            listData = saveData.lists[idxToCreateNewListAt];
+        else
+        {
+            listData = new ListData();
+            saveData.lists.Add(listData);
+        }
+
+        listData.characters = list.characters.Select(c => c.directory).ToList();
+        listData.name = list.name;
 
         string save = JsonUtility.ToJson(saveData);
 

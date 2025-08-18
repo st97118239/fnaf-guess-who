@@ -7140,6 +7140,7 @@ MonoBehaviour:
   - {fileID: 213863218}
   - {fileID: 1004831824}
   bodyImageOffset: {x: 20, y: -20, z: 0}
+  paperTimerBase: 0.4
 --- !u!224 &1553606495
 RectTransform:
   m_ObjectHideFlags: 0

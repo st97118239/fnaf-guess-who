@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
+  m_Name: Music Man
+  m_EditorClassIdentifier: 
+  characterName: Music Man
+  pronouns: He/Him
+  yearMade: 1980s
+  yearBorn: 
+  familyMembers: 
+  owner: Afton Robotics, LLC
+  occupation: 
+  employment: Cymbalist
+  affiliation: Freddy Fazbear's Pizza Place
+  aliases: 
+  type: Funtime Animatronic
+  model: Arachnid/Humanoid
+  height: 
+  weight: 
+  color: White, Purple and Pink
+  eyeColor: Black
+  firstAppearance: 'Five Nights at Freddy''s: Sister Location'
+  polaroidSprite:
+  - {fileID: 21300000, guid: 638c698cac86ce54b8a06581c924baf0, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: 4ca605369e9eb9d48bc7a616a0100fab, type: 3}
+  voicelines: []
+  directory: Characters/SL/Music Man
+  isCrossedOff: 0
+  isChosen: 0
