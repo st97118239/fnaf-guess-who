@@ -10,6 +10,7 @@ public class InfoPanel : MonoBehaviour
     public Game gameScript;
     public AudioSource audioManager;
     public Character character;
+    public CharSlot charSlot;
     public GameObject polaroid;
     public GameObject infoPaper;
     public Transform bodyPaperParent;
@@ -233,6 +234,7 @@ public class InfoPanel : MonoBehaviour
 
         animator.SetTrigger("FolderClose");
         character = null;
+        charSlot = null;
         gameScript.isInfoPanelShown = false;
     }
 
@@ -319,6 +321,7 @@ public class InfoPanel : MonoBehaviour
             gameScript.ChooseCharacter(character);
         if (chooseType == 2)
         {
+            charSlot.Accuse();
             gameScript.player.Accuse(character);
         }
 

@@ -1323,7 +1323,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 83892596063734513}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 1170509088}
     m_SelectOnRight: {fileID: 83892596063734513}
   m_Transition: 1
   m_Colors:
@@ -4164,12 +4164,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Make Debug.Log's clearer\nAdd check during the game if the other \nplayer
-    has disconnected or not\nMake circle around the accused suspect\nMake settings
-    menu\n- Volume\n- Server IP\n- Username\nMake List Creator actually function\n-
-    UI with every owned character\n- Allow player to select characters and add it
-    to list\n- Shop?\n- Add categories based on classes and/or games\n- Add skins
-    for characters\nMake the game compare your lists\n- When starting game you first
-    see your characters\n- After you chose a character you see other players characters"
+    has disconnected or not\nAllow the user to open folder via suspect polaroid\nMake
+    settings menu\n- Volume\n- Server IP\n- Username\nMake List Creator actually
+    function\n- UI with every owned character\n- Allow player to select characters
+    and add it to list\n- Shop?\n- Add categories based on classes and/or games\n-
+    Add skins for characters\nMake the game compare your lists\n- When starting game
+    you first see your characters\n- After you chose a character you see other players
+    characters"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11323,6 +11324,7 @@ MonoBehaviour:
   gameScript: {fileID: 237826674}
   audioManager: {fileID: 2097359922}
   character: {fileID: 0}
+  charSlot: {fileID: 0}
   polaroid: {fileID: 1030947561}
   infoPaper: {fileID: 1877257297}
   bodyPaperParent: {fileID: 115514409}
