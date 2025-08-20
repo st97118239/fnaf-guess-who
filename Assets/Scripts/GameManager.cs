@@ -21,14 +21,12 @@ public class GameManager : NetworkBehaviour
     public Player player;
     public Player opponent;
 
-    private void Start()
+    private void OnEnable()
     {
-        if (isServer)
-        {
-            round = -1;
-            Debug.Log("Started Server");
-        }
-        
+        Debug.Log("enabled");
+        round = -1;
+        turn = 0;
+        Debug.Log("Started Server");
     }
 
     private void Update()
@@ -40,8 +38,7 @@ public class GameManager : NetworkBehaviour
         {
             Debug.Log("Both players are connected.");
             turn = 1;
-            Invoke(nameof(RpcEnableReady), 0.5f);
-            //RpcEnableReady();
+            Invoke(nameof(RpcEnableReady), 1f);
         }
 
         if (round == -1 && turn == 1 && player1.isReadyToPlay && player2.isReadyToPlay)
@@ -69,7 +66,7 @@ public class GameManager : NetworkBehaviour
     [ClientRpc]
     private void RpcEnableReady()
     {
-        if (round == -1 && turn == 1 && player1 && player2 && connectionToServer.identity)
+        if (round == -1 && turn == 1 && player1 && player2)
             player.CanReady();
     }
 
@@ -229,20 +226,10 @@ public class GameManager : NetworkBehaviour
 
     public void DisconnectAll()
     {
-        player1.ForceDisconnect();
-        player2.ForceDisconnect();
-
-        round = -1;
-        turn = -1;
-
-        player1 = null;
-        player1AccusedCharacter = string.Empty;
-        player1ChosenCharacter = string.Empty;
-        player1Won = false;
-        player2 = null;
-        player2AccusedCharacter = string.Empty;
-        player2ChosenCharacter = string.Empty;
-        player2Won = false;
+        if (player1)
+            player1.RpcForceDisconnect();
+        if (player2)
+            player2.RpcForceDisconnect();
     }
 
     public void PlayerDisconnected(int playerToRemove)

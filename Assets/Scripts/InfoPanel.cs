@@ -168,7 +168,7 @@ public class InfoPanel : MonoBehaviour
             }
             else
             {
-                chooseNote.Disable();
+                chooseNote.Enable();
             }
         }
         else if (chooseType == 2)
@@ -181,7 +181,7 @@ public class InfoPanel : MonoBehaviour
             }
             else
             {
-                chooseNote.Disable();
+                chooseNote.Enable();
             }
         }
         else

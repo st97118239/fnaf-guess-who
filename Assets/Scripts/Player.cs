@@ -1,12 +1,11 @@
 using Mirror;
-using System;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 public class Player : NetworkBehaviour
 {
     [SyncVar] public string chosenCharacter;
     [SyncVar] public int playerIdx;
+    [SyncVar] public bool isHost;
     [SyncVar] public bool isReadyToPlay;
     [SyncVar] public string accusedCharacter;
 
@@ -24,6 +23,7 @@ public class Player : NetworkBehaviour
         {
             game = FindFirstObjectByType<Game>();
             mainPanel = game.mainPanel;
+            isHost = mainPanel.isHost;
             game.player = this;
             gameManager.player = this;
 
@@ -56,12 +56,16 @@ public class Player : NetworkBehaviour
         Invoke(nameof(RemoveConnection), 0.5f);
     }
 
-    public void ForceDisconnect()
+    [ClientRpc]
+    public void RpcForceDisconnect()
     {
+        if (!isLocalPlayer)
+            return;
+
         gameManager.player = null;
         gameManager.opponent = null;
 
-        Invoke(nameof(RpcRemoveConnection), 0.2f);
+        Invoke(nameof(RemoveConnection), 0.2f);
     }
 
     public void CanReady()
@@ -76,27 +80,18 @@ public class Player : NetworkBehaviour
         mainPanel.DisabeReady();
     }
 
-    private void RemoveConnection()
+    public void RemoveConnection()
     {
         NetworkManager.singleton.StopClient();
         Debug.Log("Disconnected from server.");
 
         mainPanel.connectionNote.ChangeText("Connect");
 
+        mainPanel.readyNote.Disable();
         mainPanel.connectionNote.Enable();
         mainPanel.hostNote.Enable();
-    }
-
-    [ClientRpc]
-    private void RpcRemoveConnection()
-    {
-        NetworkManager.singleton.StopClient();
-        Debug.Log("Disconnected from server.");
-
-        mainPanel.connectionNote.ChangeText("Connect");
-
-        mainPanel.connectionNote.Enable();
-        mainPanel.hostNote.Enable();
+        mainPanel.quitNote.Enable();
+        mainPanel.listCreatorNote.Enable();
     }
 
     public void StartGame()

@@ -1,7 +1,5 @@
 using Mirror;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MainPanel : NetworkBehaviour
 {
@@ -12,6 +10,8 @@ public class MainPanel : NetworkBehaviour
     public Note hostNote;
     public Note listCreatorNote;
     public Note quitNote;
+
+    public bool isHost;
 
     public void ReadyUp()
     {
@@ -25,31 +25,36 @@ public class MainPanel : NetworkBehaviour
 
     public void Host()
     {
-        if (NetworkClient.active && isServer)
+        connectionNote.Disable();
+
+        if (NetworkServer.active)
         {
             Debug.Log("Stopping host.");
 
+            hostNote.Disable();
             game.gameManager.DisconnectAll();
-
-            Invoke(nameof(HostStopDelay), 1);
         }
-        else if (!NetworkClient.active)
+        else if (!NetworkServer.active)
         {
             connectionNote.Disable();
 
-            NetworkManager.singleton.StartHost();
             Debug.Log("Starting host.");
+
+            isHost = true;
+            NetworkManager.singleton.StartHost();
             hostNote.ChangeText("Stop host");
         }
     }
 
-    private void HostStopDelay()
+    public void HostStop()
     {
-        NetworkManager.singleton.StopHost();
+        NetworkManager.singleton.StopServer();
 
         connectionNote.Disable();
 
         hostNote.ChangeText("Start host");
+        hostNote.Enable();
+        isHost = false;
     }
 
     public void Connect()
@@ -92,7 +97,10 @@ public class MainPanel : NetworkBehaviour
     public void ClientConnected()
     {
         connectionNote.ChangeText("Disconnect");
-        connectionNote.Enable();
+        if (!isHost)
+            connectionNote.Enable();
+
+        quitNote.Disable();
     }
 
     public void EnableReady()

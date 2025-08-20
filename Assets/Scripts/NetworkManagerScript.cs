@@ -18,12 +18,14 @@ public class NetworkManagerScript : NetworkManager
 
     public override void OnServerDisconnect(NetworkConnectionToClient conn)
     {
-        if (gameManager.player1 == conn.identity.gameObject.GetComponent<Player>())
+        Player player = conn.identity.gameObject.GetComponent<Player>();
+
+        if (gameManager.player1 == player)
         {
             Debug.Log("Player 1 disconnected.");
             gameManager.PlayerDisconnected(1);
         }
-        else if (gameManager.player2 == conn.identity.gameObject.GetComponent<Player>())
+        else if (gameManager.player2 == player)
         {
             Debug.Log("Player 2 disconnected.");
             gameManager.PlayerDisconnected(2);
@@ -33,11 +35,20 @@ public class NetworkManagerScript : NetworkManager
             Debug.Log("Unkown Player disconnected.");
         }
 
+        if (player.isHost)
+        {
+            Debug.Log("player is host");
+            mainPanel.HostStop();
+        }
+
         base.OnServerDisconnect(conn);
     }
 
     public override void OnClientDisconnect()
     {
+        if (game.player)
+            game.player.RemoveConnection();
+
         base.OnClientDisconnect();
 
         Debug.Log("Client disconnected.");
@@ -47,6 +58,6 @@ public class NetworkManagerScript : NetworkManager
     {
         base.OnStopServer();
 
-        Debug.Log("Server disconnected.");
+        Debug.Log("Server stopped.");
     }
 }
