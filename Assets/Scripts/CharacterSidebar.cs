@@ -66,7 +66,7 @@ public class CharacterSidebar : MonoBehaviour
             turnText.text = "Your turn";
             if (!hasToAccuse)
             {
-                doneNote.Disable();
+                doneNote.Enable();
             }
         }
         else

@@ -12,11 +12,11 @@ public class GameManager : NetworkBehaviour
     public Player player1;
     public string player1ChosenCharacter;
     public string player1AccusedCharacter;
-    public bool player1Won;
+    [SyncVar] public bool player1Won;
     public Player player2;
     public string player2ChosenCharacter;
     public string player2AccusedCharacter;
-    public bool player2Won;
+    [SyncVar] public bool player2Won;
 
     public Player player;
     public Player opponent;

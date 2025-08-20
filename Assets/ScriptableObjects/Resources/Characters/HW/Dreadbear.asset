@@ -34,6 +34,4 @@ MonoBehaviour:
   fullBodySprite:
   - {fileID: 21300000, guid: 21a2ab1cb7150cf45b6e0f2281241e0d, type: 3}
   voicelines: []
-  directory: Characters/HW/Dreabear
-  isCrossedOff: 0
-  isChosen: 0
+  directory: Characters/HW/Dreadbear

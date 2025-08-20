@@ -46,6 +46,19 @@ public class MainPanel : NetworkBehaviour
         }
     }
 
+    public void Disconnected()
+    {
+        Debug.Log("Disconnected from server.");
+
+        connectionNote.ChangeText("Connect");
+
+        readyNote.Disable();
+        connectionNote.Enable();
+        hostNote.Enable();
+        quitNote.Enable();
+        listCreatorNote.Enable();
+    }
+
     public void HostStop()
     {
         NetworkManager.singleton.StopServer();

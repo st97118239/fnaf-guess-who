@@ -96,13 +96,15 @@ public class Game : MonoBehaviour
     public void Leave()
     {
         animator.SetTrigger("GameClose");
-        player.Disconnect();
+        if (player)
+            player.Disconnect();
+        else
+            mainPanel.Disconnected();
         Invoke(nameof(ResetGame), 1);
     }
 
     public void ResetGame()
     {
-        gameManager = null;
         player = null;
         charSlots.Clear();
         crossedOff.Clear();
@@ -120,7 +122,7 @@ public class Game : MonoBehaviour
         infoPanel.ResetGame();
     }
 
-    public void DetermineResult(bool p1Won, bool p2Won, string opponentCharDirectory, string playerSuspect, string playerCharDirectory, string opponentSuspected)
+    public void DetermineResult(bool p1Won, bool p2Won, string opponentCharDirectory, string playerSuspectDirectory, string playerCharDirectory, string opponentSuspectedDirectory)
     {
         if (player.playerIdx == 1)
         {
@@ -145,6 +147,28 @@ public class Game : MonoBehaviour
                 winPanel.result = "You did not accuse the correct suspect. And neither did your opponent.";
         }
 
-        winPanel.Show(Resources.Load<Character>(opponentCharDirectory), Resources.Load<Character>(playerSuspect).characterName, Resources.Load<Character>(playerCharDirectory).characterName, Resources.Load<Character>(opponentSuspected).characterName);
+        Character opponentChar = Resources.Load<Character>(opponentCharDirectory);
+        Character playerSuspect = Resources.Load<Character>(playerSuspectDirectory);
+        Character playerChar = Resources.Load<Character>(playerCharDirectory);
+        Character opponentSuspected = Resources.Load<Character>(opponentSuspectedDirectory);
+
+        string playerSuspectName = string.Empty;
+        string playerCharName = string.Empty;
+        string opponentSuspectedName = string.Empty;
+
+        if (playerSuspect)
+            playerSuspectName = playerSuspect.characterName;
+        else
+            Debug.LogWarning("Could not find " + playerSuspectDirectory);
+        if (playerChar)
+            playerCharName = playerChar.characterName;
+        else
+            Debug.LogWarning("Could not find " + playerCharDirectory);
+        if (opponentSuspected)
+            opponentSuspectedName = opponentSuspected.characterName;
+        else
+            Debug.LogWarning("Could not find " + opponentSuspectedDirectory);
+
+        winPanel.Show(opponentChar, playerSuspectName, playerCharName, opponentSuspectedName);
     }
 }
