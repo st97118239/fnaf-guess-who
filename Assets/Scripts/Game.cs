@@ -4,10 +4,13 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
     public GameManager gameManager;
+    public MainPanel mainPanel;
+    public Player player;
     public CharacterList characterList;
     public GameObject polaroidGrid;
     public CharacterSidebar characterSidebar;
     public InfoPanel infoPanel;
+    public WinPanel winPanel;
     public GameObject charSlotPrefab;
     public GameObject emptySlotPrefab;
     public List<Transform> emptySlots;
@@ -18,30 +21,24 @@ public class Game : MonoBehaviour
     public bool isInfoPanelShown;
     public Vector3 polaroidSpawnPos;
 
-    private bool hasLoaded;
     private int slotAmount;
 
     public void StartGame()
     {
-        if (!hasLoaded)
-        {
-            slotAmount = characterList.characters.Count;
+        Invoke(nameof(SpawnEmptySlots), 1f);
 
-            charSlots = new List<CharSlot>(slotAmount);
-            emptySlots = new List<Transform>(slotAmount);
-
-            Invoke(nameof(SpawnEmptySlots), 1f);
-
-            hasLoaded = true;
-
-            gameManager.hasStarted = true;
-        }
+        infoPanel.chooseType = 1;
 
         animator.SetTrigger("GameOpen");
     }
 
     private void SpawnEmptySlots()
     {
+        slotAmount = characterList.characters.Count;
+
+        charSlots = new List<CharSlot>(slotAmount);
+        emptySlots = new List<Transform>(slotAmount);
+
         for (int i = 0; i < slotAmount; i++)
         {
             GameObject slotObj = Instantiate(emptySlotPrefab, polaroidGrid.transform);
@@ -68,7 +65,7 @@ public class Game : MonoBehaviour
     {
         chosenCharacter = givenChar;
         characterSidebar.SetCharacter(chosenCharacter);
-        gameManager.player.chosenCharacter = chosenCharacter.directory;
+        player.ChooseCharacter(givenChar);
     }
 
     public void UpdateSidebar()
@@ -79,5 +76,75 @@ public class Game : MonoBehaviour
     public void ShowInfoPanel(Character character)
     {
         infoPanel.Show(character);
+    }
+
+    public void StartRound(bool hasToAccuse)
+    {
+        
+    }
+
+    public void Done()
+    {
+        player.FinishedTurn();
+    }
+
+    public void StopGame()
+    {
+        characterSidebar.leaveNote.Enable();
+    }
+
+    public void Leave()
+    {
+        animator.SetTrigger("GameClose");
+        player.Disconnect();
+        Invoke(nameof(ResetGame), 1);
+    }
+
+    public void ResetGame()
+    {
+        gameManager = null;
+        player = null;
+        charSlots.Clear();
+        crossedOff.Clear();
+        chosenCharacter = null;
+        slotAmount = 0;
+
+        for (int i = 0; i < emptySlots.Count; i++)
+        {
+            Destroy(emptySlots[i].gameObject);
+        }
+
+        emptySlots.Clear();
+
+        characterSidebar.ResetGame();
+        infoPanel.ResetGame();
+    }
+
+    public void DetermineResult(bool p1Won, bool p2Won, string opponentCharDirectory, string playerSuspect, string playerCharDirectory, string opponentSuspected)
+    {
+        if (player.playerIdx == 1)
+        {
+            if (p1Won && !p2Won)
+                winPanel.result = "You accused the correct suspect! And your opponent did not.";
+            else if (p1Won && p2Won)
+                winPanel.result = "You accused the correct suspect! But your opponent accused your suspect.";
+            else if (!p1Won && p2Won)
+                winPanel.result = "You did not accuse the correct suspect. But your opponent accused your suspect.";
+            else if (!p1Won && !p2Won)
+                winPanel.result = "You did not accuse the correct suspect. And neither did your opponent.";
+        }
+        else if (player.playerIdx == 2)
+        {
+            if (p2Won && !p1Won)
+                winPanel.result = "You accused the correct suspect! And your opponent did not.";
+            else if (p2Won && p1Won)
+                winPanel.result = "You accused the correct suspect! But your opponent accused your suspect.";
+            else if (!p2Won && p1Won)
+                winPanel.result = "You did not accuse the correct suspect. But your opponent accused your suspect.";
+            else if (!p2Won && !p1Won)
+                winPanel.result = "You did not accuse the correct suspect. And neither did your opponent.";
+        }
+
+        winPanel.Show(Resources.Load<Character>(opponentCharDirectory), Resources.Load<Character>(playerSuspect).characterName, Resources.Load<Character>(playerCharDirectory).characterName, Resources.Load<Character>(opponentSuspected).characterName);
     }
 }

@@ -22,7 +22,6 @@ public class ListLoader : MonoBehaviour
         string json = reader.ReadToEnd();
 
         SaveData save = JsonUtility.FromJson<SaveData>(json);
-        Debug.Log(save.ToString());
         saveData = save;
 
         for (int i = 0; i < save.lists.Count; i++)
@@ -44,7 +43,18 @@ public class ListLoader : MonoBehaviour
 
     public void SaveIntoJson()
     {
-        int idxToCreateNewListAt = saveData.lists.FindIndex(l => l.name == list.name);
+        if (list.name == string.Empty || list.characters.Count == 0)
+        {
+            Debug.LogWarning("List is empty.");
+            return;
+        }
+        else if (list.characters.Count < 3)
+        {
+            Debug.LogWarning("Too little amount of characters selected in the list. The game requires 3 or more characters in the list.");
+            return;
+        }
+
+            int idxToCreateNewListAt = saveData.lists.FindIndex(l => l.name == list.name);
 
         if (idxToCreateNewListAt != -1)
             listData = saveData.lists[idxToCreateNewListAt];

@@ -10,18 +10,25 @@ public class CharacterSidebar : MonoBehaviour
     public Image characterImage;
     public TMP_Text characterNameText;
     public TMP_Text suspectsLeftText;
+    public TMP_Text turnText;
+
+    public Note doneNote;
+    public Note leaveNote;
 
     private Character character;
     private Animator polaroidAnimator;
     private int suspectsLeft;
 
+    private Color transparent = new(255, 255, 255, 0);
+    private Color opaque = new(255, 255, 255, 255);
+
     private void Start()
     {
         polaroidAnimator = slotImage.GetComponent<Animator>();
 
-        slotImage.color = new Color(255, 255, 255, 255);
+        slotImage.color = opaque;
         characterImage.sprite = null;
-        characterImage.color = new Color(255, 255, 255, 0);
+        characterImage.color = transparent;
         characterNameText.text = null;
     }
 
@@ -29,9 +36,9 @@ public class CharacterSidebar : MonoBehaviour
     {
         character = givenCharacter;
 
-        slotImage.color = new Color(255, 255, 255, 255);
+        slotImage.color = opaque;
         characterImage.sprite = character.polaroidSprite[0];
-        characterImage.color = new Color(255, 255, 255, 255);
+        characterImage.color = opaque;
         characterNameText.text = character.characterName;
 
         slotImage.gameObject.SetActive(true);
@@ -49,12 +56,36 @@ public class CharacterSidebar : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void Exit()
+    public void ChangeTurn(int turn, bool hasToAccuse)
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-            Application.Quit();
-#endif
+        if (gameScript.infoPanel.chooseType != 2)
+            gameScript.infoPanel.chooseType = 2;
+
+        if (turn == gameScript.player.playerIdx)
+        {
+            turnText.text = "Your turn";
+            if (!hasToAccuse)
+            {
+                doneNote.Disable();
+            }
+        }
+        else
+        {
+            turnText.text = "Opponent's turn";
+            doneNote.Disable();
+        }
+    }
+
+    public void ResetGame()
+    {
+        slotImage.color = new Color(255, 255, 255, 255);
+        characterImage.sprite = null;
+        characterImage.color = new Color(255, 255, 255, 0);
+        characterNameText.text = null;
+        leaveNote.Disable();
+        polaroidAnimator.SetTrigger("PolaroidRemove");
+
+        character = null;
+        suspectsLeft = 0;
     }
 }

@@ -14,6 +14,8 @@ public class InfoPanel : MonoBehaviour
     public GameObject infoPaper;
     public Transform bodyPaperParent;
     public GameObject audioButton;
+    public Note chooseNote;
+    public int chooseType;
     public Image slotImage;
     public Image audioImage;
     public GameObject bodyPaperPrefab;
@@ -147,7 +149,7 @@ public class InfoPanel : MonoBehaviour
         }
 
         if (character.voicelines.Count > 0)
-        {;
+        {
             audioButton.SetActive(true);
             audioImage.sprite = Resources.Load<Sprite>("UI/Play");
             audioToPlay = character.voicelines;
@@ -156,7 +158,36 @@ public class InfoPanel : MonoBehaviour
         else
             audioButton.SetActive(false);
 
-        bool hasAtLeastOneText = false;
+        if (chooseType == 1)
+        {
+            chooseNote.gameObject.SetActive(true);
+            chooseNote.ChangeText("Lock in");
+            if (gameScript.chosenCharacter)
+            {
+                chooseNote.Disable();
+            }
+            else
+            {
+                chooseNote.Disable();
+            }
+        }
+        else if (chooseType == 2)
+        {
+            chooseNote.gameObject.SetActive(true);
+            chooseNote.ChangeText("Accuse");
+            if (gameScript.player.accusedCharacter != string.Empty || gameScript.gameManager.turn != gameScript.player.playerIdx)
+            {
+                chooseNote.Disable();
+            }
+            else
+            {
+                chooseNote.Disable();
+            }
+        }
+        else
+            chooseNote.gameObject.SetActive(false);
+
+            bool hasAtLeastOneText = false;
         for (int i = 0; i < variables.Count; i++)
         {
             var fi = typeof(Character).GetField(variables[i]);
@@ -280,5 +311,31 @@ public class InfoPanel : MonoBehaviour
         animator.SetTrigger("FolderOpen");
 
         gameScript.isInfoPanelShown = true;
+    }
+
+    public void ChooseCharacter()
+    {
+        if (chooseType == 1)
+            gameScript.ChooseCharacter(character);
+        if (chooseType == 2)
+        {
+            gameScript.player.Accuse(character);
+        }
+
+        chooseNote.Disable();
+
+        Hide();
+
+        if (chooseType == 2)
+            gameScript.Done();
+    }
+
+    public void ResetGame()
+    {
+        character = null;
+        chooseType = 0;
+
+        chooseNote.ChangeText("Lock in");
+        chooseNote.Disable();
     }
 }
