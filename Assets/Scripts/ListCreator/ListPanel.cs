@@ -11,7 +11,8 @@ public class ListPanel : MonoBehaviour
 
     public int menu; // -1 = loading, 0 = listsMenu, 1 = listCharactersMenu
     public bool isInfoPanelShown;
-    
+
+    [SerializeField] private MainPanel mainPanel;
     [SerializeField] private Game game;
     [SerializeField] private GameObject listGrid;
     [SerializeField] private GameObject listNotePrefab;
@@ -21,6 +22,7 @@ public class ListPanel : MonoBehaviour
     [SerializeField] private Note backNote;
     [SerializeField] private Note leaveNote;
     [SerializeField] private Note saveNote;
+    [SerializeField] private Note selectNote;
 
     [SerializeField] private int emptySlotAmount;
     
@@ -117,10 +119,10 @@ public class ListPanel : MonoBehaviour
             emptySlots[i].Reset();
         }
 
-        SpawnPolaroids();
+        OpenListCharactersMenu();
     }
 
-    public void SpawnPolaroids()
+    public void OpenListCharactersMenu()
     {
         polaroids = new List<ListPolaroid>(openedList.characters.Count);
 
@@ -134,6 +136,8 @@ public class ListPanel : MonoBehaviour
         backNote.Enable();
         if (!openedList.builtIn)
             saveNote.Enable();
+        if (!openedList.selected && !mainPanel.isReady)
+            selectNote.Enable();
         menu = 1;
 
         PlayFadeAnim();
@@ -164,6 +168,13 @@ public class ListPanel : MonoBehaviour
         }
     }
 
+    public void SelectNote()
+    {
+        selectedList = openedList;
+        Debug.Log("Selected list: " + selectedList.name);
+        selectNote.Disable();
+    }
+
     public void RemoveCharacterFromList(Character givenCharacter, int givenIndex)
     {
         Debug.Log("Removed " + givenCharacter.name + " from list " + openedList.name);
@@ -174,6 +185,6 @@ public class ListPanel : MonoBehaviour
             Destroy(polaroids[i].gameObject);
         }
 
-        SpawnPolaroids();
+        OpenListCharactersMenu();
     }
 }

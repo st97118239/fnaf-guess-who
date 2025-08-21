@@ -3025,6 +3025,18 @@ PrefabInstance:
       propertyPath: m_Navigation.m_Mode
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1158697169716760427, guid: 6b9537fc45bdaf8418ca4f81cd847c91, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1224084823}
+    - target: {fileID: 1158697169716760427, guid: 6b9537fc45bdaf8418ca4f81cd847c91, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectNote
+      objectReference: {fileID: 0}
+    - target: {fileID: 1158697169716760427, guid: 6b9537fc45bdaf8418ca4f81cd847c91, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ListPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1916350489842653506, guid: 6b9537fc45bdaf8418ca4f81cd847c91, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -12251,6 +12263,7 @@ MonoBehaviour:
     characters: []
   menu: 0
   isInfoPanelShown: 0
+  mainPanel: {fileID: 1370482681}
   game: {fileID: 237826674}
   listGrid: {fileID: 1015897595}
   listNotePrefab: {fileID: 4819021767877749062, guid: ced6ac7bcd302a044807dba1793c4a81, type: 3}
@@ -12259,6 +12272,7 @@ MonoBehaviour:
   backNote: {fileID: 976309771}
   leaveNote: {fileID: 1450298848}
   saveNote: {fileID: 1455068866}
+  selectNote: {fileID: 5178550753360464386}
   emptySlotAmount: 96
 --- !u!1 &1244816297
 GameObject:
@@ -13702,6 +13716,7 @@ MonoBehaviour:
   listCreatorNote: {fileID: 156749424}
   quitNote: {fileID: 2027582002}
   isHost: 0
+  isReady: 0
 --- !u!114 &1370482682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22556,6 +22571,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5178550753360464386 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3831616884926173487, guid: 6b9537fc45bdaf8418ca4f81cd847c91, type: 3}
+  m_PrefabInstance: {fileID: 293266637}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f93dce920add1a4f81b833672656db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5854568481719969274
 MonoBehaviour:
   m_ObjectHideFlags: 0

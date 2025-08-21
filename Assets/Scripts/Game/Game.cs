@@ -30,6 +30,9 @@ public class Game : MonoBehaviour
         infoPanel.chooseType = 1;
 
         animator.SetTrigger("GameOpen");
+
+        if (mainPanel.isReady)
+            mainPanel.isReady = false;
     }
 
     private void SpawnEmptySlots()

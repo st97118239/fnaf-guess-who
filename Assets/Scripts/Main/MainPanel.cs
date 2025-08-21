@@ -12,12 +12,14 @@ public class MainPanel : NetworkBehaviour
     public Note quitNote;
 
     public bool isHost;
+    public bool isReady;
 
     public void ReadyUp()
     {
         if (game.player.isLocalPlayer && !game.player.isReadyToPlay)
         {
             game.player.isReadyToPlay = true;
+            isReady = true;
             Debug.Log("Player is ready.");
             readyNote.Disable();
         }
@@ -30,6 +32,9 @@ public class MainPanel : NetworkBehaviour
         if (NetworkServer.active)
         {
             Debug.Log("Stopping host.");
+
+            if (isReady)
+                isReady = false;
 
             hostNote.Disable();
             game.gameManager.DisconnectAll();
@@ -57,6 +62,9 @@ public class MainPanel : NetworkBehaviour
         hostNote.Enable();
         quitNote.Enable();
         listCreatorNote.Enable();
+
+        if (isReady)
+            isReady = false;
     }
 
     public void HostStop()
@@ -68,6 +76,9 @@ public class MainPanel : NetworkBehaviour
         hostNote.ChangeText("Start host");
         hostNote.Enable();
         isHost = false;
+
+        if (isReady)
+            isReady = false;
     }
 
     public void Connect()
@@ -75,6 +86,9 @@ public class MainPanel : NetworkBehaviour
         if (NetworkClient.isConnected)
         {
             Debug.Log("Disconnecting from server.");
+
+            if (isReady)
+                isReady = false;
 
             connectionNote.Disable();
 
@@ -105,6 +119,9 @@ public class MainPanel : NetworkBehaviour
 
         hostNote.Enable();
         connectionNote.Enable();
+
+        if (isReady)
+            isReady = false;
     }
 
     public void ClientConnected()
