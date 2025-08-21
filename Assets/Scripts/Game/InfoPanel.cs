@@ -27,6 +27,7 @@ public class InfoPanel : MonoBehaviour
     public List<TMP_Text> texts;
     public Vector3 bodyImageOffset;
 
+    [SerializeField] private GameObject backgroundBlocker;
     [SerializeField] private float paperTimerBase;
 
     private readonly System.Random rnd = new();
@@ -233,6 +234,7 @@ public class InfoPanel : MonoBehaviour
             yield return new WaitForSeconds(0.75f);
 
         animator.SetTrigger("FolderClose");
+        backgroundBlocker.SetActive(false);
         character = null;
         charSlot = null;
         gameScript.isInfoPanelShown = false;
@@ -310,6 +312,7 @@ public class InfoPanel : MonoBehaviour
 
         lines[0].gameObject.SetActive(true);
 
+        backgroundBlocker.SetActive(true);
         animator.SetTrigger("FolderOpen");
 
         gameScript.isInfoPanelShown = true;

@@ -43,6 +43,9 @@ public class ListPanel : MonoBehaviour
 
     public void LoadPanel()
     {
+        if (hasLoaded)
+            EmptySlotsReset();
+
         game.animator.SetTrigger("ListCreatorOpen");
 
         if (!hasLoaded)
@@ -54,6 +57,14 @@ public class ListPanel : MonoBehaviour
     public void ClosePanel()
     {
         game.animator.SetTrigger("ListCreatorClose");
+    }
+
+    private void EmptySlotsReset()
+    {
+        for (int i = 0; i < emptySlots.Count; i++)
+        {
+            emptySlots[i].Reset();
+        }
     }
 
     private void PlayFadeAnim()

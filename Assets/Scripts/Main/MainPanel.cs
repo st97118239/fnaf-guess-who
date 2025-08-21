@@ -1,9 +1,14 @@
 using Mirror;
+using System.Collections.Generic;
+using System.Net.Sockets;
 using UnityEngine;
 
 public class MainPanel : NetworkBehaviour
 {
     public Game game;
+    public GameManager gameManager;
+    public ListPanel listPanel;
+    public PopupPaper popupPaper;
 
     public Note readyNote;
     public Note connectionNote;
@@ -11,6 +16,7 @@ public class MainPanel : NetworkBehaviour
     public Note listCreatorNote;
     public Note quitNote;
 
+    public string[] selectedArray;
     public bool isHost;
     public bool isReady;
 
@@ -22,7 +28,16 @@ public class MainPanel : NetworkBehaviour
             isReady = true;
             Debug.Log("Player is ready.");
             readyNote.Disable();
+            CreateArray();
         }
+    }
+
+    public void CreateArray()
+    {
+        List<string> charList = listPanel.selectedList.characters;
+        selectedArray = charList.ToArray();
+
+        gameManager.SetList(selectedArray);
     }
 
     public void Host()
@@ -46,8 +61,25 @@ public class MainPanel : NetworkBehaviour
             Debug.Log("Starting host.");
 
             isHost = true;
-            NetworkManager.singleton.StartHost();
-            hostNote.ChangeText("Stop host");
+
+            try
+            {
+                NetworkManager.singleton.StartHost();
+                hostNote.ChangeText("Stop host");
+            }
+            catch (SocketException)
+            {
+                Debug.LogError("SocketException: Only one usage of each socket address (protocol/network address/port) is normally permitted.");
+                popupPaper.Show("MultipleHosts");
+                Debug.Log("Stopping host.");
+
+                connectionNote.ChangeText("Connect");
+
+                readyNote.Disable();
+                connectionNote.Enable();
+                hostNote.Enable();
+                quitNote.Enable();
+            }
         }
     }
 

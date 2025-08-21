@@ -1,4 +1,5 @@
 using Mirror;
+using System;
 using UnityEngine;
 
 public class GameManager : NetworkBehaviour
@@ -9,10 +10,12 @@ public class GameManager : NetworkBehaviour
     [SyncVar] public bool needsToAccuse;
 
     public Player player1;
+    [SyncVar] public string[] player1List;
     public string player1ChosenCharacter;
     public string player1AccusedCharacter;
     [SyncVar] public bool player1Won;
     public Player player2;
+    [SyncVar] public string[] player2List;
     public string player2ChosenCharacter;
     public string player2AccusedCharacter;
     [SyncVar] public bool player2Won;
@@ -45,7 +48,7 @@ public class GameManager : NetworkBehaviour
             round = 0;
             turn = 0;
             hasStarted = true;
-            RpcStartGame();
+            Invoke(nameof(RpcStartGame), 0.5f);
         }
 
         if (round == 0 && player1ChosenCharacter != string.Empty && player2ChosenCharacter != string.Empty)
@@ -53,6 +56,7 @@ public class GameManager : NetworkBehaviour
             Debug.Log("Both players have chosen a character. Starting game.");
             round = 1;
             turn = 0;
+
         }
 
         if (round > 0 && turn == 0)
@@ -72,6 +76,20 @@ public class GameManager : NetworkBehaviour
     private void RpcDisableReady()
     {
         player.CanNotReady();
+    }
+
+    public void SetList(string[] givenArray)
+    {
+        CmdSetList(givenArray, player.playerIdx);
+    }
+
+    [Command(requiresAuthority = false)]
+    private void CmdSetList(string[] givenArray, int givenIndex)
+    {
+        if (givenIndex == 1)
+            player1List = givenArray;
+        else if (givenIndex == 2)
+            player2List = givenArray;
     }
 
     public void NewPlayer(Player newPlayer)
@@ -213,10 +231,12 @@ public class GameManager : NetworkBehaviour
         turn = 0;
         needsToAccuse = false;
         player1 = null;
+        player1List = null;
         player1ChosenCharacter = string.Empty;
         player1AccusedCharacter = string.Empty;
         player1Won = false;
         player2 = null;
+        player2List = null;
         player2ChosenCharacter = string.Empty;
         player2AccusedCharacter = string.Empty;
         player2Won = false;
@@ -238,6 +258,7 @@ public class GameManager : NetworkBehaviour
         if (playerToRemove == 1)
         {
             player1 = null;
+            player1List = null;
             player1AccusedCharacter = string.Empty;
             player1ChosenCharacter = string.Empty;
             player1Won = false;
@@ -245,6 +266,7 @@ public class GameManager : NetworkBehaviour
         else if (playerToRemove == 2)
         {
             player2 = null;
+            player2List = null;
             player2AccusedCharacter = string.Empty;
             player2ChosenCharacter = string.Empty;
             player2Won = false;

@@ -91,12 +91,11 @@ public class Player : NetworkBehaviour
         mainPanel.connectionNote.Enable();
         mainPanel.hostNote.Enable();
         mainPanel.quitNote.Enable();
-        mainPanel.listCreatorNote.Enable();
     }
 
     public void StartGame()
     {
-        game.StartGame();
+        game.LoadGame();
     }
 
     public void ChooseCharacter(Character character)

@@ -21,6 +21,8 @@ public class WinPanel : MonoBehaviour
     public bool isShown;
     public string result;
 
+    [SerializeField] private GameObject backgroundBlocker;
+
     private Animator animator;
 
     private void Start()
@@ -66,6 +68,7 @@ public class WinPanel : MonoBehaviour
     public void Close()
     {
         animator.SetTrigger("FolderClose");
+        backgroundBlocker.SetActive(false);
         opponentChar = null;
         isShown = false;
     }
@@ -94,6 +97,7 @@ public class WinPanel : MonoBehaviour
 
         lines[0].gameObject.SetActive(true);
 
+        backgroundBlocker.SetActive(true);
         animator.SetTrigger("FolderOpen");
 
         isShown = true;

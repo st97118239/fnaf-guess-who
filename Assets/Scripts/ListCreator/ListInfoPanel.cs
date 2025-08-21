@@ -26,6 +26,7 @@ public class ListInfoPanel : MonoBehaviour
     public List<TMP_Text> texts;
     public Vector3 bodyImageOffset;
 
+    [SerializeField] private GameObject backgroundBlocker;
     [SerializeField] private float paperTimerBase;
 
     private readonly System.Random rnd = new();
@@ -232,6 +233,7 @@ public class ListInfoPanel : MonoBehaviour
             yield return new WaitForSeconds(0.75f);
 
         animator.SetTrigger("FolderClose");
+        backgroundBlocker.SetActive(false);
         character = null;
         polaroidSlot = null;
         listPanel.isInfoPanelShown = false;
@@ -309,6 +311,7 @@ public class ListInfoPanel : MonoBehaviour
 
         lines[0].gameObject.SetActive(true);
 
+        backgroundBlocker.SetActive(true);
         animator.SetTrigger("FolderOpen");
 
         listPanel.isInfoPanelShown = true;

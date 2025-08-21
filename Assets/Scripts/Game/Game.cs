@@ -6,14 +6,15 @@ public class Game : MonoBehaviour
     public GameManager gameManager;
     public MainPanel mainPanel;
     public Player player;
-    public CharacterList characterList;
+    public Character[] playerCharArray;
+    public Character[] opponentCharArray;
     public GameObject polaroidGrid;
     public CharacterSidebar characterSidebar;
     public InfoPanel infoPanel;
     public WinPanel winPanel;
     public GameObject charSlotPrefab;
     public GameObject emptySlotPrefab;
-    public List<Transform> emptySlots;
+    public List<EmptySlot> emptySlots;
     public List<CharSlot> charSlots;
     public List<CharSlot> crossedOff;
     public Character chosenCharacter;
@@ -21,9 +22,81 @@ public class Game : MonoBehaviour
     public bool isInfoPanelShown;
     public Vector3 polaroidSpawnPos;
 
+    [SerializeField] private int emptySlotAmount = 96;
+
     private int slotAmount;
 
-    public void StartGame()
+    public void LoadGame()
+    {
+        if (player.playerIdx == 1)
+        {
+            if (playerCharArray.Length == 0)
+            {
+                playerCharArray = new Character[gameManager.player1List.Length];
+
+                for (int i = 0; i < gameManager.player1List.Length; i++)
+                {
+                    playerCharArray[i] = Resources.Load<Character>(gameManager.player1List[i]);
+                }
+
+                Debug.Log("Added p1 to playerArray");
+            }
+
+            if (opponentCharArray.Length == 0)
+            {
+                opponentCharArray = new Character[gameManager.player2List.Length];
+
+                for (int i = 0; i < gameManager.player2List.Length; i++)
+                {
+                    opponentCharArray[i] = Resources.Load<Character>(gameManager.player2List[i]);
+                }
+
+                Debug.Log("Added p2 to opponentArray");
+            }
+        }
+        else if (player.playerIdx == 2)
+        {
+            if (playerCharArray.Length == 0)
+            {
+                playerCharArray = new Character[gameManager.player2List.Length];
+
+                for (int i = 0; i < gameManager.player2List.Length; i++)
+                {
+                    playerCharArray[i] = Resources.Load<Character>(gameManager.player2List[i]);
+                }
+
+                Debug.Log("Added p2 to playerArray");
+            }
+
+            if (opponentCharArray.Length == 0)
+            {
+                opponentCharArray = new Character[gameManager.player1List.Length];
+
+                for (int i = 0; i < gameManager.player1List.Length; i++)
+                {
+                    opponentCharArray[i] = Resources.Load<Character>(gameManager.player1List[i]);
+                }
+
+                Debug.Log("Added p1 to opponentArray");
+            }
+        }
+
+        if (gameManager.player1List.Length == 0)
+        {
+            Debug.Log("PLayer1List is empty.");
+        }
+        else if (gameManager.player2List.Length == 0)
+        {
+            Debug.Log("Player2List is empty.");
+        }
+
+        if (playerCharArray.Length > 0 && opponentCharArray.Length > 0)
+            StartGame();
+        else
+            gameManager.DisconnectAll();
+    }
+
+    private void StartGame()
     {
         Invoke(nameof(SpawnEmptySlots), 1f);
 
@@ -37,16 +110,13 @@ public class Game : MonoBehaviour
 
     private void SpawnEmptySlots()
     {
-        slotAmount = characterList.characters.Count;
+        emptySlots = new List<EmptySlot>(emptySlotAmount);
 
-        charSlots = new List<CharSlot>(slotAmount);
-        emptySlots = new List<Transform>(slotAmount);
-
-        for (int i = 0; i < slotAmount; i++)
+        for (int i = 0; i < emptySlotAmount; i++)
         {
-            GameObject slotObj = Instantiate(emptySlotPrefab, polaroidGrid.transform);
-            emptySlots.Add(slotObj.transform);
-            slotObj.GetComponent<EmptySlot>().index = i;
+            EmptySlot slotObj = Instantiate(emptySlotPrefab, polaroidGrid.transform).GetComponent<EmptySlot>();
+            emptySlots.Add(slotObj);
+            slotObj.index = i;
         }
 
         Invoke(nameof(SpawnPolaroids), Time.deltaTime);
@@ -54,14 +124,64 @@ public class Game : MonoBehaviour
 
     private void SpawnPolaroids()
     {
-        for (int i = 0; i < slotAmount; i++)
+        if (gameManager.round == 0 && !chosenCharacter)
         {
-            GameObject slotObj = Instantiate(charSlotPrefab, emptySlots[i].position, Quaternion.identity, emptySlots[i]);
-            charSlots.Add(slotObj.GetComponent<CharSlot>());
-            charSlots[i].Load(characterList.characters[i], this);
+            Debug.Log("Spawned player polaroids");
+
+            slotAmount = playerCharArray.Length;
+            charSlots = new List<CharSlot>(slotAmount);
+
+            for (int i = 0; i < slotAmount; i++)
+            {
+                GameObject slotObj = Instantiate(charSlotPrefab, emptySlots[i].transform.position, Quaternion.identity, emptySlots[i].transform);
+                charSlots.Add(slotObj.GetComponent<CharSlot>());
+                charSlots[i].Load(playerCharArray[i], this);
+            }
+        }
+        else
+        {
+            Debug.Log("Spawned opponent polaroids");
+
+            slotAmount = opponentCharArray.Length;
+            charSlots = new List<CharSlot>(slotAmount);
+
+            for (int i = 0; i < slotAmount; i++)
+            {
+                GameObject slotObj = Instantiate(charSlotPrefab, emptySlots[i].transform.position, Quaternion.identity, emptySlots[i].transform);
+                charSlots.Add(slotObj.GetComponent<CharSlot>());
+                charSlots[i].Load(opponentCharArray[i], this);
+            }
         }
 
+        ResetEmptyFade();
+        PlayEmptyFade();
         UpdateSidebar();
+    }
+
+    private void RemovePolaroids()
+    {
+        for (int i = 0; i < charSlots.Count; i++)
+        {
+            Destroy(charSlots[i].gameObject);
+        }
+
+        charSlots.Clear();
+    }
+
+    private void ResetEmptyFade()
+    {
+        for (int i = 0; i < emptySlots.Count; i++)
+        {
+            emptySlots[i].Reset();
+        }
+    }
+
+    private void PlayEmptyFade()
+    {
+        for (int i = 0; i < emptySlots.Count; i++)
+        {
+            emptySlots[i].Play();
+        }
     }
 
     public void ChooseCharacter(Character givenChar)
@@ -69,6 +189,15 @@ public class Game : MonoBehaviour
         chosenCharacter = givenChar;
         characterSidebar.SetCharacter(chosenCharacter);
         player.ChooseCharacter(givenChar);
+
+        Invoke(nameof(ChangePolaroids), 0.5f);
+    }
+
+    public void ChangePolaroids()
+    {
+        RemovePolaroids();
+
+        Invoke(nameof(SpawnPolaroids), 0.5f);
     }
 
     public void UpdateSidebar()
@@ -111,6 +240,8 @@ public class Game : MonoBehaviour
         player = null;
         charSlots.Clear();
         crossedOff.Clear();
+        playerCharArray = new Character[0];
+        opponentCharArray = new Character[0];
         chosenCharacter = null;
         slotAmount = 0;
 

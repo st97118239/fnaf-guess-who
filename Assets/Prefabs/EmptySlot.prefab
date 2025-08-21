@@ -65,4 +65,4 @@ MonoBehaviour:
   index: 0
   delay: 5
   fadeTime: 1
-  fadeAtStart: 1
+  fadeAtStart: 0
