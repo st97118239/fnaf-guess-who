@@ -9,11 +9,13 @@ public class MainPanel : NetworkBehaviour
     public GameManager gameManager;
     public ListPanel listPanel;
     public PopupPaper popupPaper;
+    public SettingsMenu settingsMenu;
 
     public Note readyNote;
     public Note connectionNote;
     public Note hostNote;
     public Note listCreatorNote;
+    public Note settingsNote;
     public Note quitNote;
 
     public string[] selectedArray;
@@ -88,6 +90,7 @@ public class MainPanel : NetworkBehaviour
                 connectionNote.Enable();
                 hostNote.Enable();
                 quitNote.Enable();
+                settingsMenu.isConnected = false;
             }
         }
     }
@@ -102,6 +105,7 @@ public class MainPanel : NetworkBehaviour
         connectionNote.Enable();
         hostNote.Enable();
         quitNote.Enable();
+        settingsMenu.isConnected = false;
         listCreatorNote.Enable();
 
         if (isReady)
@@ -190,6 +194,7 @@ public class MainPanel : NetworkBehaviour
             connectionNote.Enable();
 
         quitNote.Disable();
+        settingsMenu.isConnected = true;
 
         CancelInvoke(nameof(CheckConnection));
     }

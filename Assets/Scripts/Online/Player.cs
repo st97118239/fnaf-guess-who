@@ -115,6 +115,7 @@ public class Player : NetworkBehaviour
         mainPanel.connectionNote.Enable();
         mainPanel.hostNote.Enable();
         mainPanel.quitNote.Enable();
+        mainPanel.settingsMenu.isConnected = false;
     }
 
     public void ForceRemoveConnection()
@@ -147,6 +148,7 @@ public class Player : NetworkBehaviour
         mainPanel.connectionNote.Enable();
         mainPanel.hostNote.Enable();
         mainPanel.quitNote.Enable();
+        mainPanel.settingsMenu.isConnected = false;
     }
 
     public void StartGame()
