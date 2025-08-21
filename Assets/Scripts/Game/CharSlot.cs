@@ -11,6 +11,8 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
     public TMP_Text charName;
     public Character character;
 
+    [SerializeField] private bool canLMB = true;
+
     private Game gameScript;
     private bool isCrossedOff;
     private bool isAccused;
@@ -23,7 +25,8 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            Press();
+            if (canLMB)
+                Press();
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3256510230301515120}
   - component: {fileID: -8348641241178989187}
   m_Layer: 5
-  m_Name: EmptySlot
+  m_Name: ListEmptySlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,6 +63,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 3256510230301515120}
   index: 0
-  delay: 5
-  fadeTime: 1
-  fadeAtStart: 1
+  delay: 3
+  fadeTime: 0.5
+  fadeAtStart: 0

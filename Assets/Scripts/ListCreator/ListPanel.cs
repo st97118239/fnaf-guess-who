@@ -1,0 +1,163 @@
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+public class ListPanel : MonoBehaviour
+{
+    public SaveManager saveManager;
+    public ListInfoPanel infoPanel;
+    public ListData selectedList;
+    public ListData openedList;
+
+    public int menu; // -1 = loading, 0 = listsMenu, 1 = listCharactersMenu
+    public bool isInfoPanelShown;
+    
+    [SerializeField] private Game game;
+    [SerializeField] private GameObject listGrid;
+    [SerializeField] private GameObject listNotePrefab;
+    [SerializeField] private GameObject emptySlotPrefab;
+    [SerializeField] private GameObject polaroidPrefab;
+
+    [SerializeField] private Note backNote;
+    [SerializeField] private Note leaveNote;
+    [SerializeField] private Note saveNote;
+
+    [SerializeField] private int emptySlotAmount;
+    
+    private List<ListNote> listNotes;
+    private List<EmptySlot> emptySlots;
+    private List<ListPolaroid> polaroids;
+    private int listAmount;
+    private bool hasLoaded;
+
+    private void Awake()
+    {
+        if (emptySlotAmount == 0)
+        {
+            emptySlotAmount = 96; // Set emptySlotAmount to max otherwise we get an error
+            Debug.LogWarning("emptySlotAmount is set to 0, please set an amount.");
+        }
+    }
+
+    public void LoadPanel()
+    {
+        game.animator.SetTrigger("ListCreatorOpen");
+
+        if (!hasLoaded)
+            Invoke(nameof(SpawnFirst), 1);
+        else
+            Invoke(nameof(PlayFadeAnim), 1);
+    }
+
+    public void ClosePanel()
+    {
+        game.animator.SetTrigger("ListCreatorClose");
+    }
+
+    private void PlayFadeAnim()
+    {
+        for (int i = 0; i < emptySlots.Count; i++)
+        {
+            emptySlots[i].Play();
+        }
+    }
+
+    public void SpawnFirst()
+    {
+        hasLoaded = true;
+
+        menu = -1;
+
+        listAmount = saveManager.saveData.lists.Count;
+
+        listNotes = new List<ListNote>(listAmount);
+        emptySlots = new List<EmptySlot>(emptySlotAmount);
+
+        for (int i = 0; i < emptySlotAmount; i++)
+        {
+            GameObject slotObj = Instantiate(emptySlotPrefab, listGrid.transform);
+            emptySlots.Add(slotObj.GetComponent<EmptySlot>());
+            emptySlots[i].index = i;
+        }
+
+        SpawnListNotes();
+    }
+
+    private void SpawnListNotes()
+    {
+        for (int i = 0; i < listAmount; i++)
+        {
+            GameObject slotObj = Instantiate(listNotePrefab, emptySlots[i].transform.position, Quaternion.identity, emptySlots[i].transform);
+            listNotes.Add(slotObj.GetComponent<ListNote>());
+            listNotes[i].Load(saveManager.saveData.lists[i], this, 0);
+        }
+
+        backNote.Disable();
+        menu = 0;
+
+        PlayFadeAnim();
+    }
+
+    public void OpenList(ListData list)
+    {
+        Debug.Log("Opened list: " + list.name);
+
+        openedList = list;
+
+        for (int i = 0; i < listNotes.Count; i++)
+        {
+            Destroy(listNotes[i].gameObject);
+        }
+
+        listNotes.Clear();
+
+        for (int i = 0; i < emptySlots.Count; i++)
+        {
+            emptySlots[i].Reset();
+        }
+
+        SpawnPolaroids();
+    }
+
+    public void SpawnPolaroids()
+    {
+        polaroids = new List<ListPolaroid>(openedList.characters.Count);
+
+        for (int i = 0; i < openedList.characters.Count; i++)
+        {
+            GameObject slotObj = Instantiate(polaroidPrefab, emptySlots[i].transform.position, Quaternion.identity, emptySlots[i].transform);
+            polaroids.Add(slotObj.GetComponent<ListPolaroid>());
+            polaroids[i].Load(openedList.characters[i], this);
+        }
+
+        backNote.Enable();
+        menu = 1;
+
+        PlayFadeAnim();
+    }
+
+    public void ShowInfoPanel(Character character)
+    {
+        infoPanel.Show(character);
+    }
+
+    public void ListCharactersBack()
+    {
+        for (int i = 0; i < polaroids.Count; i++)
+        {
+            Destroy(polaroids[i].gameObject);
+        }
+
+        polaroids.Clear();
+
+        SpawnListNotes();
+    }
+
+    public void BackNote()
+    {
+        if (menu == 1)
+        {
+            ListCharactersBack();   
+        }
+    }
+}

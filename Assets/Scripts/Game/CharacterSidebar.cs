@@ -8,6 +8,7 @@ public class CharacterSidebar : MonoBehaviour
     public Game gameScript;
     public Image slotImage;
     public Image characterImage;
+    public CharSlot chosenSlot;
     public TMP_Text characterNameText;
     public TMP_Text suspectsLeftText;
     public TMP_Text turnText;
@@ -36,10 +37,9 @@ public class CharacterSidebar : MonoBehaviour
     {
         character = givenCharacter;
 
+        chosenSlot.Load(givenCharacter, gameScript);
         slotImage.color = opaque;
-        characterImage.sprite = character.polaroidSprite[0];
         characterImage.color = opaque;
-        characterNameText.text = character.characterName;
 
         slotImage.gameObject.SetActive(true);
         polaroidAnimator.SetTrigger("ChooseCharacter");

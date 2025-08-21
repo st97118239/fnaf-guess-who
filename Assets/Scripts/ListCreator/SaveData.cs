@@ -4,6 +4,8 @@ using System.Collections.Generic;
 public class ListData
 {
     public string name;
+    public bool builtIn;
+    public bool selected;
     public List<string> characters = new();
 }
 
