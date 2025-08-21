@@ -96,6 +96,7 @@ public class ListPanel : MonoBehaviour
 
         backNote.Disable();
         saveNote.Disable();
+        selectNote.Disable();
         menu = 0;
 
         PlayFadeAnim();
@@ -170,15 +171,20 @@ public class ListPanel : MonoBehaviour
 
     public void SelectNote()
     {
+        selectedList.selected = false;
         selectedList = openedList;
+        selectedList.selected = true;
         Debug.Log("Selected list: " + selectedList.name);
         selectNote.Disable();
+        saveManager.Save();
     }
 
     public void RemoveCharacterFromList(Character givenCharacter, int givenIndex)
     {
         Debug.Log("Removed " + givenCharacter.name + " from list " + openedList.name);
         openedList.characters.RemoveAt(givenIndex);
+
+        saveManager.Save();
 
         for (int i = 0; i < polaroids.Count; i++)
         {

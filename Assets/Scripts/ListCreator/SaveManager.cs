@@ -79,9 +79,7 @@ public class SaveManager : MonoBehaviour
         if (saveData.lists[0] != null)
             listToSave.selected = true;
 
-        string save = JsonUtility.ToJson(saveData);
-
-        File.WriteAllText(savePath, save);
+        Save();
 
         Debug.Log("Saved list: " + listToSave.name);
     }
@@ -135,10 +133,7 @@ public class SaveManager : MonoBehaviour
         listToSave.characters = listPanelList.characters.ToList();
         listToSave.name = listPanelList.name;
 
-        string save = JsonUtility.ToJson(saveData);
-
-        using StreamWriter saveWriter = new(savePath);
-        saveWriter.Write(save);
+        Save();
     }
 
     public void SaveCharToJSON()
@@ -172,6 +167,11 @@ public class SaveManager : MonoBehaviour
         listToSave.characters = listCharacters.characters.Select(c => c.directory).ToList();
         listToSave.name = listCharacters.name;
 
+        Save();
+    }
+
+    public void Save()
+    {
         string save = JsonUtility.ToJson(saveData);
 
         using StreamWriter saveWriter = new(savePath);
