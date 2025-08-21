@@ -27,7 +27,9 @@ public class GameManager : NetworkBehaviour
     {
         round = -1;
         turn = 0;
-        Debug.Log("Started Server");
+
+        if (isServer)
+            Debug.Log("Started Server");
     }
 
     private void Update()
