@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 public class ListPolaroid : MonoBehaviour, IPointerClickHandler
 {
     public Character character;
+    public int index;
 
     [SerializeField] private Polaroid polaroid;
 
@@ -21,10 +22,11 @@ public class ListPolaroid : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void Load(string givenCharacterDirectory, ListPanel givenPanel)
+    public void Load(string givenCharacterDirectory, ListPanel givenPanel, int givenIndex)
     {
         character = Resources.Load<Character>(givenCharacterDirectory);
         listPanel = givenPanel;
+        index = givenIndex;
 
         polaroid.Load(character);
     }
@@ -38,7 +40,7 @@ public class ListPolaroid : MonoBehaviour, IPointerClickHandler
     {
         if (!listPanel.isInfoPanelShown)
         {
-            listPanel.infoPanel.charSlot = this;
+            listPanel.infoPanel.polaroidSlot = this;
             listPanel.ShowInfoPanel(character);
         }
     }

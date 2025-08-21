@@ -93,6 +93,7 @@ public class ListPanel : MonoBehaviour
         }
 
         backNote.Disable();
+        saveNote.Disable();
         menu = 0;
 
         PlayFadeAnim();
@@ -127,10 +128,12 @@ public class ListPanel : MonoBehaviour
         {
             GameObject slotObj = Instantiate(polaroidPrefab, emptySlots[i].transform.position, Quaternion.identity, emptySlots[i].transform);
             polaroids.Add(slotObj.GetComponent<ListPolaroid>());
-            polaroids[i].Load(openedList.characters[i], this);
+            polaroids[i].Load(openedList.characters[i], this, i);
         }
 
         backNote.Enable();
+        if (!openedList.builtIn)
+            saveNote.Enable();
         menu = 1;
 
         PlayFadeAnim();
@@ -159,5 +162,18 @@ public class ListPanel : MonoBehaviour
         {
             ListCharactersBack();   
         }
+    }
+
+    public void RemoveCharacterFromList(Character givenCharacter, int givenIndex)
+    {
+        Debug.Log("Removed " + givenCharacter.name + " from list " + openedList.name);
+        openedList.characters.RemoveAt(givenIndex);
+
+        for (int i = 0; i < polaroids.Count; i++)
+        {
+            Destroy(polaroids[i].gameObject);
+        }
+
+        SpawnPolaroids();
     }
 }

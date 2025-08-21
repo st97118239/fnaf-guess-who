@@ -23,7 +23,6 @@ public class GameManager : NetworkBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("enabled");
         round = -1;
         turn = 0;
         Debug.Log("Started Server");

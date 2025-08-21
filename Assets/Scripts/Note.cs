@@ -6,7 +6,7 @@ public class Note : MonoBehaviour
 {
     public Button noteButton;
     public TMP_Text noteText;
-    public Image noteXIMage;
+    public Image noteXImage;
 
     [SerializeField] private bool isButton;
     [SerializeField] private bool startCrossedOff;
@@ -20,20 +20,20 @@ public class Note : MonoBehaviour
             noteButton = GetComponent<Button>();
         if (!noteText)
             noteText = GetComponentInChildren<TMP_Text>();
-        if (!noteXIMage)
-            noteXIMage = transform.Find("X").GetComponent<Image>();
+        if (!noteXImage)
+            noteXImage = transform.Find("X").GetComponent<Image>();
 
-        if (noteXIMage)
+        if (noteXImage)
         {
             if (startCrossedOff)
             {
-                noteXIMage.color = opaque;
+                noteXImage.color = opaque;
                 if (isButton)
                     noteButton.interactable = false;
             }
             else if (!startCrossedOff)
             {
-                noteXIMage.color = transparent;
+                noteXImage.color = transparent;
                 if (isButton)
                     noteButton.interactable = true;
             }
@@ -42,13 +42,13 @@ public class Note : MonoBehaviour
 
     public void Enable()
     {
-        noteXIMage.color = transparent;
+        noteXImage.color = transparent;
         noteButton.interactable = true;
     }
 
     public void Disable()
     {
-        noteXIMage.color = opaque;
+        noteXImage.color = opaque;
         noteButton.interactable = false;
     }
 

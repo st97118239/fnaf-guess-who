@@ -8,6 +8,7 @@ public class SaveManager : MonoBehaviour
     public SaveData saveData;
 
     [SerializeField] private ListDataChar listCharacters;
+    [SerializeField] private ListData listPanelList;
     [SerializeField] private ListData listToSave;
 
     [SerializeField] private CharacterList defaultList;
@@ -97,9 +98,57 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    public void SaveIntoJson()
+    public void SaveButton()
     {
-        if (listCharacters.name == string.Empty || listCharacters.characters.Count == 0)
+        listPanelList = listPanel.openedList;
+        SaveListToJSON();
+    }
+
+    public void SaveListToJSON()
+    {
+        if (listPanelList.name == string.Empty)
+        {
+            Debug.LogWarning("List has no name.");
+            return;
+        }
+        else if (listPanelList.characters.Count == 0)
+        {
+            Debug.LogWarning("List is empty.");
+            return;
+        }
+        else if (listPanelList.characters.Count < 3)
+        {
+            Debug.LogWarning("Too little amount of characters selected in the list. The game requires 3 or more characters in the list.");
+            return;
+        }
+
+        int idxToCreateNewListAt = saveData.lists.FindIndex(l => l.name == listPanelList.name);
+
+        if (idxToCreateNewListAt != -1)
+            listToSave = saveData.lists[idxToCreateNewListAt];
+        else
+        {
+            listToSave = new ListData();
+            saveData.lists.Add(listToSave);
+        }
+
+        listToSave.characters = listPanelList.characters.ToList();
+        listToSave.name = listPanelList.name;
+
+        string save = JsonUtility.ToJson(saveData);
+
+        using StreamWriter saveWriter = new(savePath);
+        saveWriter.Write(save);
+    }
+
+    public void SaveCharToJSON()
+    {
+        if (listCharacters.name == string.Empty)
+        {
+            Debug.LogWarning("List has no name.");
+            return;
+        }
+        else if (listCharacters.characters.Count == 0)
         {
             Debug.LogWarning("List is empty.");
             return;

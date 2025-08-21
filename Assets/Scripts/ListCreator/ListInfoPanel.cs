@@ -10,7 +10,7 @@ public class ListInfoPanel : MonoBehaviour
     public ListPanel listPanel;
     public AudioSource audioManager;
     public Character character;
-    public ListPolaroid charSlot;
+    public ListPolaroid polaroidSlot;
     public GameObject polaroid;
     public GameObject infoPaper;
     public Transform bodyPaperParent;
@@ -233,7 +233,7 @@ public class ListInfoPanel : MonoBehaviour
 
         animator.SetTrigger("FolderClose");
         character = null;
-        charSlot = null;
+        polaroidSlot = null;
         listPanel.isInfoPanelShown = false;
     }
 
@@ -316,6 +316,11 @@ public class ListInfoPanel : MonoBehaviour
 
     public void ChooseCharacter()
     {
+        if (listPanel.menu == 1 && !listPanel.openedList.builtIn)
+        {
+            listPanel.RemoveCharacterFromList(character, polaroidSlot.index);
 
+            Hide();
+        }
     }
 }

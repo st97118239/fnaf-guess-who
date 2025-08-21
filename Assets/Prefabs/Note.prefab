@@ -63,8 +63,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteButton: {fileID: 1158697169716760427}
   noteText: {fileID: 2028061977133402481}
-  noteXIMage: {fileID: 5653542745414963770}
+  noteXImage: {fileID: 5653542745414963770}
   isButton: 1
+  startCrossedOff: 0
 --- !u!114 &8518961126098211083
 MonoBehaviour:
   m_ObjectHideFlags: 0
