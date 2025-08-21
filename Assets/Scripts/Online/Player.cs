@@ -12,6 +12,8 @@ public class Player : NetworkBehaviour
     public Game game;
     public MainPanel mainPanel;
 
+    public bool forcedLeave;
+
     private GameManager gameManager;
 
     private void Start()
@@ -56,16 +58,26 @@ public class Player : NetworkBehaviour
         Invoke(nameof(RemoveConnection), 0.5f);
     }
 
+    public void ForceDisconnect()
+    {
+        forcedLeave = true;
+        gameManager.player = null;
+        gameManager.opponent = null;
+
+        Invoke(nameof(RemoveConnection), 0.5f);
+    }
+
     [ClientRpc]
     public void RpcForceDisconnect()
     {
         if (!isLocalPlayer)
             return;
 
+        forcedLeave = true;
         gameManager.player = null;
         gameManager.opponent = null;
 
-        Invoke(nameof(RemoveConnection), 0.2f);
+        Invoke(nameof(ForceRemoveConnection), 0.2f);
     }
 
     public void CanReady()
@@ -79,14 +91,58 @@ public class Player : NetworkBehaviour
         Debug.Log("Disabling ready");
         mainPanel.DisabeReady();
     }
+    
+    public void OpponentLeft()
+    {
+        isReadyToPlay = false;
+        mainPanel.popupPaper.Show(Error.OpponentLeft);
+    }
 
     public void RemoveConnection()
     {
         NetworkManager.singleton.StopClient();
         Debug.Log("Disconnected from server.");
 
+        if (!mainPanel)
+            return;
+
+        if (forcedLeave)
+            mainPanel.popupPaper.Show(Error.ServerFull);
+
         mainPanel.connectionNote.ChangeText("Connect");
 
+        mainPanel.readyNote.Disable();
+        mainPanel.connectionNote.Enable();
+        mainPanel.hostNote.Enable();
+        mainPanel.quitNote.Enable();
+    }
+
+    public void ForceRemoveConnection()
+    {
+        if (game.player.playerIdx == 1)
+            game.gameManager.player = null;
+        else if (game.player.playerIdx == 2)
+            game.gameManager.player = null;
+
+        if (gameManager.hasStarted)
+        {
+            game.Leave();
+        }
+
+        if (gameManager.hasStarted)
+            mainPanel.popupPaper.Show(Error.OpponentLeft);
+        else if (!isHost)
+            mainPanel.popupPaper.Show(Error.HostLeft);
+
+        NetworkManager.singleton.StopClient();
+        Debug.Log("Disconnected from server.");
+
+        if (!mainPanel)
+            return;
+
+        mainPanel.connectionNote.ChangeText("Connect");
+
+        mainPanel.isReady = false;
         mainPanel.readyNote.Disable();
         mainPanel.connectionNote.Enable();
         mainPanel.hostNote.Enable();

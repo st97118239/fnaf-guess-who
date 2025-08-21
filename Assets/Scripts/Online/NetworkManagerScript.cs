@@ -37,7 +37,6 @@ public class NetworkManagerScript : NetworkManager
 
         if (player.isHost)
         {
-            Debug.Log("player is host");
             mainPanel.HostStop();
         }
 
@@ -46,8 +45,12 @@ public class NetworkManagerScript : NetworkManager
 
     public override void OnClientDisconnect()
     {
-        if (game.player)
-            game.player.RemoveConnection();
+        if (game.player && game.player.forcedLeave)
+            game.player.ForceRemoveConnection();
+        else if (!game.player)
+        {
+            game.mainPanel.ServerFull();
+        }
 
         base.OnClientDisconnect();
 
@@ -56,6 +59,22 @@ public class NetworkManagerScript : NetworkManager
 
     public override void OnStopServer()
     {
+        bool p1 = false;
+        bool p2 = false;
+
+        if (gameManager.player1)
+            p1 = true;
+        if (gameManager.player2)
+            p2 = true;
+
+        if (p1 && p2)
+        {
+            if (!gameManager.player1.isHost)
+                gameManager.player1.mainPanel.popupPaper.Show(Error.ServerDisconnected);
+            else if (!gameManager.player2.isHost)
+                gameManager.player2.mainPanel.popupPaper.Show(Error.ServerDisconnected);
+        }
+
         base.OnStopServer();
 
         Debug.Log("Server stopped.");

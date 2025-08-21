@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,21 +14,20 @@ public class Polaroid : MonoBehaviour
 
     [SerializeField] private bool startCrossedOff;
     [SerializeField] private bool isCrossedOff;
+    [SerializeField] private bool hasCircle;
 
-    private Color transparent = new(255, 255, 255, 0);
-    private Color opaque = new(255, 255, 255, 255);
-    private Color disabled = new(0.549f, 0.549f, 0.549f, 255);
+    [SerializeField] private float fillTime = 1; 
 
     private void Awake()
     {
         if (polXImage)
         {
-            if (startCrossedOff)
+            if (startCrossedOff && polXImage.fillAmount == 0)
             {
                 isCrossedOff = false;
                 CrossOff();
             }
-            else if (!startCrossedOff)
+            else if (!startCrossedOff && polXImage.fillAmount == 1)
             {
                 isCrossedOff = true;
                 CrossOff();
@@ -35,32 +35,76 @@ public class Polaroid : MonoBehaviour
         }
     }
 
+    private IEnumerator FadeImage(bool fill, string image, bool imageDisabling)
+    {
+        yield return null;
+
+        polXImage.sprite = Resources.Load<Sprite>("UI/" + image);
+
+        Color startColor = fill ? Color.white : Color.grey;
+        Color endColor = fill ? Color.grey : Color.white;
+
+        for (float i = 0; i <= fillTime + Time.deltaTime; i += Time.deltaTime)
+        {
+            if (i > fillTime) i = fillTime;
+
+            float fillAmount = i / fillTime;
+            polXImage.fillAmount = fill ? fillAmount : 1 - fillAmount;
+
+            if (imageDisabling)
+            {
+                polImage.color = Color.Lerp(startColor, endColor, fillAmount);
+                characterImage.color = Color.Lerp(startColor, endColor, fillAmount);
+            }
+
+            yield return null;
+        }
+    }
+
     public void Enable()
     {
-        polXImage.color = transparent;
+        isCrossedOff = true;
+        CrossOff();
         polButton.interactable = true;
     }
 
     public void Disable()
     {
-        polXImage.color = opaque;
+        isCrossedOff = false;
+        CrossOff();
         polButton.interactable = false;
     }
 
     public void CrossOff()
     {
+        if (hasCircle)
+            return;
+
         if (isCrossedOff)
         {
-            polXImage.color = transparent;
-            polImage.color = opaque;
-            characterImage.color = opaque;
+            StartCoroutine(FadeImage(false, "X", true));
             isCrossedOff = false;
         }
         else
         {
-            polXImage.color = opaque;
-            polImage.color = disabled;
-            characterImage.color = disabled;
+            StartCoroutine(FadeImage(true, "X", true));
+            isCrossedOff = true;
+        }
+    }
+
+    public void Circle()
+    {
+        if (isCrossedOff)
+            return;
+
+        if (hasCircle)
+        {
+            StartCoroutine(FadeImage(false, "O", false));
+            isCrossedOff = false;
+        }
+        else
+        {
+            StartCoroutine(FadeImage(true, "O", false));
             isCrossedOff = true;
         }
     }

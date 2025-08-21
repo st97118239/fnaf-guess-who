@@ -19,6 +19,15 @@ public class MainPanel : NetworkBehaviour
     public string[] selectedArray;
     public bool isHost;
     public bool isReady;
+    public bool isInGame;
+
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Escape))
+    //    {
+    //        Quit();
+    //    }
+    //}
 
     public void ReadyUp()
     {
@@ -70,7 +79,7 @@ public class MainPanel : NetworkBehaviour
             catch (SocketException)
             {
                 Debug.LogError("SocketException: Only one usage of each socket address (protocol/network address/port) is normally permitted.");
-                popupPaper.Show("MultipleHosts");
+                popupPaper.Show(Error.MultipleHosts);
                 Debug.Log("Stopping host.");
 
                 connectionNote.ChangeText("Connect");
@@ -137,7 +146,7 @@ public class MainPanel : NetworkBehaviour
             NetworkManager.singleton.StartClient();
             Debug.Log("Connecting to server.");
 
-            Invoke(nameof(CheckConnection), 1);
+            Invoke(nameof(CheckConnection), 5);
         }
     }
 
@@ -148,12 +157,30 @@ public class MainPanel : NetworkBehaviour
 
         Debug.Log("Can't connect.");
         NetworkManager.singleton.StopClient();
+        popupPaper.Show(Error.NoConnection);
 
         hostNote.Enable();
         connectionNote.Enable();
+        connectionNote.ChangeText("Connect");
 
         if (isReady)
             isReady = false;
+    }
+
+    public void ServerFull()
+    {
+        if (NetworkClient.isConnected)
+            return;
+
+        CancelInvoke(nameof(CheckConnection));
+
+        Debug.Log("Server is full.");
+        NetworkManager.singleton.StopClient();
+        popupPaper.Show(Error.ServerFull);
+
+        hostNote.Enable();
+        connectionNote.Enable();
+        connectionNote.ChangeText("Connect");
     }
 
     public void ClientConnected()
@@ -163,6 +190,8 @@ public class MainPanel : NetworkBehaviour
             connectionNote.Enable();
 
         quitNote.Disable();
+
+        CancelInvoke(nameof(CheckConnection));
     }
 
     public void EnableReady()

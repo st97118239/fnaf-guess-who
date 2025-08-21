@@ -177,7 +177,7 @@ public class InfoPanel : MonoBehaviour
         {
             chooseNote.gameObject.SetActive(true);
             chooseNote.ChangeText("Accuse");
-            if (gameScript.player.accusedCharacter != string.Empty || gameScript.gameManager.turn != gameScript.player.playerIdx)
+            if (gameScript.player.accusedCharacter != string.Empty || gameScript.gameManager.turn != gameScript.player.playerIdx || charSlot.isCrossedOff)
             {
                 chooseNote.Disable();
             }

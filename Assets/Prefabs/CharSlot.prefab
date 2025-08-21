@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -141,11 +141,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 08d22a95a2edc444d8b902f14c0999c3, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 2
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 2782491715836447311}
   - component: {fileID: 3733648433284944220}
   - component: {fileID: 9036724627292298885}
+  - component: {fileID: 4048306672937834167}
   m_Layer: 5
   m_Name: CharSlot
   m_TagString: Untagged
@@ -291,7 +292,31 @@ MonoBehaviour:
   xImage: {fileID: 5311072566952055460}
   charName: {fileID: 7584876009988583179}
   character: {fileID: 0}
-  disabled: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 255}
+  canLMB: 1
+  polaroid: {fileID: 4048306672937834167}
+  isCrossedOff: 0
+--- !u!114 &4048306672937834167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920305166814788680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12e522cf8abb6a94186d54f637f3c1f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polButton: {fileID: 3733648433284944220}
+  polImage: {fileID: 2782491715836447311}
+  characterImage: {fileID: 4480168494335942266}
+  characterText: {fileID: 7584876009988583179}
+  polXImage: {fileID: 5311072566952055460}
+  character: {fileID: 0}
+  startCrossedOff: 0
+  isCrossedOff: 0
+  hasCircle: 0
+  fillTime: 0.4
 --- !u!1 &7866389356716923161
 GameObject:
   m_ObjectHideFlags: 0

@@ -106,6 +106,8 @@ public class Game : MonoBehaviour
 
         if (mainPanel.isReady)
             mainPanel.isReady = false;
+
+        mainPanel.isInGame = true;
     }
 
     private void SpawnEmptySlots()
@@ -232,6 +234,7 @@ public class Game : MonoBehaviour
             player.Disconnect();
         else
             mainPanel.Disconnected();
+        mainPanel.isInGame = false;
         Invoke(nameof(ResetGame), 1);
     }
 

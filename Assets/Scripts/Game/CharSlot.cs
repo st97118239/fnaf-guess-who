@@ -12,14 +12,17 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
     public Character character;
 
     [SerializeField] private bool canLMB = true;
+    [SerializeField] private Polaroid polaroid;
 
     private Game gameScript;
-    private bool isCrossedOff;
+    public bool isCrossedOff;
     private bool isAccused;
 
-    private Color transparent = new(255, 255, 255, 0);
-    private Color opaque = new(255, 255, 255, 255);
-    private Color disabled = new(0.549f, 0.549f, 0.549f, 255);
+    private void Start()
+    {
+        if (!polaroid)
+            polaroid = GetComponent<Polaroid>();
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -65,18 +68,14 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
         if (isCrossedOff)
         {
             isCrossedOff = false;
-            xImage.color = transparent;
-            slotImage.color = opaque;
-            characterImage.color = opaque;
+            polaroid.CrossOff();
             gameScript.crossedOff.Remove(this);
             gameScript.UpdateSidebar();
         }
         else
         {
             isCrossedOff = true;
-            xImage.color = opaque;
-            slotImage.color = disabled;
-            characterImage.color = disabled;
+            polaroid.CrossOff();
             gameScript.crossedOff.Add(this);
             gameScript.UpdateSidebar();
         }
@@ -87,8 +86,7 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
         if (isCrossedOff)
             Toggle();
 
-        xImage.sprite = Resources.Load<Sprite>("UI/O");
-        xImage.color = opaque;
+        polaroid.Circle();
         isAccused = true;
     }
 }

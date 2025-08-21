@@ -65,6 +65,12 @@ public class GameManager : NetworkBehaviour
         {
             StartRound();
         }
+
+        if (round >= 0)
+        {
+            if (!player1 || !player2)
+                DisconnectAll();
+        }
     }
 
     [ClientRpc]
@@ -77,7 +83,8 @@ public class GameManager : NetworkBehaviour
     [ClientRpc]
     private void RpcDisableReady()
     {
-        player.CanNotReady();
+        if (player)
+            player.CanNotReady();
     }
 
     public void SetList(string[] givenArray)
@@ -109,7 +116,7 @@ public class GameManager : NetworkBehaviour
             player2.tag = "P2";
         }
         else
-            newPlayer.Disconnect();
+            newPlayer.ForceDisconnect();
     }
 
     [ClientRpc]
@@ -275,5 +282,12 @@ public class GameManager : NetworkBehaviour
         }
 
         RpcDisableReady();
+
+        if (hasStarted)
+            DisconnectAll();
+        else if (playerToRemove == 1 && player2)
+            player2.OpponentLeft();
+        else if (playerToRemove == 2 && player1)
+            player1.OpponentLeft();
     }
 }
