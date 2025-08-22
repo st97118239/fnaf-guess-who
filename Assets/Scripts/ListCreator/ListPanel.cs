@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class ListPanel : MonoBehaviour
 {
+    public Game game;
     public SaveManager saveManager;
     public ListInfoPanel infoPanel;
     public ListData selectedList;
@@ -11,9 +11,9 @@ public class ListPanel : MonoBehaviour
 
     public int menu; // -1 = loading, 0 = listsMenu, 1 = listCharactersMenu
     public bool isInfoPanelShown;
+    public bool fromCharacterPanel;
 
     [SerializeField] private MainPanel mainPanel;
-    [SerializeField] private Game game;
     [SerializeField] private GameObject listGrid;
     [SerializeField] private ListSettings listSettings;
     [SerializeField] private GameObject listNotePrefab;
@@ -47,7 +47,12 @@ public class ListPanel : MonoBehaviour
         if (hasLoaded)
             EmptySlotsReset();
 
-        game.animator.SetTrigger("ListCreatorOpen");
+        if (fromCharacterPanel)
+            game.animator.SetTrigger("ListCharClose");
+        else
+            game.animator.SetTrigger("ListCreatorOpen");
+
+        fromCharacterPanel = false;
 
         if (!hasLoaded)
             Invoke(nameof(SpawnFirst), 1);
