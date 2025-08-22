@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -141,11 +141,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 08d22a95a2edc444d8b902f14c0999c3, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 2
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -223,7 +223,7 @@ MonoBehaviour:
   startCrossedOff: 0
   isCrossedOff: 0
   hasCircle: 0
-  fillTime: 1
+  fillTime: 0.4
 --- !u!114 &572178864736654676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   index: 0
+  characterCanAdd: 0
   listPanel: {fileID: 0}
   polaroid: {fileID: 0}
 --- !u!114 &2782491715836447311

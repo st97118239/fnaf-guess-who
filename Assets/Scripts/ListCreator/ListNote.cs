@@ -8,6 +8,7 @@ public class ListNote : MonoBehaviour, IPointerClickHandler
     [SerializeField] private ListPanel listPanel;
     [SerializeField] private Note note;
     [SerializeField] private ListNoteType listNoteType;
+    [SerializeField] private int index;
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -31,14 +32,16 @@ public class ListNote : MonoBehaviour, IPointerClickHandler
 
     private void RMB()
     {
-        
+
+        listPanel.OpenSettings(index);
     }
 
-    public void LoadList(ListData givenList, ListPanel givenPanel, ListNoteType givenType)
+    public void LoadList(ListData givenList, ListPanel givenPanel, ListNoteType givenType, int givenIndex)
     {
         listPanel = givenPanel;
         list = givenList;
         listNoteType = givenType;
+        index = givenIndex;
 
         note.ChangeText(list.name);
     }

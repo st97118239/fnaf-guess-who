@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class ListPanel : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class ListPanel : MonoBehaviour
     public ListInfoPanel infoPanel;
     public ListData selectedList;
     public ListData openedList;
+    public CharactersPanel charactersPanel;
+    public CharacterClipboard characterClipboard;
 
     public int menu; // -1 = loading, 0 = listsMenu, 1 = listCharactersMenu
     public bool isInfoPanelShown;
@@ -23,7 +26,6 @@ public class ListPanel : MonoBehaviour
 
     [SerializeField] private Note backNote;
     [SerializeField] private Note leaveNote;
-    [SerializeField] private Note saveNote;
     [SerializeField] private Note selectNote;
 
     [SerializeField] private int emptySlotAmount;
@@ -61,14 +63,6 @@ public class ListPanel : MonoBehaviour
         game.animator.SetTrigger("ListCreatorClose");
     }
 
-    private void EmptySlotsReset()
-    {
-        for (int i = 0; i < emptySlots.Count; i++)
-        {
-            emptySlots[i].Reset();
-        }
-    }
-
     private void PlayFadeAnim(bool shouldReverse, bool shouldDestroyChildren, bool shouldDestroySelf)
     {
         for (int i = 0; i < emptySlots.Count; i++)
@@ -93,7 +87,6 @@ public class ListPanel : MonoBehaviour
         }
 
         backNote.Disable();
-        saveNote.Disable();
         selectNote.Disable();
         menu = 0;
 
@@ -111,7 +104,7 @@ public class ListPanel : MonoBehaviour
             GameObject slotObj = Instantiate(listNotePrefab, emptySlots[i].transform.position, Quaternion.identity, emptySlots[i].transform);
             listNotes.Add(slotObj.GetComponent<ListNote>());
             if (i < listAmount)
-                listNotes[i].LoadList(saveManager.saveData.lists[i], this, ListNoteType.Lists);
+                listNotes[i].LoadList(saveManager.saveData.lists[i], this, ListNoteType.Lists, i);
             else if (i == listAmount)
                 listNotes[i].NewListButton(this, ListNoteType.AddList);
         }
@@ -152,14 +145,59 @@ public class ListPanel : MonoBehaviour
         }
 
         backNote.Enable();
-        if (!openedList.builtIn)
-            saveNote.Enable();
         if (!openedList.selected && !mainPanel.isReady)
             selectNote.Enable();
         if (menu != 2)
             menu = 1;
 
         hasListOpen = true;
+
+        PlayFadeAnim(false, false, false);
+    }
+
+    public void RefreshCharactersMenu()
+    {
+        PlayFadeAnim(true, true, false);
+
+        Invoke(nameof(RefreshCharactersMenuSpawn), 0.7f);
+    }
+
+    private void RefreshCharactersMenuSpawn()
+    {
+        polaroids = new List<ListPolaroid>(openedList.characters.Count);
+
+        for (int i = 0; i < openedList.characters.Count; i++)
+        {
+            GameObject slotObj = Instantiate(polaroidPrefab, emptySlots[i].transform.position, Quaternion.identity, emptySlots[i].transform);
+            polaroids.Add(slotObj.GetComponent<ListPolaroid>());
+            polaroids[i].Load(openedList.characters[i], this, i);
+        }
+
+        PlayFadeAnim(false, false, false);
+    }
+
+    public void RefreshLists()
+    {
+        PlayFadeAnim(true, true, false);
+
+        Invoke(nameof(RefreshListsSpawn), 0.7f);
+    }
+
+    private void RefreshListsSpawn()
+    {
+        listAmount = saveManager.saveData.lists.Count;
+
+        listNotes = new List<ListNote>(listAmount);
+
+        for (int i = 0; i < listAmount + 1; i++)
+        {
+            GameObject slotObj = Instantiate(listNotePrefab, emptySlots[i].transform.position, Quaternion.identity, emptySlots[i].transform);
+            listNotes.Add(slotObj.GetComponent<ListNote>());
+            if (i < listAmount)
+                listNotes[i].LoadList(saveManager.saveData.lists[i], this, ListNoteType.Lists, i);
+            else if (i == listAmount)
+                listNotes[i].NewListButton(this, ListNoteType.AddList);
+        }
 
         PlayFadeAnim(false, false, false);
     }
@@ -177,7 +215,6 @@ public class ListPanel : MonoBehaviour
         openedList = new();
 
         backNote.Disable();
-        saveNote.Disable();
         selectNote.Disable();
         menu = 0;
 
@@ -211,21 +248,32 @@ public class ListPanel : MonoBehaviour
 
         saveManager.Save();
 
-        PlayFadeAnim(true, true, false);
+        RefreshCharactersMenu();
 
-        Invoke(nameof(OpenListCharactersMenu), 0.7f);
+        if (menu == 2)
+            charactersPanel.RecheckPolaroids();
     }
 
     public void AddCharacterToList(Character givenCharacter)
     {
+        int isInList = openedList.characters.FindIndex(d => d == givenCharacter.directory);
+
+        if (isInList != -1)
+        {
+            charactersPanel.RecheckPolaroids();
+            Debug.Log("Character already added.");
+            return;
+        }
+
         Debug.Log("Added " + givenCharacter.name + " to list " + openedList.name);
         openedList.characters.Add(givenCharacter.directory);
 
         saveManager.Save();
 
-        PlayFadeAnim(true, true, false);
+        RefreshCharactersMenu();
 
-        Invoke(nameof(OpenListCharactersMenu), 0.7f);
+        if (menu == 2)
+            charactersPanel.RecheckPolaroids();
     }
 
     public void NewList()
@@ -234,6 +282,11 @@ public class ListPanel : MonoBehaviour
 
         saveManager.saveData.lists.Add(openedList);
 
-        listSettings.Open();
+        listSettings.Open(true, -1);
+    }
+
+    public void OpenSettings(int index)
+    {
+        listSettings.Open(false, index);
     }
 }

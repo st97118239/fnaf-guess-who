@@ -84,6 +84,15 @@ public class SaveManager : MonoBehaviour
         Debug.Log("Saved list: " + listToSave.name);
     }
 
+    public void RemoveList(int indexToRemove)
+    {
+        if (indexToRemove != -1)
+        {
+            saveData.lists.RemoveAt(indexToRemove);
+            listPanel.RefreshLists();
+        }
+    }
+
     public void CreateNewSave()
     {
         listCharacters.name = defaultList.listName;

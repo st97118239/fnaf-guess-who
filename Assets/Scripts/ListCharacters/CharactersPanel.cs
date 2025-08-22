@@ -36,6 +36,8 @@ public class CharactersPanel : MonoBehaviour
 
         if (!hasLoaded)
             OpenFirst();
+        else if (listPanel.menu == 2)
+            RecheckPolaroids();
     }
 
     public void RefreshMenuVar()
@@ -135,6 +137,21 @@ public class CharactersPanel : MonoBehaviour
         }
 
         PlayFadeAnim(false, false, false);
+    }
+
+    public void RefreshPolaroids()
+    {
+        PlayFadeAnim(true, true, false);
+
+        Invoke(nameof(OpenCategory), 0.7f);
+    }
+
+    public void RecheckPolaroids()
+    {
+        for (int i = 0; i < characterPolaroids.Count; i++)
+        {
+            characterPolaroids[i].CheckIfCanAdd();
+        }
     }
 
     public void OpenCategoryFade(CharacterCategory categoryToOpen)

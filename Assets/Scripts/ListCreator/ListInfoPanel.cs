@@ -162,26 +162,18 @@ public class ListInfoPanel : MonoBehaviour
             chooseNote.gameObject.SetActive(true);
             chooseNote.ChangeText("Remove");
             if (listPanel.openedList.builtIn)
-            {
                 chooseNote.Disable();
-            }
             else
-            {
                 chooseNote.Enable();
-            }
         }
         else if (listPanel.menu == 2)
         {
             chooseNote.gameObject.SetActive(true);
             chooseNote.ChangeText("Add");
-            if (listPanel.openedList.builtIn || listPanel.openedList.characters.Count == 0)
-            {
+            if (listPanel.openedList.builtIn || !listPanel.hasListOpen || !polaroidSlot.characterCanAdd)
                 chooseNote.Disable();
-            }
             else
-            {
                 chooseNote.Enable();
-            }
         }
         else
             chooseNote.gameObject.SetActive(false);

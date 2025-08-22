@@ -5,6 +5,7 @@ public class ListPolaroid : MonoBehaviour, IPointerClickHandler
 {
     public Character character;
     public int index;
+    public bool characterCanAdd;
 
     public ListPanel listPanel;
 
@@ -33,7 +34,8 @@ public class ListPolaroid : MonoBehaviour, IPointerClickHandler
 
     private void LMB()
     {
-
+        if (listPanel.menu == 1)
+            listPanel.characterClipboard.OpenClipboard(character.directory, index);
     }
 
     private void RMB()

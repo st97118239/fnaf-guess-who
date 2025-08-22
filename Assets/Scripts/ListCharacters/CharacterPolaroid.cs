@@ -29,11 +29,28 @@ public class CharacterPolaroid : MonoBehaviour, IPointerClickHandler
         charactersPanel = givenPanel;
         index = givenIndex;
 
-
         listPolaroid.index = givenIndex;
         listPolaroid.character = givenCharacter;
         listPolaroid.listPanel = givenPanel.listPanel;
         polaroid.Load(character);
+
+        CheckIfCanAdd();
+    }
+
+    public void CheckIfCanAdd()
+    {
+        int isInList = charactersPanel.listPanel.openedList.characters.FindIndex(d => d == character.directory);
+
+        if (isInList != -1)
+        {
+            polaroid.Disable();
+            listPolaroid.characterCanAdd = false;
+        }
+        else
+        {
+            polaroid.Enable();
+            listPolaroid.characterCanAdd = true;
+        }
     }
 
     private void LMB()

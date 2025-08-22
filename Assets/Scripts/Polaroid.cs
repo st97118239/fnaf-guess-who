@@ -63,6 +63,9 @@ public class Polaroid : MonoBehaviour
 
     public void Enable()
     {
+        if (!isCrossedOff)
+            return;
+
         isCrossedOff = true;
         CrossOff();
         polButton.interactable = true;
@@ -70,6 +73,9 @@ public class Polaroid : MonoBehaviour
 
     public void Disable()
     {
+        if (isCrossedOff)
+            return;
+
         isCrossedOff = false;
         CrossOff();
         polButton.interactable = false;

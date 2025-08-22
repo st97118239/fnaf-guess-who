@@ -18,9 +18,9 @@ MonoBehaviour:
   animatronicClass: 13
   skinType: 0
   characters:
-  - {fileID: 11400000, guid: 9feb0663dca0b94469080ffbf9000ad4, type: 2}
+  - {fileID: 11400000, guid: 7697cfc588bd6df4e99c42cb88bddbf4, type: 2}
   - {fileID: 11400000, guid: 1ba66223a03fac247b9376fc7a55e9c5, type: 2}
   - {fileID: 11400000, guid: 227a8e4519196b142b45f8046de3e82e, type: 2}
   - {fileID: 11400000, guid: 260d730e5895d4d4893cedf6f02559d9, type: 2}
   - {fileID: 11400000, guid: 784f57ba73179e049b4e893f0344f80a, type: 2}
-  - {fileID: 11400000, guid: 784f57ba73179e049b4e893f0344f80a, type: 2}
+  - {fileID: 11400000, guid: 2bd71dfbc13bbda4ab99b7bf9197a18a, type: 2}
