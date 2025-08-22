@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fff3a4c7291e00944a95d321023b9214, type: 3}
   voicelines: []
   directory: Characters/FNAF4/Freddles
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 4
+  animatronicClass: 7
+  skinClass: 0

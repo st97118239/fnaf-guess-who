@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf271d81e87b502448501a9f874380a5, type: 3}
+  m_Name: PS
+  m_EditorClassIdentifier: 
+  categoryName: Pizzeria Sim
+  type: 1
+  firstGame: 7
+  animatronicClass: 0
+  skinType: 0
+  characters:
+  - {fileID: 11400000, guid: d2b1df3e50eff9046ae5842bc6a0c827, type: 2}
+  - {fileID: 11400000, guid: 9aeedc8f526b80e4e890c915e7ea237a, type: 2}
+  - {fileID: 11400000, guid: 9e1fd24cdd58d5f4692b827b956cd88d, type: 2}
+  - {fileID: 11400000, guid: 5a29b2f62b090e445acbf5e7c678cdd4, type: 2}
+  - {fileID: 11400000, guid: 112fb69d4ae9a444eb3387977d22ebd6, type: 2}
+  - {fileID: 11400000, guid: cc1789c343581fd4898d55bb33493a90, type: 2}
+  - {fileID: 11400000, guid: f44484bd0bcbd2c438d926dad0edee40, type: 2}
+  - {fileID: 11400000, guid: 0fae4752eebe7004184eea1baeac51a6, type: 2}
+  - {fileID: 11400000, guid: 8986e1120d01eaa4faf379f8a6ced98f, type: 2}
+  - {fileID: 11400000, guid: 8e298a276cfb6ed4693c7a6ae45e1afe, type: 2}
+  - {fileID: 11400000, guid: 8b23b018de08a1d49882cb3aacd984d6, type: 2}
+  - {fileID: 11400000, guid: f34fc48b75fc3b744adbad26f50486ad, type: 2}
+  - {fileID: 11400000, guid: 6f7aa277042535b4da1d2935bfdfcdd1, type: 2}
+  - {fileID: 11400000, guid: 512f4e60b5a39cc428240a1e7a7889e7, type: 2}
+  - {fileID: 11400000, guid: 56ae06eb55db5324fb1cc99656563e86, type: 2}
+  - {fileID: 11400000, guid: d198b7b2c8aa1ef40bd3e0f11e54a657, type: 2}
+  - {fileID: 11400000, guid: c01ee9348b4dda646b30c42f5efeb4a2, type: 2}

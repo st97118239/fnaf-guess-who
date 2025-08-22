@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 45188654dbba3c8499578ab8d4693b68, type: 3}
   voicelines: []
   directory: Characters/FNAF4/NMangle
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 4
+  animatronicClass: 7
+  skinClass: 0

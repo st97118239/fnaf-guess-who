@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf271d81e87b502448501a9f874380a5, type: 3}
+  m_Name: SB
+  m_EditorClassIdentifier: 
+  categoryName: Security Breach
+  type: 1
+  firstGame: 10
+  animatronicClass: 0
+  skinType: 0
+  characters:
+  - {fileID: 11400000, guid: 7697cfc588bd6df4e99c42cb88bddbf4, type: 2}
+  - {fileID: 11400000, guid: 1ba66223a03fac247b9376fc7a55e9c5, type: 2}
+  - {fileID: 11400000, guid: 227a8e4519196b142b45f8046de3e82e, type: 2}
+  - {fileID: 11400000, guid: 260d730e5895d4d4893cedf6f02559d9, type: 2}
+  - {fileID: 11400000, guid: a5cd613f978ce23499c1263a8a2d6c74, type: 2}
+  - {fileID: 11400000, guid: ff0c870cb45e96d42a88609c76591f73, type: 2}
+  - {fileID: 11400000, guid: 089d7f7002630bb4e9e6a3d66f1d5333, type: 2}
+  - {fileID: 11400000, guid: 461e9a2f617896243bc818c67c3a1c8b, type: 2}
+  - {fileID: 11400000, guid: 784f57ba73179e049b4e893f0344f80a, type: 2}
+  - {fileID: 11400000, guid: 2bd71dfbc13bbda4ab99b7bf9197a18a, type: 2}

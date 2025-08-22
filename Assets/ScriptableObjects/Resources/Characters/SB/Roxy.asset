@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4a01e0978165f6c4295db757ff847b05, type: 3}
   voicelines: []
   directory: Characters/SB/Roxy
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 10
+  animatronicClass: 13
+  skinClass: 0

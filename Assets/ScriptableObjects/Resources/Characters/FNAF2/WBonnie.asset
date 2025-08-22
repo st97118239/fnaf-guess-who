@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0607770b20683174d876fdf328768d17, type: 3}
   voicelines: []
   directory: Characters/FNAF2/WBonnie
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 2
+  animatronicClass: 2
+  skinClass: 0

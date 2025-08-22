@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e593f35d6ef89dc44a6244eab767da3d, type: 3}
   voicelines: []
   directory: Characters/FNAF2/TChica
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 2
+  animatronicClass: 3
+  skinClass: 0

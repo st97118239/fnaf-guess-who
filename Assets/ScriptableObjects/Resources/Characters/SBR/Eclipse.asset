@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 709ad1492cd72e940907e7136a8dbf85, type: 3}
   voicelines: []
   directory: Characters/SBR/Eclipse
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 11
+  animatronicClass: 14
+  skinClass: 0

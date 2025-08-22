@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8eba6dc8a937c9943aed171778b9c658, type: 3}
   voicelines: []
   directory: Characters/SB/Sun
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 10
+  animatronicClass: 14
+  skinClass: 0

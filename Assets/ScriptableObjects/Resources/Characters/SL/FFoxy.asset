@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bc8637dd47a95db42a6cac73c5e89498, type: 3}
   voicelines: []
   directory: Characters/SL/FFoxy
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 6
+  animatronicClass: 9
+  skinClass: 0

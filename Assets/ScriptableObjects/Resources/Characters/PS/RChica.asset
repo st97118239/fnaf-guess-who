@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 627695fea5d5332449787f9d33ddd575, type: 3}
   voicelines: []
   directory: Characters/PS/RChica
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 7
+  animatronicClass: 10
+  skinClass: 0

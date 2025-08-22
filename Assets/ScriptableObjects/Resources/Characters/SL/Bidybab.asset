@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 41f2d05e1c6c10d42a26d648fef9f948, type: 3}
   voicelines: []
   directory: Characters/SL/Bidybab
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 6
+  animatronicClass: 9
+  skinClass: 0

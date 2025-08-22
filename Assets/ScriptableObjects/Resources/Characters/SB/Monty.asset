@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4b6f0bf2a6cd24d4faf4daf7cf9d0e5e, type: 3}
   voicelines: []
   directory: Characters/SB/Monty
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 10
+  animatronicClass: 13
+  skinClass: 0

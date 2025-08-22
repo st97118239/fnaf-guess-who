@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 505d47f6821a8f745a5b9e44c84d2c91, type: 3}
   voicelines: []
   directory: Characters/FNAF3/PFoxy
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 3
+  animatronicClass: 5
+  skinClass: 0

@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a90eedfa5c23358468395aaee26679c7, type: 3}
   voicelines: []
   directory: Characters/SB/GlBonnie
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 10
+  animatronicClass: 13
+  skinClass: 0

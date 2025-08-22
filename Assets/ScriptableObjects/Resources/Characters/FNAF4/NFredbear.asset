@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e0194f8ec54edd849828a92b24a0d261, type: 3}
   voicelines: []
   directory: Characters/FNAF4/NFredbear
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 4
+  animatronicClass: 7
+  skinClass: 0

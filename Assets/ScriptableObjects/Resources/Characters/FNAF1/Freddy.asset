@@ -61,5 +61,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d0e93ef05cb7d2d4d8c345a561bf1b16, type: 3}
   - {fileID: 8300000, guid: c03ed5473a0c613489b1f0fd4a0946bc, type: 3}
   directory: Characters/FNAF1/Freddy
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 1
+  animatronicClass: 1
+  skinClass: 0

@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3009ae1be1d02f6459d9122e2efa6ce7, type: 3}
   voicelines: []
   directory: Characters/SL/Electrobab
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 6
+  animatronicClass: 9
+  skinClass: 0

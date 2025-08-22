@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf271d81e87b502448501a9f874380a5, type: 3}
+  m_Name: FNAF1
+  m_EditorClassIdentifier: 
+  categoryName: FNaF1
+  type: 1
+  firstGame: 1
+  animatronicClass: 0
+  skinType: 0
+  characters:
+  - {fileID: 11400000, guid: 31536014749df334b912266093b73626, type: 2}
+  - {fileID: 11400000, guid: a3ba5e0deea957945938f1229c1dd551, type: 2}
+  - {fileID: 11400000, guid: a5e28177438a1d444bb2ba5bf4f8df9d, type: 2}
+  - {fileID: 11400000, guid: cb5355ffabf169c489d8699b2b62ddca, type: 2}
+  - {fileID: 11400000, guid: 9feb0663dca0b94469080ffbf9000ad4, type: 2}
+  - {fileID: 11400000, guid: 8892654cb38722443aa4663289155d26, type: 2}

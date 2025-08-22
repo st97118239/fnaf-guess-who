@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4e1eacc07466f3140a5757ee10a6865a, type: 3}
   voicelines: []
   directory: Characters/HW/CaptFoxy
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 9
+  animatronicClass: 26
+  skinClass: 0

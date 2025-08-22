@@ -39,5 +39,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6884912d7a9eac24d8e840b1307325bc, type: 3}
   voicelines: []
   directory: Characters/PS/TatG
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 7
+  animatronicClass: 27
+  skinClass: 0

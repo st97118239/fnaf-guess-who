@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8fbc601d654b1c14c961f8f432ac542c, type: 3}
   voicelines: []
   directory: Characters/FNAF4/NBonnie
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 4
+  animatronicClass: 7
+  skinClass: 0

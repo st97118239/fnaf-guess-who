@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 63f16b096dbbcb94ab0ea12d8cb202a2, type: 3}
   voicelines: []
   directory: Characters/FNAF4/Nightmarionne
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 4
+  animatronicClass: 7
+  skinClass: 0

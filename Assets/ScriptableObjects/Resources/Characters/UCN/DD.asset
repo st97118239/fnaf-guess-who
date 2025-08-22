@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 94abbbc63e23280469b2ee0c6a814b7a, type: 3}
   voicelines: []
   directory: Characters/UCN/DD
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 8
+  animatronicClass: 3
+  skinClass: 0

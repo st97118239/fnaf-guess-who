@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d7d68e65f0317ab4f8c8cebe84804a7c, type: 3}
   voicelines: []
   directory: Characters/FNAF1/Chica
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 1
+  animatronicClass: 1
+  skinClass: 0

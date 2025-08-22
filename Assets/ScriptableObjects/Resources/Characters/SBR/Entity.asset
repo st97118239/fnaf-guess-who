@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a31c7c61563544047a5038a3c279abe1, type: 3}
   voicelines: []
   directory: Characters/SBR/Entity
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 11
+  animatronicClass: 25
+  skinClass: 0

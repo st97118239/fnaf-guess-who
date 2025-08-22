@@ -44,8 +44,8 @@ public class ListPanel : MonoBehaviour
 
     public void LoadPanel()
     {
-        if (hasLoaded)
-            EmptySlotsReset();
+        //if (hasLoaded)
+        //    EmptySlotsReset();
 
         if (fromCharacterPanel)
             game.animator.SetTrigger("ListCharClose");
@@ -56,8 +56,8 @@ public class ListPanel : MonoBehaviour
 
         if (!hasLoaded)
             Invoke(nameof(SpawnFirst), 1);
-        else
-            Invoke(nameof(PlayFadeAnim), 1);
+        //else
+        //    Invoke(nameof(PlayFadeAnim), 1);
     }
 
     public void ClosePanel()

@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 70ec25f17685048409a59485c04e74bc, type: 3}
   voicelines: []
   directory: Characters/HW2/Mystic Hippo
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 12
+  animatronicClass: 11
+  skinClass: 0

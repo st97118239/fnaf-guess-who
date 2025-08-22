@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 95c0ecb17b4e9f3499cd450416978f37, type: 3}
   voicelines: []
   directory: Characters/FNAF4/NFreddy
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 4
+  animatronicClass: 7
+  skinClass: 0

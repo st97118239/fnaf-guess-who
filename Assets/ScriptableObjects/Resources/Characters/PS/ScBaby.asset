@@ -36,5 +36,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ab686e0e97f1aea429713f48a7846b73, type: 3}
   voicelines: []
   directory: Characters/PS/ScBaby
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 7
+  animatronicClass: 26
+  skinClass: 0

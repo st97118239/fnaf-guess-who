@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf271d81e87b502448501a9f874380a5, type: 3}
+  m_Name: Mediocre
+  m_EditorClassIdentifier: 
+  categoryName: Mediocre Melodies
+  type: 2
+  firstGame: 0
+  animatronicClass: 11
+  skinType: 0
+  characters:
+  - {fileID: 11400000, guid: 112fb69d4ae9a444eb3387977d22ebd6, type: 2}
+  - {fileID: 11400000, guid: cc1789c343581fd4898d55bb33493a90, type: 2}
+  - {fileID: 11400000, guid: f44484bd0bcbd2c438d926dad0edee40, type: 2}
+  - {fileID: 11400000, guid: 0fae4752eebe7004184eea1baeac51a6, type: 2}
+  - {fileID: 11400000, guid: 8986e1120d01eaa4faf379f8a6ced98f, type: 2}
+  - {fileID: 11400000, guid: 1b40159383594ca45bd120ba23d1d67e, type: 2}

@@ -35,5 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4fa1cd92acc7ba34f98345a52b114ec6, type: 3}
   voicelines: []
   directory: Characters/SB/GlEndo
-  isCrossedOff: 0
-  isChosen: 0
+  firstGame: 10
+  animatronicClass: 15
+  skinClass: 0
