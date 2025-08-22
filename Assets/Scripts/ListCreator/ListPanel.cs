@@ -15,6 +15,7 @@ public class ListPanel : MonoBehaviour
     [SerializeField] private MainPanel mainPanel;
     [SerializeField] private Game game;
     [SerializeField] private GameObject listGrid;
+    [SerializeField] private ListSettings listSettings;
     [SerializeField] private GameObject listNotePrefab;
     [SerializeField] private GameObject emptySlotPrefab;
     [SerializeField] private GameObject polaroidPrefab;
@@ -81,9 +82,6 @@ public class ListPanel : MonoBehaviour
 
         menu = -1;
 
-        listAmount = saveManager.saveData.lists.Count;
-
-        listNotes = new List<ListNote>(listAmount);
         emptySlots = new List<EmptySlot>(emptySlotAmount);
 
         for (int i = 0; i < emptySlotAmount; i++)
@@ -98,11 +96,18 @@ public class ListPanel : MonoBehaviour
 
     private void SpawnListNotes()
     {
-        for (int i = 0; i < listAmount; i++)
+        listAmount = saveManager.saveData.lists.Count;
+
+        listNotes = new List<ListNote>(listAmount);
+
+        for (int i = 0; i < listAmount + 1; i++)
         {
             GameObject slotObj = Instantiate(listNotePrefab, emptySlots[i].transform.position, Quaternion.identity, emptySlots[i].transform);
             listNotes.Add(slotObj.GetComponent<ListNote>());
-            listNotes[i].Load(saveManager.saveData.lists[i], this, 0);
+            if (i < listAmount)
+                listNotes[i].LoadList(saveManager.saveData.lists[i], this, ListNoteType.Lists);
+            else if (i == listAmount)
+                listNotes[i].NewListButton(this, ListNoteType.AddList);
         }
 
         backNote.Disable();
@@ -203,5 +208,14 @@ public class ListPanel : MonoBehaviour
         }
 
         OpenListCharactersMenu();
+    }
+
+    public void NewList()
+    {
+        openedList = new ListData();
+
+        saveManager.saveData.lists.Add(openedList);
+
+        listSettings.Open();
     }
 }

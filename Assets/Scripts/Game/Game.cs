@@ -1,3 +1,4 @@
+using Mirror;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -137,7 +138,7 @@ public class Game : MonoBehaviour
             {
                 GameObject slotObj = Instantiate(charSlotPrefab, emptySlots[i].transform.position, Quaternion.identity, emptySlots[i].transform);
                 charSlots.Add(slotObj.GetComponent<CharSlot>());
-                charSlots[i].Load(playerCharArray[i], this);
+                charSlots[i].Load(playerCharArray[i], this, false);
             }
         }
         else
@@ -151,7 +152,7 @@ public class Game : MonoBehaviour
             {
                 GameObject slotObj = Instantiate(charSlotPrefab, emptySlots[i].transform.position, Quaternion.identity, emptySlots[i].transform);
                 charSlots.Add(slotObj.GetComponent<CharSlot>());
-                charSlots[i].Load(opponentCharArray[i], this);
+                charSlots[i].Load(opponentCharArray[i], this, true);
             }
         }
 
@@ -195,6 +196,14 @@ public class Game : MonoBehaviour
         Invoke(nameof(ChangePolaroids), 0.5f);
     }
 
+    public void HasAccused()
+    {
+        for (int i = 0; i < charSlots.Count; i++)
+        {
+            charSlots[i].CanLMB(false);
+        }
+    }
+
     public void ChangePolaroids()
     {
         RemovePolaroids();
@@ -229,11 +238,28 @@ public class Game : MonoBehaviour
 
     public void Leave()
     {
-        animator.SetTrigger("GameClose");
+        if (mainPanel.isReady)
+            mainPanel.isReady = false;
+
         if (player)
-            player.Disconnect();
-        else
-            mainPanel.Disconnected();
+        {
+            gameManager.player = null;
+            gameManager.opponent = null;
+
+            if (player.isHost)
+                NetworkManager.singleton.StopClient();
+        }
+
+        animator.SetTrigger("GameClose");
+
+        mainPanel.settingsMenu.isConnected = false;
+
+        mainPanel.readyNote.Disable();
+        mainPanel.connectionNote.Enable();
+        mainPanel.hostNote.Enable();
+        mainPanel.quitNote.Enable();
+        mainPanel.connectionNote.ChangeText("Connect");
+
         mainPanel.isInGame = false;
         Invoke(nameof(ResetGame), 1);
     }

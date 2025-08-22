@@ -81,6 +81,11 @@ public class PopupPaper : MonoBehaviour
         animator.SetTrigger("PaperClose");
 
         error = Error.None;
+        Invoke(nameof(DisableBackground), 0.6f);
+    }
+
+    private void DisableBackground()
+    {
         backgroundBlocker.SetActive(false);
     }
 }

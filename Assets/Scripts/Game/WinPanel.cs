@@ -68,9 +68,14 @@ public class WinPanel : MonoBehaviour
     public void Close()
     {
         animator.SetTrigger("FolderClose");
-        backgroundBlocker.SetActive(false);
+        Invoke(nameof(DisableBackground), 0.6f);
         opponentChar = null;
         isShown = false;
+    }
+
+    private void DisableBackground()
+    {
+        backgroundBlocker.SetActive(false);
     }
 
     private void RedrawText()

@@ -66,9 +66,14 @@ public class SettingsMenu : MonoBehaviour
     public void CloseSettings()
     {
         clipboardAnimator.SetTrigger("PaperClose");
-        backgroundBlocker.SetActive(false);
+        Invoke(nameof(DisableBackground), 0.6f);
         Save();
         LoadSettings();
+    }
+
+    private void DisableBackground()
+    {
+        backgroundBlocker.SetActive(false);
     }
 
     public void Save()

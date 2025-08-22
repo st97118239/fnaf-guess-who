@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,13 +7,17 @@ public class Note : MonoBehaviour
 {
     public Button noteButton;
     public TMP_Text noteText;
+    public Image noteOverlayImage;
     public Image noteXImage;
 
-    [SerializeField] private bool isButton;
-    [SerializeField] private bool startCrossedOff;
+    public bool isCrossedOff;
+    public bool isImageOn;
 
-    private Color transparent = new(255, 255, 255, 0);
-    private Color opaque = new(255, 255, 255, 255);
+    [SerializeField] private bool isButton = true;
+    [SerializeField] private bool startCrossedOff;
+    [SerializeField] private bool startWithImage;
+
+    [SerializeField] private float crossOffTime = 1;
 
     private void Awake()
     {
@@ -27,33 +32,89 @@ public class Note : MonoBehaviour
         {
             if (startCrossedOff)
             {
-                noteXImage.color = opaque;
-                if (isButton)
-                    noteButton.interactable = false;
+                noteXImage.fillAmount = 1;
+                isCrossedOff = true;
+                noteButton.interactable = false;
             }
             else if (!startCrossedOff)
             {
-                noteXImage.color = transparent;
+                noteXImage.fillAmount = 0;
+                isCrossedOff = false;
                 if (isButton)
                     noteButton.interactable = true;
+                else
+                    noteButton.interactable = false;
             }
+        }
+
+        if (startWithImage)
+            noteOverlayImage.fillAmount = 1;
+        else
+            noteOverlayImage.fillAmount = 0;
+    }
+
+    private IEnumerator FadeImage(bool fill, string imageDirectory, Image imageToChange)
+    {
+        yield return null;
+
+        imageToChange.sprite = Resources.Load<Sprite>(imageDirectory);
+
+        for (float i = 0; i <= crossOffTime + Time.deltaTime; i += Time.deltaTime)
+        {
+            if (i > crossOffTime) i = crossOffTime;
+
+            float fillAmount = i / crossOffTime;
+            imageToChange.fillAmount = fill ? fillAmount : 1 - fillAmount;
+
+            yield return null;
         }
     }
 
     public void Enable()
     {
-        noteXImage.color = transparent;
+        if (!isCrossedOff)
+            return;
+
+        StartCoroutine(FadeImage(false, "UI/X", noteXImage));
         noteButton.interactable = true;
+        isCrossedOff = false;
     }
 
     public void Disable()
     {
-        noteXImage.color = opaque;
+        if (isCrossedOff)
+            return;
+
+        StartCoroutine(FadeImage(true, "UI/X", noteXImage));
         noteButton.interactable = false;
+        isCrossedOff = true;
     }
 
     public void ChangeText(string txt)
     {
         noteText.text = txt;
+    }
+
+    public void ChangeImage(string imageDirectory)
+    {
+        noteOverlayImage.sprite = Resources.Load<Sprite>(imageDirectory);
+    }
+
+    public void EnableImage(string imageDirectory)
+    {
+        if (isImageOn)
+            return;
+
+        StartCoroutine(FadeImage(true, imageDirectory, noteOverlayImage));
+        isImageOn = true;
+    }
+
+    public void DisableImage(string imageDirectory)
+    {
+        if (!isImageOn)
+            return;
+
+        StartCoroutine(FadeImage(false, imageDirectory, noteOverlayImage));
+        isImageOn = false;
     }
 }

@@ -118,7 +118,17 @@ public class Polaroid : MonoBehaviour
     {
         character = givenCharacter;
 
-        characterImage.sprite = character.polaroidSprite[0];
-        characterText.text = character.characterName;
+        if (character.polaroidSprite[0])
+        {
+            characterImage.sprite = character.polaroidSprite[0];
+            characterImage.color = Color.white;
+        }
+        else
+            characterImage.color = Color.clear;
+
+        if (character.characterName != string.Empty)
+            characterText.text = character.characterName;
+        else
+            characterText.text = string.Empty;
     }
 }

@@ -1,5 +1,4 @@
 using Mirror;
-using System;
 using UnityEngine;
 
 public class GameManager : NetworkBehaviour
@@ -8,6 +7,7 @@ public class GameManager : NetworkBehaviour
     [SyncVar] public int round;
     [SyncVar] public int turn;
     [SyncVar] public bool needsToAccuse;
+    [SyncVar] public bool hasFinished;
 
     public Player player1;
     [SyncVar] public string[] player1List;
@@ -103,6 +103,12 @@ public class GameManager : NetworkBehaviour
 
     public void NewPlayer(Player newPlayer)
     {
+        if (round != -1)
+        {
+            newPlayer.ForceDisconnect();
+            return;
+        }
+
         if (!player1)
         {
             player1 = newPlayer;
@@ -206,6 +212,8 @@ public class GameManager : NetworkBehaviour
 
     public void FinishGame()
     {
+        hasFinished = true;
+
         if (player1AccusedCharacter == player2ChosenCharacter)
         {
             Debug.Log("Player 1 accused Player 2's character: " + player2ChosenCharacter);
@@ -280,6 +288,9 @@ public class GameManager : NetworkBehaviour
             player2ChosenCharacter = string.Empty;
             player2Won = false;
         }
+
+        if (hasFinished)
+            return;
 
         RpcDisableReady();
 

@@ -11,14 +11,12 @@ public class InfoPanel : MonoBehaviour
     public AudioManager audioManager;
     public Character character;
     public CharSlot charSlot;
-    public GameObject polaroid;
     public GameObject infoPaper;
     public Transform bodyPaperParent;
-    public GameObject audioButton;
+    public Note audioNote;
     public Note chooseNote;
     public int chooseType;
-    public Image slotImage;
-    public Image audioImage;
+    public Polaroid polaroid;
     public GameObject bodyPaperPrefab;
     public int bodyPapersIdx;
     public List<BodyPaper> bodyPapers;
@@ -91,7 +89,7 @@ public class InfoPanel : MonoBehaviour
         
         Invoke(nameof(ResetAudioButton), audioToPlay[0].length);
 
-        audioImage.sprite = Resources.Load<Sprite>("UI/Stop");
+        audioNote.ChangeImage("UI/Stop");
     }
 
     private void ResetAudioButton()
@@ -101,7 +99,7 @@ public class InfoPanel : MonoBehaviour
 
         isPlayingAudio = false;
         audioToPlay.Remove(audioToPlay[0]);
-        audioImage.sprite = Resources.Load<Sprite>("UI/Play");
+        audioNote.ChangeImage("UI/Play");
     }
 
     public void StopAudio()
@@ -129,11 +127,11 @@ public class InfoPanel : MonoBehaviour
 
         if (character.polaroidSprite.Count > 0)
         {
-            slotImage.sprite = character.polaroidSprite[0];
-            polaroid.SetActive(true);
+            polaroid.characterImage.sprite = character.polaroidSprite[0];
+            polaroid.gameObject.SetActive(true);
         }
         else
-            polaroid.SetActive(false);
+            polaroid.gameObject.SetActive(false);
 
         if (character.fullBodySprite.Count > 0)
         {
@@ -152,13 +150,13 @@ public class InfoPanel : MonoBehaviour
 
         if (character.voicelines.Count > 0)
         {
-            audioButton.SetActive(true);
-            audioImage.sprite = Resources.Load<Sprite>("UI/Play");
+            audioNote.gameObject.SetActive(true);
+            audioNote.ChangeImage("UI/Play");
             audioToPlay = character.voicelines;
             audioToPlay = audioToPlay.OrderBy(i => rnd.Next()).ToList();
         }
         else
-            audioButton.SetActive(false);
+            audioNote.gameObject.SetActive(false);
 
         if (chooseType == 1)
         {
@@ -234,10 +232,15 @@ public class InfoPanel : MonoBehaviour
             yield return new WaitForSeconds(0.75f);
 
         animator.SetTrigger("FolderClose");
-        backgroundBlocker.SetActive(false);
+        Invoke(nameof(DisableBackground), 0.6f);
         character = null;
         charSlot = null;
         gameScript.isInfoPanelShown = false;
+    }
+
+    private void DisableBackground()
+    {
+        backgroundBlocker.SetActive(false);
     }
 
     public void BodyPapersNext(bool manualClick)

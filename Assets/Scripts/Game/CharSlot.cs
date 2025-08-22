@@ -41,18 +41,14 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void Load(Character givenCharacter, Game givenGameScript)
+    public void Load(Character givenCharacter, Game givenGameScript, bool givenCanLMB)
     {
         character = givenCharacter;
         gameScript = givenGameScript;
 
-        if (character.polaroidSprite.Count > 0 && character.polaroidSprite[0])
-            characterImage.sprite = character.polaroidSprite[0];
-        else
-            characterImage.gameObject.SetActive(false);
+        polaroid.Load(givenCharacter);
 
-        if (character.characterName != string.Empty)
-            charName.text = character.characterName;
+        canLMB = givenCanLMB;
     }
 
     public void Press()
@@ -88,5 +84,14 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
 
         polaroid.Circle();
         isAccused = true;
+        gameScript.HasAccused();
+    }
+
+    public void CanLMB(bool can)
+    {
+        if (can)
+            canLMB = true;
+        else if (!can)
+            canLMB = false;
     }
 }

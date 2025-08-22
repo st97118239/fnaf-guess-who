@@ -205,6 +205,12 @@ public class Player : NetworkBehaviour
 
     public void StopGame()
     {
+        if (!isHost)
+        {
+            NetworkManager.singleton.StopClient();
+            Debug.Log("Disconnected from server.");
+        }
+
         game.StopGame();
     }
 }
