@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class InfoPanel : MonoBehaviour
 {
     public Game gameScript;
-    public AudioSource audioManager;
+    public AudioManager audioManager;
     public Character character;
     public CharSlot charSlot;
     public GameObject polaroid;
@@ -79,7 +79,7 @@ public class InfoPanel : MonoBehaviour
     {
         isPlayingAudio = true;
 
-        audioManager.Stop();
+        audioManager.voicelines.Stop();
 
         if (audioToPlay.Count == 0)
         {
@@ -87,7 +87,7 @@ public class InfoPanel : MonoBehaviour
             audioToPlay = audioToPlay.OrderBy(i => rnd.Next()).ToList();
         }
 
-        audioManager.PlayOneShot(audioToPlay[0]);
+        audioManager.voicelines.PlayOneShot(audioToPlay[0]);
         
         Invoke(nameof(ResetAudioButton), audioToPlay[0].length);
 
@@ -106,7 +106,7 @@ public class InfoPanel : MonoBehaviour
 
     public void StopAudio()
     {
-        audioManager.Stop();
+        audioManager.voicelines.Stop();
         ResetAudioButton();
     }
 

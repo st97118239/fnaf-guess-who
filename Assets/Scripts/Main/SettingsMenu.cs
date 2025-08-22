@@ -3,6 +3,7 @@ using Mirror;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class SettingsMenu : MonoBehaviour
 
     [SerializeField] private NetworkManagerScript networkManager;
     [SerializeField] private KcpTransport transport;
+    [SerializeField] private AudioManager audioManager;
 
     [SerializeField] private GameObject settingsClipboard;
     [SerializeField] private Animator clipboardAnimator;
@@ -19,9 +21,9 @@ public class SettingsMenu : MonoBehaviour
 
     [SerializeField] private TMP_InputField serverAddressField;
     [SerializeField] private TMP_InputField serverPortField;
-
-    [SerializeField] private string defaultServerAddress;
-    [SerializeField] private string defaultServerPort;
+    [SerializeField] private Slider soundEffectsSlider;
+    [SerializeField] private Slider voicelinesSlider;
+    [SerializeField] private Slider musicSlider;
 
     private string settingsPath;
 
@@ -73,6 +75,9 @@ public class SettingsMenu : MonoBehaviour
     {
         settings.serverAddress = serverAddressField.text;
         settings.serverPort = serverPortField.text;
+        settings.soundEffects = soundEffectsSlider.value;
+        settings.voicelines = voicelinesSlider.value;
+        settings.music = musicSlider.value;
 
         string save = JsonUtility.ToJson(settings);
 
@@ -84,19 +89,30 @@ public class SettingsMenu : MonoBehaviour
     private void CreateNewFile()
     {
         settings = new();
-        settings.serverAddress = defaultServerAddress;
-        settings.serverPort = defaultServerPort;
+
+        string save = JsonUtility.ToJson(settings);
+
+        File.WriteAllText(settingsPath, save);
+
+        Debug.Log("No settings file found. New settings file created.");
     }
 
     private void LoadSettings()
     {
-        settings.serverAddress ??= defaultServerAddress;
         networkManager.networkAddress = settings.serverAddress;
         serverAddressField.text = settings.serverAddress;
 
-        settings.serverPort ??= defaultServerPort;
         transport.port = ushort.Parse(settings.serverPort);
         serverPortField.text = settings.serverPort;
+
+        audioManager.soundEffects.volume = settings.soundEffects;
+        soundEffectsSlider.value = settings.soundEffects;
+
+        audioManager.voicelines.volume = settings.voicelines;
+        voicelinesSlider.value = settings.voicelines;
+
+        audioManager.music.volume = settings.music;
+        musicSlider.value = settings.music;
 
         Debug.Log("Loaded settings.");
     }
