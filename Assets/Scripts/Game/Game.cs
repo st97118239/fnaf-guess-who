@@ -183,7 +183,7 @@ public class Game : MonoBehaviour
     {
         for (int i = 0; i < emptySlots.Count; i++)
         {
-            emptySlots[i].Play();
+            emptySlots[i].Play(false, false, false);
         }
     }
 

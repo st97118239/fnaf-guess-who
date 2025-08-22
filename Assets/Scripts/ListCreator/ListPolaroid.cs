@@ -6,9 +6,9 @@ public class ListPolaroid : MonoBehaviour, IPointerClickHandler
     public Character character;
     public int index;
 
-    [SerializeField] private Polaroid polaroid;
+    public ListPanel listPanel;
 
-    private ListPanel listPanel;
+    [SerializeField] private Polaroid polaroid;
 
     public void OnPointerClick(PointerEventData eventData)
     {

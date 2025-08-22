@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ListInfoPanel : MonoBehaviour
 {
@@ -171,11 +170,11 @@ public class ListInfoPanel : MonoBehaviour
                 chooseNote.Enable();
             }
         }
-        else if (listPanel.menu == 5)
+        else if (listPanel.menu == 2)
         {
             chooseNote.gameObject.SetActive(true);
             chooseNote.ChangeText("Add");
-            if (listPanel.menu == 4)
+            if (listPanel.openedList.builtIn || listPanel.openedList.characters.Count == 0)
             {
                 chooseNote.Disable();
             }
@@ -326,6 +325,12 @@ public class ListInfoPanel : MonoBehaviour
         if (listPanel.menu == 1 && !listPanel.openedList.builtIn)
         {
             listPanel.RemoveCharacterFromList(character, polaroidSlot.index);
+
+            Hide();
+        }
+        else if (listPanel.menu == 2 && !listPanel.openedList.builtIn)
+        {
+            listPanel.AddCharacterToList(character);
 
             Hide();
         }

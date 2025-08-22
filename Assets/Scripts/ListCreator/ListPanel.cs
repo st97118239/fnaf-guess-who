@@ -12,6 +12,7 @@ public class ListPanel : MonoBehaviour
     public int menu; // -1 = loading, 0 = listsMenu, 1 = listCharactersMenu
     public bool isInfoPanelShown;
     public bool fromCharacterPanel;
+    public bool hasListOpen;
 
     [SerializeField] private MainPanel mainPanel;
     [SerializeField] private GameObject listGrid;
@@ -44,9 +45,6 @@ public class ListPanel : MonoBehaviour
 
     public void LoadPanel()
     {
-        //if (hasLoaded)
-        //    EmptySlotsReset();
-
         if (fromCharacterPanel)
             game.animator.SetTrigger("ListCharClose");
         else
@@ -56,8 +54,6 @@ public class ListPanel : MonoBehaviour
 
         if (!hasLoaded)
             Invoke(nameof(SpawnFirst), 1);
-        //else
-        //    Invoke(nameof(PlayFadeAnim), 1);
     }
 
     public void ClosePanel()
@@ -73,11 +69,11 @@ public class ListPanel : MonoBehaviour
         }
     }
 
-    private void PlayFadeAnim()
+    private void PlayFadeAnim(bool shouldReverse, bool shouldDestroyChildren, bool shouldDestroySelf)
     {
         for (int i = 0; i < emptySlots.Count; i++)
         {
-            emptySlots[i].Play();
+            emptySlots[i].Play(shouldReverse, shouldDestroyChildren, shouldDestroySelf);
         }
     }
 
@@ -95,6 +91,11 @@ public class ListPanel : MonoBehaviour
             emptySlots.Add(slotObj.GetComponent<EmptySlot>());
             emptySlots[i].index = i;
         }
+
+        backNote.Disable();
+        saveNote.Disable();
+        selectNote.Disable();
+        menu = 0;
 
         SpawnListNotes();
     }
@@ -115,12 +116,7 @@ public class ListPanel : MonoBehaviour
                 listNotes[i].NewListButton(this, ListNoteType.AddList);
         }
 
-        backNote.Disable();
-        saveNote.Disable();
-        selectNote.Disable();
-        menu = 0;
-
-        PlayFadeAnim();
+        PlayFadeAnim(false, false, false);
     }
 
     public void OpenList(ListData list)
@@ -160,9 +156,12 @@ public class ListPanel : MonoBehaviour
             saveNote.Enable();
         if (!openedList.selected && !mainPanel.isReady)
             selectNote.Enable();
-        menu = 1;
+        if (menu != 2)
+            menu = 1;
 
-        PlayFadeAnim();
+        hasListOpen = true;
+
+        PlayFadeAnim(false, false, false);
     }
 
     public void ShowInfoPanel(Character character)
@@ -172,21 +171,26 @@ public class ListPanel : MonoBehaviour
 
     public void ListCharactersBack()
     {
-        for (int i = 0; i < polaroids.Count; i++)
-        {
-            Destroy(polaroids[i].gameObject);
-        }
+        PlayFadeAnim(true, true, false);
+
+        hasListOpen = false;
+        openedList = new();
+
+        backNote.Disable();
+        saveNote.Disable();
+        selectNote.Disable();
+        menu = 0;
 
         polaroids.Clear();
 
-        SpawnListNotes();
+        Invoke(nameof(SpawnListNotes), 0.7f);
     }
 
     public void BackNote()
     {
         if (menu == 1)
         {
-            ListCharactersBack();   
+            ListCharactersBack();
         }
     }
 
@@ -207,12 +211,21 @@ public class ListPanel : MonoBehaviour
 
         saveManager.Save();
 
-        for (int i = 0; i < polaroids.Count; i++)
-        {
-            Destroy(polaroids[i].gameObject);
-        }
+        PlayFadeAnim(true, true, false);
 
-        OpenListCharactersMenu();
+        Invoke(nameof(OpenListCharactersMenu), 0.7f);
+    }
+
+    public void AddCharacterToList(Character givenCharacter)
+    {
+        Debug.Log("Added " + givenCharacter.name + " to list " + openedList.name);
+        openedList.characters.Add(givenCharacter.directory);
+
+        saveManager.Save();
+
+        PlayFadeAnim(true, true, false);
+
+        Invoke(nameof(OpenListCharactersMenu), 0.7f);
     }
 
     public void NewList()

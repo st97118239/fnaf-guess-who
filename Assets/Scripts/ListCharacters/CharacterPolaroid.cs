@@ -1,0 +1,53 @@
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class CharacterPolaroid : MonoBehaviour, IPointerClickHandler
+{
+    public Character character;
+    public int index;
+
+    [SerializeField] private Polaroid polaroid;
+    [SerializeField] private ListPolaroid listPolaroid;
+
+    private CharactersPanel charactersPanel;
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            LMB();
+        }
+        else if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            RMB();
+        }
+    }
+
+    public void Load(Character givenCharacter, CharactersPanel givenPanel, int givenIndex)
+    {
+        character = givenCharacter;
+        charactersPanel = givenPanel;
+        index = givenIndex;
+
+
+        listPolaroid.index = givenIndex;
+        listPolaroid.character = givenCharacter;
+        listPolaroid.listPanel = givenPanel.listPanel;
+        polaroid.Load(character);
+    }
+
+    private void LMB()
+    {
+
+    }
+
+    private void RMB()
+    {
+        if (!charactersPanel.listPanel.isInfoPanelShown)
+        {
+            charactersPanel.listPanel.menu = 2;
+            charactersPanel.listPanel.infoPanel.polaroidSlot = listPolaroid;
+            charactersPanel.listPanel.ShowInfoPanel(character);
+        }
+    }
+}
