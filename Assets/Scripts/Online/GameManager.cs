@@ -10,14 +10,16 @@ public class GameManager : NetworkBehaviour
     [SyncVar] public bool hasFinished;
 
     public Player player1;
+    [SyncVar] public string player1Username;
     [SyncVar] public string[] player1List;
-    public string player1ChosenCharacter;
-    public string player1AccusedCharacter;
+    [SerializeField] private string player1ChosenCharacter;
+    [SerializeField] private string player1AccusedCharacter;
     [SyncVar] public bool player1Won;
     public Player player2;
+    [SyncVar] public string player2Username;
     [SyncVar] public string[] player2List;
-    public string player2ChosenCharacter;
-    public string player2AccusedCharacter;
+    [SerializeField] private string player2ChosenCharacter;
+    [SerializeField] private string player2AccusedCharacter;
     [SyncVar] public bool player2Won;
 
     public Player player;
@@ -96,9 +98,22 @@ public class GameManager : NetworkBehaviour
     private void CmdSetList(string[] givenArray, int givenIndex)
     {
         if (givenIndex == 1)
+        {
             player1List = givenArray;
+        }
         else if (givenIndex == 2)
+        {
             player2List = givenArray;
+        }
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdSetUsername(int pIdx, string givenUsername)
+    {
+        if (pIdx == 1)
+            player1Username = givenUsername;
+        else if (pIdx == 2)
+            player2Username = givenUsername;
     }
 
     public void NewPlayer(Player newPlayer)
@@ -249,11 +264,13 @@ public class GameManager : NetworkBehaviour
         needsToAccuse = false;
         hasFinished = false;
         player1 = null;
+        player1Username = string.Empty;
         player1List = null;
         player1ChosenCharacter = string.Empty;
         player1AccusedCharacter = string.Empty;
         player1Won = false;
         player2 = null;
+        player2Username = string.Empty;
         player2List = null;
         player2ChosenCharacter = string.Empty;
         player2AccusedCharacter = string.Empty;
@@ -271,14 +288,34 @@ public class GameManager : NetworkBehaviour
             player2.RpcForceDisconnect();
     }
 
+    public void PlayerChooseCharacter(int pIdx, string charDir)
+    {
+        if (pIdx == 1)
+            player1ChosenCharacter = charDir;
+        else if (pIdx == 2)
+            player2ChosenCharacter = charDir;
+
+        Debug.Log("Player " + pIdx + " has chosen " + charDir);
+    }
+
     public void PlayerDisconnected(int playerToRemove)
     {
         round = -1;
         turn = 0;
 
+        RpcDisableReady();
+
+        if (hasStarted)
+            DisconnectAll();
+        else if (playerToRemove == 1 && player2 && !player1.isHost)
+            player2.OpponentLeft();
+        else if (playerToRemove == 2 && player1)
+            player1.OpponentLeft();
+
         if (playerToRemove == 1)
         {
             player1 = null;
+            player1Username = string.Empty;
             player1List = null;
             player1AccusedCharacter = string.Empty;
             player1ChosenCharacter = string.Empty;
@@ -287,6 +324,7 @@ public class GameManager : NetworkBehaviour
         else if (playerToRemove == 2)
         {
             player2 = null;
+            player2Username = string.Empty;
             player2List = null;
             player2AccusedCharacter = string.Empty;
             player2ChosenCharacter = string.Empty;
@@ -295,14 +333,5 @@ public class GameManager : NetworkBehaviour
 
         if (hasFinished)
             return;
-
-        RpcDisableReady();
-
-        if (hasStarted)
-            DisconnectAll();
-        else if (playerToRemove == 1 && player2)
-            player2.OpponentLeft();
-        else if (playerToRemove == 2 && player1)
-            player1.OpponentLeft();
     }
 }

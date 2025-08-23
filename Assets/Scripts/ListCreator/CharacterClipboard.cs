@@ -16,9 +16,18 @@ public class CharacterClipboard : MonoBehaviour
     private int originalIndex;
     private int indexToMoveTo;
     private string charDir;
+    private bool isShown;
+
+    private void Update()
+    {
+        if (isShown && Input.GetKeyDown(KeyCode.Escape))
+            CloseClipboard();
+    }
 
     public void OpenClipboard(string givenCharDir, int givenIndex)
     {
+        isShown = true;
+
         errorText.SetActive(false);
         originalIndex = givenIndex;
         charDir = givenCharDir;
@@ -29,6 +38,8 @@ public class CharacterClipboard : MonoBehaviour
 
     public void CloseClipboard()
     {
+        isShown = false;
+
         int index = int.Parse(indexField.text) - 1;
 
         if (index < 0 || index > listPanel.openedList.characters.Count - 1)

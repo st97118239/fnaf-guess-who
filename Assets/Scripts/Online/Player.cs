@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Player : NetworkBehaviour
 {
+    [SyncVar] public string username;
     [SyncVar] public string chosenCharacter;
     [SyncVar] public int playerIdx;
     [SyncVar] public bool isHost;
@@ -25,12 +26,13 @@ public class Player : NetworkBehaviour
         {
             game = FindFirstObjectByType<Game>();
             mainPanel = game.mainPanel;
-            isHost = mainPanel.isHost;
+            username = mainPanel.username;
+            if (isServer)
+                isHost = mainPanel.isHost;
             game.player = this;
             gameManager.player = this;
 
-            if (gameManager.player1 != this)
-                gameManager.opponent = gameManager.player1;
+            Invoke(nameof(SetGameManagerVariables), 0.3f);
 
             Debug.Log("Player object connected.");
         }
@@ -40,6 +42,10 @@ public class Player : NetworkBehaviour
             {
                 gameManager.opponent = gameManager.player2;
             }
+            else if (gameManager.player2 == gameManager.player)
+            {
+                gameManager.opponent = gameManager.player1;
+            }
         }
         else if (isServer && isClient)
         {
@@ -48,6 +54,14 @@ public class Player : NetworkBehaviour
                 gameManager.opponent = gameManager.player2;
             }
         }
+    }
+
+    private void SetGameManagerVariables()
+    {
+        if (playerIdx == 2)
+            gameManager.opponent = gameManager.player1;
+
+        gameManager.CmdSetUsername(playerIdx, username);
     }
 
     public void Disconnect()
@@ -116,6 +130,8 @@ public class Player : NetworkBehaviour
         mainPanel.hostNote.Enable();
         mainPanel.quitNote.Enable();
         mainPanel.settingsMenu.isConnected = false;
+
+        gameManager.ResetGame();
     }
 
     public void ForceRemoveConnection()
@@ -166,12 +182,7 @@ public class Player : NetworkBehaviour
     [Command]
     private void CmdChooseCharacter(string characterDirectory)
     {
-        if (playerIdx == 1)
-            gameManager.player1ChosenCharacter = characterDirectory;
-        else if (playerIdx == 2)
-            gameManager.player2ChosenCharacter = characterDirectory;
-
-        Debug.Log("Player " + playerIdx + " has chosen " + characterDirectory);
+        gameManager.PlayerChooseCharacter(playerIdx, characterDirectory);
     }
 
     public void Accuse(Character character)

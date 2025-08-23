@@ -14,10 +14,25 @@ public class ListSettings : MonoBehaviour
 
     private int index;
     private bool isNewList;
+    private bool isShown;
+    private bool cancel;
+
+    private void Update()
+    {
+        if (isShown && Input.GetKeyDown(KeyCode.Escape))
+        {
+            cancel = true;
+            Close();
+        }
+    }
 
     public void Open(bool newList, int listIdx)
     {
+        cancel = false;
+        isShown = true;
+
         isNewList = newList;
+        index = listIdx;
 
         if (isNewList)
             titleText.text = "New List";
@@ -25,7 +40,6 @@ public class ListSettings : MonoBehaviour
         {
             titleText.text = "Edit List";
             nameField.text = listPanel.saveManager.saveData.lists[listIdx].name;
-            index = listIdx;
         }
 
         animator.SetTrigger("PaperOpen");
@@ -34,9 +48,29 @@ public class ListSettings : MonoBehaviour
 
     public void Close()
     {
+        isShown = false;
+
+        if (cancel)
+        {
+            animator.SetTrigger("PaperClose");
+            Invoke(nameof(DisableBackground), 0.6f);
+            cancel = false;
+            nameField.text = string.Empty;
+            doubleNameErrorText.SetActive(false);
+
+            if (isNewList)
+            {
+                listPanel.openedList = null;
+                listPanel.saveManager.saveData.lists.RemoveAt(index);
+            }
+            index = 0;
+
+            return;
+        }
+
         int doesListExist = listPanel.saveManager.saveData.lists.FindIndex(l => l.name == nameField.text);
 
-        if (doesListExist != -1)
+        if (doesListExist != -1 && doesListExist != index)
         {
             doubleNameErrorText.SetActive(true);
             return;
@@ -47,7 +81,7 @@ public class ListSettings : MonoBehaviour
         else
             listPanel.saveManager.saveData.lists[index].name = nameField.text;
 
-            animator.SetTrigger("PaperClose");
+        animator.SetTrigger("PaperClose");
         Invoke(nameof(DisableBackground), 0.6f);
 
         listPanel.saveManager.Save();
@@ -57,19 +91,28 @@ public class ListSettings : MonoBehaviour
         else
             listPanel.RefreshLists();
 
+        index = 0;
         nameField.text = string.Empty;
         doubleNameErrorText.SetActive(false);
     }
 
     public void Delete()
     {
-        listPanel.saveManager.RemoveList(index);
-
         animator.SetTrigger("PaperClose");
         Invoke(nameof(DisableBackground), 0.6f);
 
-        listPanel.saveManager.Save();
+        if (isNewList)
+        {
+            listPanel.openedList = null;
+            listPanel.saveManager.saveData.lists.RemoveAt(index);
+        }
+        else
+        {
+            listPanel.saveManager.RemoveList(index);
+            listPanel.saveManager.Save();
+        }
 
+        index = 0;
         nameField.text = string.Empty;
         doubleNameErrorText.SetActive(false);
     }

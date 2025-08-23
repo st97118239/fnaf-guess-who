@@ -1,5 +1,4 @@
 using kcp2k;
-using Mirror;
 using System.IO;
 using TMPro;
 using UnityEngine;
@@ -11,6 +10,7 @@ public class SettingsMenu : MonoBehaviour
 
     public bool isConnected;
 
+    [SerializeField] private MainPanel mainPanel;
     [SerializeField] private NetworkManagerScript networkManager;
     [SerializeField] private KcpTransport transport;
     [SerializeField] private AudioManager audioManager;
@@ -19,6 +19,7 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Animator clipboardAnimator;
     [SerializeField] private GameObject backgroundBlocker;
 
+    [SerializeField] private TMP_InputField usernameField;
     [SerializeField] private TMP_InputField serverAddressField;
     [SerializeField] private TMP_InputField serverPortField;
     [SerializeField] private Slider soundEffectsSlider;
@@ -26,6 +27,7 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Slider musicSlider;
 
     private string settingsPath;
+    private bool isShown;
 
     private void Start()
     {
@@ -45,19 +47,29 @@ public class SettingsMenu : MonoBehaviour
         LoadSettings();
     }
 
+    private void Update()
+    {
+        if (isShown && Input.GetKeyDown(KeyCode.Escape))
+            CloseSettings();
+    }
+
     public void OpenSettings()
     {
+        isShown = true;
+
         LoadSettings();
         clipboardAnimator.SetTrigger("PaperOpen");
         backgroundBlocker.SetActive(true);
 
         if (isConnected)
         {
+            usernameField.interactable = false;
             serverAddressField.interactable = false;
             serverPortField.interactable = false;
         }
         else
         {
+            usernameField.interactable = true;
             serverAddressField.interactable = true;
             serverPortField.interactable = true;
         }
@@ -65,6 +77,8 @@ public class SettingsMenu : MonoBehaviour
 
     public void CloseSettings()
     {
+        isShown = false;
+
         clipboardAnimator.SetTrigger("PaperClose");
         Invoke(nameof(DisableBackground), 0.6f);
         Save();
@@ -78,11 +92,13 @@ public class SettingsMenu : MonoBehaviour
 
     public void Save()
     {
+        settings.username = usernameField.text;
         settings.serverAddress = serverAddressField.text;
         settings.serverPort = serverPortField.text;
         settings.soundEffects = soundEffectsSlider.value;
         settings.voicelines = voicelinesSlider.value;
         settings.music = musicSlider.value;
+        settings.categoryIdx = mainPanel.listPanel.charactersPanel.categoryIdx;
 
         string save = JsonUtility.ToJson(settings);
 
@@ -104,6 +120,9 @@ public class SettingsMenu : MonoBehaviour
 
     private void LoadSettings()
     {
+        mainPanel.username = settings.username;
+        usernameField.text = settings.username;
+
         networkManager.networkAddress = settings.serverAddress;
         serverAddressField.text = settings.serverAddress;
 
@@ -118,6 +137,8 @@ public class SettingsMenu : MonoBehaviour
 
         audioManager.music.volume = settings.music;
         musicSlider.value = settings.music;
+
+        mainPanel.listPanel.charactersPanel.categoryIdx = settings.categoryIdx;
 
         Debug.Log("Loaded settings.");
     }

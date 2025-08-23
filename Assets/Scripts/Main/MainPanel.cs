@@ -18,18 +18,11 @@ public class MainPanel : NetworkBehaviour
     public Note settingsNote;
     public Note quitNote;
 
+    public string username;
     public string[] selectedArray;
     public bool isHost;
     public bool isReady;
     public bool isInGame;
-
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Escape))
-    //    {
-    //        Quit();
-    //    }
-    //}
 
     public void ReadyUp()
     {

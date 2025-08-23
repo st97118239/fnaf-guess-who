@@ -283,7 +283,7 @@ public class ListPanel : MonoBehaviour
 
         saveManager.saveData.lists.Add(openedList);
 
-        listSettings.Open(true, -1);
+        listSettings.Open(true, saveManager.saveData.lists.IndexOf(openedList));
     }
 
     public void OpenSettings(int index)

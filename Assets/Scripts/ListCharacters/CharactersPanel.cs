@@ -4,6 +4,10 @@ using UnityEngine;
 public class CharactersPanel : MonoBehaviour
 {
     public ListPanel listPanel;
+    public SettingsMenu settingsMenu;
+    
+    public int categoryIdx = -1;
+    public float fadeAnimDelay = 0.7f;
 
     [SerializeField] private Categories categories;
     [SerializeField] private GameObject grid;
@@ -13,6 +17,7 @@ public class CharactersPanel : MonoBehaviour
     [SerializeField] private GameObject characterPolaroidPrefab;
 
     [SerializeField] private Note backNote;
+    [SerializeField] private Note categoryNote;
     [SerializeField] private int emptySlotAmount = 96;
     [SerializeField] private CategoryType defaultCategory = CategoryType.AnimatronicClass;
 
@@ -74,8 +79,45 @@ public class CharactersPanel : MonoBehaviour
             emptySlots[i].index = i;
         }
 
-        categoryType = defaultCategory;
-        Invoke(nameof(LoadCategories), 1.2f);
+        if (categoryIdx == -1)
+            CategoryButton(1);
+        else
+        {
+            categoryIdx = settingsMenu.settings.categoryIdx - 1;
+            CategoryButton(1);
+        }
+    }
+
+    public void CategoryButton(int amountToAdd)
+    {
+        PlayFadeAnim(true, true, false);
+
+        categoryIdx += amountToAdd;
+
+        if (categoryIdx > 2)
+            categoryIdx = 0;
+        else if (categoryIdx < 0)
+            categoryIdx = 2;
+
+        if (categoryIdx == 0)
+        {
+            categoryType = CategoryType.AnimatronicClass;
+            categoryNote.ChangeText("Class");
+        }
+        else if (categoryIdx == 1)
+        {
+            categoryType = CategoryType.FirstGame;
+            categoryNote.ChangeText("Game");
+        }
+        else if (categoryIdx == 2)
+        {
+            categoryType = CategoryType.SkinType;
+            categoryNote.ChangeText("Skin");
+        }
+
+        settingsMenu.Save();
+
+        Invoke(nameof(LoadCategories), fadeAnimDelay);
     }
 
     public void LoadCategoriesFade()
@@ -87,7 +129,7 @@ public class CharactersPanel : MonoBehaviour
         characterPolaroids.Clear();
         loadedCategory = null;
 
-        Invoke(nameof(LoadCategories), 0.7f);
+        Invoke(nameof(LoadCategories), fadeAnimDelay);
     }
 
     public void LoadCategories()
@@ -136,6 +178,8 @@ public class CharactersPanel : MonoBehaviour
             categoryNotes[i].LoadCategory(category[i], this);
         }
 
+        categoryNote.Enable();
+
         PlayFadeAnim(false, false, false);
     }
 
@@ -143,7 +187,7 @@ public class CharactersPanel : MonoBehaviour
     {
         PlayFadeAnim(true, true, false);
 
-        Invoke(nameof(OpenCategory), 0.7f);
+        Invoke(nameof(OpenCategory), fadeAnimDelay);
     }
 
     public void RecheckPolaroids()
@@ -156,12 +200,14 @@ public class CharactersPanel : MonoBehaviour
 
     public void OpenCategoryFade(CharacterCategory categoryToOpen)
     {
+        categoryNote.Disable();
+
         PlayFadeAnim(true, true, false);
 
         categoryNotes.Clear();
 
         loadedCategory = categoryToOpen;
-        Invoke(nameof(OpenCategory), 0.7f);
+        Invoke(nameof(OpenCategory), fadeAnimDelay);
     }
 
     private void OpenCategory()

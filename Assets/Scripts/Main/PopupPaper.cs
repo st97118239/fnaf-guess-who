@@ -10,9 +10,18 @@ public class PopupPaper : MonoBehaviour
     [SerializeField] private Animator animator;
 
     private Error error;
+    private bool isShown;
+
+    private void Update()
+    {
+        if (isShown && Input.GetKeyDown(KeyCode.Escape))
+            NoteButton();
+    }
 
     public void Show(Error givenError)
     {
+        isShown = true;
+
         error = givenError;
 
         if (error == Error.Unkown || error == Error.None)
@@ -86,6 +95,7 @@ public class PopupPaper : MonoBehaviour
     {
         animator.SetTrigger("PaperClose");
 
+        isShown = false;
         error = Error.None;
         Invoke(nameof(DisableBackground), 0.6f);
     }
