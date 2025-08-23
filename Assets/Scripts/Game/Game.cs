@@ -250,6 +250,7 @@ public class Game : MonoBehaviour
 
         mainPanel.settingsMenu.isConnected = false;
 
+        mainPanel.SetOpponentPolaroid();
         mainPanel.readyNote.Disable();
         mainPanel.connectionNote.Enable();
         mainPanel.hostNote.Enable();

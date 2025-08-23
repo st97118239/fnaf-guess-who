@@ -19,7 +19,6 @@ public class CharactersPanel : MonoBehaviour
     [SerializeField] private Note backNote;
     [SerializeField] private Note categoryNote;
     [SerializeField] private int emptySlotAmount = 96;
-    [SerializeField] private CategoryType defaultCategory = CategoryType.AnimatronicClass;
 
     private List<CategoryNote> categoryNotes;
     private List<EmptySlot> emptySlots;

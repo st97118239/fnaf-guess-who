@@ -1,4 +1,5 @@
 using Mirror;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : NetworkBehaviour
@@ -10,13 +11,11 @@ public class GameManager : NetworkBehaviour
     [SyncVar] public bool hasFinished;
 
     public Player player1;
-    [SyncVar] public string player1Username;
     [SyncVar] public string[] player1List;
     [SerializeField] private string player1ChosenCharacter;
     [SerializeField] private string player1AccusedCharacter;
     [SyncVar] public bool player1Won;
     public Player player2;
-    [SyncVar] public string player2Username;
     [SyncVar] public string[] player2List;
     [SerializeField] private string player2ChosenCharacter;
     [SerializeField] private string player2AccusedCharacter;
@@ -68,7 +67,7 @@ public class GameManager : NetworkBehaviour
             StartRound();
         }
 
-        if (round >= 0)
+        if (round >= 0 && !hasFinished)
         {
             if (!player1 || !player2)
                 DisconnectAll();
@@ -108,12 +107,15 @@ public class GameManager : NetworkBehaviour
     }
 
     [Command(requiresAuthority = false)]
-    public void CmdSetUsername(int pIdx, string givenUsername)
+    public void CmdSetPolaroidVariables()
     {
-        if (pIdx == 1)
-            player1Username = givenUsername;
-        else if (pIdx == 2)
-            player2Username = givenUsername;
+        RpcOpponentPolaroid();
+    }
+
+    [ClientRpc]
+    public void RpcOpponentPolaroid()
+    {
+        player.mainPanel.SetOpponentPolaroid();
     }
 
     public void NewPlayer(Player newPlayer)
@@ -264,13 +266,11 @@ public class GameManager : NetworkBehaviour
         needsToAccuse = false;
         hasFinished = false;
         player1 = null;
-        player1Username = string.Empty;
         player1List = null;
         player1ChosenCharacter = string.Empty;
         player1AccusedCharacter = string.Empty;
         player1Won = false;
         player2 = null;
-        player2Username = string.Empty;
         player2List = null;
         player2ChosenCharacter = string.Empty;
         player2AccusedCharacter = string.Empty;
@@ -304,18 +304,18 @@ public class GameManager : NetworkBehaviour
         turn = 0;
 
         RpcDisableReady();
+        RpcOpponentPolaroid();
 
-        if (hasStarted)
+        if (!hasFinished && hasStarted)
             DisconnectAll();
-        else if (playerToRemove == 1 && player2 && !player1.isHost)
+        else if (!hasFinished && playerToRemove == 1 && player2 && !player1.isHost)
             player2.OpponentLeft();
-        else if (playerToRemove == 2 && player1)
+        else if (!hasFinished && playerToRemove == 2 && player1)
             player1.OpponentLeft();
 
         if (playerToRemove == 1)
         {
             player1 = null;
-            player1Username = string.Empty;
             player1List = null;
             player1AccusedCharacter = string.Empty;
             player1ChosenCharacter = string.Empty;
@@ -324,7 +324,6 @@ public class GameManager : NetworkBehaviour
         else if (playerToRemove == 2)
         {
             player2 = null;
-            player2Username = string.Empty;
             player2List = null;
             player2AccusedCharacter = string.Empty;
             player2ChosenCharacter = string.Empty;

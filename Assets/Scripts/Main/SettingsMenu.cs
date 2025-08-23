@@ -45,6 +45,8 @@ public class SettingsMenu : MonoBehaviour
         settings = save;
 
         LoadSettings();
+
+        mainPanel.SetPlayerPolaroid(true, true);
     }
 
     private void Update()
@@ -55,8 +57,6 @@ public class SettingsMenu : MonoBehaviour
 
     public void OpenSettings()
     {
-        isShown = true;
-
         LoadSettings();
         clipboardAnimator.SetTrigger("PaperOpen");
         backgroundBlocker.SetActive(true);
@@ -73,16 +73,18 @@ public class SettingsMenu : MonoBehaviour
             serverAddressField.interactable = true;
             serverPortField.interactable = true;
         }
+
+        isShown = true;
     }
 
     public void CloseSettings()
     {
-        isShown = false;
-
         clipboardAnimator.SetTrigger("PaperClose");
         Invoke(nameof(DisableBackground), 0.6f);
         Save();
         LoadSettings();
+
+        isShown = false;
     }
 
     private void DisableBackground()
@@ -93,6 +95,7 @@ public class SettingsMenu : MonoBehaviour
     public void Save()
     {
         settings.username = usernameField.text;
+        settings.character = mainPanel.character;
         settings.serverAddress = serverAddressField.text;
         settings.serverPort = serverPortField.text;
         settings.soundEffects = soundEffectsSlider.value;
@@ -123,6 +126,8 @@ public class SettingsMenu : MonoBehaviour
         mainPanel.username = settings.username;
         usernameField.text = settings.username;
 
+        mainPanel.character = settings.character;
+
         networkManager.networkAddress = settings.serverAddress;
         serverAddressField.text = settings.serverAddress;
 
@@ -139,6 +144,9 @@ public class SettingsMenu : MonoBehaviour
         musicSlider.value = settings.music;
 
         mainPanel.listPanel.charactersPanel.categoryIdx = settings.categoryIdx;
+
+        if (isShown)
+            mainPanel.SetPlayerPolaroid(false, true);
 
         Debug.Log("Loaded settings.");
     }

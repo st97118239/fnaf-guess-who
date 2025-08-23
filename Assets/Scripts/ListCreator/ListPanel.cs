@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 public class ListPanel : MonoBehaviour
 {
+    public MainPanel mainPanel;
     public Game game;
     public SaveManager saveManager;
     public ListInfoPanel infoPanel;
@@ -18,7 +18,6 @@ public class ListPanel : MonoBehaviour
     public bool hasListOpen;
     public int maxCharacters = 96;
 
-    [SerializeField] private MainPanel mainPanel;
     [SerializeField] private GameObject listGrid;
     [SerializeField] private ListSettings listSettings;
     [SerializeField] private GameObject listNotePrefab;

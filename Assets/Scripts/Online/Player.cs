@@ -4,6 +4,7 @@ using UnityEngine;
 public class Player : NetworkBehaviour
 {
     [SyncVar] public string username;
+    [SyncVar] public string character;
     [SyncVar] public string chosenCharacter;
     [SyncVar] public int playerIdx;
     [SyncVar] public bool isHost;
@@ -27,6 +28,7 @@ public class Player : NetworkBehaviour
             game = FindFirstObjectByType<Game>();
             mainPanel = game.mainPanel;
             username = mainPanel.username;
+            character = mainPanel.character;
             if (isServer)
                 isHost = mainPanel.isHost;
             game.player = this;
@@ -61,22 +63,17 @@ public class Player : NetworkBehaviour
         if (playerIdx == 2)
             gameManager.opponent = gameManager.player1;
 
-        gameManager.CmdSetUsername(playerIdx, username);
+        gameManager.CmdSetPolaroidVariables();
     }
 
     public void Disconnect()
     {
-        gameManager.player = null;
-        gameManager.opponent = null;
-
         Invoke(nameof(RemoveConnection), 0.5f);
     }
 
     public void ForceDisconnect()
     {
         forcedLeave = true;
-        gameManager.player = null;
-        gameManager.opponent = null;
 
         Invoke(nameof(RemoveConnection), 0.5f);
     }
@@ -88,8 +85,6 @@ public class Player : NetworkBehaviour
             return;
 
         forcedLeave = true;
-        gameManager.player = null;
-        gameManager.opponent = null;
 
         Invoke(nameof(ForceRemoveConnection), 0.2f);
     }
@@ -114,6 +109,9 @@ public class Player : NetworkBehaviour
 
     public void RemoveConnection()
     {
+        gameManager.player = null;
+        gameManager.opponent = null;
+
         NetworkManager.singleton.StopClient();
         Debug.Log("Disconnected from server.");
 
@@ -130,21 +128,22 @@ public class Player : NetworkBehaviour
         mainPanel.hostNote.Enable();
         mainPanel.quitNote.Enable();
         mainPanel.settingsMenu.isConnected = false;
+        mainPanel.SetOpponentPolaroid();
 
         gameManager.ResetGame();
     }
 
     public void ForceRemoveConnection()
     {
-        if (game.player.playerIdx == 1)
-            game.gameManager.player = null;
-        else if (game.player.playerIdx == 2)
-            game.gameManager.player = null;
+        game.gameManager.player = null;
 
         if (gameManager.hasStarted)
         {
             game.Leave();
         }
+
+        gameManager.player = null;
+        gameManager.opponent = null;
 
         if (gameManager.hasStarted)
             mainPanel.popupPaper.Show(Error.OpponentLeft);
@@ -165,6 +164,8 @@ public class Player : NetworkBehaviour
         mainPanel.hostNote.Enable();
         mainPanel.quitNote.Enable();
         mainPanel.settingsMenu.isConnected = false;
+        mainPanel.SetOpponentPolaroid();
+
     }
 
     public void StartGame()

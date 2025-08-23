@@ -14,6 +14,7 @@ public class ListInfoPanel : MonoBehaviour
     public GameObject infoPaper;
     public Transform bodyPaperParent;
     public Note audioNote;
+    public Note avatarNote;
     public Note chooseNote;
     public GameObject bodyPaperPrefab;
     public int bodyPapersIdx;
@@ -157,9 +158,15 @@ public class ListInfoPanel : MonoBehaviour
         else
             audioNote.gameObject.SetActive(false);
 
+        if (listPanel.mainPanel.character != character.directory && !listPanel.mainPanel.settingsMenu.isConnected)
+        {
+            avatarNote.Enable();
+        }
+        else
+            avatarNote.Disable();
+
         if (listPanel.menu == 1)
         {
-            chooseNote.gameObject.SetActive(true);
             chooseNote.ChangeText("Remove");
             if (listPanel.openedList.builtIn)
                 chooseNote.Disable();
@@ -168,7 +175,6 @@ public class ListInfoPanel : MonoBehaviour
         }
         else if (listPanel.menu == 2)
         {
-            chooseNote.gameObject.SetActive(true);
             chooseNote.ChangeText("Add");
             if (listPanel.openedList.builtIn || !listPanel.hasListOpen || !polaroidSlot.characterCanAdd || listPanel.openedList.characters.Count >= listPanel.maxCharacters)
                 chooseNote.Disable();
@@ -323,6 +329,19 @@ public class ListInfoPanel : MonoBehaviour
         else if (listPanel.menu == 2 && !listPanel.openedList.builtIn)
         {
             listPanel.AddCharacterToList(character);
+
+            Hide();
+        }
+    }
+
+    public void AvatarNote()
+    {
+        if (listPanel.mainPanel.character != character.directory && !listPanel.mainPanel.settingsMenu.isConnected)
+        {
+            listPanel.mainPanel.settingsMenu.settings.character = character.directory;
+            listPanel.mainPanel.character = character.directory;
+            listPanel.mainPanel.settingsMenu.Save();
+            listPanel.mainPanel.SetPlayerPolaroid(true, false);
 
             Hide();
         }

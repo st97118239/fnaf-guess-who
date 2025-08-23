@@ -47,13 +47,13 @@ public class NetworkManagerScript : NetworkManager
     {
         if (game.player && game.player.forcedLeave)
             game.player.ForceRemoveConnection();
-        else if (!game.player)
-        {
-            //game.mainPanel.ServerFull();
-        }
+        //else if (!game.player)
+        //{
+        //    //game.mainPanel.ServerFull();
+        //}
 
         base.OnClientDisconnect();
-
+        
         Debug.Log("Client disconnected.");
     }
 
