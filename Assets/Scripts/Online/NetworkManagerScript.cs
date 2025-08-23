@@ -49,7 +49,7 @@ public class NetworkManagerScript : NetworkManager
             game.player.ForceRemoveConnection();
         else if (!game.player)
         {
-            game.mainPanel.ServerFull();
+            //game.mainPanel.ServerFull();
         }
 
         base.OnClientDisconnect();

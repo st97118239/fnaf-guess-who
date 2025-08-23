@@ -29,6 +29,8 @@ public class Game : MonoBehaviour
 
     public void LoadGame()
     {
+        characterSidebar.doneNote.Disable();
+        
         if (player.playerIdx == 1)
         {
             if (playerCharArray.Length == 0)
@@ -105,6 +107,8 @@ public class Game : MonoBehaviour
 
         animator.SetTrigger("GameOpen");
 
+        characterSidebar.turnNote.ChangeText("Pick suspect");
+
         if (mainPanel.isReady)
             mainPanel.isReady = false;
 
@@ -156,39 +160,31 @@ public class Game : MonoBehaviour
             }
         }
 
-        ResetEmptyFade();
-        PlayEmptyFade();
+        Invoke(nameof(PlayEmptyFade), 0.3f);
         UpdateSidebar();
     }
 
-    private void RemovePolaroids()
+    private void PlayReverseFadeAnim()
     {
-        for (int i = 0; i < charSlots.Count; i++)
-        {
-            Destroy(charSlots[i].gameObject);
-        }
-
-        charSlots.Clear();
+        PlayFadeAnim(true, true, false);
     }
 
-    private void ResetEmptyFade()
+    private void PlayFadeAnim(bool shouldReverse, bool shouldDestroyChildren, bool shouldDestroySelf)
     {
         for (int i = 0; i < emptySlots.Count; i++)
         {
-            emptySlots[i].Reset();
+            emptySlots[i].Play(shouldReverse, shouldDestroyChildren, shouldDestroySelf);
         }
     }
 
     private void PlayEmptyFade()
     {
-        for (int i = 0; i < emptySlots.Count; i++)
-        {
-            emptySlots[i].Play(false, false, false);
-        }
+        PlayFadeAnim(false, false, false);
     }
 
     public void ChooseCharacter(Character givenChar)
     {
+        characterSidebar.turnNote.ChangeText("Opponent is picking");
         chosenCharacter = givenChar;
         characterSidebar.SetCharacter(chosenCharacter);
         player.ChooseCharacter(givenChar);
@@ -206,9 +202,9 @@ public class Game : MonoBehaviour
 
     public void ChangePolaroids()
     {
-        RemovePolaroids();
+        PlayReverseFadeAnim();
 
-        Invoke(nameof(SpawnPolaroids), 0.5f);
+        Invoke(nameof(SpawnPolaroids), 0.7f);
     }
 
     public void UpdateSidebar()
@@ -273,6 +269,7 @@ public class Game : MonoBehaviour
         opponentCharArray = new Character[0];
         chosenCharacter = null;
         slotAmount = 0;
+        gameManager.ResetGame();
 
         for (int i = 0; i < emptySlots.Count; i++)
         {

@@ -170,7 +170,7 @@ public class ListInfoPanel : MonoBehaviour
         {
             chooseNote.gameObject.SetActive(true);
             chooseNote.ChangeText("Add");
-            if (listPanel.openedList.builtIn || !listPanel.hasListOpen || !polaroidSlot.characterCanAdd)
+            if (listPanel.openedList.builtIn || !listPanel.hasListOpen || !polaroidSlot.characterCanAdd || listPanel.openedList.characters.Count >= listPanel.maxCharacters)
                 chooseNote.Disable();
             else
                 chooseNote.Enable();

@@ -16,6 +16,7 @@ public class ListPanel : MonoBehaviour
     public bool isInfoPanelShown;
     public bool fromCharacterPanel;
     public bool hasListOpen;
+    public int maxCharacters = 96;
 
     [SerializeField] private MainPanel mainPanel;
     [SerializeField] private GameObject listGrid;

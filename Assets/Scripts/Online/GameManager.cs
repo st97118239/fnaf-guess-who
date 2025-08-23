@@ -231,7 +231,7 @@ public class GameManager : NetworkBehaviour
             Debug.Log("Player 2 did not accuse Player 1's character. Player 2 accused " + player2AccusedCharacter + ", while Player 1 chose " + player1ChosenCharacter + ".");
 
         Invoke(nameof(RpcFinishGame), 1);
-        Invoke(nameof(ResetGame), 2);
+        Invoke(nameof(ResetGame), 1.5f);
     }
 
     [ClientRpc]
@@ -241,12 +241,13 @@ public class GameManager : NetworkBehaviour
         player.StopGame();
     }
 
-    private void ResetGame()
+    public void ResetGame()
     {
         hasStarted = false;
         round = -1;
         turn = 0;
         needsToAccuse = false;
+        hasFinished = false;
         player1 = null;
         player1List = null;
         player1ChosenCharacter = string.Empty;
@@ -257,6 +258,9 @@ public class GameManager : NetworkBehaviour
         player2ChosenCharacter = string.Empty;
         player2AccusedCharacter = string.Empty;
         player2Won = false;
+
+        player = null;
+        opponent = null;
     }
 
     public void DisconnectAll()

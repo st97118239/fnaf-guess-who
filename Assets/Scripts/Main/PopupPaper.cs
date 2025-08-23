@@ -54,7 +54,7 @@ public class PopupPaper : MonoBehaviour
         }
         else if (error == Error.ServerDisconnected)
         {
-            paperText.text = "Server disconnected. Change Server IP Address and/or port or try again later.";
+            paperText.text = "Server disconnected. Check Server IP Address and/or port or try again later.";
             note.ChangeText("Return");
             note.Enable();
         }
@@ -67,6 +67,12 @@ public class PopupPaper : MonoBehaviour
         else if (error == Error.HostLeft)
         {
             paperText.text = "The server host has disconnected.";
+            note.ChangeText("Return");
+            note.Enable();
+        }
+        else if (error == Error.CantConnect)
+        {
+            paperText.text = "Couldn't connect to the server. Check the IP Address and port or try again later.";
             note.ChangeText("Return");
             note.Enable();
         }

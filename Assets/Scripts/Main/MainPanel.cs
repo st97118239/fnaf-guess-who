@@ -150,7 +150,7 @@ public class MainPanel : NetworkBehaviour
             NetworkManager.singleton.StartClient();
             Debug.Log("Connecting to server.");
 
-            Invoke(nameof(CheckConnection), 5);
+            Invoke(nameof(CheckConnection), 2);
         }
     }
 
@@ -161,7 +161,7 @@ public class MainPanel : NetworkBehaviour
 
         Debug.Log("Can't connect.");
         NetworkManager.singleton.StopClient();
-        popupPaper.Show(Error.NoConnection);
+        popupPaper.Show(Error.CantConnect);
 
         hostNote.Enable();
         connectionNote.Enable();
@@ -185,6 +185,15 @@ public class MainPanel : NetworkBehaviour
         hostNote.Enable();
         connectionNote.Enable();
         connectionNote.ChangeText("Connect");
+        Invoke(nameof(CheckIfEnabled), 0.1f);
+    }
+
+    private void CheckIfEnabled()
+    {
+        if (hostNote.isCrossedOff)
+            hostNote.Enable();
+        if (connectionNote.isCrossedOff)
+            connectionNote.Enable();
     }
 
     public void ClientConnected()

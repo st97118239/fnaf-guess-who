@@ -94,6 +94,8 @@ public class InfoPanel : MonoBehaviour
 
     private void ResetAudioButton()
     {
+        if (character.voicelines == null)
+            return;
         if (character.voicelines.Count == 0)
             return;
 

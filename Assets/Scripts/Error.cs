@@ -9,5 +9,6 @@ public enum Error
     LostConnection,
     ServerDisconnected,
     OpponentLeft,
-    HostLeft
+    HostLeft,
+    CantConnect
 }

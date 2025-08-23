@@ -3477,8 +3477,20 @@ PrefabInstance:
       value: 2.59
       objectReference: {fileID: 0}
     - target: {fileID: 2028061977133402481, guid: 6b9537fc45bdaf8418ca4f81cd847c91, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028061977133402481, guid: 6b9537fc45bdaf8418ca4f81cd847c91, type: 3}
       propertyPath: m_fontSize
       value: 17.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028061977133402481, guid: 6b9537fc45bdaf8418ca4f81cd847c91, type: 3}
+      propertyPath: m_margin.x
+      value: 2.5952187
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028061977133402481, guid: 6b9537fc45bdaf8418ca4f81cd847c91, type: 3}
+      propertyPath: m_margin.z
+      value: 1.8516502
       objectReference: {fileID: 0}
     - target: {fileID: 2028061977133402481, guid: 6b9537fc45bdaf8418ca4f81cd847c91, type: 3}
       propertyPath: m_fontSizeBase
@@ -14145,6 +14157,7 @@ MonoBehaviour:
   isInfoPanelShown: 0
   fromCharacterPanel: 0
   hasListOpen: 0
+  maxCharacters: 96
   mainPanel: {fileID: 1370482681}
   listGrid: {fileID: 1015897595}
   listSettings: {fileID: 1717802837}
