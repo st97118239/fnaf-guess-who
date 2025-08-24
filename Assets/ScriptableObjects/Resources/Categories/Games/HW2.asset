@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   categoryName: Help Wanted 2
   type: 1
-  firstGame: 12
+  firstGame: 13
   animatronicClass: 0
   skinType: 0
   characters:

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   categoryName: Secret of the Mimic
   type: 1
-  firstGame: 13
+  firstGame: 14
   animatronicClass: 0
   skinType: 0
   characters:

@@ -10,14 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf271d81e87b502448501a9f874380a5, type: 3}
-  m_Name: SBR
+  m_Name: SD
   m_EditorClassIdentifier: 
-  categoryName: RUIN
+  categoryName: Special Delivery
   type: 1
-  firstGame: 12
+  firstGame: 10
   animatronicClass: 0
   skinType: 0
-  characters:
-  - {fileID: 11400000, guid: 53e48f686c65ffc44999b72b9a00af02, type: 2}
-  - {fileID: 11400000, guid: 3eabdaa3343cef34f81c766bf4e261f4, type: 2}
-  - {fileID: 11400000, guid: 22a022a143e64744586919ec29d21a19, type: 2}
+  characters: []

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   categoryName: Security Breach
   type: 1
-  firstGame: 10
+  firstGame: 11
   animatronicClass: 0
   skinType: 0
   characters:

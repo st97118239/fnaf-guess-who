@@ -35,3 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6ac490251074328459e0f48c0ac2ee7c, type: 3}
   voicelines: []
   directory: Characters/PS/Gumball Swivelhands
+  lockedBehindDev: 1

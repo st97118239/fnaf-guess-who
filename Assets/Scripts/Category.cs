@@ -50,7 +50,7 @@ public enum AnimatronicClass
     AI,
     UnclassifiedAnim,
     UnclassifiedBots,
-    FNAFWorld
+    FNAFWorld,
 }
 
 public enum SkinType
@@ -84,6 +84,7 @@ public enum FirstGame
     PS,
     UCN,
     HW,
+    SD,
     SB,
     SBR,
     HW2,

@@ -41,7 +41,7 @@ public class CharacterPolaroid : MonoBehaviour, IPointerClickHandler
     {
         int isInList = charactersPanel.listPanel.openedList.characters.FindIndex(d => d == character.directory);
 
-        if (isInList != -1)
+        if (isInList != -1 || (character.lockedBehindDev && !charactersPanel.listPanel.devManager.unlockAllCharacters))
         {
             polaroid.Disable();
             listPolaroid.characterCanAdd = false;

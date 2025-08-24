@@ -48,6 +48,17 @@ public class CategoryNote : MonoBehaviour, IPointerClickHandler
         if (category.characters.Count == 0)
             note.Disable();
 
+        int amountLocked = 0;
+
+        for (int i = 0; i < category.characters.Count; i++)
+        {
+            if (category.characters[i].lockedBehindDev)
+                amountLocked++;
+        }
+
+        if (category.characters.Count == amountLocked)
+            note.Disable();
+
         note.ChangeText(category.categoryName);
     }
 }

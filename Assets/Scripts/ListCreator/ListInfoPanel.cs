@@ -158,12 +158,12 @@ public class ListInfoPanel : MonoBehaviour
         else
             audioNote.gameObject.SetActive(false);
 
-        if (listPanel.mainPanel.character != character.directory && !listPanel.mainPanel.settingsMenu.isConnected)
+        if (listPanel.mainPanel.character == character.directory || listPanel.mainPanel.settingsMenu.isConnected || (character.lockedBehindDev && !listPanel.devManager.unlockAllCharacters))
         {
-            avatarNote.Enable();
+            avatarNote.Disable();
         }
         else
-            avatarNote.Disable();
+            avatarNote.Enable();
 
         if (listPanel.menu == 1)
         {

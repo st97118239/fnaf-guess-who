@@ -35,3 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 86d7125fd19d24b4e9a47f119547e95c, type: 3}
   voicelines: []
   directory: Characters/PS/Prize King
+  lockedBehindDev: 1

@@ -11,8 +11,9 @@ public class ListPanel : MonoBehaviour
     public ListData openedList;
     public CharactersPanel charactersPanel;
     public CharacterClipboard characterClipboard;
+    public DevManager devManager;
 
-    public int menu; // -1 = loading, 0 = listsMenu, 1 = listCharactersMenu
+    public int menu; // -1 = loading, 0 = listsMenu, 1 = listCharactersMenu, 2 = charactersPanel
     public bool isInfoPanelShown;
     public bool fromCharacterPanel;
     public bool hasListOpen;
