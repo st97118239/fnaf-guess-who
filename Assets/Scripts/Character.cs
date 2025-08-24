@@ -26,7 +26,4 @@ public class Character : ScriptableObject
     public List<AudioClip> voicelines;
 
     public string directory;
-    public FirstGame firstGame;
-    public AnimatronicClass animatronicClass;
-    public SkinType skinClass;
 }

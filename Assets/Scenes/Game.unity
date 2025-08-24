@@ -23583,6 +23583,7 @@ GameObject:
   - component: {fileID: 1854751034}
   - component: {fileID: 1854751036}
   - component: {fileID: 1854751035}
+  - component: {fileID: 1854751037}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -23682,6 +23683,20 @@ MonoBehaviour:
   gameManager: {fileID: 1941638674}
   mainPanel: {fileID: 1370482681}
   game: {fileID: 237826674}
+--- !u!114 &1854751037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854751031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsetX: 0
+  offsetY: 0
 --- !u!1001 &1855553210
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25030,8 +25045,6 @@ MonoBehaviour:
   player2Won: 0
   player: {fileID: 0}
   opponent: {fileID: 0}
-  playerPolPrefab: {fileID: 920305166814788680, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
-  mainPanel: {fileID: 117346765}
 --- !u!4 &1941638675
 Transform:
   m_ObjectHideFlags: 0
