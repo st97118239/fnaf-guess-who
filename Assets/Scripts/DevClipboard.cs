@@ -41,10 +41,13 @@ public class DevClipboard : MonoBehaviour
         if (listPanel.hasListOpen && listPanel.menu == 1)
             isOnListPanel = true;
 
-        if (characterPanel.loadedCategory == null)
-            characterPanel.LoadCategoriesFade();
-        else if (characterPanel.loadedCategory != null)
-            characterPanel.RefreshPolaroids();
+        if (characterPanel.hasLoaded)
+        {
+            if (characterPanel.loadedCategory == null)
+                characterPanel.LoadCategoriesFade();
+            else if (characterPanel.loadedCategory != null)
+                characterPanel.RefreshPolaroids();
+        }
 
         if (isOnListPanel)
             Invoke(nameof(ResetListPanelMenu), 0.8f);

@@ -230,7 +230,16 @@ public class MainPanel : NetworkBehaviour
     public void Quit()
     {
         Debug.Log("Quitting game.");
+        quitNote.Disable();
 
+        listPanel.saveManager.Save();
+        settingsMenu.Save();
+
+        Invoke(nameof(ExitGame), 0.4f);
+    }
+
+    private void ExitGame()
+    {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else

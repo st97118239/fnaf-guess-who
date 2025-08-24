@@ -8,8 +8,9 @@ public class CharactersPanel : MonoBehaviour
     
     public int categoryIdx = -1;
     public float fadeAnimDelay = 0.7f;
-    
+
     public CharacterCategory loadedCategory;
+    public bool hasLoaded;
 
     [SerializeField] private Categories categories;
     [SerializeField] private GameObject grid;
@@ -30,8 +31,6 @@ public class CharactersPanel : MonoBehaviour
 
     private CategoryType categoryType;
     private List<CharacterCategory> category;
-
-    private bool hasLoaded;
 
     public void OpenPanel()
     {
