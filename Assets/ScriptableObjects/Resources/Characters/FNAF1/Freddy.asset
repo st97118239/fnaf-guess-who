@@ -34,33 +34,34 @@ MonoBehaviour:
   fullBodySprite:
   - {fileID: 21300000, guid: e0443a3d31b98654a854a58080bbd81d, type: 3}
   voicelines:
-  - {fileID: 8300000, guid: 4950dcf59cb62ea429c4c7aa5143550c, type: 3}
-  - {fileID: 8300000, guid: fbee05cd546f48545911b052802bb191, type: 3}
-  - {fileID: 8300000, guid: ce4c15a71e08e3b4cba88703cf0935a1, type: 3}
-  - {fileID: 8300000, guid: 3654cf7898786404f8374b37a72e5115, type: 3}
-  - {fileID: 8300000, guid: 0d027ba06a225ed479d434b9ed5fecaa, type: 3}
-  - {fileID: 8300000, guid: 7ccd403aa48f3ae49a1146ece023c18b, type: 3}
-  - {fileID: 8300000, guid: a4227319768e2fc479f8cd9771ea6ce6, type: 3}
-  - {fileID: 8300000, guid: d76dc3f5a1eb97f47b13139853d0d224, type: 3}
-  - {fileID: 8300000, guid: c01c6e742061e5542bcc3250a3d50a49, type: 3}
-  - {fileID: 8300000, guid: 5f73dc7562eb9d643b43f6ccbcde75fa, type: 3}
-  - {fileID: 8300000, guid: ebfb40b9174cebb4da2dd6a89fecb71e, type: 3}
-  - {fileID: 8300000, guid: e156671611a247640a9f0aedcad53794, type: 3}
-  - {fileID: 8300000, guid: 4e723dd046275d048883f2a5c0d5a58a, type: 3}
-  - {fileID: 8300000, guid: 75592324e8b775a498f2fd3f52d2b5ab, type: 3}
-  - {fileID: 8300000, guid: 82ecb574253a30145bf5f2d910946a24, type: 3}
-  - {fileID: 8300000, guid: dfac058840fc14a4aa90fca8134ff920, type: 3}
-  - {fileID: 8300000, guid: 3196b1819ccd27c4080fe24fb4cc57fe, type: 3}
-  - {fileID: 8300000, guid: 4fb151fea428e984d96618843b78a16d, type: 3}
-  - {fileID: 8300000, guid: ff64d32fa1cbe414096d3eb5f53d4f37, type: 3}
-  - {fileID: 8300000, guid: 1b6b8634375d52548b61919060911128, type: 3}
-  - {fileID: 8300000, guid: 09b6b79615a293d44b9b91d9440648b0, type: 3}
-  - {fileID: 8300000, guid: f5eddf2f54b79d341a59ecb83b6dcbd6, type: 3}
-  - {fileID: 8300000, guid: a674a2126ed3e3543b9e4a84efa7ef2a, type: 3}
-  - {fileID: 8300000, guid: b9de53ce88fc859449c4771f80c210b3, type: 3}
-  - {fileID: 8300000, guid: d0e93ef05cb7d2d4d8c345a561bf1b16, type: 3}
-  - {fileID: 8300000, guid: c03ed5473a0c613489b1f0fd4a0946bc, type: 3}
+  - {fileID: 8300000, guid: dd6ab6dcd9754e24d8ad9b43802fda78, type: 3}
+  - {fileID: 8300000, guid: 5527c61e5e2822c4bbc749c13c52bf3a, type: 3}
+  - {fileID: 8300000, guid: 53baab783abd0894e993579315f39a56, type: 3}
+  - {fileID: 8300000, guid: 3565d2f31964c2a409c015de398e2bb6, type: 3}
+  - {fileID: 8300000, guid: 11018017c4e71de429a3037d5a7c66dd, type: 3}
+  - {fileID: 8300000, guid: 7d683fe3856918440a7d29e5ceb0152a, type: 3}
+  - {fileID: 8300000, guid: be453ea2c3008e54b9904660a26d5a9a, type: 3}
+  - {fileID: 8300000, guid: ba36f40654429af49b648eb6356d8c1e, type: 3}
+  - {fileID: 8300000, guid: 8b9a9f5487eefa44c9207240da67b7d5, type: 3}
+  - {fileID: 8300000, guid: d8693bad83732524db8605183f380098, type: 3}
+  - {fileID: 8300000, guid: 72bfc44269ac7174dbdbdc76610993be, type: 3}
+  - {fileID: 8300000, guid: 7b32fb924bc9ce14c9cfb87e52e644b1, type: 3}
+  - {fileID: 8300000, guid: ddeca0bbf9029ab468b1b57e8875d510, type: 3}
+  - {fileID: 8300000, guid: 67d5d7c6ee1514541943ca8964367d65, type: 3}
+  - {fileID: 8300000, guid: aebf590217358954784cf6d0479d5433, type: 3}
+  - {fileID: 8300000, guid: d412f6e3766757149b8fc04db64f4efb, type: 3}
+  - {fileID: 8300000, guid: e867a2f15cbac2b4ca97d81bbd972cb7, type: 3}
+  - {fileID: 8300000, guid: 1e3ec5df2ba0ce44199ddf170b1c19d8, type: 3}
+  - {fileID: 8300000, guid: aa3b0fc06444f634fa2b09a8a434d0d6, type: 3}
+  - {fileID: 8300000, guid: a07a14edad72281488a3ecab3092b59e, type: 3}
+  - {fileID: 8300000, guid: 82b652ea036776541ab050d835dae12f, type: 3}
+  - {fileID: 8300000, guid: c6a54c4e684304749b074a2c776b468b, type: 3}
+  - {fileID: 8300000, guid: 2dc5d10c566f2784c9ce9912c9f88c55, type: 3}
+  - {fileID: 8300000, guid: f695f783cd0319148b2d16c7654f1402, type: 3}
+  - {fileID: 8300000, guid: 3c3c177c98b590a4380e62cb530fb394, type: 3}
+  - {fileID: 8300000, guid: f6adfda2f479d8046bb399c20a92199d, type: 3}
+  - {fileID: 8300000, guid: c3a5675baec812f418d0fd41a102a1be, type: 3}
+  - {fileID: 8300000, guid: 7533573417e02294ca15959e531c3ffa, type: 3}
+  - {fileID: 8300000, guid: 318ff7ba2ff9c6743bf1400732892448, type: 3}
   directory: Characters/FNAF1/Freddy
-  firstGame: 1
-  animatronicClass: 1
-  skinClass: 0
+  lockedBehindDev: 0

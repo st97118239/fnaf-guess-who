@@ -148,6 +148,8 @@ MonoBehaviour:
   startCrossedOff: 0
   startWithImage: 0
   crossOffTime: 0.4
+  spawnRotation: {x: -4, y: 4}
+  rectTransform: {fileID: 1916350489842653506}
 --- !u!114 &6996096582701358139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,7 +379,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ultimate Custom Night
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 74aee73a76b54be41ae5d05537c6a0e3, type: 2}
   m_sharedMaterial: {fileID: 7713069811506802824, guid: 74aee73a76b54be41ae5d05537c6a0e3, type: 2}
@@ -404,7 +406,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.35
+  m_fontSize: 24
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1

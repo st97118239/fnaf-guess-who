@@ -213,7 +213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de17682f037c9147bbf6c30bac332b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pol: {fileID: 0}
+  isLoaded: 0
+  pol: {fileID: 4048306672937834167}
   fadeTime: 0.4
 --- !u!114 &4048306672937834167
 MonoBehaviour:
@@ -237,6 +238,8 @@ MonoBehaviour:
   isCrossedOff: 0
   hasCircle: 0
   fillTime: 0.4
+  spawnRotation: {x: -4, y: 4}
+  rectTransform: {fileID: 4205299430217402107}
 --- !u!114 &2782491715836447311
 MonoBehaviour:
   m_ObjectHideFlags: 0

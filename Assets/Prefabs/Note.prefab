@@ -147,6 +147,8 @@ MonoBehaviour:
   startCrossedOff: 0
   startWithImage: 0
   crossOffTime: 0.4
+  spawnRotation: {x: -4, y: 4}
+  rectTransform: {fileID: 1916350489842653506}
 --- !u!114 &8518961126098211083
 MonoBehaviour:
   m_ObjectHideFlags: 0

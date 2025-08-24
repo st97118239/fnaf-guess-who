@@ -33,6 +33,32 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 553d662c875f0984f8a82e554ee1e44a, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: f6625c1dd8eb74145b7d1bafdb17dcc9, type: 3}
-  voicelines: []
+  voicelines:
+  - {fileID: 8300000, guid: 11018017c4e71de429a3037d5a7c66dd, type: 3}
+  - {fileID: 8300000, guid: 7d683fe3856918440a7d29e5ceb0152a, type: 3}
+  - {fileID: 8300000, guid: be453ea2c3008e54b9904660a26d5a9a, type: 3}
+  - {fileID: 8300000, guid: ba36f40654429af49b648eb6356d8c1e, type: 3}
+  - {fileID: 8300000, guid: 8b9a9f5487eefa44c9207240da67b7d5, type: 3}
+  - {fileID: 8300000, guid: d8693bad83732524db8605183f380098, type: 3}
+  - {fileID: 8300000, guid: 72bfc44269ac7174dbdbdc76610993be, type: 3}
+  - {fileID: 8300000, guid: 7b32fb924bc9ce14c9cfb87e52e644b1, type: 3}
+  - {fileID: 8300000, guid: ddeca0bbf9029ab468b1b57e8875d510, type: 3}
+  - {fileID: 8300000, guid: 67d5d7c6ee1514541943ca8964367d65, type: 3}
+  - {fileID: 8300000, guid: aebf590217358954784cf6d0479d5433, type: 3}
+  - {fileID: 8300000, guid: d412f6e3766757149b8fc04db64f4efb, type: 3}
+  - {fileID: 8300000, guid: e867a2f15cbac2b4ca97d81bbd972cb7, type: 3}
+  - {fileID: 8300000, guid: 1e3ec5df2ba0ce44199ddf170b1c19d8, type: 3}
+  - {fileID: 8300000, guid: aa3b0fc06444f634fa2b09a8a434d0d6, type: 3}
+  - {fileID: 8300000, guid: a07a14edad72281488a3ecab3092b59e, type: 3}
+  - {fileID: 8300000, guid: eb050253f2fb7bc4384f44087a31e9ae, type: 3}
+  - {fileID: 8300000, guid: 82b652ea036776541ab050d835dae12f, type: 3}
+  - {fileID: 8300000, guid: c6a54c4e684304749b074a2c776b468b, type: 3}
+  - {fileID: 8300000, guid: 2dc5d10c566f2784c9ce9912c9f88c55, type: 3}
+  - {fileID: 8300000, guid: f695f783cd0319148b2d16c7654f1402, type: 3}
+  - {fileID: 8300000, guid: 3c3c177c98b590a4380e62cb530fb394, type: 3}
+  - {fileID: 8300000, guid: f6adfda2f479d8046bb399c20a92199d, type: 3}
+  - {fileID: 8300000, guid: c3a5675baec812f418d0fd41a102a1be, type: 3}
+  - {fileID: 8300000, guid: 7533573417e02294ca15959e531c3ffa, type: 3}
+  - {fileID: 8300000, guid: 318ff7ba2ff9c6743bf1400732892448, type: 3}
   directory: Characters/SD/Shamrock Freddy
   lockedBehindDev: 1

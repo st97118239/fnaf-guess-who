@@ -222,6 +222,8 @@ MonoBehaviour:
   isCrossedOff: 0
   hasCircle: 0
   fillTime: 0.4
+  spawnRotation: {x: -4, y: 4}
+  rectTransform: {fileID: 4205299430217402107}
 --- !u!114 &2782491715836447311
 MonoBehaviour:
   m_ObjectHideFlags: 0

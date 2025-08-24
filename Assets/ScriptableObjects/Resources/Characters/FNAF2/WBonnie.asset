@@ -33,8 +33,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3e406574c0d86214f8f61daf229838f0, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 0607770b20683174d876fdf328768d17, type: 3}
-  voicelines: []
+  voicelines:
+  - {fileID: 8300000, guid: 71371bd6e209db746930139ec3d48581, type: 3}
+  - {fileID: 8300000, guid: 5c044782758252e4b9ef9afbb3e2852f, type: 3}
+  - {fileID: 8300000, guid: ac76e727c8658f844970806004c67b91, type: 3}
+  - {fileID: 8300000, guid: 7e4ecb66320961448b9b4634289c8e44, type: 3}
+  - {fileID: 8300000, guid: 67f4938e9e0d62e4e8a73dd3942ba679, type: 3}
+  - {fileID: 8300000, guid: 85464a7cfc5c0db40a10d549205c8c6e, type: 3}
   directory: Characters/FNAF2/WBonnie
-  firstGame: 2
-  animatronicClass: 2
-  skinClass: 0
+  lockedBehindDev: 0

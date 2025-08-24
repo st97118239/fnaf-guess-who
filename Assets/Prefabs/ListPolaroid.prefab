@@ -219,9 +219,12 @@ MonoBehaviour:
   characterText: {fileID: 7584876009988583179}
   polXImage: {fileID: 5311072566952055460}
   character: {fileID: 0}
-  isButton: 0
   startCrossedOff: 0
   isCrossedOff: 0
+  hasCircle: 0
+  fillTime: 1
+  spawnRotation: {x: -4, y: 4}
+  rectTransform: {fileID: 4205299430217402107}
 --- !u!114 &2782491715836447311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,6 +312,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 0}
+  index: 0
+  characterCanAdd: 0
+  listPanel: {fileID: 0}
   polaroid: {fileID: 8591943797081571876}
 --- !u!1 &7866389356716923161
 GameObject:

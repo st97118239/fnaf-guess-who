@@ -16,7 +16,10 @@ public class Polaroid : MonoBehaviour
     [SerializeField] private bool isCrossedOff;
     [SerializeField] private bool hasCircle;
 
-    [SerializeField] private float fillTime = 1; 
+    [SerializeField] private float fillTime = 1;
+    [SerializeField] private Vector2 spawnRotation = new Vector2(-4f, 4f);
+
+    [SerializeField] private RectTransform rectTransform;
 
     private void Awake()
     {
@@ -33,6 +36,8 @@ public class Polaroid : MonoBehaviour
                 CrossOff();
             }
         }
+
+        rectTransform.localEulerAngles = new Vector3(0f, 0f, Random.Range(spawnRotation[0], spawnRotation[1]));
     }
 
     private IEnumerator FadeImage(bool fill, string image, bool imageDisabling)

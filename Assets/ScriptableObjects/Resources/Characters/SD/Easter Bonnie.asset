@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5faff62a0a865b2478c41b058cdd4c7a, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 130b41d40d5b1584ebc096afc45c559a, type: 3}
-  voicelines: []
+  voicelines:
+  - {fileID: 8300000, guid: a25e6478e0eda484db3860c7d372be23, type: 3}
   directory: Characters/SD/Easter Bonnie
   lockedBehindDev: 1

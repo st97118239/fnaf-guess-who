@@ -78,14 +78,15 @@ public class ListInfoPanel : MonoBehaviour
 
         audioManager.voicelines.Stop();
 
+        audioManager.voicelines.PlayOneShot(audioToPlay[0]);
+        audioToPlay.Remove(audioToPlay[0]);
+
         if (audioToPlay.Count == 0)
         {
             audioToPlay = character.voicelines;
             audioToPlay = audioToPlay.OrderBy(i => rnd.Next()).ToList();
         }
 
-        audioManager.voicelines.PlayOneShot(audioToPlay[0]);
-        
         Invoke(nameof(ResetAudioButton), audioToPlay[0].length);
 
         audioNote.ChangeImage("UI/Stop");
@@ -97,7 +98,6 @@ public class ListInfoPanel : MonoBehaviour
             return;
 
         isPlayingAudio = false;
-        audioToPlay.Remove(audioToPlay[0]);
         audioNote.ChangeImage("UI/Play");
     }
 
