@@ -56,7 +56,7 @@ public class CategoryNote : MonoBehaviour, IPointerClickHandler
                 amountLocked++;
         }
 
-        if (category.characters.Count == amountLocked)
+        if (category.characters.Count == amountLocked && !charactersPanel.listPanel.devManager.unlockAllCharacters)
             note.Disable();
 
         note.ChangeText(category.categoryName);

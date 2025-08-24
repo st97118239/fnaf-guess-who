@@ -1080,6 +1080,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isShown: 0
   devManager: {fileID: 1396184481}
+  listPanel: {fileID: 1224084823}
+  characterPanel: {fileID: 819804215}
   devClipboard: {fileID: 75049584}
   clipboardAnimator: {fileID: 75049587}
   backgroundBlocker: {fileID: 1150084826}
@@ -9287,6 +9289,7 @@ MonoBehaviour:
   settingsMenu: {fileID: 1718805958}
   categoryIdx: -1
   fadeAnimDelay: 0.7
+  loadedCategory: {fileID: 0}
   categories: {fileID: 11400000, guid: b1d6e198a87980440b2228ac7965c403, type: 2}
   grid: {fileID: 1116429545}
   categoryNotePrefab: {fileID: 4819021767877749062, guid: b0e322944ace4524aa85a7b0ae50d5d7, type: 3}

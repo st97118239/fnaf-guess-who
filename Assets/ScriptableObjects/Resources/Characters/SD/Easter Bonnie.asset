@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
+  m_Name: Easter Bonnie
+  m_EditorClassIdentifier: 
+  characterName: Easter Bonnie
+  pronouns: He/Him
+  yearMade: 1970s
+  yearBorn: 
+  familyMembers: 
+  owner: Fazbear Entertainment, Inc.
+  occupation: 
+  employment: Guitarist
+  affiliation: Freddy Fazbear's Pizza
+  aliases: Bonnie the Bunny
+  type: Classic Animatronic
+  model: Rabbit
+  height: 
+  weight: 
+  color: White
+  eyeColor: Blue
+  firstAppearance: 'Five Nights at Freddy''s AR: Special Delivery'
+  polaroidSprite:
+  - {fileID: 21300000, guid: 5faff62a0a865b2478c41b058cdd4c7a, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: 130b41d40d5b1584ebc096afc45c559a, type: 3}
+  voicelines: []
+  directory: Characters/SD/Easter Bonnie
+  lockedBehindDev: 1

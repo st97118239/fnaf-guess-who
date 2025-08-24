@@ -6,6 +6,8 @@ public class DevClipboard : MonoBehaviour
     public bool isShown;
 
     [SerializeField] private DevManager devManager;
+    [SerializeField] private ListPanel listPanel;
+    [SerializeField] private CharactersPanel characterPanel;
 
     [SerializeField] private GameObject devClipboard;
     [SerializeField] private Animator clipboardAnimator;
@@ -32,6 +34,11 @@ public class DevClipboard : MonoBehaviour
         clipboardAnimator.SetTrigger("PaperClose");
         Invoke(nameof(DisableBackground), 0.6f);
         Save();
+
+        if (characterPanel.loadedCategory == null)
+            characterPanel.LoadCategoriesFade();
+        else if (characterPanel.loadedCategory != null)
+            characterPanel.RefreshPolaroids();
 
         isShown = false;
     }

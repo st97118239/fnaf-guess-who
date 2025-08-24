@@ -8,6 +8,8 @@ public class CharactersPanel : MonoBehaviour
     
     public int categoryIdx = -1;
     public float fadeAnimDelay = 0.7f;
+    
+    public CharacterCategory loadedCategory;
 
     [SerializeField] private Categories categories;
     [SerializeField] private GameObject grid;
@@ -28,7 +30,6 @@ public class CharactersPanel : MonoBehaviour
 
     private CategoryType categoryType;
     private List<CharacterCategory> category;
-    private CharacterCategory loadedCategory;
 
     private bool hasLoaded;
 
@@ -125,7 +126,8 @@ public class CharactersPanel : MonoBehaviour
 
         PlayFadeAnim(true, true, false);
 
-        characterPolaroids.Clear();
+        characterPolaroids?.Clear();
+
         loadedCategory = null;
 
         Invoke(nameof(LoadCategories), fadeAnimDelay);
