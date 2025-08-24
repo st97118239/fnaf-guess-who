@@ -1,10 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class PlayerPolaroid : MonoBehaviour
+public class PlayerPolaroid : MonoBehaviour, IPointerClickHandler
 {
     public bool isLoaded;
 
+    [SerializeField] private bool isOpponent;
     [SerializeField] private Polaroid pol;
     [SerializeField] private float fadeTime = 0.4f;
     [SerializeField] private MainPanel mainPanel;
@@ -14,6 +16,17 @@ public class PlayerPolaroid : MonoBehaviour
 
     private bool fadeImage;
     private bool fadeText;
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            if (!mainPanel.playerPanel.isShown)
+            {
+                mainPanel.playerPanel.Show(isOpponent);
+            }
+        }
+    }
 
     private IEnumerator FadeImage(bool fadeIn)
     {
@@ -56,8 +69,8 @@ public class PlayerPolaroid : MonoBehaviour
 
         if (!character)
         {
-            mainPanel.character = "Characters/FNAF1/Freddy";
-            character = Resources.Load<Character>(mainPanel.character);
+            mainPanel.avatar = "Characters/FNAF1/Freddy";
+            character = Resources.Load<Character>(mainPanel.avatar);
         }
 
         if (character.polaroidSprite[0])

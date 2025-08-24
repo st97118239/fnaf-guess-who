@@ -35,6 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 86d76980bd749734c964ba6499c35cb2, type: 3}
   voicelines: []
   directory: Characters/HW2/Carnie
-  firstGame: 12
-  animatronicClass: 10
-  skinClass: 0
+  winsNeeded: 1

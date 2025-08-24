@@ -61,4 +61,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7533573417e02294ca15959e531c3ffa, type: 3}
   - {fileID: 8300000, guid: 318ff7ba2ff9c6743bf1400732892448, type: 3}
   directory: Characters/SD/Shamrock Freddy
-  lockedBehindDev: 1
+  winsNeeded: 7

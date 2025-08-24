@@ -35,6 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c04bf410e0a202d44a2d34b4fc93e6d2, type: 3}
   voicelines: []
   directory: Characters/FNAF2/SFreddy
-  firstGame: 2
-  animatronicClass: 4
-  skinClass: 0
+  winsNeeded: 0

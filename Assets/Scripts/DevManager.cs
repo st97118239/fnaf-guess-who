@@ -4,6 +4,7 @@ using UnityEngine;
 public class DevManager : MonoBehaviour
 {
     public bool unlockAllCharacters;
+    public bool isUnlocked;
 
     [SerializeField] private DevClipboard devClipboard;
 
@@ -21,7 +22,7 @@ public class DevManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Backspace) && !devClipboard.isShown)
+        if (Input.GetKey(KeyCode.Backslash) && !devClipboard.isShown)
         {
             if (holdTimer > 0)
                 holdTimer -= Time.deltaTime;
@@ -31,13 +32,18 @@ public class DevManager : MonoBehaviour
                 holdTimer = holdTimerBase;
             }
         }
-        else if (Input.GetKeyUp(KeyCode.Backspace))
+        else if (Input.GetKeyUp(KeyCode.Backslash))
             holdTimer = holdTimerBase;
     }
 
     public void CheckPassword()
     {
         if (passworldField.text == devPassword)
+        {
             devClipboard.NextPage();
+            isUnlocked = true;
+            holdTimerBase = 0.05f;
+            holdTimer = holdTimerBase;
+        }
     }
 }

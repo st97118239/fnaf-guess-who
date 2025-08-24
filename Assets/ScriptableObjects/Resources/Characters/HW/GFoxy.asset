@@ -35,6 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f13a94fe8bfc5ee4fa534b1e99cea82e, type: 3}
   voicelines: []
   directory: Characters/HW/GFoxy
-  firstGame: 9
-  animatronicClass: 8
-  skinClass: 0
+  winsNeeded: 5

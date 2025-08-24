@@ -73,4 +73,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a9ac0ed44d4ce1c44a30f4061d054ed8, type: 3}
   - {fileID: 8300000, guid: 636f2b478d023e34189244eff75de8eb, type: 3}
   directory: Characters/SD/Catrina TChica
-  lockedBehindDev: 1
+  winsNeeded: 15

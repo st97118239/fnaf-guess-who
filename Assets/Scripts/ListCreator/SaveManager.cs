@@ -16,6 +16,14 @@ public class SaveManager : MonoBehaviour
 
     private string savePath;
 
+    private void Awake()
+    {
+        if (PlayerPrefs.GetInt("Version") != listPanel.mainPanel.gameManager.version)
+            PlayerPrefs.SetInt("Version", listPanel.mainPanel.gameManager.version);
+
+        Debug.Log("Playing on version 70.");
+    }
+
     private void Start()
     {
         savePath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "SaveData.json";
@@ -41,12 +49,33 @@ public class SaveManager : MonoBehaviour
             return;
         }
 
+        if (save.lists[0].version < PlayerPrefs.GetInt("Version"))
+        {
+            ReplaceDefault();
+        }
+
         for (int i = 0; i < save.lists.Count; i++)
         {
             Debug.Log("Found list: " + save.lists[i].name);
         }
 
         LoadSelectedList();
+    }
+
+    private void ReplaceDefault()
+    {
+        CreateNewSave();
+
+        listToSave = saveData.lists[0];
+
+        listToSave.characters = listCharacters.characters.Select(c => c.directory).ToList();
+        listToSave.name = listCharacters.name;
+        listToSave.builtIn = true;
+        listToSave.version = PlayerPrefs.GetInt("Version");
+
+        Save();
+
+        Debug.Log("Replaced default list with new list.");
     }
 
     private void CreateSave(bool builtIn)
@@ -175,6 +204,7 @@ public class SaveManager : MonoBehaviour
 
         listToSave.characters = listCharacters.characters.Select(c => c.directory).ToList();
         listToSave.name = listCharacters.name;
+        listToSave.version = PlayerPrefs.GetInt("Version");
 
         Save();
     }

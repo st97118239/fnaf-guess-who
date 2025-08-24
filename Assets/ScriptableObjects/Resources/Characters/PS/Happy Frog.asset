@@ -35,6 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 11bffa44a7500224bbf1b43f8b8e0e62, type: 3}
   voicelines: []
   directory: Characters/PS/Happy Frog
-  firstGame: 7
-  animatronicClass: 11
-  skinClass: 0
+  winsNeeded: 0

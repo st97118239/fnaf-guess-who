@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -19,7 +20,7 @@ public class CharacterPolaroid : MonoBehaviour, IPointerClickHandler
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
-            if (!character.lockedBehindDev || (character.lockedBehindDev && charactersPanel.listPanel.devManager.unlockAllCharacters))
+            if (character.winsNeeded <= PlayerPrefs.GetInt("Wins") || charactersPanel.listPanel.devManager.unlockAllCharacters)
                 RMB();
         }
     }
@@ -42,7 +43,7 @@ public class CharacterPolaroid : MonoBehaviour, IPointerClickHandler
     {
         int isInList = charactersPanel.listPanel.openedList.characters.FindIndex(d => d == character.directory);
 
-        if (isInList != -1 || (character.lockedBehindDev && !charactersPanel.listPanel.devManager.unlockAllCharacters))
+        if (isInList != -1 || (character.winsNeeded > PlayerPrefs.GetInt("Wins") && !charactersPanel.listPanel.devManager.unlockAllCharacters))
         {
             polaroid.Disable();
             listPolaroid.characterCanAdd = false;

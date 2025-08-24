@@ -6,6 +6,7 @@ public class ListData
     public string name;
     public bool builtIn;
     public bool selected;
+    public int version;
     public List<string> characters = new();
 }
 

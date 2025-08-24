@@ -10,6 +10,7 @@ public class MainPanel : NetworkBehaviour
     public Game game;
     public GameManager gameManager;
     public ListPanel listPanel;
+    public PlayerPanel playerPanel;
     public PopupPaper popupPaper;
     public SettingsMenu settingsMenu;
 
@@ -24,7 +25,7 @@ public class MainPanel : NetworkBehaviour
     public Note quitNote;
 
     public string username;
-    public string character;
+    public string avatar;
     public string[] selectedArray;
     public bool isHost;
     public bool isReady;
@@ -72,13 +73,13 @@ public class MainPanel : NetworkBehaviour
 
     public void SetPlayerPolaroid(bool fadeImage, bool fadeText)
     {
-         playerPolaroids[0].Load(username, character, fadeImage, fadeText);
+         playerPolaroids[0].Load(username, avatar, fadeImage, fadeText);
     }
 
     public void SetOpponentPolaroid()
     {
         if (gameManager?.opponent)
-            playerPolaroids[1].Load(gameManager.opponent.username, gameManager.opponent.character, true, true);
+            playerPolaroids[1].Load(gameManager.opponent.username, gameManager.opponent.avatar, true, true);
         else
             playerPolaroids[1].Clear();
     }

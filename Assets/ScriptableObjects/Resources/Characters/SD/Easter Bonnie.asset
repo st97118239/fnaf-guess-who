@@ -36,4 +36,4 @@ MonoBehaviour:
   voicelines:
   - {fileID: 8300000, guid: a25e6478e0eda484db3860c7d372be23, type: 3}
   directory: Characters/SD/Easter Bonnie
-  lockedBehindDev: 1
+  winsNeeded: 9

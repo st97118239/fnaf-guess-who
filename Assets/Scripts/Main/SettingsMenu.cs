@@ -95,7 +95,7 @@ public class SettingsMenu : MonoBehaviour
     public void Save()
     {
         settings.username = usernameField.text;
-        settings.character = mainPanel.character;
+        settings.avatar = mainPanel.avatar;
         settings.serverAddress = serverAddressField.text;
         settings.serverPort = serverPortField.text;
         settings.soundEffects = soundEffectsSlider.value;
@@ -126,7 +126,7 @@ public class SettingsMenu : MonoBehaviour
         mainPanel.username = settings.username;
         usernameField.text = settings.username;
 
-        mainPanel.character = settings.character;
+        mainPanel.avatar = settings.avatar;
 
         networkManager.networkAddress = settings.serverAddress;
         serverAddressField.text = settings.serverAddress;

@@ -27,12 +27,6 @@ public class GameManager : NetworkBehaviour
     public Player player;
     public Player opponent;
 
-    private void Awake()
-    {
-        if (PlayerPrefs.GetInt("Version", version) != version)
-            PlayerPrefs.SetInt("Version", version);
-    }
-
     private void OnEnable()
     {
         round = -1;

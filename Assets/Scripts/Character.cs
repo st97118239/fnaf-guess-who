@@ -26,5 +26,5 @@ public class Character : ScriptableObject
     public List<AudioClip> voicelines;
 
     public string directory;
-    public bool lockedBehindDev;
+    public int winsNeeded;
 }

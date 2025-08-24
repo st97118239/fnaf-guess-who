@@ -35,6 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 65873e0598c646c4ea312dd468f96358, type: 3}
   voicelines: []
   directory: Characters/FNAF4/JOBonnie
-  firstGame: 4
-  animatronicClass: 8
-  skinClass: 0
+  winsNeeded: 5

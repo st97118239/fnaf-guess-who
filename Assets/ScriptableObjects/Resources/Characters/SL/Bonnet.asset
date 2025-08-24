@@ -35,6 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 195766afe220b10409fd2272e586b7c4, type: 3}
   voicelines: []
   directory: Characters/SL/Bonnet
-  firstGame: 6
-  animatronicClass: 9
-  skinClass: 0
+  winsNeeded: 6

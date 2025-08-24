@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 public class ListSettings : MonoBehaviour
@@ -7,15 +8,28 @@ public class ListSettings : MonoBehaviour
     [SerializeField] private GameObject backgroundBlocker;
     [SerializeField] private Animator animator;
 
+    [SerializeField] private Note scriptableObjectNote;
+    [SerializeField] private Note deleteNote;
+
     [SerializeField] private GameObject doubleNameErrorText;
 
     [SerializeField] private TMP_InputField nameField;
     [SerializeField] private TMP_Text titleText;
 
+    private string characterListPath;
+
+    private CharacterList characterList;
+    private ListData listToSave;
+
     private int index;
     private bool isNewList;
     private bool isShown;
     private bool cancel;
+
+    private void Start()
+    {
+        characterListPath = "Assets/ScriptableObjects/CharacterLists/";
+    }
 
     private void Update()
     {
@@ -35,11 +49,27 @@ public class ListSettings : MonoBehaviour
         index = listIdx;
 
         if (isNewList)
+        {
             titleText.text = "New List";
+            deleteNote.ChangeText("Cancel");
+
+            if (listPanel.devManager.isUnlocked)
+            {
+                scriptableObjectNote.gameObject.SetActive(true);
+                scriptableObjectNote.Disable();
+            }
+        }
         else
         {
             titleText.text = "Edit List";
             nameField.text = listPanel.saveManager.saveData.lists[listIdx].name;
+            deleteNote.ChangeText("Delete");
+
+            if (listPanel.devManager.isUnlocked)
+            {
+                scriptableObjectNote.gameObject.SetActive(true);
+                scriptableObjectNote.Enable();
+            }
         }
 
         animator.SetTrigger("PaperOpen");
@@ -115,6 +145,30 @@ public class ListSettings : MonoBehaviour
         index = 0;
         nameField.text = string.Empty;
         doubleNameErrorText.SetActive(false);
+    }
+
+    public void SaveToSO()
+    {
+        listToSave = listPanel.saveManager.saveData.lists[index];
+
+        characterList = ScriptableObject.CreateInstance<CharacterList>();
+
+        characterList.characters = new(listToSave.characters.Count);
+
+        for (int i = 0; i < listToSave.characters.Count; i++)
+        {
+            characterList.characters.Add(Resources.Load<Character>(listToSave.characters[i]));
+        }
+
+        characterList.listName = listToSave.name;
+        characterList.version = PlayerPrefs.GetInt("Version");
+
+        AssetDatabase.CreateAsset(characterList, characterListPath + characterList.listName + ".asset");
+
+        characterList = null;
+
+        cancel = true;
+        Close();
     }
 
     private void DisableBackground()

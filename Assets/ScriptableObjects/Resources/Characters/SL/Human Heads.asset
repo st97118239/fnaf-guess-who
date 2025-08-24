@@ -37,4 +37,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f83cddae978d6664b86b3b8593f88e7b, type: 3}
   - {fileID: 8300000, guid: a4e289e131495184593d11d849fa4737, type: 3}
   directory: Characters/SL/Human Heads
-  lockedBehindDev: 1
+  winsNeeded: 6

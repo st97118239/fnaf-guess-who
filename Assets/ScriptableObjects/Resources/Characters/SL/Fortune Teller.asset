@@ -36,4 +36,4 @@ MonoBehaviour:
   voicelines:
   - {fileID: 8300000, guid: 698db505d006005468f52657be2dff97, type: 3}
   directory: Characters/SL/Fortune Teller
-  lockedBehindDev: 1
+  winsNeeded: 6

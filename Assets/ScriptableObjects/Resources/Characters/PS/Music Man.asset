@@ -35,6 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ca605369e9eb9d48bc7a616a0100fab, type: 3}
   voicelines: []
   directory: Characters/PS/Music Man
-  firstGame: 7
-  animatronicClass: 9
-  skinClass: 0
+  winsNeeded: 12

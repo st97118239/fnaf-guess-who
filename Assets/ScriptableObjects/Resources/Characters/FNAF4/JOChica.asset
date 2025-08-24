@@ -35,6 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f394494029c3c8547ad5df9bd1716f2f, type: 3}
   voicelines: []
   directory: Characters/FNAF4/JOChica
-  firstGame: 4
-  animatronicClass: 8
-  skinClass: 0
+  winsNeeded: 5

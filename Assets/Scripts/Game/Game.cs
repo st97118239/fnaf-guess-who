@@ -295,6 +295,13 @@ public class Game : MonoBehaviour
                 winPanel.result = "You did not accuse the correct suspect. But your opponent accused your suspect.";
             else if (!p1Won && !p2Won)
                 winPanel.result = "You did not accuse the correct suspect. And neither did your opponent.";
+
+            if (p1Won)
+            {
+                int wins = PlayerPrefs.GetInt("Wins");
+                wins++;
+                PlayerPrefs.SetInt("Wins", wins);
+            }
         }
         else if (player.playerIdx == 2)
         {
@@ -306,6 +313,13 @@ public class Game : MonoBehaviour
                 winPanel.result = "You did not accuse the correct suspect. But your opponent accused your suspect.";
             else if (!p2Won && !p1Won)
                 winPanel.result = "You did not accuse the correct suspect. And neither did your opponent.";
+
+            if (p2Won)
+            {
+                int wins = PlayerPrefs.GetInt("Wins");
+                wins++;
+                PlayerPrefs.SetInt("Wins", wins);
+            }
         }
 
         Character opponentChar = Resources.Load<Character>(opponentCharDirectory);

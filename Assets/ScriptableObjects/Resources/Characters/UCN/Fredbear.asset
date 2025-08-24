@@ -35,6 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c73af813d25be5f42976932cd44e6d4d, type: 3}
   voicelines: []
   directory: Characters/UCN/Fredbear
-  firstGame: 8
-  animatronicClass: 6
-  skinClass: 0
+  winsNeeded: 3

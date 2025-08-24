@@ -158,7 +158,7 @@ public class ListInfoPanel : MonoBehaviour
         else
             audioNote.gameObject.SetActive(false);
 
-        if (listPanel.mainPanel.character == character.directory || listPanel.mainPanel.settingsMenu.isConnected || (character.lockedBehindDev && !listPanel.devManager.unlockAllCharacters))
+        if (listPanel.mainPanel.avatar == character.directory || listPanel.mainPanel.settingsMenu.isConnected || (character.winsNeeded > PlayerPrefs.GetInt("Wins") && !listPanel.devManager.unlockAllCharacters))
         {
             avatarNote.Disable();
         }
@@ -336,10 +336,10 @@ public class ListInfoPanel : MonoBehaviour
 
     public void AvatarNote()
     {
-        if (listPanel.mainPanel.character != character.directory && !listPanel.mainPanel.settingsMenu.isConnected)
+        if (listPanel.mainPanel.avatar != character.directory && !listPanel.mainPanel.settingsMenu.isConnected)
         {
-            listPanel.mainPanel.settingsMenu.settings.character = character.directory;
-            listPanel.mainPanel.character = character.directory;
+            listPanel.mainPanel.settingsMenu.settings.avatar = character.directory;
+            listPanel.mainPanel.avatar = character.directory;
             listPanel.mainPanel.settingsMenu.Save();
             listPanel.mainPanel.SetPlayerPolaroid(true, false);
 

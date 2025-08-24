@@ -35,6 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 82903e230b3588a44bc4666188661813, type: 3}
   voicelines: []
   directory: Characters/PS/Nedd Bear
-  firstGame: 7
-  animatronicClass: 11
-  skinClass: 0
+  winsNeeded: 0

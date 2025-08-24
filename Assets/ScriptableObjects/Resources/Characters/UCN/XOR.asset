@@ -35,6 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 75f4c92f3c1a00c45b8355bf5db54eac, type: 3}
   voicelines: []
   directory: Characters/UCN/XOR
-  firstGame: 8
-  animatronicClass: 4
-  skinClass: 0
+  winsNeeded: 10

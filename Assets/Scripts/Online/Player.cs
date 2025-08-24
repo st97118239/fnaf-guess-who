@@ -4,7 +4,8 @@ using UnityEngine;
 public class Player : NetworkBehaviour
 {
     [SyncVar] public string username;
-    [SyncVar] public string character;
+    [SyncVar] public string avatar;
+    [SyncVar] public int wins;
     [SyncVar] public string chosenCharacter;
     [SyncVar] public int playerIdx;
     [SyncVar] public bool isHost;
@@ -28,7 +29,8 @@ public class Player : NetworkBehaviour
             game = FindFirstObjectByType<Game>();
             mainPanel = game.mainPanel;
             username = mainPanel.username;
-            character = mainPanel.character;
+            avatar = mainPanel.avatar;
+            wins = PlayerPrefs.GetInt("Wins", 0);
             if (isServer)
                 isHost = mainPanel.isHost;
             game.player = this;
