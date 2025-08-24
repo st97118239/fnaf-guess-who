@@ -15,7 +15,7 @@ MonoBehaviour:
   categoryName: Unclassified Animatronics
   type: 2
   firstGame: 0
-  animatronicClass: 26
+  animatronicClass: 27
   skinType: 0
   characters:
   - {fileID: 11400000, guid: 9feb0663dca0b94469080ffbf9000ad4, type: 2}

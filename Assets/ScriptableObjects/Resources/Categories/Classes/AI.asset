@@ -15,7 +15,7 @@ MonoBehaviour:
   categoryName: Artificial Intelligence
   type: 2
   firstGame: 0
-  animatronicClass: 25
+  animatronicClass: 26
   skinType: 0
   characters:
   - {fileID: 11400000, guid: 39c7bb6c9aa7fcc4c9ace498336fa65a, type: 2}

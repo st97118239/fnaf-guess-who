@@ -46,6 +46,7 @@ public enum AnimatronicClass
     Kiosk,
     WelcomeShow,
     PuppetCrew,
+    MascotSuits,
     ElectronicToys,
     AI,
     UnclassifiedAnim,
