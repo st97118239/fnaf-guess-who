@@ -204,14 +204,19 @@ public class CharactersPanel : MonoBehaviour
 
         PlayFadeAnim(true, true, false);
 
-        categoryNotes.Clear();
-
         loadedCategory = categoryToOpen;
         Invoke(nameof(OpenCategory), fadeAnimDelay);
     }
 
     private void OpenCategory()
     {
+        for (int i = 0; i < categoryNotes.Count; i++)
+        {
+            Destroy(categoryNotes[i]);
+        }
+
+        categoryNotes.Clear();
+
         characterAmount = loadedCategory.characters.Count;
 
         characterPolaroids = new List<CharacterPolaroid>(characterAmount);

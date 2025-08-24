@@ -8093,7 +8093,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Make Debug.Log''s clearer
+  m_text: 'Show games amount on profile
 
     Add skins for characters
 
@@ -8104,7 +8104,10 @@ MonoBehaviour:
 
     UI Sounds
 
-    Background music?'
+    Background music?
+
+    Make
+    Debug.Log''s clearer'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -29970,7 +29973,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  version: 70
+  version: 71
   hasStarted: 0
   round: 0
   turn: 0
