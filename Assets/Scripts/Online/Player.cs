@@ -63,6 +63,7 @@ public class Player : NetworkBehaviour
         if (playerIdx == 2)
             gameManager.opponent = gameManager.player1;
 
+        gameManager.CmdVersionCheck(playerIdx, gameManager.version);
         gameManager.CmdSetPolaroidVariables();
     }
 
@@ -76,6 +77,13 @@ public class Player : NetworkBehaviour
         forcedLeave = true;
 
         Invoke(nameof(RemoveConnection), 0.5f);
+    }
+
+    [ClientRpc]
+    public void RpcVersionDisconnect()
+    {
+        if (playerIdx == 2 && isLocalPlayer)
+            Invoke(nameof(VersionRemoveDisconnect), 0.2f);
     }
 
     [ClientRpc]
@@ -120,6 +128,31 @@ public class Player : NetworkBehaviour
 
         if (forcedLeave)
             mainPanel.popupPaper.Show(Error.ServerFull);
+
+        mainPanel.connectionNote.ChangeText("Connect");
+
+        mainPanel.readyNote.Disable();
+        mainPanel.connectionNote.Enable();
+        mainPanel.hostNote.Enable();
+        mainPanel.quitNote.Enable();
+        mainPanel.settingsMenu.isConnected = false;
+        mainPanel.SetOpponentPolaroid();
+
+        gameManager.ResetGame();
+    }
+
+    public void VersionRemoveDisconnect()
+    {
+        gameManager.player = null;
+        gameManager.opponent = null;
+
+        NetworkManager.singleton.StopClient();
+        Debug.Log("Disconnected from server.");
+
+        if (!mainPanel)
+            return;
+
+        mainPanel.popupPaper.Show(Error.WrongVersion);
 
         mainPanel.connectionNote.ChangeText("Connect");
 

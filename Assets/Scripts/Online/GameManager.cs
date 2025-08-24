@@ -1,9 +1,10 @@
 using Mirror;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : NetworkBehaviour
 {
+    public int version;
+
     [SyncVar] public bool hasStarted;
     [SyncVar] public int round;
     [SyncVar] public int turn;
@@ -11,11 +12,13 @@ public class GameManager : NetworkBehaviour
     [SyncVar] public bool hasFinished;
 
     public Player player1;
+    public int player1Version;
     [SyncVar] public string[] player1List;
     [SerializeField] private string player1ChosenCharacter;
     [SerializeField] private string player1AccusedCharacter;
     [SyncVar] public bool player1Won;
     public Player player2;
+    public int player2Version;
     [SyncVar] public string[] player2List;
     [SerializeField] private string player2ChosenCharacter;
     [SerializeField] private string player2AccusedCharacter;
@@ -23,6 +26,12 @@ public class GameManager : NetworkBehaviour
 
     public Player player;
     public Player opponent;
+
+    private void Awake()
+    {
+        if (PlayerPrefs.GetInt("Version", version) != version)
+            PlayerPrefs.SetInt("Version", version);
+    }
 
     private void OnEnable()
     {
@@ -103,6 +112,24 @@ public class GameManager : NetworkBehaviour
         else if (givenIndex == 2)
         {
             player2List = givenArray;
+        }
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdVersionCheck(int pIdx, int givenVersion)
+    {
+        if (pIdx == 1)
+            player1Version = givenVersion;
+        else if (pIdx == 2)
+            player2Version = givenVersion;
+
+        if (!player2)
+            return;
+
+        if (player1Version != 0 && player2Version != 0)
+        {
+            if (player1Version != player2Version)
+                player2.RpcVersionDisconnect();
         }
     }
 
@@ -266,11 +293,13 @@ public class GameManager : NetworkBehaviour
         needsToAccuse = false;
         hasFinished = false;
         player1 = null;
+        player1Version = 0;
         player1List = null;
         player1ChosenCharacter = string.Empty;
         player1AccusedCharacter = string.Empty;
         player1Won = false;
         player2 = null;
+        player2Version = 0;
         player2List = null;
         player2ChosenCharacter = string.Empty;
         player2AccusedCharacter = string.Empty;

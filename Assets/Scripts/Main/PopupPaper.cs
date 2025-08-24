@@ -85,6 +85,12 @@ public class PopupPaper : MonoBehaviour
             note.ChangeText("Return");
             note.Enable();
         }
+        else if (error == Error.WrongVersion)
+        {
+            paperText.text = "You or the host has an outdated version of the game. Please update.";
+            note.ChangeText("Return");
+            note.Enable();
+        }
 
         backgroundBlocker.SetActive(true);
         gameObject.SetActive(true);

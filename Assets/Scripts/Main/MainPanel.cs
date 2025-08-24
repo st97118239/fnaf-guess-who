@@ -13,6 +13,7 @@ public class MainPanel : NetworkBehaviour
 
     public PlayerPolaroid[] playerPolaroids;
 
+    public Note versionNote;
     public Note readyNote;
     public Note connectionNote;
     public Note hostNote;
@@ -26,6 +27,11 @@ public class MainPanel : NetworkBehaviour
     public bool isHost;
     public bool isReady;
     public bool isInGame;
+
+    private void Awake()
+    {
+        versionNote.ChangeText("Version: " + gameManager.version);
+    }
 
     public void ReadyUp()
     {

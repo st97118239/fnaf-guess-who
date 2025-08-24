@@ -10,5 +10,6 @@ public enum Error
     ServerDisconnected,
     OpponentLeft,
     HostLeft,
-    CantConnect
+    CantConnect,
+    WrongVersion
 }

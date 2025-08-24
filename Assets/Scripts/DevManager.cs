@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class DevManager : MonoBehaviour
@@ -7,6 +8,9 @@ public class DevManager : MonoBehaviour
     [SerializeField] private DevClipboard devClipboard;
 
     [SerializeField] private float holdTimerBase;
+    [SerializeField] private string devPassword;
+
+    [SerializeField] private TMP_InputField passworldField;
 
     private float holdTimer;
 
@@ -29,5 +33,11 @@ public class DevManager : MonoBehaviour
         }
         else if (Input.GetKeyUp(KeyCode.Backspace))
             holdTimer = holdTimerBase;
+    }
+
+    public void CheckPassword()
+    {
+        if (passworldField.text == devPassword)
+            devClipboard.NextPage();
     }
 }

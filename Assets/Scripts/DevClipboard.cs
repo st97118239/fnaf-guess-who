@@ -1,4 +1,4 @@
-using UnityEditor;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,8 +13,11 @@ public class DevClipboard : MonoBehaviour
     [SerializeField] private GameObject devClipboard;
     [SerializeField] private Animator clipboardAnimator;
     [SerializeField] private GameObject backgroundBlocker;
+    [SerializeField] private GameObject paper2;
 
     [SerializeField] private Toggle unlockAllCharsToggle;
+
+    private bool isUnlocked;
 
     private void Update()
     {
@@ -24,6 +27,9 @@ public class DevClipboard : MonoBehaviour
 
     public void OpenClipboard()
     {
+        if (!isUnlocked)
+            paper2.SetActive(false);
+
         clipboardAnimator.SetTrigger("PaperOpen");
         backgroundBlocker.SetActive(true);
 
@@ -65,9 +71,11 @@ public class DevClipboard : MonoBehaviour
         backgroundBlocker.SetActive(false);
     }
 
-    public void UnlockAllCharsBox()
+    public void NextPage()
     {
+        isUnlocked = true;
 
+        paper2.SetActive(true);
     }
 
     public void Save()
