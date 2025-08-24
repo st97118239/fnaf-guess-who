@@ -7,6 +7,7 @@ public class PlayerPolaroid : MonoBehaviour
 
     [SerializeField] private Polaroid pol;
     [SerializeField] private float fadeTime = 0.4f;
+    [SerializeField] private MainPanel mainPanel;
 
     private string username;
     private Character character;
@@ -45,9 +46,6 @@ public class PlayerPolaroid : MonoBehaviour
 
     public void Load(string givenName, string givenCharDir, bool shouldFadeImage, bool shouldFadeText)
     {
-        //if (isLoaded)
-        //    return;
-
         if (shouldFadeImage)
             pol.characterImage.color = Color.clear;
         if (shouldFadeText)
@@ -55,6 +53,12 @@ public class PlayerPolaroid : MonoBehaviour
 
         username = givenName;
         character = Resources.Load<Character>(givenCharDir);
+
+        if (!character)
+        {
+            mainPanel.character = "Characters/FNAF1/Freddy";
+            character = Resources.Load<Character>(mainPanel.character);
+        }
 
         if (character.polaroidSprite[0])
             pol.characterImage.sprite = character.polaroidSprite[0];

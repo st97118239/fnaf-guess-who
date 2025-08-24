@@ -1,7 +1,9 @@
 using Mirror;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Sockets;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainPanel : NetworkBehaviour
 {
@@ -28,9 +30,24 @@ public class MainPanel : NetworkBehaviour
     public bool isReady;
     public bool isInGame;
 
+    [SerializeField] private List<Image> posters;
+    [SerializeField] private List<Sprite> posterSprites;
+
+    private readonly System.Random rnd = new();
+
     private void Awake()
     {
         versionNote.ChangeText("Version: " + gameManager.version);
+
+        posterSprites = posterSprites.OrderBy(i => rnd.Next()).ToList();
+
+        for (int i = 0; i < posters.Count; i++)
+        {
+            if (posterSprites.Count >= i + 1)
+                posters[i].sprite = posterSprites[i];
+            else
+                posters[i].color = Color.clear;
+        }
     }
 
     public void ReadyUp()
