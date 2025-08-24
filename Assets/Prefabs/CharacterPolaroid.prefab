@@ -259,6 +259,7 @@ MonoBehaviour:
   characterCanAdd: 0
   listPanel: {fileID: 0}
   polaroid: {fileID: 0}
+  canRMB: 0
 --- !u!114 &2782491715836447311
 MonoBehaviour:
   m_ObjectHideFlags: 0

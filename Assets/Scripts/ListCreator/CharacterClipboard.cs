@@ -48,8 +48,7 @@ public class CharacterClipboard : MonoBehaviour
             return;
         }
 
-        //if (indexToMoveTo != originalIndex)
-            Save();
+        Save();
 
         clipboardAnimator.SetTrigger("PaperClose");
         Invoke(nameof(DisableBackground), 0.6f);

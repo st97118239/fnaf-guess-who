@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,12 +36,25 @@ public class DevClipboard : MonoBehaviour
         Invoke(nameof(DisableBackground), 0.6f);
         Save();
 
+        bool isOnListPanel = false;
+
+        if (listPanel.hasListOpen && listPanel.menu == 1)
+            isOnListPanel = true;
+
         if (characterPanel.loadedCategory == null)
             characterPanel.LoadCategoriesFade();
         else if (characterPanel.loadedCategory != null)
             characterPanel.RefreshPolaroids();
 
+        if (isOnListPanel)
+            Invoke(nameof(ResetListPanelMenu), 0.8f);
+
         isShown = false;
+    }
+
+    public void ResetListPanelMenu()
+    {
+        listPanel.menu = 1;
     }
 
     private void DisableBackground()

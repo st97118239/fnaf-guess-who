@@ -20938,6 +20938,14 @@ PrefabInstance:
       propertyPath: polButton
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4048306672937834167, guid: b033bfc99ca32e4409a9252dcf12f688, type: 3}
+      propertyPath: spawnRotation.x
+      value: -12.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048306672937834167, guid: b033bfc99ca32e4409a9252dcf12f688, type: 3}
+      propertyPath: spawnRotation.y
+      value: -12.08
+      objectReference: {fileID: 0}
     - target: {fileID: 4205299430217402107, guid: b033bfc99ca32e4409a9252dcf12f688, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -27959,6 +27967,14 @@ PrefabInstance:
     - target: {fileID: 4048306672937834167, guid: b033bfc99ca32e4409a9252dcf12f688, type: 3}
       propertyPath: isCrossedOff
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048306672937834167, guid: b033bfc99ca32e4409a9252dcf12f688, type: 3}
+      propertyPath: spawnRotation.x
+      value: -12.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048306672937834167, guid: b033bfc99ca32e4409a9252dcf12f688, type: 3}
+      propertyPath: spawnRotation.y
+      value: -12.08
       objectReference: {fileID: 0}
     - target: {fileID: 4205299430217402107, guid: b033bfc99ca32e4409a9252dcf12f688, type: 3}
       propertyPath: m_Pivot.x

@@ -10,6 +10,7 @@ public class ListPolaroid : MonoBehaviour, IPointerClickHandler
     public ListPanel listPanel;
 
     [SerializeField] private Polaroid polaroid;
+    [SerializeField] private bool canRMB = true;
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -19,7 +20,8 @@ public class ListPolaroid : MonoBehaviour, IPointerClickHandler
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
-            RMB();
+            if (canRMB)
+                RMB();
         }
     }
 

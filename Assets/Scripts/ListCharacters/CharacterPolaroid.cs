@@ -19,7 +19,8 @@ public class CharacterPolaroid : MonoBehaviour, IPointerClickHandler
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
-            RMB();
+            if (!character.lockedBehindDev || (character.lockedBehindDev && charactersPanel.listPanel.devManager.unlockAllCharacters))
+                RMB();
         }
     }
 
