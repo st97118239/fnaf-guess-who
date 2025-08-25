@@ -17,4 +17,7 @@ MonoBehaviour:
   firstGame: 0
   animatronicClass: 21
   skinType: 0
-  characters: []
+  characters:
+  - {fileID: 11400000, guid: 3e4551173d6bcd7449220e581c284e76, type: 2}
+  - {fileID: 11400000, guid: 2b7dbd770141a5244a5e841ab6d80a47, type: 2}
+  - {fileID: 11400000, guid: 0cff90d90a57e8445b84eacf3fc06349, type: 2}

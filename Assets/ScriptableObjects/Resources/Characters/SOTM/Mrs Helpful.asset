@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
+  m_Name: Mrs Helpful
+  m_EditorClassIdentifier: 
+  characterName: Mrs. Helpful
+  pronouns: She/Her
+  yearMade: 1970s
+  yearBorn: 
+  familyMembers: 
+  owner: Murray Co., Fazbear Entertainment, Inc.
+  occupation: 
+  employment: Tour Guide
+  affiliation: Murray's Costume Manor, Mr. Helpful (Husband)
+  aliases: 
+  type: Kiosk Animatronic
+  model: Bear
+  height: 
+  weight: 
+  color: Pinkish Purple
+  eyeColor: Black
+  firstAppearance: 'Five Nights at Freddy''s: Secret of the Mimic'
+  polaroidSprite:
+  - {fileID: 21300000, guid: 3844bf23ad906014eb7195543a070ef2, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: d7400db5cc9931e42a75c70acf0e7833, type: 3}
+  voicelines: []
+  directory: Characters/SOTM/Mrs Helpful
+  winsNeeded: 6
