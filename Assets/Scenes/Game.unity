@@ -8095,10 +8095,12 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Show games amount on profile
 
+    Subtitles
+
     Add skins for characters
 
-    Add audio
-    to all characters
+    Add
+    audio to all characters
 
     More characters
 
@@ -21299,7 +21301,7 @@ MonoBehaviour:
   isUnlocked: 0
   devClipboard: {fileID: 75049585}
   holdTimerBase: 3
-  devPassword: Trans Rights :3
+  devPassword: XtpciPIrDpZp++0YXYLoTmZKZkI=
   passworldField: {fileID: 746927216}
 --- !u!4 &1396184482
 Transform:

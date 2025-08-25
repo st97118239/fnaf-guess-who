@@ -33,8 +33,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d4e159f4f30a96c4ea769227903c86ad, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 31325e8ca123c9745aaa085df30b3d57, type: 3}
-  voicelines: []
+  voicelines:
+  - {fileID: 8300000, guid: 71371bd6e209db746930139ec3d48581, type: 3}
+  - {fileID: 8300000, guid: 5528ed070a1218448aa222c8f99fbce1, type: 3}
+  - {fileID: 8300000, guid: 1bdc202352d6089408a8e69d661e5aef, type: 3}
+  - {fileID: 8300000, guid: cb9479877034dd647b536a2ebeaa86ab, type: 3}
+  - {fileID: 8300000, guid: aa5def4dc0560e04a96589c9dce56a8e, type: 3}
+  - {fileID: 8300000, guid: 6f8340e7262dcb9478bb851fc733a232, type: 3}
   directory: Characters/FNAF2/WChica
-  firstGame: 2
-  animatronicClass: 2
-  skinClass: 0
+  winsNeeded: 0

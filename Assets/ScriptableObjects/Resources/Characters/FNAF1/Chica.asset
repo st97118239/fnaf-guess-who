@@ -33,8 +33,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cdcd0ea853b38384d8edebeb56549d6f, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: d7d68e65f0317ab4f8c8cebe84804a7c, type: 3}
-  voicelines: []
+  voicelines:
+  - {fileID: 8300000, guid: dd6ab6dcd9754e24d8ad9b43802fda78, type: 3}
+  - {fileID: 8300000, guid: 5b657aa588a0879469510da8c89fdef5, type: 3}
+  - {fileID: 8300000, guid: fc5916b4057676d40a7aa3b314ea019a, type: 3}
+  - {fileID: 8300000, guid: 890dc7f965e0b7a478c1228f33bfede4, type: 3}
   directory: Characters/FNAF1/Chica
-  firstGame: 1
-  animatronicClass: 1
-  skinClass: 0
+  winsNeeded: 0

@@ -1,3 +1,6 @@
+using System;
+using System.Security.Cryptography;
+using System.Text;
 using TMPro;
 using UnityEngine;
 
@@ -38,7 +41,13 @@ public class DevManager : MonoBehaviour
 
     public void CheckPassword()
     {
-        if (passworldField.text == devPassword)
+        string givenPassword = passworldField.text;
+        using SHA1Managed sha1 = new();
+
+        byte[] hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(givenPassword));
+        string encryptedPw = Convert.ToBase64String(hash);
+
+        if (encryptedPw == devPassword)
         {
             devClipboard.NextPage();
             isUnlocked = true;
