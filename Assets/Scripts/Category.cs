@@ -49,6 +49,7 @@ public enum AnimatronicClass
     MascotSuits,
     ElectronicToys,
     AI,
+    Plushies,
     UnclassifiedAnim,
     UnclassifiedBots,
     FNAFWorld,
