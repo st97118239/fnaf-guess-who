@@ -13,6 +13,7 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
 
     [SerializeField] private bool canLMB = true;
     [SerializeField] private Polaroid polaroid;
+    [SerializeField] private AudioClip markerSFX;
 
     private Game gameScript;
     public bool isCrossedOff;
@@ -74,6 +75,7 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
             polaroid.CrossOff();
             gameScript.crossedOff.Add(this);
             gameScript.UpdateSidebar();
+            gameScript.audioManager.soundEffects.PlayOneShot(markerSFX);
         }
     }
 

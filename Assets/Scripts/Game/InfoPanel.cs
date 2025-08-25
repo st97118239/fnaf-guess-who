@@ -234,6 +234,7 @@ public class InfoPanel : MonoBehaviour
             yield return new WaitForSeconds(0.75f);
 
         animator.SetTrigger("FolderClose");
+        audioManager.soundEffects.PlayOneShot(audioManager.folderCloseSFX);
         Invoke(nameof(DisableBackground), 0.6f);
         character = null;
         charSlot = null;
@@ -319,6 +320,7 @@ public class InfoPanel : MonoBehaviour
 
         backgroundBlocker.SetActive(true);
         animator.SetTrigger("FolderOpen");
+        audioManager.soundEffects.PlayOneShot(audioManager.folderOpenSFX);
 
         gameScript.isInfoPanelShown = true;
     }

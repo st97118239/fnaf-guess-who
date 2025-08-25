@@ -28,11 +28,12 @@ public class ListNote : MonoBehaviour, IPointerClickHandler
             listPanel.OpenList(list);
         else if (listNoteType == ListNoteType.AddList)
             listPanel.NewList();
+
+        listPanel.mainPanel.audioManager.soundEffects.PlayOneShot(listPanel.mainPanel.audioManager.noteSFX);
     }
 
     private void RMB()
     {
-
         listPanel.OpenSettings(index);
     }
 

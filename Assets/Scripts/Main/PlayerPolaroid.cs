@@ -17,6 +17,10 @@ public class PlayerPolaroid : MonoBehaviour, IPointerClickHandler
     private bool fadeImage;
     private bool fadeText;
 
+    private Color nameColor;
+    private Color normalNameColor = Color.black;
+    private Color devNameColor = new Color(172, 0, 0, 1);
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right)
@@ -43,21 +47,21 @@ public class PlayerPolaroid : MonoBehaviour, IPointerClickHandler
                 if (fadeImage)
                     pol.characterImage.color = Color.Lerp(Color.clear, Color.white, fillAmount);
                 if (fadeText)
-                    pol.characterText.color = Color.Lerp(Color.clear, Color.black, fillAmount);
+                    pol.characterText.color = Color.Lerp(Color.clear, nameColor, fillAmount);
             }
             else if(!fadeIn)
             {
                 if (fadeImage)
                     pol.characterImage.color = Color.Lerp(Color.white, Color.clear, fillAmount);
                 if (fadeText)
-                    pol.characterText.color = Color.Lerp(Color.black, Color.clear, fillAmount);
+                    pol.characterText.color = Color.Lerp(nameColor, Color.clear, fillAmount);
             }
 
             yield return null;
         }
     }
 
-    public void Load(string givenName, string givenCharDir, bool shouldFadeImage, bool shouldFadeText)
+    public void Load(string givenName, string givenCharDir, bool isDev, bool shouldFadeImage, bool shouldFadeText)
     {
         if (shouldFadeImage)
             pol.characterImage.color = Color.clear;
@@ -80,6 +84,11 @@ public class PlayerPolaroid : MonoBehaviour, IPointerClickHandler
 
         fadeImage = shouldFadeImage;
         fadeText = shouldFadeText;
+
+        if (isDev)
+            nameColor = devNameColor;
+        else
+            nameColor = normalNameColor;
 
         isLoaded = true;
 

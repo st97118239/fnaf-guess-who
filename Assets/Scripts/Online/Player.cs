@@ -6,8 +6,10 @@ public class Player : NetworkBehaviour
     [SyncVar] public string username;
     [SyncVar] public string avatar;
     [SyncVar] public int wins;
+    [SyncVar] public int games;
     [SyncVar] public string chosenCharacter;
     [SyncVar] public int playerIdx;
+    [SyncVar] public bool isDev;
     [SyncVar] public bool isHost;
     [SyncVar] public bool isReadyToPlay;
     [SyncVar] public string accusedCharacter;
@@ -30,7 +32,9 @@ public class Player : NetworkBehaviour
             mainPanel = game.mainPanel;
             username = mainPanel.username;
             avatar = mainPanel.avatar;
-            wins = PlayerPrefs.GetInt("Wins", 0);
+            wins = PlayerPrefs.GetInt("Wins");
+            games = PlayerPrefs.GetInt("Games");
+            isDev = mainPanel.devManager.isUnlocked;
             if (isServer)
                 isHost = mainPanel.isHost;
             game.player = this;

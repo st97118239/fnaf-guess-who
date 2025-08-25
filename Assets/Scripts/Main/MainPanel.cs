@@ -9,10 +9,12 @@ public class MainPanel : NetworkBehaviour
 {
     public Game game;
     public GameManager gameManager;
+    public AudioManager audioManager;
     public ListPanel listPanel;
     public PlayerPanel playerPanel;
     public PopupPaper popupPaper;
     public SettingsMenu settingsMenu;
+    public DevManager devManager;
 
     public PlayerPolaroid[] playerPolaroids;
 
@@ -73,13 +75,13 @@ public class MainPanel : NetworkBehaviour
 
     public void SetPlayerPolaroid(bool fadeImage, bool fadeText)
     {
-         playerPolaroids[0].Load(username, avatar, fadeImage, fadeText);
+         playerPolaroids[0].Load(username, avatar, devManager.isUnlocked, fadeImage, fadeText);
     }
 
     public void SetOpponentPolaroid()
     {
         if (gameManager?.opponent)
-            playerPolaroids[1].Load(gameManager.opponent.username, gameManager.opponent.avatar, true, true);
+            playerPolaroids[1].Load(gameManager.opponent.username, gameManager.opponent.avatar, gameManager.opponent.isDev, true, true);
         else
             playerPolaroids[1].Clear();
     }
@@ -95,8 +97,10 @@ public class MainPanel : NetworkBehaviour
             if (isReady)
                 isReady = false;
 
+            popupPaper.canShow = false;
             hostNote.Disable();
             game.gameManager.DisconnectAll();
+            Invoke(nameof(TurnPopupPaperBackOn), 1f);
         }
         else if (!NetworkServer.active)
         {
@@ -126,6 +130,11 @@ public class MainPanel : NetworkBehaviour
                 settingsMenu.isConnected = false;
             }
         }
+    }
+    
+    private void TurnPopupPaperBackOn()
+    {
+        popupPaper.canShow = true;
     }
 
     public void Disconnected()

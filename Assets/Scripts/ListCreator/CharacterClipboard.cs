@@ -9,6 +9,7 @@ public class CharacterClipboard : MonoBehaviour
     [SerializeField] private GameObject characterClipboard;
     [SerializeField] private Animator clipboardAnimator;
     [SerializeField] private GameObject backgroundBlocker;
+    [SerializeField] private AudioManager audioManager;
 
     [SerializeField] private TMP_InputField indexField;
     [SerializeField] private GameObject errorText;
@@ -34,6 +35,8 @@ public class CharacterClipboard : MonoBehaviour
         Load();
         clipboardAnimator.SetTrigger("PaperOpen");
         backgroundBlocker.SetActive(true);
+
+        audioManager.soundEffects.PlayOneShot(audioManager.clipboardSFX);
     }
 
     public void CloseClipboard()
@@ -51,6 +54,7 @@ public class CharacterClipboard : MonoBehaviour
         Save();
 
         clipboardAnimator.SetTrigger("PaperClose");
+        audioManager.soundEffects.PlayOneShot(audioManager.clipboardSFX);
         Invoke(nameof(DisableBackground), 0.6f);
         listPanel.RefreshCharactersMenu();
     }

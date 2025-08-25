@@ -6,6 +6,7 @@ public class Game : MonoBehaviour
 {
     public GameManager gameManager;
     public MainPanel mainPanel;
+    public AudioManager audioManager;
     public Player player;
     public Character[] playerCharArray;
     public Character[] opponentCharArray;
@@ -285,6 +286,8 @@ public class Game : MonoBehaviour
 
     public void DetermineResult(bool p1Won, bool p2Won, string opponentCharDirectory, string playerSuspectDirectory, string playerCharDirectory, string opponentSuspectedDirectory)
     {
+        PlayerPrefs.SetInt("Games", PlayerPrefs.GetInt("Games") + 1);
+
         if (player.playerIdx == 1)
         {
             if (p1Won && !p2Won)
@@ -297,11 +300,7 @@ public class Game : MonoBehaviour
                 winPanel.result = "You did not accuse the correct suspect. And neither did your opponent.";
 
             if (p1Won)
-            {
-                int wins = PlayerPrefs.GetInt("Wins");
-                wins++;
-                PlayerPrefs.SetInt("Wins", wins);
-            }
+                PlayerPrefs.SetInt("Wins", PlayerPrefs.GetInt("Wins") + 1);
         }
         else if (player.playerIdx == 2)
         {
@@ -315,11 +314,7 @@ public class Game : MonoBehaviour
                 winPanel.result = "You did not accuse the correct suspect. And neither did your opponent.";
 
             if (p2Won)
-            {
-                int wins = PlayerPrefs.GetInt("Wins");
-                wins++;
-                PlayerPrefs.SetInt("Wins", wins);
-            }
+                PlayerPrefs.SetInt("Wins", PlayerPrefs.GetInt("Wins") + 1);
         }
 
         Character opponentChar = Resources.Load<Character>(opponentCharDirectory);

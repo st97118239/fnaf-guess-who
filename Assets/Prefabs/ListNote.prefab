@@ -166,7 +166,9 @@ MonoBehaviour:
     name: 
     builtIn: 0
     selected: 0
+    version: 0
     characters: []
+  noteSFX: {fileID: 8300000, guid: 4b51a81df0b94314ba79513582b7a2a5, type: 3}
   listPanel: {fileID: 0}
   note: {fileID: 3831616884926173487}
   listNoteType: 0

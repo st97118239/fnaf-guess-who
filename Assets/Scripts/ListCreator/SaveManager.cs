@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SaveManager : MonoBehaviour
@@ -21,7 +22,7 @@ public class SaveManager : MonoBehaviour
         if (PlayerPrefs.GetInt("Version") != listPanel.mainPanel.gameManager.version)
             PlayerPrefs.SetInt("Version", listPanel.mainPanel.gameManager.version);
 
-        Debug.Log("Playing on version 70.");
+        Debug.Log("Playing on version " + PlayerPrefs.GetInt("Version"));
     }
 
     private void Start()
@@ -49,7 +50,7 @@ public class SaveManager : MonoBehaviour
             return;
         }
 
-        if (save.lists[0].version < PlayerPrefs.GetInt("Version"))
+        if (save.lists[0].version != defaultList.version)
         {
             ReplaceDefault();
         }
@@ -68,10 +69,10 @@ public class SaveManager : MonoBehaviour
 
         listToSave = saveData.lists[0];
 
-        listToSave.characters = listCharacters.characters.Select(c => c.directory).ToList();
-        listToSave.name = listCharacters.name;
+        listToSave.characters = defaultList.characters.Select(c => c.directory).ToList();
+        listToSave.name = defaultList.name;
         listToSave.builtIn = true;
-        listToSave.version = PlayerPrefs.GetInt("Version");
+        listToSave.version = defaultList.version;
 
         Save();
 
@@ -80,17 +81,6 @@ public class SaveManager : MonoBehaviour
 
     private void CreateSave(bool builtIn)
     {
-        if (listCharacters.name == string.Empty || listCharacters.characters.Count == 0)
-        {
-            Debug.LogWarning("List is empty.");
-            return;
-        }
-        else if (listCharacters.characters.Count < 3)
-        {
-            Debug.LogWarning("Too little amount of characters selected in the list. The game requires 3 or more characters in the list.");
-            return;
-        }
-
         int idxToCreateNewListAt = saveData.lists.FindIndex(l => l.name == listCharacters.name);
 
         if (idxToCreateNewListAt != -1)
@@ -104,6 +94,7 @@ public class SaveManager : MonoBehaviour
         listToSave.characters = listCharacters.characters.Select(c => c.directory).ToList();
         listToSave.name = listCharacters.name;
         listToSave.builtIn = builtIn;
+        listToSave.version = PlayerPrefs.GetInt("Version");
 
         if (saveData.lists[0] != null)
             listToSave.selected = true;
@@ -134,83 +125,11 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    public void SaveButton()
-    {
-        listPanelList = listPanel.openedList;
-        SaveListToJSON();
-    }
-
-    public void SaveListToJSON()
-    {
-        if (listPanelList.name == string.Empty)
-        {
-            Debug.LogWarning("List has no name.");
-            return;
-        }
-        else if (listPanelList.characters.Count == 0)
-        {
-            Debug.LogWarning("List is empty.");
-            return;
-        }
-        else if (listPanelList.characters.Count < 3)
-        {
-            Debug.LogWarning("Too little amount of characters selected in the list. The game requires 3 or more characters in the list.");
-            return;
-        }
-
-        int idxToCreateNewListAt = saveData.lists.FindIndex(l => l.name == listPanelList.name);
-
-        if (idxToCreateNewListAt != -1)
-            listToSave = saveData.lists[idxToCreateNewListAt];
-        else
-        {
-            listToSave = new ListData();
-            saveData.lists.Add(listToSave);
-        }
-
-        listToSave.characters = listPanelList.characters.ToList();
-        listToSave.name = listPanelList.name;
-
-        Save();
-    }
-
-    public void SaveCharToJSON()
-    {
-        if (listCharacters.name == string.Empty)
-        {
-            Debug.LogWarning("List has no name.");
-            return;
-        }
-        else if (listCharacters.characters.Count == 0)
-        {
-            Debug.LogWarning("List is empty.");
-            return;
-        }
-        else if (listCharacters.characters.Count < 3)
-        {
-            Debug.LogWarning("Too little amount of characters selected in the list. The game requires 3 or more characters in the list.");
-            return;
-        }
-
-        int idxToCreateNewListAt = saveData.lists.FindIndex(l => l.name == listCharacters.name);
-
-        if (idxToCreateNewListAt != -1)
-            listToSave = saveData.lists[idxToCreateNewListAt];
-        else
-        {
-            listToSave = new ListData();
-            saveData.lists.Add(listToSave);
-        }
-
-        listToSave.characters = listCharacters.characters.Select(c => c.directory).ToList();
-        listToSave.name = listCharacters.name;
-        listToSave.version = PlayerPrefs.GetInt("Version");
-
-        Save();
-    }
-
     public void Save()
     {
+        if (listPanel.openedList != null && !listPanel.openedList.builtIn)
+            listPanel.openedList.version = PlayerPrefs.GetInt("Version");
+
         string save = JsonUtility.ToJson(saveData);
 
         using StreamWriter saveWriter = new(savePath);

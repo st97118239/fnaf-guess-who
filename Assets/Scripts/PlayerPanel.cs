@@ -20,6 +20,8 @@ public class PlayerPanel : MonoBehaviour
     public Character avatar;
     public string username;
     public int wins;
+    public int games;
+    public bool isDev;
 
     [SerializeField] private GameObject backgroundBlocker;
 
@@ -47,15 +49,19 @@ public class PlayerPanel : MonoBehaviour
         {
             avatar = Resources.Load<Character>(mainPanel.avatar);
             username = mainPanel.username;
-            wins = PlayerPrefs.GetInt("Wins", 0);
+            wins = PlayerPrefs.GetInt("Wins");
+            games = PlayerPrefs.GetInt("Games");
+            isDev = mainPanel.devManager.isUnlocked;
         }
         else if (isOpponent)
         {
             avatar = Resources.Load<Character>(gameManager.opponent.avatar);
             username = gameManager.opponent.username;
             wins = gameManager.opponent.wins;
+            games = gameManager.opponent.games;
+            isDev = gameManager.opponent.isDev;
         }
-
+        
         if (avatar.polaroidSprite.Count > 0)
         {
             slotImage.sprite = avatar.polaroidSprite[0];
@@ -82,6 +88,7 @@ public class PlayerPanel : MonoBehaviour
         avatar = null;
         username = string.Empty;
         wins = 0;
+        games = 0;
         isShown = false;
     }
 
@@ -94,6 +101,12 @@ public class PlayerPanel : MonoBehaviour
     {
         texts[0].text = username;
         texts[1].text = wins.ToString();
+        texts[2].text = games.ToString();
+
+        if (isDev)
+            texts[3].gameObject.SetActive(true);
+        else
+            texts[3].gameObject.SetActive(false);
 
         lines[0].gameObject.SetActive(false);
 

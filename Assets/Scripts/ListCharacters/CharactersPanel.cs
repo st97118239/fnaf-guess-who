@@ -89,6 +89,8 @@ public class CharactersPanel : MonoBehaviour
 
     public void CategoryButton(int amountToAdd)
     {
+        listPanel.mainPanel.audioManager.soundEffects.PlayOneShot(listPanel.mainPanel.audioManager.noteSFX);
+
         PlayFadeAnim(true, true, false);
 
         categoryIdx += amountToAdd;

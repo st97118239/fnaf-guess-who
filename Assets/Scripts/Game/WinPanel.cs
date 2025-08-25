@@ -22,6 +22,7 @@ public class WinPanel : MonoBehaviour
     public string result;
 
     [SerializeField] private GameObject backgroundBlocker;
+    [SerializeField] private AudioManager audioManager;
 
     private Animator animator;
 
@@ -68,6 +69,7 @@ public class WinPanel : MonoBehaviour
     public void Close()
     {
         animator.SetTrigger("FolderClose");
+        audioManager.soundEffects.PlayOneShot(audioManager.folderCloseSFX);
         Invoke(nameof(DisableBackground), 0.6f);
         opponentChar = null;
         isShown = false;
@@ -104,6 +106,7 @@ public class WinPanel : MonoBehaviour
 
         backgroundBlocker.SetActive(true);
         animator.SetTrigger("FolderOpen");
+        audioManager.soundEffects.PlayOneShot(audioManager.folderOpenSFX);
 
         isShown = true;
     }

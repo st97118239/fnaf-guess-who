@@ -220,6 +220,7 @@ MonoBehaviour:
   character: {fileID: 0}
   canLMB: 1
   polaroid: {fileID: 4048306672937834167}
+  markerSFX: {fileID: 8300000, guid: 78fd3b78df6f4384f98459cb7689549d, type: 3}
   isCrossedOff: 0
 --- !u!114 &4048306672937834167
 MonoBehaviour:

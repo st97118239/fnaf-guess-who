@@ -34,10 +34,7 @@ public class SettingsMenu : MonoBehaviour
         settingsPath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "Settings.json";
 
         if (!File.Exists(settingsPath))
-        {
             CreateNewFile();
-            return;
-        }
 
         string json = File.ReadAllText(settingsPath);
 
@@ -58,8 +55,6 @@ public class SettingsMenu : MonoBehaviour
     public void OpenSettings()
     {
         LoadSettings();
-        clipboardAnimator.SetTrigger("PaperOpen");
-        backgroundBlocker.SetActive(true);
 
         if (isConnected)
         {
@@ -74,12 +69,16 @@ public class SettingsMenu : MonoBehaviour
             serverPortField.interactable = true;
         }
 
+        clipboardAnimator.SetTrigger("PaperOpen");
+        backgroundBlocker.SetActive(true);
+        audioManager.soundEffects.PlayOneShot(audioManager.clipboardSFX);
         isShown = true;
     }
 
     public void CloseSettings()
     {
         clipboardAnimator.SetTrigger("PaperClose");
+        audioManager.soundEffects.PlayOneShot(audioManager.clipboardSFX);
         Invoke(nameof(DisableBackground), 0.6f);
         Save();
         LoadSettings();

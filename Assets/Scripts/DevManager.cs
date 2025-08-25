@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class DevManager : MonoBehaviour
 {
+    public MainPanel mainPanel;
+
     public bool unlockAllCharacters;
     public bool isUnlocked;
 
@@ -53,6 +55,7 @@ public class DevManager : MonoBehaviour
             isUnlocked = true;
             holdTimerBase = 0.05f;
             holdTimer = holdTimerBase;
+            mainPanel.SetPlayerPolaroid(false, true);
         }
     }
 }

@@ -229,6 +229,7 @@ public class ListInfoPanel : MonoBehaviour
             yield return new WaitForSeconds(0.75f);
 
         animator.SetTrigger("FolderClose");
+        audioManager.soundEffects.PlayOneShot(audioManager.folderCloseSFX);
         Invoke(nameof(DisableBackground), 0.6f);
         character = null;
         polaroidSlot = null;
@@ -314,6 +315,7 @@ public class ListInfoPanel : MonoBehaviour
 
         backgroundBlocker.SetActive(true);
         animator.SetTrigger("FolderOpen");
+        audioManager.soundEffects.PlayOneShot(audioManager.folderOpenSFX);
 
         listPanel.isInfoPanelShown = true;
     }

@@ -17,8 +17,14 @@ public class DevClipboard : MonoBehaviour
 
     [SerializeField] private Toggle unlockAllCharsToggle;
     [SerializeField] private TMP_InputField winsField;
+    [SerializeField] private TMP_InputField gamesField;
 
     private bool isUnlocked;
+
+    private void Awake()
+    {
+        paper2.SetActive(false);
+    }
 
     private void Update()
     {
@@ -31,7 +37,8 @@ public class DevClipboard : MonoBehaviour
         if (!isUnlocked)
             paper2.SetActive(false);
 
-        winsField.text = PlayerPrefs.GetInt("Wins", 0).ToString();
+        winsField.text = PlayerPrefs.GetInt("Wins").ToString();
+        gamesField.text = PlayerPrefs.GetInt("Games").ToString();
 
         clipboardAnimator.SetTrigger("PaperOpen");
         backgroundBlocker.SetActive(true);
@@ -78,7 +85,6 @@ public class DevClipboard : MonoBehaviour
     {
         isUnlocked = true;
 
-
         paper2.SetActive(true);
     }
 
@@ -87,5 +93,6 @@ public class DevClipboard : MonoBehaviour
         devManager.unlockAllCharacters = unlockAllCharsToggle.isOn;
 
         PlayerPrefs.SetInt("Wins", int.Parse(winsField.text));
+        PlayerPrefs.SetInt("Games", int.Parse(gamesField.text));
     }
 }

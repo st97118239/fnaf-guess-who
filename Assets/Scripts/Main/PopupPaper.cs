@@ -3,9 +3,12 @@ using UnityEngine;
 
 public class PopupPaper : MonoBehaviour
 {
+    public bool canShow = true;
+
     [SerializeField] private TMP_Text paperText;
     [SerializeField] private Note note;
     [SerializeField] private GameObject backgroundBlocker;
+    [SerializeField] private AudioManager audioManager;
 
     [SerializeField] private Animator animator;
 
@@ -20,6 +23,9 @@ public class PopupPaper : MonoBehaviour
 
     public void Show(Error givenError)
     {
+        if (!canShow || isShown)
+            return;
+
         isShown = true;
 
         error = givenError;
@@ -95,11 +101,14 @@ public class PopupPaper : MonoBehaviour
         backgroundBlocker.SetActive(true);
         gameObject.SetActive(true);
         animator.SetTrigger("PaperOpen");
+
+        audioManager.soundEffects.PlayOneShot(audioManager.clipboardSFX);
     }
 
     public void NoteButton()
     {
         animator.SetTrigger("PaperClose");
+        audioManager.soundEffects.PlayOneShot(audioManager.clipboardSFX);
 
         isShown = false;
         error = Error.None;

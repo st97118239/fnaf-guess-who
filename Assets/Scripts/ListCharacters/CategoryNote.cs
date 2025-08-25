@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,7 +10,6 @@ public class CategoryNote : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Note note;
 
     private bool canLMB = true;
-    private bool canRMB = false;
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -20,24 +20,13 @@ public class CategoryNote : MonoBehaviour, IPointerClickHandler
 
             LMB();
         }
-        else if (eventData.button == PointerEventData.InputButton.Right)
-        {
-            if (note.isCrossedOff || !canRMB)
-                return;
-
-            RMB();
-        }
     }
 
     private void LMB()
     {
         canLMB = false;
-       charactersPanel.OpenCategoryFade(category);
-    }
-
-    private void RMB()
-    {
-        
+        charactersPanel.OpenCategoryFade(category);
+        charactersPanel.listPanel.mainPanel.audioManager.soundEffects.PlayOneShot(charactersPanel.listPanel.mainPanel.audioManager.noteSFX);
     }
 
     public void LoadCategory(CharacterCategory givenCategory, CharactersPanel givenPanel)

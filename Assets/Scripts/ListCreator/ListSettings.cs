@@ -7,6 +7,7 @@ public class ListSettings : MonoBehaviour
     [SerializeField] private ListPanel listPanel;
     [SerializeField] private GameObject backgroundBlocker;
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioManager audioManager;
 
     [SerializeField] private Note scriptableObjectNote;
     [SerializeField] private Note deleteNote;
@@ -74,6 +75,7 @@ public class ListSettings : MonoBehaviour
 
         animator.SetTrigger("PaperOpen");
         backgroundBlocker.SetActive(true);
+        audioManager.soundEffects.PlayOneShot(audioManager.clipboardSFX);
     }
 
     public void Close()
@@ -83,6 +85,7 @@ public class ListSettings : MonoBehaviour
         if (cancel)
         {
             animator.SetTrigger("PaperClose");
+            audioManager.soundEffects.PlayOneShot(audioManager.clipboardSFX);
             Invoke(nameof(DisableBackground), 0.6f);
             cancel = false;
             nameField.text = string.Empty;
@@ -107,7 +110,10 @@ public class ListSettings : MonoBehaviour
         }
 
         if (isNewList)
+        {
             listPanel.openedList.name = nameField.text;
+            listPanel.openedList.version = PlayerPrefs.GetInt("Version");
+        }
         else
             listPanel.saveManager.saveData.lists[index].name = nameField.text;
 
