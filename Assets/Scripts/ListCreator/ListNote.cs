@@ -34,6 +34,7 @@ public class ListNote : MonoBehaviour, IPointerClickHandler
 
     private void RMB()
     {
+        if (!list.builtIn || listPanel.devManager.isUnlocked)
         listPanel.OpenSettings(index);
     }
 

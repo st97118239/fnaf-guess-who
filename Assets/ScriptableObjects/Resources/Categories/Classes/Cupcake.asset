@@ -19,3 +19,9 @@ MonoBehaviour:
   skinType: 0
   characters:
   - {fileID: 11400000, guid: fd2a3e65ea97d024cae08d9707787d87, type: 2}
+  - {fileID: 11400000, guid: 5590e04337d15424a948292d3ca5d653, type: 2}
+  - {fileID: 11400000, guid: 84f3cfa3c1fcdb847a8eac51aea19781, type: 2}
+  - {fileID: 11400000, guid: 31521e3015ff7484ca4dcadeec4fb268, type: 2}
+  - {fileID: 11400000, guid: 79f7d79855653d042b1a77e4f7bc81d1, type: 2}
+  - {fileID: 11400000, guid: f3b7859097ab6374c99b4e79ff578b30, type: 2}
+  - {fileID: 11400000, guid: 13f64bbf0e4ca38418edc6d9108d9974, type: 2}

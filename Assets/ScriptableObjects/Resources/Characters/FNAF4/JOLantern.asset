@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
-  m_Name: SBonnie
+  m_Name: JOLantern
   m_EditorClassIdentifier: 
-  characterName: RWQFSFASXC
+  characterName: Jack-O-Lantern
   pronouns: He/Him
   yearMade: 
   yearBorn: 
@@ -20,19 +20,19 @@ MonoBehaviour:
   owner: 
   occupation: 
   employment: 
-  affiliation: Freddy Fazbear's Pizza (1987)
-  aliases: Shadow Bonnie, RXQ
-  type: Shadow Animatronic
-  model: Rabbit
+  affiliation: Bedroom
+  aliases: Jack' O' Lantern
+  type: Halloween Animatronic
+  model: Cupcake
   height: 
   weight: 
-  color: Black
-  eyeColor: White Pupils
-  firstAppearance: Five Nights at Freddy's 2
+  color: Green/Orange
+  eyeColor: Hollow with Orange Glow
+  firstAppearance: Five Nights at Freddy's 4
   polaroidSprite:
-  - {fileID: 21300000, guid: 6de12d20b6beb7946b5a4d4b810dbbf0, type: 3}
+  - {fileID: 21300000, guid: 97060557912e21847b51fabe37db1738, type: 3}
   fullBodySprite:
-  - {fileID: 21300000, guid: 7f2235379c683b94592b7457a36b9a4c, type: 3}
+  - {fileID: 21300000, guid: f394494029c3c8547ad5df9bd1716f2f, type: 3}
   voicelines: []
-  directory: Characters/FNAF2/SBonnie
-  winsNeeded: 8
+  directory: Characters/FNAF4/JOLantern
+  winsNeeded: 26

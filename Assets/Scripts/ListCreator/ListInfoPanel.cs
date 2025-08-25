@@ -168,7 +168,7 @@ public class ListInfoPanel : MonoBehaviour
         if (listPanel.menu == 1)
         {
             chooseNote.ChangeText("Remove");
-            if (listPanel.openedList.builtIn)
+            if (listPanel.openedList.builtIn && !listPanel.devManager.isUnlocked)
                 chooseNote.Disable();
             else
                 chooseNote.Enable();
@@ -176,7 +176,7 @@ public class ListInfoPanel : MonoBehaviour
         else if (listPanel.menu == 2)
         {
             chooseNote.ChangeText("Add");
-            if (listPanel.openedList.builtIn || !listPanel.hasListOpen || !polaroidSlot.characterCanAdd || listPanel.openedList.characters.Count >= listPanel.maxCharacters)
+            if ((listPanel.openedList.builtIn && !listPanel.devManager.isUnlocked) || !listPanel.hasListOpen || !polaroidSlot.characterCanAdd || listPanel.openedList.characters.Count >= listPanel.maxCharacters)
                 chooseNote.Disable();
             else
                 chooseNote.Enable();
@@ -322,13 +322,13 @@ public class ListInfoPanel : MonoBehaviour
 
     public void ChooseCharacter()
     {
-        if (listPanel.menu == 1 && !listPanel.openedList.builtIn)
+        if (listPanel.menu == 1 && (!listPanel.openedList.builtIn || listPanel.devManager.isUnlocked))
         {
             listPanel.RemoveCharacterFromList(character, polaroidSlot.index);
 
             Hide();
         }
-        else if (listPanel.menu == 2 && !listPanel.openedList.builtIn)
+        else if (listPanel.menu == 2 && (!listPanel.openedList.builtIn || listPanel.devManager.isUnlocked))
         {
             listPanel.AddCharacterToList(character);
 

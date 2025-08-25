@@ -9456,7 +9456,7 @@ MonoBehaviour:
     selected: 0
     version: 0
     characters: []
-  defaultList: {fileID: 11400000, guid: 3c67bcb7989e228449d3e612d2d2c38f, type: 2}
+  defaultList: {fileID: 11400000, guid: d2a71828494520a4c9fda4ddbef75459, type: 2}
   listPanel: {fileID: 1224084823}
 --- !u!1 &694835115
 GameObject:
@@ -32012,7 +32012,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  version: 75
+  version: 76
   hasStarted: 0
   round: 0
   turn: 0

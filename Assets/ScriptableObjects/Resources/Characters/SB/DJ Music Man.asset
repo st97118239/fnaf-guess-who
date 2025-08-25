@@ -35,6 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9855345fcb55c75419097c5b0ba81542, type: 3}
   voicelines: []
   directory: Characters/SB/DJ Music Man
-  firstGame: 10
-  animatronicClass: 26
-  skinClass: 0
+  winsNeeded: 7

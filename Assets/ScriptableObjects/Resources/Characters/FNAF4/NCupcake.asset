@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
-  m_Name: SBonnie
+  m_Name: NCupcake
   m_EditorClassIdentifier: 
-  characterName: RWQFSFASXC
+  characterName: Nightmare Cupcake
   pronouns: He/Him
   yearMade: 
   yearBorn: 
@@ -20,19 +20,19 @@ MonoBehaviour:
   owner: 
   occupation: 
   employment: 
-  affiliation: Freddy Fazbear's Pizza (1987)
-  aliases: Shadow Bonnie, RXQ
-  type: Shadow Animatronic
-  model: Rabbit
+  affiliation: Bedroom
+  aliases: 
+  type: Nightmare Animatronic
+  model: Cupcake
   height: 
   weight: 
-  color: Black
-  eyeColor: White Pupils
-  firstAppearance: Five Nights at Freddy's 2
+  color: Pink
+  eyeColor: Yellow
+  firstAppearance: Five Nights at Freddy's 4
   polaroidSprite:
-  - {fileID: 21300000, guid: 6de12d20b6beb7946b5a4d4b810dbbf0, type: 3}
+  - {fileID: 21300000, guid: 6bbb3cdecdb3bdc47a72415310706e86, type: 3}
   fullBodySprite:
-  - {fileID: 21300000, guid: 7f2235379c683b94592b7457a36b9a4c, type: 3}
+  - {fileID: 21300000, guid: db34aa8380f495945befd8785dbfc43c, type: 3}
   voicelines: []
-  directory: Characters/FNAF2/SBonnie
-  winsNeeded: 8
+  directory: Characters/FNAF4/NCupcake
+  winsNeeded: 28
