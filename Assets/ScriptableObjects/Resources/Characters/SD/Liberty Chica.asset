@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
+  m_Name: Liberty Chica
+  m_EditorClassIdentifier: 
+  characterName: Liberty Chica
+  pronouns: She/Her
+  yearMade: 1970s
+  yearBorn: 
+  familyMembers: 
+  owner: Fazbear Entertainment, Inc.
+  occupation: 
+  employment: Backup Singer
+  affiliation: Freddy Fazbear's Pizza
+  aliases: 
+  type: Classic Animatronic
+  model: Chicken
+  height: 
+  weight: 
+  color: Green
+  eyeColor: Green
+  firstAppearance: 'Five Nights at Freddy''s AR: Special Delivery'
+  polaroidSprite:
+  - {fileID: 21300000, guid: 1ec739d88edb6364ca2e915760be6782, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: 2c47a446cac808544b3577e00db1adcc, type: 3}
+  voicelines: []
+  directory: Characters/SD/Liberty Chica
+  winsNeeded: 27

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
+  m_Name: Toxic Springtrap
+  m_EditorClassIdentifier: 
+  characterName: Toxic Springtrap
+  pronouns: He/Him
+  yearMade: 
+  yearBorn: Unkown
+  familyMembers: Michael Afton (Son), Elizabeth Afton (Daughter)
+  owner: 
+  occupation: Co-founder of Fazbear Entertainment, Inc. (Formerly), Founder of Afton
+    Robotics, LLC (Formerly)
+  employment: 
+  affiliation: Fazbear Entertainment, Inc. (Formerly), Afton Robotics, LLC (Formerly)
+  aliases: Leantrap
+  type: Unclassified Animatronic
+  model: Human
+  height: 
+  weight: 
+  color: Purple
+  eyeColor: Silver
+  firstAppearance: Five Nights at Freddy's 3
+  polaroidSprite:
+  - {fileID: 21300000, guid: 73e78951bbb2d8043becca9d31aa2b19, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: 6f91fe4e3b1c57348afeed878e407e58, type: 3}
+  voicelines: []
+  directory: Characters/SD/Toxic Springtrap
+  winsNeeded: 27

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
+  m_Name: Flamethrower Endo
+  m_EditorClassIdentifier: 
+  characterName: Flamethrower Endo
+  pronouns: It/Its
+  yearMade: 1970s
+  yearBorn: 
+  familyMembers: 
+  owner: Fazbear Entertainment, Inc.
+  occupation: 
+  employment: None
+  affiliation: Freddy Fazbear's Pizza
+  aliases: 
+  type: Endoskeleton
+  model: Inner Skeleton
+  height: 
+  weight: 
+  color: Orange/Yellow
+  eyeColor: Hazel-Blue
+  firstAppearance: 'Five Nights at Freddy''s AR: Special Delivery'
+  polaroidSprite:
+  - {fileID: 21300000, guid: 4253f3c0e8c12c64c9a039b6f0fee19d, type: 3}
+  fullBodySprite:
+  - {fileID: 21300000, guid: 8dfbcd0d98a699047a3665f10142cb22, type: 3}
+  voicelines: []
+  directory: Characters/SD/Flamethrower Endo
+  winsNeeded: 17

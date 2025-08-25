@@ -32012,7 +32012,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  version: 78
+  version: 79
   hasStarted: 0
   round: 0
   turn: 0

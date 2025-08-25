@@ -15,7 +15,7 @@ MonoBehaviour:
   categoryName: Unclassified Bots
   type: 2
   firstGame: 0
-  animatronicClass: 29
+  animatronicClass: 30
   skinType: 0
   characters:
   - {fileID: 11400000, guid: 6f7aa277042535b4da1d2935bfdfcdd1, type: 2}

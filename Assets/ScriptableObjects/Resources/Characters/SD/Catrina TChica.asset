@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 11c93e0d9088ba2408d4da6748d5b9fa, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 22db6dec976019f4b825508eb616c59f, type: 3}
+  - {fileID: 21300000, guid: a2d68c424ea9cf941bdb9fcfeb85426b, type: 3}
   voicelines:
   - {fileID: 8300000, guid: 7fe671451ec65b246832144d3f95aa18, type: 3}
   - {fileID: 8300000, guid: f07ed254fe6ed1043b783a390bbab716, type: 3}
