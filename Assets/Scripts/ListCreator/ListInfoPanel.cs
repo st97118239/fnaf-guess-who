@@ -24,12 +24,11 @@ public class ListInfoPanel : MonoBehaviour
     public List<TMP_Text> texts;
     public Vector3 bodyImageOffset;
 
+    [SerializeField] private Subtitles subtitles;
     [SerializeField] private GameObject backgroundBlocker;
     [SerializeField] private float paperTimerBase;
 
-    private readonly System.Random rnd = new();
     private Animator animator;
-    private List<AudioClip> audioToPlay;
     private bool isPlayingAudio;
     private bool playPaperTimer;
     private float paperTimer;
@@ -78,23 +77,16 @@ public class ListInfoPanel : MonoBehaviour
 
         audioManager.voicelines.Stop();
 
-        audioManager.voicelines.PlayOneShot(audioToPlay[0]);
-        audioToPlay.Remove(audioToPlay[0]);
+        character.voicelines.Play(audioManager.voicelines, subtitles);
 
-        if (audioToPlay.Count == 0)
-        {
-            audioToPlay = character.voicelines;
-            audioToPlay = audioToPlay.OrderBy(i => rnd.Next()).ToList();
-        }
-
-        Invoke(nameof(ResetAudioButton), audioToPlay[0].length);
+        Invoke(nameof(ResetAudioButton), character.voicelines.voicelineLength);
 
         audioNote.ChangeImage("UI/Stop");
     }
 
     private void ResetAudioButton()
     {
-        if (character.voicelines.Count == 0)
+        if (!character.voicelines)
             return;
 
         isPlayingAudio = false;
@@ -104,6 +96,7 @@ public class ListInfoPanel : MonoBehaviour
     public void StopAudio()
     {
         audioManager.voicelines.Stop();
+        subtitles.Reset();
         CancelInvoke(nameof(ResetAudioButton));
         ResetAudioButton();
     }
@@ -148,12 +141,10 @@ public class ListInfoPanel : MonoBehaviour
             }
         }
 
-        if (character.voicelines.Count > 0)
+        if (character.voicelines)
         {
             audioNote.gameObject.SetActive(true);
             audioNote.ChangeImage("UI/Play");
-            audioToPlay = character.voicelines;
-            audioToPlay = audioToPlay.OrderBy(i => rnd.Next()).ToList();
         }
         else
             audioNote.gameObject.SetActive(false);

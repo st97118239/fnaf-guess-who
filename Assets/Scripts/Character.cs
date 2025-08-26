@@ -23,7 +23,7 @@ public class Character : ScriptableObject
     public string firstAppearance;
     public List<Sprite> polaroidSprite;
     public List<Sprite> fullBodySprite;
-    public List<AudioClip> voicelines;
+    public Voicelines voicelines;
 
     public string directory;
     public int winsNeeded;

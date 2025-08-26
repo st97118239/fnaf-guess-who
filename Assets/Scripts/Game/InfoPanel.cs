@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InfoPanel : MonoBehaviour
 {
@@ -25,12 +23,11 @@ public class InfoPanel : MonoBehaviour
     public List<TMP_Text> texts;
     public Vector3 bodyImageOffset;
 
+    [SerializeField] private Subtitles subtitles;
     [SerializeField] private GameObject backgroundBlocker;
     [SerializeField] private float paperTimerBase;
 
-    private readonly System.Random rnd = new();
     private Animator animator;
-    private List<AudioClip> audioToPlay;
     private bool isPlayingAudio;
     private bool playPaperTimer;
     private float paperTimer;
@@ -79,34 +76,27 @@ public class InfoPanel : MonoBehaviour
 
         audioManager.voicelines.Stop();
 
-        if (audioToPlay.Count == 0)
-        {
-            audioToPlay = character.voicelines;
-            audioToPlay = audioToPlay.OrderBy(i => rnd.Next()).ToList();
-        }
-
-        audioManager.voicelines.PlayOneShot(audioToPlay[0]);
+        character.voicelines.Play(audioManager.voicelines, subtitles);
         
-        Invoke(nameof(ResetAudioButton), audioToPlay[0].length);
+        Invoke(nameof(ResetAudioButton), character.voicelines.voicelineLength);
 
         audioNote.ChangeImage("UI/Stop");
     }
 
     private void ResetAudioButton()
     {
-        if (character.voicelines == null)
-            return;
-        if (character.voicelines.Count == 0)
+        if (!character.voicelines)
             return;
 
         isPlayingAudio = false;
-        audioToPlay.Remove(audioToPlay[0]);
         audioNote.ChangeImage("UI/Play");
     }
 
     public void StopAudio()
     {
         audioManager.voicelines.Stop();
+        subtitles.Reset();
+        CancelInvoke(nameof(ResetAudioButton));
         ResetAudioButton();
     }
 
@@ -150,12 +140,10 @@ public class InfoPanel : MonoBehaviour
             }
         }
 
-        if (character.voicelines.Count > 0)
+        if (character.voicelines)
         {
             audioNote.gameObject.SetActive(true);
             audioNote.ChangeImage("UI/Play");
-            audioToPlay = character.voicelines;
-            audioToPlay = audioToPlay.OrderBy(i => rnd.Next()).ToList();
         }
         else
             audioNote.gameObject.SetActive(false);

@@ -16,7 +16,8 @@ public class ListPolaroid : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            LMB();
+            if (!listPanel.openedList.builtIn)
+                LMB();
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {

@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32e17325068b854399ce2784b73de3b, type: 3}
+  m_Name: Freddy
+  m_EditorClassIdentifier: 
+  voicelines:
+  - {fileID: 8300000, guid: dd6ab6dcd9754e24d8ad9b43802fda78, type: 3}
+  - {fileID: 8300000, guid: eb050253f2fb7bc4384f44087a31e9ae, type: 3}
+  - {fileID: 8300000, guid: 5527c61e5e2822c4bbc749c13c52bf3a, type: 3}
+  - {fileID: 8300000, guid: 53baab783abd0894e993579315f39a56, type: 3}
+  - {fileID: 8300000, guid: 3565d2f31964c2a409c015de398e2bb6, type: 3}
+  - {fileID: 8300000, guid: aa3b0fc06444f634fa2b09a8a434d0d6, type: 3}
+  - {fileID: 8300000, guid: f6adfda2f479d8046bb399c20a92199d, type: 3}
+  - {fileID: 8300000, guid: d8693bad83732524db8605183f380098, type: 3}
+  - {fileID: 8300000, guid: 72bfc44269ac7174dbdbdc76610993be, type: 3}
+  - {fileID: 8300000, guid: f695f783cd0319148b2d16c7654f1402, type: 3}
+  - {fileID: 8300000, guid: 3c3c177c98b590a4380e62cb530fb394, type: 3}
+  - {fileID: 8300000, guid: 7533573417e02294ca15959e531c3ffa, type: 3}
+  - {fileID: 8300000, guid: ddeca0bbf9029ab468b1b57e8875d510, type: 3}
+  - {fileID: 8300000, guid: aebf590217358954784cf6d0479d5433, type: 3}
+  - {fileID: 8300000, guid: 2dc5d10c566f2784c9ce9912c9f88c55, type: 3}
+  - {fileID: 8300000, guid: d412f6e3766757149b8fc04db64f4efb, type: 3}
+  - {fileID: 8300000, guid: e867a2f15cbac2b4ca97d81bbd972cb7, type: 3}
+  - {fileID: 8300000, guid: 1e3ec5df2ba0ce44199ddf170b1c19d8, type: 3}
+  - {fileID: 8300000, guid: 82b652ea036776541ab050d835dae12f, type: 3}
+  - {fileID: 8300000, guid: c3a5675baec812f418d0fd41a102a1be, type: 3}
+  - {fileID: 8300000, guid: 67d5d7c6ee1514541943ca8964367d65, type: 3}
+  - {fileID: 8300000, guid: 7d683fe3856918440a7d29e5ceb0152a, type: 3}
+  - {fileID: 8300000, guid: be453ea2c3008e54b9904660a26d5a9a, type: 3}
+  - {fileID: 8300000, guid: 11018017c4e71de429a3037d5a7c66dd, type: 3}
+  - {fileID: 8300000, guid: 8b9a9f5487eefa44c9207240da67b7d5, type: 3}
+  - {fileID: 8300000, guid: ba36f40654429af49b648eb6356d8c1e, type: 3}
+  - {fileID: 8300000, guid: 7b32fb924bc9ce14c9cfb87e52e644b1, type: 3}
+  - {fileID: 8300000, guid: 318ff7ba2ff9c6743bf1400732892448, type: 3}
+  - {fileID: 8300000, guid: c6a54c4e684304749b074a2c776b468b, type: 3}
+  - {fileID: 8300000, guid: a07a14edad72281488a3ecab3092b59e, type: 3}
+  subtitles:
+  - (Jumpscare)
+  - (Jumpscare)
+  - (Laugh)
+  - (Laugh)
+  - (Laugh)
+  - I've planned something special, just for you.
+  - That sure was fun!
+  - I bet you didn't expect me to show up, did you now?
+  - I bet you didn't expect me to show up, did you now?
+  - Round and round we go... where we're going, nobody knows!
+  - Round and round we go... where we're going, nobody knows!
+  - 'When you wake up, just remember: Friends are forever.'
+  - I hope you enjoyed my visit. I've got a "special delivery" just for you.
+  - I hope you enjoyed my visit. I've got a "special delivery" just for you.
+  - Now would be a good time to hold your breath.
+  - It looks like someone wasn't ready for Freddy to come to the party!
+  - It looks like someone wasn't ready for Freddy to come to the party!
+  - It looks like someone wasn't ready for Freddy to come to the party!
+  - Most people like my hugs!
+  - What's that you say? You didn't invite me? Too bad.
+  - I hope you enjoyed my visit. I'm planning on making it extra special for you.
+  - Better luck next time.
+  - Better luck next time.
+  - Aw, you look down, would you like a hug?
+  - By the look on your face you really were surprised.
+  - Bet you weren't expecting me to show up early, were you now?
+  - I bet you were shocked this time.
+  - Now, now, all that fear isn't helping either of us.
+  - You did your best and that's all that counts.
+  - I've prepared a special-happy fun time just for you.
+  voicelineLength: 0
+  voicelineToPlay: 0
