@@ -33,6 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 990d9e4eaa8720d45b78e34387ddb755, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 1af6e524c9fbbb44db2a6f46e24a180e, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: 9ce2a548dc35f5d4d9eae8bd1a5bcd3b, type: 2}
   directory: Characters/SD/Scorching Chica
   winsNeeded: 21

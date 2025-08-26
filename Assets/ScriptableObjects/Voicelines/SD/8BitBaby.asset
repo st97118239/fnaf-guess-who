@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32e17325068b854399ce2784b73de3b, type: 3}
+  m_Name: 8BitBaby
+  m_EditorClassIdentifier: 
+  voicelines:
+  - {fileID: 8300000, guid: 63d1c8147ab812c40a1cb2fd20d80479, type: 3}
+  - {fileID: 8300000, guid: d87de8d5acbfb444ea7dd59cf0d027cd, type: 3}
+  - {fileID: 8300000, guid: c1da78b43d6e68e4dba92e829115dd85, type: 3}
+  - {fileID: 8300000, guid: d686bfa8267ca154f9e22f39a2f6078b, type: 3}
+  - {fileID: 8300000, guid: 77419594272e3994ca0e42578f72a7bc, type: 3}
+  subtitles:
+  - (Jumpscare)
+  - I can hear you breathing, but not for long.
+  - If you keep your eyes closed, nothing bad will happen to you.
+  - Soon you will be as broken as I am.
+  - There is something bad, inside of me.
+  voicelineLength: 0
+  voicelineToPlay: 0

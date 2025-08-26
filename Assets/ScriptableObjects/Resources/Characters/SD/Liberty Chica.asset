@@ -33,6 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1ec739d88edb6364ca2e915760be6782, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 2c47a446cac808544b3577e00db1adcc, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: 9ce2a548dc35f5d4d9eae8bd1a5bcd3b, type: 2}
   directory: Characters/SD/Liberty Chica
   winsNeeded: 27

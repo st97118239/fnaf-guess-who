@@ -33,7 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6e24d2a9b4ff9c8479d6ece8c7806ce8, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 6ac8e316029f0cc4bbda11ce95c93242, type: 3}
-  voicelines:
-  - {fileID: 8300000, guid: 7872edc4121b1d4459ef57b3ec2ac399, type: 3}
+  voicelines: {fileID: 11400000, guid: dc6eb40a594846b41b9cd08df660fa31, type: 2}
   directory: Characters/SD/MChBonnie
   winsNeeded: 16

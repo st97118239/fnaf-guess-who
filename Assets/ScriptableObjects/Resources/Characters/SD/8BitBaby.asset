@@ -33,11 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 008eb234a14b08c448d5f6578d06c0ff, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: c7ca3246862526840874e2313890cb6c, type: 3}
-  voicelines:
-  - {fileID: 8300000, guid: d87de8d5acbfb444ea7dd59cf0d027cd, type: 3}
-  - {fileID: 8300000, guid: c1da78b43d6e68e4dba92e829115dd85, type: 3}
-  - {fileID: 8300000, guid: 63d1c8147ab812c40a1cb2fd20d80479, type: 3}
-  - {fileID: 8300000, guid: d686bfa8267ca154f9e22f39a2f6078b, type: 3}
-  - {fileID: 8300000, guid: 77419594272e3994ca0e42578f72a7bc, type: 3}
+  voicelines: {fileID: 11400000, guid: c10e77048265e304dac29f9dd720a20f, type: 2}
   directory: Characters/SD/8BitBaby
   winsNeeded: 30
