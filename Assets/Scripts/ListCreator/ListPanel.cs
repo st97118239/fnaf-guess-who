@@ -165,6 +165,13 @@ public class ListPanel : MonoBehaviour
 
     private void RefreshCharactersMenuSpawn()
     {
+        if (openedList == null)
+        {
+            Debug.Log("No opened list found.");
+            BackNote();
+            return;
+        }
+
         polaroids = new List<ListPolaroid>(openedList.characters.Count);
 
         for (int i = 0; i < openedList.characters.Count; i++)

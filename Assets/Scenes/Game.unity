@@ -3437,12 +3437,15 @@ MonoBehaviour:
   emptySlotPrefab: {fileID: 920305166814788680, guid: a362aea811826aa4488323db3322a966, type: 3}
   emptySlots: []
   charSlots: []
+  possibleSlots: []
   crossedOff: []
   chosenCharacter: {fileID: 0}
   animator: {fileID: 601102080}
   isInfoPanelShown: 0
   polaroidSpawnPos: {x: -505.31, y: -127, z: 0}
   emptySlotAmount: 96
+  rndVoicelineTimerBase: {x: 30, y: 90}
+  subtitles: {fileID: 105379340}
 --- !u!1 &237864816
 GameObject:
   m_ObjectHideFlags: 0
@@ -8820,41 +8823,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Add skins for characters
-
-    Add audio to all characters
-
-    More characters
-
-    Add
-    random voiceline during game
-
-    from non crossed off characters
-
-    Update
-    way to accuse
-
-    - if 2 or less remaining, force accuse
-
-    - when forced
-    to accuse, make lmb
-
-    circle instead of X, but allow player
-
-    to still
-    undo an X
-
-    - indicator that the opponent has accused
-
-    Make volume change
-    when
-
-    unselecting sliders
-
-    Radio where you choose bgm
-
-    Make Debug.Log''s
-    clearer'
+  m_text: "Add skins for characters\nAdd audio to all characters\nMore characters\nUpdate
+    way to accuse\n- if 2 or less remaining, force accuse\n- indicator that the opponent
+    has accused\nRedo chracter unlocks\n- Levels? Get xp from playing a game, \nmore
+    xp from winning\n- Have a list that contains the characters\n- Make it in the
+    save if you unlocked it (use dir)\n- Add a note that shows you your new characters\n-
+    Add a popup when levelling up what new chars you have\nMake volume change when\nunselecting
+    sliders\nAllow left clicking on a charPolaroid to add\nAllow esc to go back in
+    menus\nRadio where you choose bgm\nMake Debug.Log's clearer"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -32288,7 +32264,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  version: 86
+  version: 87
   hasStarted: 0
   round: 0
   turn: 0
@@ -34500,6 +34476,7 @@ MonoBehaviour:
   folderOpenSFX: {fileID: 8300000, guid: 57965636729d32d4f958eec2be0fef89, type: 3}
   folderCloseSFX: {fileID: 8300000, guid: db80203bf893cbc49a1c727fc8875b17, type: 3}
   clipboardSFX: {fileID: 8300000, guid: 77554cf0576b2e34785d1f33350031c6, type: 3}
+  bellSFX: {fileID: 8300000, guid: 6d1c4a09de77dbb468634e51a7beeb18, type: 3}
 --- !u!1 &2103587582
 GameObject:
   m_ObjectHideFlags: 0

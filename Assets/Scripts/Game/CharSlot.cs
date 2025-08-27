@@ -66,6 +66,7 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
         {
             isCrossedOff = false;
             polaroid.CrossOff();
+            gameScript.possibleSlots.Add(this);
             gameScript.crossedOff.Remove(this);
             gameScript.UpdateSidebar();
         }
@@ -73,6 +74,7 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
         {
             isCrossedOff = true;
             polaroid.CrossOff();
+            gameScript.possibleSlots.Remove(this);
             gameScript.crossedOff.Add(this);
             gameScript.UpdateSidebar();
             gameScript.audioManager.soundEffects.PlayOneShot(markerSFX);

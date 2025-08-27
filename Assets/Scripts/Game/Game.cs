@@ -18,6 +18,7 @@ public class Game : MonoBehaviour
     public GameObject emptySlotPrefab;
     public List<EmptySlot> emptySlots;
     public List<CharSlot> charSlots;
+    public List<CharSlot> possibleSlots;
     public List<CharSlot> crossedOff;
     public Character chosenCharacter;
     public Animator animator;
@@ -25,11 +26,37 @@ public class Game : MonoBehaviour
     public Vector3 polaroidSpawnPos;
 
     [SerializeField] private int emptySlotAmount = 96;
+    [SerializeField] private Vector2 rndVoicelineTimerBase;
+    [SerializeField] private Subtitles subtitles;
 
     private int slotAmount;
+    private float rndVoicelineTimer;
+
+    private void Update()
+    {
+        if (gameManager.hasStarted && !gameManager.hasFinished)
+        {
+            if (rndVoicelineTimer > 0)
+                rndVoicelineTimer -= Time.deltaTime;
+            else
+            {
+                Character rndChar = possibleSlots[Random.Range(0, possibleSlots.Count - 1)].character;
+                rndChar.voicelines.Play(audioManager.voicelines, subtitles);
+
+                rndVoicelineTimer = Random.Range(rndVoicelineTimerBase.x, rndVoicelineTimerBase.y);
+            }
+        }
+    }
 
     public void LoadGame()
     {
+        for (int i = 0; i < emptySlots.Count; i++)
+        {
+            Destroy(emptySlots[i].gameObject);
+        }
+
+        emptySlots.Clear();
+
         characterSidebar.doneNote.Disable();
         
         if (player.playerIdx == 1)
@@ -220,7 +247,7 @@ public class Game : MonoBehaviour
 
     public void StartRound(bool hasToAccuse)
     {
-        
+        audioManager.soundEffects.PlayOneShot(audioManager.bellSFX);
     }
 
     public void Done()
@@ -266,6 +293,7 @@ public class Game : MonoBehaviour
     {
         player = null;
         charSlots.Clear();
+        possibleSlots.Clear();
         crossedOff.Clear();
         playerCharArray = new Character[0];
         opponentCharArray = new Character[0];

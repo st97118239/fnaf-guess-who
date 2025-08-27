@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip folderOpenSFX;
     public AudioClip folderCloseSFX;
     public AudioClip clipboardSFX;
+    public AudioClip bellSFX;
 
     private void Start()
     {
