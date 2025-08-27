@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32e17325068b854399ce2784b73de3b, type: 3}
+  m_Name: SBonnie
+  m_EditorClassIdentifier: 
+  voicelines:
+  - {fileID: 8300000, guid: ee52aa39c0a28dd4b93546b481d49a31, type: 3}
+  - {fileID: 8300000, guid: f7f37661a5a496f47a0b83c87a834af2, type: 3}
+  - {fileID: 8300000, guid: 6554a019aa359524994e88c2d05adcd5, type: 3}
+  - {fileID: 8300000, guid: 631a9265d56abd24e8f52c34c3f4cec2, type: 3}
+  subtitles:
+  - (Jumpscare)
+  - (Flute)
+  - (Summoning noise)
+  - (Laugh)
+  voicelineLength: 0
+  voicelineToPlay: 0

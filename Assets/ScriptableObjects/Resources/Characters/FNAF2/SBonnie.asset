@@ -33,6 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6de12d20b6beb7946b5a4d4b810dbbf0, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 7f2235379c683b94592b7457a36b9a4c, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: 8b0496a57e2d86442a200a506b6fc28f, type: 2}
   directory: Characters/FNAF2/SBonnie
   winsNeeded: 8

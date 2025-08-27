@@ -33,8 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bbc7f247884c710448ea71e94416da4c, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 0c0950bd724c7f64aae5435feca54a51, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: b7d6ab4bf81a14d40b3c94921b591184, type: 2}
   directory: Characters/FNAF3/PFreddy
-  firstGame: 3
-  animatronicClass: 5
-  skinClass: 0
+  winsNeeded: 0

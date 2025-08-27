@@ -33,6 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0a47d374e1240d245beac69e18633011, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 94abbbc63e23280469b2ee0c6a814b7a, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: ce150f29b40479f4c8a517c7a8f2af81, type: 2}
   directory: Characters/UCN/DD
   winsNeeded: 2

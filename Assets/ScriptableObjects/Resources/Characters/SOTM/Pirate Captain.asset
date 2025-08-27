@@ -33,6 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bae9f5f2de37c34489142ef0ee5595cf, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 39e310ace4f0f7d43a5cf5af6a4ab66b, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: 5773a8a97934cda48a1647bfcbc2122f, type: 2}
   directory: Characters/SOTM/Pirate Captain
   winsNeeded: 3

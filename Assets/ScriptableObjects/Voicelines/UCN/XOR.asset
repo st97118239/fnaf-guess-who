@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32e17325068b854399ce2784b73de3b, type: 3}
+  m_Name: XOR
+  m_EditorClassIdentifier: 
+  voicelines:
+  - {fileID: 8300000, guid: dc2c20ce5c9879c4b922315a796c6599, type: 3}
+  subtitles:
+  - .gnir eht ni rednetnoc wen a worht dna ,gniht ykaens a od annog m'I .etanutrofnu
+    woH !ho-hU .etanutrofnu woH !ho-hU
+  voicelineLength: 0
+  voicelineToPlay: 0

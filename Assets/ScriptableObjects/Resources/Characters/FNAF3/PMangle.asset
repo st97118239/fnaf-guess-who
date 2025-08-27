@@ -35,6 +35,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1209f9c1585175d41a101b62f0e69dc8, type: 3}
   - {fileID: 21300000, guid: cc9c252665b95924f871177ade9b7e13, type: 3}
   - {fileID: 21300000, guid: 5f89917d68c673e4aa97b8854f373241, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: 418dd18ca19746244b85eee8b6125355, type: 2}
   directory: Characters/FNAF3/PMangle
   winsNeeded: 0

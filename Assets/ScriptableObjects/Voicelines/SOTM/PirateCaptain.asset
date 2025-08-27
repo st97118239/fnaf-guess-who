@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32e17325068b854399ce2784b73de3b, type: 3}
+  m_Name: PirateCaptain
+  m_EditorClassIdentifier: 
+  voicelines:
+  - {fileID: 8300000, guid: 68d25170425e82940970e2df1779c24a, type: 3}
+  - {fileID: 8300000, guid: d89d03089697c15428cee71f4f69fa7f, type: 3}
+  - {fileID: 8300000, guid: 6c9983da5901450459af5878b817226d, type: 3}
+  - {fileID: 8300000, guid: eee10304e8f58994aa69b2b398698d5d, type: 3}
+  - {fileID: 8300000, guid: cc1f3e273a7fc304bbc1ef7a3790c874, type: 3}
+  - {fileID: 8300000, guid: 0ee60cccb55386846829d54cebbe3ed8, type: 3}
+  - {fileID: 8300000, guid: 40de2fb490b69d04daf5198f59024d18, type: 3}
+  - {fileID: 8300000, guid: d3096fabb6493a0419f5fe5a4d95cad5, type: 3}
+  - {fileID: 8300000, guid: 6734392ea6bf4fd4db875a2f5ed34188, type: 3}
+  - {fileID: 8300000, guid: b37c0701dd764f1478a243d7c5ab362d, type: 3}
+  - {fileID: 8300000, guid: c8c3d5e4ec2444b439f222370782e515, type: 3}
+  subtitles:
+  - YaArrrgh... What's all this racket?
+  - Arrr we under attack? The ship be covered in... covered in... decorations?
+  - Decotrations... First mate Foxy, arr ye having a parrrrty?
+  - Did ye forget rule numer 22 - NO PARRRRTIES!!
+  - '...and rule number 2: NO DECORATIONS!! ...aside from our flag, that is...'
+  - Party snacks?! Pirate rule number 1 - NO PARTY SNACKS!!
+  - Curse ye, Foxy.
+  - Every sailor knows Rocktopi are drawn to boat parties! This is why sailors don't
+    have boat parties!
+  - Well done lads, ye all worked together for once. Like a real crew! You've made
+    me the happiest Captain on the seven seas!
+  - Foxy, this party was for me??
+  - Foxy, my birthday was LAST week!
+  voicelineLength: 0
+  voicelineToPlay: 0

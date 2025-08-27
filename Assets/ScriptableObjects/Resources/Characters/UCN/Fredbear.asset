@@ -33,6 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8c89319a9448c3d4089d73484db91462, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: c73af813d25be5f42976932cd44e6d4d, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: 084b38d5a420075429d70d2d9f434796, type: 2}
   directory: Characters/UCN/Fredbear
   winsNeeded: 3

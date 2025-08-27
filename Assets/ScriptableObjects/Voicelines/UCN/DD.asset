@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32e17325068b854399ce2784b73de3b, type: 3}
+  m_Name: DD
+  m_EditorClassIdentifier: 
+  voicelines:
+  - {fileID: 8300000, guid: d700f8d8abbeb3e4e9c004b289027a8c, type: 3}
+  - {fileID: 8300000, guid: 90074812d427bbc4c8aaff4b3f472ce0, type: 3}
+  subtitles:
+  - Uh-oh! How unfortunate. Uh-oh! How unfortunate. I'm gonna do a sneaky thing,
+    and throw a new contender in the ring.
+  - Uh-oh! How unfortunate. Uh-oh! How unfortunate. I know how much you like to fight,
+    so I'll add a new problem to you night!
+  voicelineLength: 0
+  voicelineToPlay: 0
