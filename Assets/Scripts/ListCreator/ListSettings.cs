@@ -1,5 +1,7 @@
 using TMPro;
-using UnityEditor;
+#if UNITY_EDITOR
+    using UnityEditor;
+#endif
 using UnityEngine;
 
 public class ListSettings : MonoBehaviour
@@ -155,6 +157,7 @@ public class ListSettings : MonoBehaviour
 
     public void SaveToSO()
     {
+#if UNITY_EDITOR
         listToSave = listPanel.saveManager.saveData.lists[index];
 
         characterList = ScriptableObject.CreateInstance<CharacterList>();
@@ -170,6 +173,7 @@ public class ListSettings : MonoBehaviour
         characterList.version = PlayerPrefs.GetInt("Version");
 
         AssetDatabase.CreateAsset(characterList, characterListPath + characterList.listName + ".asset");
+#endif
 
         characterList = null;
 

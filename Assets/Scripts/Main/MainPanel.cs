@@ -38,10 +38,8 @@ public class MainPanel : NetworkBehaviour
 
     private readonly System.Random rnd = new();
 
-    private void Awake()
+    public void SpawnPosters()
     {
-        versionNote.ChangeText("Version: " + gameManager.version);
-
         posterSprites = posterSprites.OrderBy(i => rnd.Next()).ToList();
 
         for (int i = 0; i < posters.Count; i++)

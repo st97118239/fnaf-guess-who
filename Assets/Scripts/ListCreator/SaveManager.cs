@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
     public SaveData saveData;
+
+    [SerializeField] private MainPanel mainPanel;
 
     [SerializeField] private ListDataChar listCharacters;
     [SerializeField] private ListData listPanelList;
@@ -23,6 +24,10 @@ public class SaveManager : MonoBehaviour
             PlayerPrefs.SetInt("Version", listPanel.mainPanel.gameManager.version);
 
         Debug.Log("Playing on version " + PlayerPrefs.GetInt("Version"));
+
+        mainPanel.versionNote.ChangeText("Version: " + mainPanel.gameManager.version);
+
+        mainPanel.SpawnPosters();
     }
 
     private void Start()

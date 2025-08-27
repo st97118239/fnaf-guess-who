@@ -9596,6 +9596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveData:
     lists: []
+  mainPanel: {fileID: 1370482681}
   listCharacters:
     name: 
     characters: []
@@ -32287,7 +32288,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  version: 85
+  version: 86
   hasStarted: 0
   round: 0
   turn: 0
