@@ -33,8 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b63f83baab5b9c048b4e26ee081d7b5e, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 8076d9a245828a6409a5033fbd24f103, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: 04530d1ef1e2c564a897e0aaf912c03f, type: 2}
   directory: Characters/FNAF4/Nightmare
-  firstGame: 4
-  animatronicClass: 7
-  skinClass: 0
+  winsNeeded: 0

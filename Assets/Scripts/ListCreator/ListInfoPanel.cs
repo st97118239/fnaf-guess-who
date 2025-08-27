@@ -46,6 +46,8 @@ public class ListInfoPanel : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
             Hide();
+        else if (Input.GetKeyDown(KeyCode.Space))
+            AudioButtonPressed();
 
         if (playPaperTimer)
         {

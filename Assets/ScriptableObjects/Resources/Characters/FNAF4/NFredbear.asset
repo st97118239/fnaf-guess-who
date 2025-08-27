@@ -33,8 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6b8dc52409e780742a2fa10176b88153, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: e0194f8ec54edd849828a92b24a0d261, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: 65c6a95ae08a2df47813c13f889dba4a, type: 2}
   directory: Characters/FNAF4/NFredbear
-  firstGame: 4
-  animatronicClass: 7
-  skinClass: 0
+  winsNeeded: 0

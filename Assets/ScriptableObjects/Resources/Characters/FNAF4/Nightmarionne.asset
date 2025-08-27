@@ -33,8 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 10244658c3b89e148a372ff5ff321b7b, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 63f16b096dbbcb94ab0ea12d8cb202a2, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: aa3807b4f94f8b04c9c9aa143376fd9c, type: 2}
   directory: Characters/FNAF4/Nightmarionne
-  firstGame: 4
-  animatronicClass: 7
-  skinClass: 0
+  winsNeeded: 0

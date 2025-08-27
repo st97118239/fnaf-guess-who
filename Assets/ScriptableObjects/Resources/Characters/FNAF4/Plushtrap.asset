@@ -33,8 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fcd68b49bd314dd4ab44a2dedc6fbc07, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 32d120b47a5d6a44287aa75b7e79c312, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: 75932f16c2a9d4b46994af8854ac6176, type: 2}
   directory: Characters/FNAF4/Plushtrap
-  firstGame: 4
-  animatronicClass: 7
-  skinClass: 0
+  winsNeeded: 0

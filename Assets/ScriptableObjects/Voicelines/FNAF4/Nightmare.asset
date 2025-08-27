@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32e17325068b854399ce2784b73de3b, type: 3}
+  m_Name: Nightmare
+  m_EditorClassIdentifier: 
+  voicelines:
+  - {fileID: 8300000, guid: 601b32d5221ff944d8a033c0fcb9e559, type: 3}
+  - {fileID: 8300000, guid: 8465eb6022a8c6b4aac8467b7439518a, type: 3}
+  - {fileID: 8300000, guid: 77ccc29cc66b18c42b27b21b58c10519, type: 3}
+  - {fileID: 8300000, guid: e589eafeb02d85b40aff6bb1782fd7e1, type: 3}
+  - {fileID: 8300000, guid: 9fbffb5762a513a49b5b5929f9f78643, type: 3}
+  - {fileID: 8300000, guid: 016298d41f37e5341a2c050b816975c0, type: 3}
+  - {fileID: 8300000, guid: 710caf81a1c60b048b7f40fe4f0455f3, type: 3}
+  - {fileID: 8300000, guid: d14963b64a5aade4f825dcfa8dc07729, type: 3}
+  - {fileID: 8300000, guid: 203b40af93db3ed41b0013e2765dd24b, type: 3}
+  - {fileID: 8300000, guid: 505854f8ae019504c9aff88cf92f8369, type: 3}
+  - {fileID: 8300000, guid: b0d6d3a7acfd4ec4989a579df5dd3a18, type: 3}
+  subtitles:
+  - (Jumpscare)
+  - (Laugh)
+  - (Laugh)
+  - (Laugh)
+  - (Laugh)
+  - (Laugh)
+  - YOU WILL NOT BE SPARED. YOU WILL NOT BE SAVED.
+  - I WILL VOMIT YOU BACK... TO RELIVE YOUR HORROR!
+  - I AM YOUR WICKEDNESS... MADE OF FLESH.
+  - I AM HERE TO CLAIM... WHAT IS LEFT OF YOU.
+  - THE SHADOW FEARS ME.
+  voicelineLength: 0
+  voicelineToPlay: 0

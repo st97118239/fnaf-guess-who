@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32e17325068b854399ce2784b73de3b, type: 3}
+  m_Name: NBB
+  m_EditorClassIdentifier: 
+  voicelines:
+  - {fileID: 8300000, guid: bda5d7f9b3aa18a4f8ca86e38c4e4ecb, type: 3}
+  - {fileID: 8300000, guid: 657337400bdfa8342ad85cad8ae0a984, type: 3}
+  - {fileID: 8300000, guid: 475686603876fdd43b470ffba2ab7aae, type: 3}
+  - {fileID: 8300000, guid: 8c2b14b5b74170a4faec931c37e2fb31, type: 3}
+  - {fileID: 8300000, guid: 8bb693e7f9c827d438d82d62dc1d16ae, type: 3}
+  - {fileID: 8300000, guid: ef46fd660141e0d4d8d75041d98c3ae4, type: 3}
+  - {fileID: 8300000, guid: 74182dca89d7c934c82b30a062bc4cd0, type: 3}
+  - {fileID: 8300000, guid: 3bab66ec78827934a97dc9718ef28378, type: 3}
+  - {fileID: 8300000, guid: 13bcdc194025a05488f581b557e99a2d, type: 3}
+  subtitles:
+  - (Jumpscare)
+  - Hi!
+  - Hello!
+  - (Laugh)
+  - There just isn't room in here for both of us. (Laugh)
+  - You knew I'd get you eventually.
+  - Come closer, help me count my teeth.
+  - (Laugh) You're not so big, just a bite-sized morsel. (Chomping noise)
+  - Flash that light all you want, it can't save you now!
+  voicelineLength: 0
+  voicelineToPlay: 0

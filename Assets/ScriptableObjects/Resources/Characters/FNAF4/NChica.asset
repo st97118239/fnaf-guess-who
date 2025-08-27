@@ -33,8 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e56d91cf6c7a16347a4ff1d60c97fd2f, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: db34aa8380f495945befd8785dbfc43c, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: 21c52e90804af3c47a6bfb6da30573e1, type: 2}
   directory: Characters/FNAF4/NChica
-  firstGame: 4
-  animatronicClass: 7
-  skinClass: 0
+  winsNeeded: 0

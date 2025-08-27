@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32e17325068b854399ce2784b73de3b, type: 3}
+  m_Name: NFreddy
+  m_EditorClassIdentifier: 
+  voicelines:
+  - {fileID: 8300000, guid: 601b32d5221ff944d8a033c0fcb9e559, type: 3}
+  - {fileID: 8300000, guid: 22aea73aad2a99249aa85bee0496e91e, type: 3}
+  - {fileID: 8300000, guid: 267b703a6ab25b1408fc3d679a9c132c, type: 3}
+  - {fileID: 8300000, guid: e34b05e3b12c45940ac1f80a9366f276, type: 3}
+  - {fileID: 8300000, guid: 8dad2f9c2018a5c4d85cac86ffcb0728, type: 3}
+  - {fileID: 8300000, guid: f1d6e32e8cd241642a198b87fa9daf03, type: 3}
+  subtitles:
+  - (Jumpscare)
+  - I am remade, but not by you. By the one you should not have killed.
+  - No light can save you now.
+  - I have always been hiding in your shadow.
+  - 'What a gift to relish: a victim that can''t perish.'
+  - I am given flesh to be your tormentor.
+  voicelineLength: 0
+  voicelineToPlay: 0

@@ -1,0 +1,170 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32e17325068b854399ce2784b73de3b, type: 3}
+  m_Name: JOChica
+  m_EditorClassIdentifier: 
+  voicelines:
+  - {fileID: 8300000, guid: 601b32d5221ff944d8a033c0fcb9e559, type: 3}
+  - {fileID: 8300000, guid: 9bba688ec98bdae42bca053d10ef1636, type: 3}
+  - {fileID: 8300000, guid: 07fe4ae8eaa84f24a84351e656f148fc, type: 3}
+  - {fileID: 8300000, guid: b9f18e992706239409fa5e01e7a59f31, type: 3}
+  - {fileID: 8300000, guid: 50182ef1ead948a47af1f1c7beb4e5a6, type: 3}
+  - {fileID: 8300000, guid: bac2d8d22dc1e0349bd7be2782f76cd6, type: 3}
+  - {fileID: 8300000, guid: 4cb63fe6886e48c4da040a555d45b703, type: 3}
+  - {fileID: 8300000, guid: d7b845be5eebf9b45895ffcd829adaa3, type: 3}
+  - {fileID: 8300000, guid: eaa8af148bd038b418b422ee4bea62cd, type: 3}
+  - {fileID: 8300000, guid: 41cbb09833f65804c882fc952a716ca3, type: 3}
+  - {fileID: 8300000, guid: 154437877e15bf344b016385c6609ab4, type: 3}
+  - {fileID: 8300000, guid: 394ea201649b9064ab1608d3d254452b, type: 3}
+  - {fileID: 8300000, guid: af9b7ae704f31f04a96cbac0bdd9a99c, type: 3}
+  - {fileID: 8300000, guid: 7a836561ce24f43479c1263edddcfbe8, type: 3}
+  - {fileID: 8300000, guid: 70dab57dc99cc2446a7e399d4cbcb0c2, type: 3}
+  - {fileID: 8300000, guid: 90ea2b35be6a0ed4fa95e733b256053c, type: 3}
+  - {fileID: 8300000, guid: 158337b8fc2f39d449a85d1046be7d30, type: 3}
+  - {fileID: 8300000, guid: 575ae4cc2e328634c99ead541e33d08b, type: 3}
+  - {fileID: 8300000, guid: c273c65501b97de40b7252e870b6db2e, type: 3}
+  - {fileID: 8300000, guid: 979c977754da25d41a328eb30061e367, type: 3}
+  - {fileID: 8300000, guid: aecceef79250f7047b73e1878a9b041c, type: 3}
+  - {fileID: 8300000, guid: 9b3c4d861be93d342a632b52474acaf3, type: 3}
+  - {fileID: 8300000, guid: 4805203e5bf39f64a872c15a1ac25025, type: 3}
+  - {fileID: 8300000, guid: 54cbc8dbbcf8eca4c8e256869725f3ae, type: 3}
+  - {fileID: 8300000, guid: 64e6341966cb6d94b9e79c3fbad504e5, type: 3}
+  - {fileID: 8300000, guid: 0faad7bf122575d45ad40c93a5fe3e49, type: 3}
+  - {fileID: 8300000, guid: 90fc07176350f2145a30b38580b1b117, type: 3}
+  - {fileID: 8300000, guid: 03491212fb939244ca0e692bb7258574, type: 3}
+  - {fileID: 8300000, guid: e70bc3e47d0d70b45b9cd207caf392d4, type: 3}
+  - {fileID: 8300000, guid: 2713f812b3bf9b04a9b6a3b5b62230f1, type: 3}
+  - {fileID: 8300000, guid: 7f9ecafdf65a5694c875a6c361f7bb8b, type: 3}
+  - {fileID: 8300000, guid: e7a2f1eeaf55ffb48aa492ed6798aeab, type: 3}
+  - {fileID: 8300000, guid: 86184d789a84a3642946c8b623121767, type: 3}
+  - {fileID: 8300000, guid: 5dc3e9805742ca144a4d0caee3013597, type: 3}
+  - {fileID: 8300000, guid: d25b40db571613e44b59f39e8e7485cf, type: 3}
+  - {fileID: 8300000, guid: 87bb23f2e59890d419f6c063ff0ada49, type: 3}
+  - {fileID: 8300000, guid: d3545a52fe93fad4d8290e32624982dc, type: 3}
+  - {fileID: 8300000, guid: cc0849530e3b64947a374c89d83ae64b, type: 3}
+  - {fileID: 8300000, guid: 4e5e945217d59924eb4ad24517a15c8b, type: 3}
+  - {fileID: 8300000, guid: 498f577af35ae5942a902d808b6cace8, type: 3}
+  - {fileID: 8300000, guid: 664f2c89b22d38f44a505a5d3643f6cf, type: 3}
+  - {fileID: 8300000, guid: 25588f3b357189849ad062ce99414b35, type: 3}
+  - {fileID: 8300000, guid: c0da4c4ea3c045e42be7a1e5a9e850b0, type: 3}
+  - {fileID: 8300000, guid: 25516756ef5087648b599a71b8f1f128, type: 3}
+  - {fileID: 8300000, guid: 3e93e33c70425ae448a44f6b2442cc14, type: 3}
+  - {fileID: 8300000, guid: 4f8f4628d8e636a40a36731545654b67, type: 3}
+  - {fileID: 8300000, guid: ee6663cb00bab4447abfa3c578075e43, type: 3}
+  - {fileID: 8300000, guid: 04936cee1b3d18441bda8ef8206f6260, type: 3}
+  - {fileID: 8300000, guid: 2f7250496f6925d41a4044cce8cbe0e9, type: 3}
+  - {fileID: 8300000, guid: cce83c1adda021b4782fa3a7b958ce5a, type: 3}
+  - {fileID: 8300000, guid: b09146feffeb17a409bd6cfd33aba629, type: 3}
+  - {fileID: 8300000, guid: a17c0f3a8fa895e4bb0ce666e08ad4aa, type: 3}
+  - {fileID: 8300000, guid: 989c1ee4459c7c24cb1424f13a8e7c11, type: 3}
+  - {fileID: 8300000, guid: fe133f9834a9ac6439159214936508af, type: 3}
+  - {fileID: 8300000, guid: 19eac29d13daad34ca9afc0ac0cafb16, type: 3}
+  - {fileID: 8300000, guid: 071a066b71709554bb663e4841257b3b, type: 3}
+  - {fileID: 8300000, guid: bf6ed22c5eac22e449e675e8f6091051, type: 3}
+  - {fileID: 8300000, guid: e22575218c36cf54eaef826d75744999, type: 3}
+  - {fileID: 8300000, guid: 34c463aa6731cb54cbc909078270b37f, type: 3}
+  - {fileID: 8300000, guid: 8df8d6f4f6b182542870ff09d93e7871, type: 3}
+  - {fileID: 8300000, guid: 24b8838d9718eba499f4dc59e8c3ffa9, type: 3}
+  - {fileID: 8300000, guid: 73fc173fe4f15974c809735429e7210b, type: 3}
+  - {fileID: 8300000, guid: 4cc25c7a9bc55404aab0d072362b7914, type: 3}
+  - {fileID: 8300000, guid: e6c1092496de71e4b93d8b1f2d943cc6, type: 3}
+  - {fileID: 8300000, guid: d1212935cf75b5a49b96092e294ae354, type: 3}
+  - {fileID: 8300000, guid: dc78072d311dc1e4ea36c6c6aadb22ce, type: 3}
+  - {fileID: 8300000, guid: aa4cb2c1a529d71489a3cf00dde2b5be, type: 3}
+  - {fileID: 8300000, guid: 6bb4362d16c21014eae532b0732ddbcb, type: 3}
+  - {fileID: 8300000, guid: 1bd9c3464321cc746b46a83707b87c69, type: 3}
+  - {fileID: 8300000, guid: ebc1d7b04ba5f244ca6268a509e36174, type: 3}
+  - {fileID: 8300000, guid: 0872b2a1f96499b4e882f7c3c846fb88, type: 3}
+  - {fileID: 8300000, guid: 871a245bdab62ce47a27ce2da09c2f73, type: 3}
+  - {fileID: 8300000, guid: ea0a4b2919f30634e8b4e2756845a801, type: 3}
+  - {fileID: 8300000, guid: 9930750be7ea7ed4b8047dda9835194b, type: 3}
+  - {fileID: 8300000, guid: 2f8b36223fa45ef4f917261a24f7fe3f, type: 3}
+  - {fileID: 8300000, guid: 18751ddeabf2fb64c961edcf15d32b26, type: 3}
+  subtitles:
+  - (Jumpscare)
+  - (Jumpscare)
+  - I am a burning reminder of your misdeeds!
+  - Did things get really hot in here or is it just me?
+  - Come and burn with me!
+  - The fire within me burns eternal and now you shall as well!
+  - Greetings from the fire, and from the one you should not have killed!
+  - Greetings, from the fire!
+  - Are you happy to meet me? ARE YOU?!
+  - This pumpkin patch isn't big enough for the both of us!
+  - You'll be completely burnt into a crisp.
+  - Be careful not to burn yourself.
+  - Oh, wow, you were so much weaker than I expected!
+  - That really wasn't a fair fight, was it? Try harder next time! (Laugh)
+  - Sorry to say, you've been snuffed out!
+  - Are you having fun yet? I know that I am!
+  - You cannot FIGHT...THIS...FIRE!
+  - Three, two, one! Coming, ready or not!
+  - I'm going to EXTINGUISH YOU! Permanently.
+  - Ooh! I like that one.
+  - Seems like things are "heating" up!
+  - OH BOY, OH BOT! THE POWER IS SURGING THROUGH ME!
+  - Over here!
+  - You can never PUT ME OUT!!!
+  - CPU power supply at 100%.
+  - I'm all fired up!
+  - (Chuckle) You just got burned!
+  - Oh my, you really don't get it, DO YOU?!
+  - Are you scared of the dark? YOU SHOULD BE!!!
+  - Animatronic CPU now online.
+  - I knew you couldn't handle the heat!
+  - I'm disappointed... you made a terrible Jack-O-Human!
+  - Fire consumes everything in its path... as will I...
+  - Pumpkin? PUMPKIN? Where might you be?
+  - You'd look so much better if I carved you up like my pumpkin
+  - You don't seem happy to MEET ME!!! And I was so looking forward to it.
+  - My fire can't be tamed by someone like you!
+  - I am so on fire, and you aren't!
+  - I feel so full of mischief!
+  - Play with me, and YOU GET BURNT!
+  - You are no match for my flames...
+  - This next bit may be painful... for you...
+  - Some things just go up, in smoke!
+  - You were so right to be afraid of me!
+  - Next time, you won't BE SO LUCKY!
+  - That feels so much better!
+  - (Laugh) Time for us to get "acquainted"! We'll be the best of friends.
+  - Guess you got squashed, into pumpkin pie...
+  - Won't you come and burn with me?
+  - Oh dear... I don't think we can patch you up...
+  - Did you like your "Special Delivery"?
+  - You know, they say where there's smoke, there's fire!
+  - Let's hang out all the time!
+  - Friend? Or foe? Want to take a guess?!
+  - All systems operational.
+  - Not fair! NOT FAIR! I WASN'T READY!
+  - You turned up the temperature, didn't you?
+  - Don't you worry! I'm great at carving up... pumpkins...
+  - Think you can BEAT my HEAT?!
+  - I'm real close now. You ready?
+  - You've been devoured... by the flames!
+  - I'm much too hot for you to handle...
+  - (Breathing)
+  - (Breathing)
+  - (Breathing)
+  - (Breathing)
+  - (Breathing)
+  - (Laugh)
+  - (Laugh)
+  - (Laugh)
+  - (Laugh)
+  - (Laugh)
+  - (Scream)
+  - (Scream)
+  - (Scream)
+  - (Scream)
+  voicelineLength: 0
+  voicelineToPlay: 0

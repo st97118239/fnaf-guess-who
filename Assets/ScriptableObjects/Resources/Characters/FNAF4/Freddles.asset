@@ -33,8 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9ae9449f56f1dcb42bf948dbe8481fe2, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: fff3a4c7291e00944a95d321023b9214, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: e760cc6425a2ac9409abaa26fb9ecade, type: 2}
   directory: Characters/FNAF4/Freddles
-  firstGame: 4
-  animatronicClass: 7
-  skinClass: 0
+  winsNeeded: 0

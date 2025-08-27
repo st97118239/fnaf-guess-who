@@ -33,8 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 116abe6ca990ffd498471873cc7fe6da, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 6246e101473f15240970616310eff932, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: 426bfd735e08ce248a5b5dbe79157b8b, type: 2}
   directory: Characters/FNAF4/NBB
-  firstGame: 4
-  animatronicClass: 7
-  skinClass: 0
+  winsNeeded: 0

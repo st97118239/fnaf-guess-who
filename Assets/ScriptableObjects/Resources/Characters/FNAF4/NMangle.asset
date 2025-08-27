@@ -33,8 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 554cbf8d0a6c45040a161ce5f4238f15, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 45188654dbba3c8499578ab8d4693b68, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: b92abcbb19ca34244ba80bc3081fea9d, type: 2}
   directory: Characters/FNAF4/NMangle
-  firstGame: 4
-  animatronicClass: 7
-  skinClass: 0
+  winsNeeded: 0
