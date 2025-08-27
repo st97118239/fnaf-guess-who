@@ -226,6 +226,11 @@ public class ListInfoPanel : MonoBehaviour
         Invoke(nameof(DisableBackground), 0.6f);
         character = null;
         polaroidSlot = null;
+        Invoke(nameof(ResetVariablesClose), 0.4f);
+    }
+
+    private void ResetVariablesClose()
+    {
         listPanel.isInfoPanelShown = false;
     }
 

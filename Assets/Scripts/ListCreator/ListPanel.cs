@@ -46,8 +46,19 @@ public class ListPanel : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (mainPanel.currentPanel == Panels.ListPanel)
+        {
+            if (menu == 1 && !isInfoPanelShown && Input.GetKeyDown(KeyCode.Escape))
+                BackNote();
+        }
+    }
+
     public void LoadPanel()
     {
+        mainPanel.currentPanel = Panels.ListPanel;
+
         if (fromCharacterPanel)
             game.animator.SetTrigger("ListCharClose");
         else
@@ -61,6 +72,7 @@ public class ListPanel : MonoBehaviour
 
     public void ClosePanel()
     {
+        mainPanel.currentPanel = Panels.MainPanel;
         game.animator.SetTrigger("ListCreatorClose");
     }
 

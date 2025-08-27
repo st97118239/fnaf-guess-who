@@ -16,6 +16,8 @@ public class MainPanel : NetworkBehaviour
     public SettingsMenu settingsMenu;
     public DevManager devManager;
 
+    public Panels currentPanel;
+
     public PlayerPolaroid[] playerPolaroids;
 
     public Note versionNote;

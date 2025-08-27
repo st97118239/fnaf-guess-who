@@ -4230,6 +4230,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1777772116}
     m_Modifications:
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1718805958}
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SettingsMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2411139194315664934, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8828,9 +8856,8 @@ MonoBehaviour:
     has accused\nRedo chracter unlocks\n- Levels? Get xp from playing a game, \nmore
     xp from winning\n- Have a list that contains the characters\n- Make it in the
     save if you unlocked it (use dir)\n- Add a note that shows you your new characters\n-
-    Add a popup when levelling up what new chars you have\nMake volume change when\nunselecting
-    sliders\nAllow left clicking on a charPolaroid to add\nAllow esc to go back in
-    menus\nRadio where you choose bgm\nMake Debug.Log's clearer"
+    Add a popup when levelling up what new chars you have\nAllow left clicking on
+    a charPolaroid to add\nRadio where you choose bgm\nMake Debug.Log's clearer"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -22128,6 +22155,7 @@ MonoBehaviour:
   popupPaper: {fileID: 5334273}
   settingsMenu: {fileID: 1718805958}
   devManager: {fileID: 1396184481}
+  currentPanel: 0
   playerPolaroids:
   - {fileID: 1734582800}
   - {fileID: 1353746464}
@@ -26770,7 +26798,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1916350489842653506, guid: 6b9537fc45bdaf8418ca4f81cd847c91, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -169
+      value: -172.7
       objectReference: {fileID: 0}
     - target: {fileID: 1916350489842653506, guid: 6b9537fc45bdaf8418ca4f81cd847c91, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -29605,7 +29633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4205299430217402107, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 419
+      value: 417.4
       objectReference: {fileID: 0}
     - target: {fileID: 4205299430217402107, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -31689,6 +31717,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1777772116}
     m_Modifications:
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1718805958}
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SettingsMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2411139194315664934, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -32264,7 +32320,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  version: 87
+  version: 88
   hasStarted: 0
   round: 0
   turn: 0
@@ -35199,6 +35255,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1777772116}
     m_Modifications:
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1718805958}
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SettingsMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446841269100764704, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2411139194315664934, guid: f75bbc62bc6eeb7429bda01e1484d759, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

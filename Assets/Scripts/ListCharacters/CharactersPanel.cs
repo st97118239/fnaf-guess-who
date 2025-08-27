@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class CharactersPanel : MonoBehaviour
@@ -32,8 +33,19 @@ public class CharactersPanel : MonoBehaviour
     private CategoryType categoryType;
     private List<CharacterCategory> category;
 
+    private void Update()
+    {
+        if (listPanel.mainPanel.currentPanel == Panels.CharacterPanel)
+        {
+            if (listPanel.menu == 2 && !listPanel.isInfoPanelShown && Input.GetKeyDown(KeyCode.Escape))
+                BackNote();
+        }
+    }
+
     public void OpenPanel()
     {
+        listPanel.mainPanel.currentPanel = Panels.CharacterPanel;
+
         listPanel.game.animator.SetTrigger("ListCharOpen");
 
         RefreshMenuVar();
@@ -56,6 +68,8 @@ public class CharactersPanel : MonoBehaviour
 
     public void ClosePanel()
     {
+        listPanel.mainPanel.currentPanel = Panels.ListPanel;
+
         if (listPanel.hasListOpen)
             listPanel.menu = 1;
         else if (!listPanel.hasListOpen)

@@ -32,18 +32,25 @@ public class Game : MonoBehaviour
     private int slotAmount;
     private float rndVoicelineTimer;
 
+    private void Start()
+    {
+        rndVoicelineTimer = Random.Range(rndVoicelineTimerBase.x, rndVoicelineTimerBase.y);
+    }
+
     private void Update()
     {
-        if (gameManager.hasStarted && !gameManager.hasFinished)
+        if (gameManager.hasStarted && chosenCharacter && !gameManager.hasFinished)
         {
             if (rndVoicelineTimer > 0)
                 rndVoicelineTimer -= Time.deltaTime;
             else
             {
-                Character rndChar = possibleSlots[Random.Range(0, possibleSlots.Count - 1)].character;
-                rndChar.voicelines.Play(audioManager.voicelines, subtitles);
-
                 rndVoicelineTimer = Random.Range(rndVoicelineTimerBase.x, rndVoicelineTimerBase.y);
+
+                Character rndChar = possibleSlots[Random.Range(0, possibleSlots.Count - 1)].character;
+
+                if (rndChar.voicelines)
+                    rndChar.voicelines.Play(audioManager.voicelines, subtitles);
             }
         }
     }
@@ -133,6 +140,7 @@ public class Game : MonoBehaviour
 
         infoPanel.chooseType = 1;
 
+        mainPanel.currentPanel = Panels.Game;
         animator.SetTrigger("GameOpen");
 
         characterSidebar.turnNote.ChangeText("Pick suspect");
@@ -172,6 +180,8 @@ public class Game : MonoBehaviour
                 charSlots.Add(slotObj.GetComponent<CharSlot>());
                 charSlots[i].Load(playerCharArray[i], this, false);
             }
+
+            possibleSlots = charSlots;
         }
         else
         {
@@ -214,10 +224,17 @@ public class Game : MonoBehaviour
     {
         characterSidebar.turnNote.ChangeText("Opponent is picking");
         chosenCharacter = givenChar;
-        characterSidebar.SetCharacter(chosenCharacter);
+        characterSidebar.SetCharacter(givenChar);
         player.ChooseCharacter(givenChar);
+        Invoke(nameof(PlayChosenCharacterAudio), 0.1f);
 
         Invoke(nameof(ChangePolaroids), 0.5f);
+    }
+
+    private void PlayChosenCharacterAudio()
+    {
+        if (chosenCharacter.voicelines)
+            chosenCharacter.voicelines.Play(audioManager.voicelines, subtitles);
     }
 
     public void HasAccused()
@@ -248,6 +265,8 @@ public class Game : MonoBehaviour
     public void StartRound(bool hasToAccuse)
     {
         audioManager.soundEffects.PlayOneShot(audioManager.bellSFX);
+        if (possibleSlots.Count <= 2)
+            characterSidebar.ChangeTurn(gameManager.turn, true);
     }
 
     public void Done()
@@ -274,6 +293,7 @@ public class Game : MonoBehaviour
                 NetworkManager.singleton.StopClient();
         }
 
+        mainPanel.currentPanel = Panels.MainPanel;
         animator.SetTrigger("GameClose");
 
         mainPanel.settingsMenu.isConnected = false;

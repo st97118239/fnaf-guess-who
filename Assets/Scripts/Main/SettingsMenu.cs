@@ -149,4 +149,13 @@ public class SettingsMenu : MonoBehaviour
 
         Debug.Log("Loaded settings.");
     }
+
+    public void UpdateVolume()
+    {
+        audioManager.soundEffects.volume = soundEffectsSlider.value;
+
+        audioManager.voicelines.volume = voicelinesSlider.value;
+
+        audioManager.music.volume = musicSlider.value;
+    }
 }
