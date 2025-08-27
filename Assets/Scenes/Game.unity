@@ -2975,6 +2975,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReadyNote
       objectReference: {fileID: 0}
+    - target: {fileID: 5653542745414963770, guid: 6b9537fc45bdaf8418ca4f81cd847c91, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 08d22a95a2edc444d8b902f14c0999c3, type: 3}
+    - target: {fileID: 5653542745414963770, guid: 6b9537fc45bdaf8418ca4f81cd847c91, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6967,10 +6975,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 2124064752}
     m_Modifications:
     - target: {fileID: -1888232467274921095, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
-      propertyPath: pol
-      value: 
-      objectReference: {fileID: 513101256}
-    - target: {fileID: -1888232467274921095, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
       propertyPath: mainPanel
       value: 
       objectReference: {fileID: 1370482681}
@@ -7062,22 +7066,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4480168494335942266, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4480168494335942266, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4480168494335942266, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4480168494335942266, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7088,17 +7076,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4205299430217402107, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
   m_PrefabInstance: {fileID: 513101254}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &513101256 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4048306672937834167, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
-  m_PrefabInstance: {fileID: 513101254}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12e522cf8abb6a94186d54f637f3c1f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &521456182
 GameObject:
   m_ObjectHideFlags: 0
@@ -8851,13 +8828,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Add skins for characters\nAdd audio to all characters\nMore characters\nUpdate
-    way to accuse\n- if 2 or less remaining, force accuse\n- indicator that the opponent
-    has accused\nRedo chracter unlocks\n- Levels? Get xp from playing a game, \nmore
-    xp from winning\n- Have a list that contains the characters\n- Make it in the
-    save if you unlocked it (use dir)\n- Add a note that shows you your new characters\n-
-    Add a popup when levelling up what new chars you have\nAllow left clicking on
-    a charPolaroid to add\nRadio where you choose bgm\nMake Debug.Log's clearer"
+  m_text: "Add skins for characters\nAdd audio to all characters\nMore characters\nAdd
+    checkmark to pol when ready\nPlay voiceline when accuse char\nUpdate way to accuse\n-
+    if 2 or less remaining, force accuse\n- indicator that the opponent has accused\nRedo
+    chracter unlocks\n- Levels? Get xp from playing a game, \nmore xp from winning\n-
+    Have a list that contains the characters\n- Make it in the save if you unlocked
+    it (use dir)\n- Add a note that shows you your new characters\n- Add a popup
+    when levelling up what new chars you have\nAllow left clicking on a charPolaroid
+    to add\nRadio where you choose bgm\nMake Debug.Log's clearer"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -29548,21 +29526,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 2124064752}
     m_Modifications:
     - target: {fileID: -1888232467274921095, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
-      propertyPath: pol
-      value: 
-      objectReference: {fileID: 1734582797}
-    - target: {fileID: -1888232467274921095, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
-      propertyPath: fadeTime
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: -1888232467274921095, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
       propertyPath: mainPanel
       value: 
       objectReference: {fileID: 1370482681}
-    - target: {fileID: -1888232467274921095, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
-      propertyPath: isOpponent
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 920305166814788680, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
       propertyPath: m_Name
       value: PlayerPolaroid
@@ -29647,22 +29613,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4480168494335942266, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4480168494335942266, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4480168494335942266, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4480168494335942266, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29673,17 +29623,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4205299430217402107, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
   m_PrefabInstance: {fileID: 1734582795}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1734582797 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4048306672937834167, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
-  m_PrefabInstance: {fileID: 1734582795}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12e522cf8abb6a94186d54f637f3c1f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1734582800 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -1888232467274921095, guid: f94da3cd56529bd48bc329c433a280ed, type: 3}
@@ -32320,7 +32259,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  version: 88
+  version: 89
   hasStarted: 0
   round: 0
   turn: 0

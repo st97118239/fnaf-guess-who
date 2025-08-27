@@ -293,11 +293,15 @@ public class Game : MonoBehaviour
                 NetworkManager.singleton.StopClient();
         }
 
+        mainPanel.SpawnPosters();
+
         mainPanel.currentPanel = Panels.MainPanel;
         animator.SetTrigger("GameClose");
 
         mainPanel.settingsMenu.isConnected = false;
 
+        mainPanel.playerPolaroids[0].Ready(false);
+        mainPanel.playerPolaroids[1].Ready(false);
         mainPanel.SetOpponentPolaroid();
         mainPanel.readyNote.Disable();
         mainPanel.connectionNote.Enable();

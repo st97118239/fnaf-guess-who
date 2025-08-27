@@ -80,6 +80,7 @@ public class Note : MonoBehaviour
         if (!isCrossedOff)
             return;
 
+        noteXImage.fillOrigin = 0;
         StartCoroutine(FadeImage(false, "UI/X", noteXImage));
         noteButton.interactable = true;
         isCrossedOff = false;
@@ -90,9 +91,18 @@ public class Note : MonoBehaviour
         if (isCrossedOff)
             return;
 
+        noteXImage.fillOrigin = 0;
         StartCoroutine(FadeImage(true, "UI/X", noteXImage));
         noteButton.interactable = false;
         isCrossedOff = true;
+    }
+
+    public void Checkmark()
+    {
+        noteXImage.fillOrigin = 1;
+        StartCoroutine(FadeImage(true, "UI/Checkmark", noteXImage));
+        noteButton.interactable = false;
+        isCrossedOff = false;
     }
 
     public void ChangeText(string txt)

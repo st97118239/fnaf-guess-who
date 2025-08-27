@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 5520988184078344595}
   - component: {fileID: 5311072566952055460}
   m_Layer: 5
-  m_Name: XImage
+  m_Name: Checkmark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,8 +109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -2.5}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 25.1144, y: 24.3373}
+  m_SizeDelta: {x: 38.715, y: 38.715}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5520988184078344595
 CanvasRenderer:
@@ -140,14 +140,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 08d22a95a2edc444d8b902f14c0999c3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9b144135bcb14b4458ce6b68c307ebef, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 2
   m_FillAmount: 0
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &920305166814788680
@@ -214,8 +214,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLoaded: 0
+  isReady: 0
+  isOpponent: 0
   pol: {fileID: 4048306672937834167}
   fadeTime: 0.4
+  checkmarkTime: 0.3
+  mainPanel: {fileID: 0}
 --- !u!114 &4048306672937834167
 MonoBehaviour:
   m_ObjectHideFlags: 0

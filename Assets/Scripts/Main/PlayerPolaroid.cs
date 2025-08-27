@@ -5,10 +5,12 @@ using UnityEngine.EventSystems;
 public class PlayerPolaroid : MonoBehaviour, IPointerClickHandler
 {
     public bool isLoaded;
+    public bool isReady;
 
     [SerializeField] private bool isOpponent;
     [SerializeField] private Polaroid pol;
     [SerializeField] private float fadeTime = 0.4f;
+    [SerializeField] private float checkmarkTime = 0.3f;
     [SerializeField] private MainPanel mainPanel;
 
     private string username;
@@ -56,6 +58,21 @@ public class PlayerPolaroid : MonoBehaviour, IPointerClickHandler
                 if (fadeText)
                     pol.characterText.color = Color.Lerp(nameColor, Color.clear, fillAmount);
             }
+
+            yield return null;
+        }
+    }
+
+    private IEnumerator Checkmark(bool fill)
+    {
+        yield return null;
+
+        for (float i = 0; i <= checkmarkTime + Time.deltaTime; i += Time.deltaTime)
+        {
+            if (i > checkmarkTime) i = checkmarkTime;
+
+            float fillAmount = i / checkmarkTime;
+            pol.polXImage.fillAmount = fill ? fillAmount : 1 - fillAmount;
 
             yield return null;
         }
@@ -109,5 +126,15 @@ public class PlayerPolaroid : MonoBehaviour, IPointerClickHandler
         fadeText = true;
 
         StartCoroutine(FadeImage(false));
+    }
+
+    public void Ready(bool toggle)
+    {
+        if (toggle == true && !isReady)
+            StartCoroutine(Checkmark(toggle));
+        else if (toggle == false && isReady)
+            StartCoroutine(Checkmark(toggle));
+
+        isReady = toggle;
     }
 }

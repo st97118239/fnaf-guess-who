@@ -137,6 +137,8 @@ public class Player : NetworkBehaviour
 
         mainPanel.connectionNote.ChangeText("Connect");
 
+        mainPanel.playerPolaroids[0].Ready(false);
+        mainPanel.playerPolaroids[1].Ready(false);
         mainPanel.readyNote.Disable();
         mainPanel.connectionNote.Enable();
         mainPanel.hostNote.Enable();
@@ -197,6 +199,8 @@ public class Player : NetworkBehaviour
 
         mainPanel.connectionNote.ChangeText("Connect");
 
+        mainPanel.playerPolaroids[0].Ready(false);
+        mainPanel.playerPolaroids[1].Ready(false);
         mainPanel.isReady = false;
         mainPanel.readyNote.Disable();
         mainPanel.connectionNote.Enable();

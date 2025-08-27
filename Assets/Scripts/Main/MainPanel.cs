@@ -40,6 +40,16 @@ public class MainPanel : NetworkBehaviour
 
     private readonly System.Random rnd = new();
 
+    private void Update()
+    {
+        if (currentPanel == Panels.MainPanel && gameManager.opponent && gameManager.opponent.isReadyToPlay)
+        {
+            playerPolaroids[1].Ready(true);
+        }
+        else if (currentPanel == Panels.MainPanel && !gameManager.opponent && playerPolaroids[1].isReady)
+            playerPolaroids[1].Ready(false);
+    }
+
     public void SpawnPosters()
     {
         posterSprites = posterSprites.OrderBy(i => rnd.Next()).ToList();
@@ -60,8 +70,9 @@ public class MainPanel : NetworkBehaviour
             game.player.isReadyToPlay = true;
             isReady = true;
             Debug.Log("Player is ready.");
-            readyNote.Disable();
+            readyNote.Checkmark();
             CreateArray();
+            playerPolaroids[0].Ready(true);
         }
     }
 
@@ -123,6 +134,8 @@ public class MainPanel : NetworkBehaviour
 
                 connectionNote.ChangeText("Connect");
 
+                playerPolaroids[0].Ready(false);
+                playerPolaroids[1].Ready(false);
                 readyNote.Disable();
                 connectionNote.Enable();
                 hostNote.Enable();
@@ -143,6 +156,8 @@ public class MainPanel : NetworkBehaviour
 
         connectionNote.ChangeText("Connect");
 
+        playerPolaroids[0].Ready(false);
+        playerPolaroids[1].Ready(false);
         readyNote.Disable();
         connectionNote.Enable();
         hostNote.Enable();
