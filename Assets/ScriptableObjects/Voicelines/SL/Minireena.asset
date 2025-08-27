@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32e17325068b854399ce2784b73de3b, type: 3}
+  m_Name: Minireena
+  m_EditorClassIdentifier: 
+  voicelines:
+  - {fileID: 8300000, guid: 3f3daf8b0e2617f44bb4f0267e5a4081, type: 3}
+  - {fileID: 8300000, guid: f8f3c504add2bb7489a83a9d81879fd2, type: 3}
+  - {fileID: 8300000, guid: 42df0dafaa4cd1b45a339b6e11f5a18b, type: 3}
+  - {fileID: 8300000, guid: 816ba4472127c864a9e29d39e8fa2e67, type: 3}
+  - {fileID: 8300000, guid: c623b38022d99ae4b9815679ff502353, type: 3}
+  - {fileID: 8300000, guid: 7afbde46a79bcc542911edb9cc09be3d, type: 3}
+  - {fileID: 8300000, guid: 11017be0f9716a74f9a89a988ad6ac79, type: 3}
+  - {fileID: 8300000, guid: 6688085e08093d74abf0d7c8ba8f42cf, type: 3}
+  - {fileID: 8300000, guid: 479d9f7e1e8599f4b87a90051f83c7fe, type: 3}
+  - {fileID: 8300000, guid: 2313edc177a43a743adc362c23f3db4c, type: 3}
+  - {fileID: 8300000, guid: c7407e2dfcb78e14398001be2aaf1c28, type: 3}
+  - {fileID: 8300000, guid: 787e745590f50ab44bc0c843e1e6cd9c, type: 3}
+  subtitles:
+  - (Jumpscare)
+  - Take me with you!
+  - (Giggle)
+  - (Giggle)
+  - (Giggle)
+  - (Giggle)
+  - (Giggle)
+  - (Giggle)
+  - (Giggle)
+  - (Giggle)
+  - (Giggle)
+  - (Giggle)
+  voicelineLength: 0
+  voicelineToPlay: 0

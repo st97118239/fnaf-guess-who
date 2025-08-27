@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32e17325068b854399ce2784b73de3b, type: 3}
+  m_Name: Ballora
+  m_EditorClassIdentifier: 
+  voicelines:
+  - {fileID: 8300000, guid: 6464e1f2f93b05748a407e56d45b3275, type: 3}
+  - {fileID: 8300000, guid: 618f78e0be204264f8e5e08d24a5d182, type: 3}
+  - {fileID: 8300000, guid: aff91dff1c32fd24eab18c04a8b49dff, type: 3}
+  - {fileID: 8300000, guid: 9ec366a3162d2d545bf44aa48530c535, type: 3}
+  - {fileID: 8300000, guid: 3edf62ba6946c8f4b84f234ca68d4f74, type: 3}
+  - {fileID: 8300000, guid: a4efa454249cd6c41be6fc057e01ef36, type: 3}
+  - {fileID: 8300000, guid: ee9da3d8933d2aa448bc0eed4778dcaa, type: 3}
+  - {fileID: 8300000, guid: fba567a0c6c67c74199ef8ce52cee446, type: 3}
+  - {fileID: 8300000, guid: e11c714c4724bb04f8dc25037cf69f04, type: 3}
+  - {fileID: 8300000, guid: fb529a04778322149b4be20f878975ce, type: 3}
+  subtitles:
+  - (Jumpscare)
+  - (Jumpscare)
+  - All I do is dance alone,
+  - All I do is dance alone,\nBut now I hear your flesh and bone.
+  - I roam these halls alone all day,\nBut now you're here, friend and prey.
+  - I could hear you... breathing.
+  - 'Admit it: you wanted to let me in.'
+  - These are strange circumstances that have brough us together.
+  - Don't be shy.
+  - Why do you hide inside these walls?
+  voicelineLength: 0
+  voicelineToPlay: 0

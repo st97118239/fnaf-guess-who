@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32e17325068b854399ce2784b73de3b, type: 3}
+  m_Name: Bonnet
+  m_EditorClassIdentifier: 
+  voicelines:
+  - {fileID: 8300000, guid: b3d6ffd9036ffdd4fa65ed21a8b196dd, type: 3}
+  - {fileID: 8300000, guid: 6d142410ec6a3d147ae50c1f2bdb9308, type: 3}
+  - {fileID: 8300000, guid: f8fc5f7e76164104f8ce722be9ed3884, type: 3}
+  - {fileID: 8300000, guid: 1f9b86f14b6562e4cb97f849739020e6, type: 3}
+  - {fileID: 8300000, guid: 52540b7102074674fa8354458f61459d, type: 3}
+  - {fileID: 8300000, guid: a40047db2880ed24b8d1a2fa4eaaec7c, type: 3}
+  - {fileID: 8300000, guid: 7638f44f112419a4f8a7240e4fbd248a, type: 3}
+  - {fileID: 8300000, guid: db5486a5dfafe2b4f962667fdee3282b, type: 3}
+  subtitles:
+  - (Jumpscare)
+  - (Giggle)
+  - (Giggle)
+  - (Giggle)
+  - (Giggle)
+  - (Giggle)
+  - (Giggle)
+  - (Giggle)
+  voicelineLength: 0
+  voicelineToPlay: 0

@@ -30332,7 +30332,7 @@ GameObject:
   - component: {fileID: 1806808737}
   - component: {fileID: 1806808736}
   m_Layer: 5
-  m_Name: Image
+  m_Name: SubtitleImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32287,7 +32287,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  version: 84
+  version: 85
   hasStarted: 0
   round: 0
   turn: 0

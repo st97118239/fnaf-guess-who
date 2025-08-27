@@ -33,6 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b0743f0e9264ac0459e61f5178000abe, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 195766afe220b10409fd2272e586b7c4, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: 66f78fe0d91525c408569eabcbbdb3ab, type: 2}
   directory: Characters/SL/Bonnet
   winsNeeded: 6

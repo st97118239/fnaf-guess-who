@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32e17325068b854399ce2784b73de3b, type: 3}
+  m_Name: FFreddy
+  m_EditorClassIdentifier: 
+  voicelines:
+  - {fileID: 8300000, guid: 8f035f1e64197d348a4936371ba88796, type: 3}
+  - {fileID: 8300000, guid: a816e3d841ac5a94b991946a3b633bc6, type: 3}
+  - {fileID: 8300000, guid: 9b54138de0739774b868792a4270a794, type: 3}
+  - {fileID: 8300000, guid: 661f90c6e60883d48935d50db1fd04b3, type: 3}
+  - {fileID: 8300000, guid: 61e2d3f45c3d8024ead21de57fb005ba, type: 3}
+  - {fileID: 8300000, guid: 215dba6aa12744f40a95b8962f495098, type: 3}
+  - {fileID: 8300000, guid: a59336ddf104a124f8f56840fca4d9bf, type: 3}
+  - {fileID: 8300000, guid: 44c5d688de110f94297e7d12ec774f91, type: 3}
+  - {fileID: 8300000, guid: a4482c6306177924a8b5f37ea87dc745, type: 3}
+  - {fileID: 8300000, guid: 830f2ed62fbb72447aabadd8b7e70fcc, type: 3}
+  - {fileID: 8300000, guid: e0ae07a24f9327c44b115d64a70ffdae, type: 3}
+  - {fileID: 8300000, guid: 7d5b435c2b4b5f84397d1a39725e29ce, type: 3}
+  - {fileID: 8300000, guid: 59171b61d9fcd344eaeef3ab9ab085c8, type: 3}
+  - {fileID: 8300000, guid: ad68dba855072424f9c918a7f7b6bf33, type: 3}
+  - {fileID: 8300000, guid: bccec240025239f449ae1772ed5caa43, type: 3}
+  - {fileID: 8300000, guid: 1ed805e774881424fb392d52367d8238, type: 3}
+  - {fileID: 8300000, guid: 69679d5ad00ee7b4197aec18b5d85fc2, type: 3}
+  - {fileID: 8300000, guid: af3f724c51363cf44a742486449f826d, type: 3}
+  - {fileID: 8300000, guid: dd7bc08c4f9b5c749b869a80a64db87d, type: 3}
+  - {fileID: 8300000, guid: 6e2b657d70fcfd34da7426deb4a790ec, type: 3}
+  - {fileID: 8300000, guid: cb5a637da129f4c499d8ef0fdcb278df, type: 3}
+  - {fileID: 8300000, guid: e43970354db6dd044a60530d80c086ff, type: 3}
+  - {fileID: 8300000, guid: edbcf6f393b77cc43a4c50e6c16a6dae, type: 3}
+  - {fileID: 8300000, guid: 70fbb20640ca7e744b74c60ec5e5887a, type: 3}
+  - {fileID: 8300000, guid: e422efef6e804934b9c5aa09d6f5acec, type: 3}
+  - {fileID: 8300000, guid: c9c9108d2cc38b14c9ed592de30d6baf, type: 3}
+  - {fileID: 8300000, guid: 2fd0f2539551f704388c80908ce61a1a, type: 3}
+  - {fileID: 8300000, guid: 8d58b2b033365124f94fe9fa0177f5b1, type: 3}
+  - {fileID: 8300000, guid: 30435bf6fd9d4f843b1bfac4f44a7202, type: 3}
+  - {fileID: 8300000, guid: 67afabde9e98173449e2c769cff755fc, type: 3}
+  - {fileID: 8300000, guid: b76adb921153a3241a74cf0cbc060df1, type: 3}
+  - {fileID: 8300000, guid: 9052680ed303de24eb41ec1ee2b63948, type: 3}
+  - {fileID: 8300000, guid: 7fb899586c3c17b4c98842150cc14696, type: 3}
+  - {fileID: 8300000, guid: f01d960b9a0b0374ea20bcb4c68c5744, type: 3}
+  - {fileID: 8300000, guid: b9c977d77e6a10b409fdd5a14af2db3b, type: 3}
+  - {fileID: 8300000, guid: 10ae27c93c70fb9469e1812d962b980d, type: 3}
+  - {fileID: 8300000, guid: f674685c5af46a94ebdf63e9fb9326b3, type: 3}
+  - {fileID: 8300000, guid: 7a99e12c2f9a85b45b1d8c56a9fb59b1, type: 3}
+  - {fileID: 8300000, guid: 41e20e67a63d1d04d911b9bc2ed8ae30, type: 3}
+  - {fileID: 8300000, guid: 8949cca61e8d7e448b1da36b55cb123d, type: 3}
+  - {fileID: 8300000, guid: f5e155eec9fb0604494a3896b56ceb8b, type: 3}
+  - {fileID: 8300000, guid: b8255b643c5b8404a8623584c36d0398, type: 3}
+  - {fileID: 8300000, guid: c9e8e9feccbb04f48989183afb69e642, type: 3}
+  - {fileID: 8300000, guid: b1a1650d9ebfe41409bc631c4eb2e21a, type: 3}
+  - {fileID: 8300000, guid: d209370b7a6702c4e900c30c4e746336, type: 3}
+  - {fileID: 8300000, guid: 46d42cbc14b1fad409d3fe618625d08b, type: 3}
+  - {fileID: 8300000, guid: 4c29db83bf206ab4a8b29b9e9ff1e936, type: 3}
+  - {fileID: 8300000, guid: 871e198e31d62c1418badf7af3f5b790, type: 3}
+  - {fileID: 8300000, guid: 669a42dbda8b0f14e8b9bbc5e0987f33, type: 3}
+  - {fileID: 8300000, guid: bf15745b0a82915438662ca6437bb175, type: 3}
+  - {fileID: 8300000, guid: a100df5e7bda09c4381ed2d1f74ecdbd, type: 3}
+  - {fileID: 8300000, guid: 9497af13fe776ef47b783019c40941f5, type: 3}
+  - {fileID: 8300000, guid: 58af2186ba373044987fdfbc88fcafb4, type: 3}
+  - {fileID: 8300000, guid: 6384debecf8bf7a439a82936f5fa3cce, type: 3}
+  - {fileID: 8300000, guid: d88061122c6ffee4f9c54683409658f6, type: 3}
+  - {fileID: 8300000, guid: 46facb68c725dfb42b6a2dc0833167cf, type: 3}
+  - {fileID: 8300000, guid: bf23a151e18ee95488612cee159dfd5a, type: 3}
+  - {fileID: 8300000, guid: 2d7b55481cd53a343b3fe087e81f6ceb, type: 3}
+  subtitles:
+  - (Jumpscare)
+  - (Jumpscare)
+  - Bon-Bon, say hi to our friends!
+  - Bon-Bon, say hi to our friends!
+  - I know you're over there somewhere!
+  - (Laugh) I know you're over there somewhere.
+  - I see you over there in the dark! Come on out!
+  - Hey Bon-Bon, I think that's the birthday boy over there. We should go give him
+    a surprise!
+  - Well hello again!
+  - (Laugh) Well, hello again!
+  - Well hello again! (Laugh) Are you ready for round two?!
+  - Bon-Bon! Let's not keep our friend waiting!
+  - Knock knock, anybody home?!
+  - Ready or not, here I come!
+  - Oh, birthday boy!
+  - Bon-Bon, go get him!
+  - Hey Bon-Bon, GO GET HIM!
+  - Get ready for a surprise!
+  - What a party pooper!
+  - (Laugh) Oh, well, hello again!
+  - I know you're over there somewhere!
+  - (Laugh) I know you're over there somewhere!
+  - Get ready for a surprise!
+  - Hey Bon-Bon! I think that's them over there! We should go give 'em a surprise!
+  - There's nothing I want from you! Except your life...
+  - I know you're over there somewhere!
+  - Over here!
+  - Listen for my footsteps. Closer... CLOSER...
+  - Bon-Bon, say hi to our friend.
+  - Are you having fun yet? I know that I am!
+  - Ready or not, here I come.
+  - Don't worry-I'll visit you in your dreams tonight!
+  - Animatronic CPU now online!
+  - Thank you, Bon-Bon!
+  - Enjoy your success-It's not going to last.
+  - Yes!
+  - That feels so much better!
+  - CPU power supply at... 100%!
+  - Scream all you want-no one will hear you!
+  - Are you ready for round two?
+  - (Glitching)
+  - Knock knock! Anybody home?
+  - Bon-Bon! Let's not keep our friend waiting!
+  - That was too easy, Bon-Bon!
+  - (Groaning)
+  - I feel so full... of mischief!
+  - Hey Bon-Bon! I think that's the birthday boy over there! We should go give him
+    a surprise!
+  - (Screaming)
+  - What happened, Bon-Bon?
+  - (Laugh)
+  - (Laugh)
+  - Did you like your special delivery? (Chuckle)
+  - Wow! Did you even try?
+  - Oh boy, oh boy, the power is surging through me!
+  - Next itme, you won't be so lucky.
+  - Ooooooooh, I like that one!
+  - All systems operational!
+  - Are you ready for another round?
+  voicelineLength: 0
+  voicelineToPlay: 0

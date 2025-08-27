@@ -33,8 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 22980b11c008e004e9b4580eb25f7a5a, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: bc8637dd47a95db42a6cac73c5e89498, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: 9c481b9fb931dc34abebd04ce40263cf, type: 2}
   directory: Characters/SL/FFoxy
-  firstGame: 6
-  animatronicClass: 9
-  skinClass: 0
+  winsNeeded: 0

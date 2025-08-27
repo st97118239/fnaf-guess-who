@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32e17325068b854399ce2784b73de3b, type: 3}
+  m_Name: FChica
+  m_EditorClassIdentifier: 
+  voicelines:
+  - {fileID: 8300000, guid: 76ce4a2fb8560ba4588410cf7f8382e9, type: 3}
+  - {fileID: 8300000, guid: 45c720d18d20cf54ab44dfdbb4c81583, type: 3}
+  - {fileID: 8300000, guid: 945c5a69cea266948a1b25456b53f7aa, type: 3}
+  - {fileID: 8300000, guid: 65ec28669a7841743857faeea7b3ef4c, type: 3}
+  - {fileID: 8300000, guid: 61226a601df24954dbf672f238f3215d, type: 3}
+  subtitles:
+  - I'm ready for my close up!
+  - Don't get distracted!
+  - Today is all about me, me, me!
+  - Say cheese!
+  - Smile!
+  voicelineLength: 0
+  voicelineToPlay: 0

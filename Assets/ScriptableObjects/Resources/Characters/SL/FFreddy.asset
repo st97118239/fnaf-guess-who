@@ -33,8 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ad9a6417dbd263f4eaa1b9e949bca94d, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: a9dbfd65f259db348ae50f3eeeb8c0b9, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: 5eb03f34f62e96c49b638b602e28ecf0, type: 2}
   directory: Characters/SL/FFreddy
-  firstGame: 6
-  animatronicClass: 9
-  skinClass: 0
+  winsNeeded: 0

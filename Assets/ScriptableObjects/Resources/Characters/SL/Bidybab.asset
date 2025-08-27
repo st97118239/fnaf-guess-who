@@ -33,8 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e2bba3cf98a1cf74886827b3dbdd56dc, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 41f2d05e1c6c10d42a26d648fef9f948, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: 58d67b87c5fd63844a91c39316041ec7, type: 2}
   directory: Characters/SL/Bidybab
-  firstGame: 6
-  animatronicClass: 9
-  skinClass: 0
+  winsNeeded: 0

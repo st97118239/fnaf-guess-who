@@ -33,8 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 05eac343ab5aced4eb162d29bfb915d7, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: dc95a15da69ced2449945ad2f181d043, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: 749d5d532c9723c46972a8435fef932d, type: 2}
   directory: Characters/SL/Minireena
-  firstGame: 6
-  animatronicClass: 9
-  skinClass: 0
+  winsNeeded: 0
