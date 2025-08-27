@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32e17325068b854399ce2784b73de3b, type: 3}
+  m_Name: WBonnie
+  m_EditorClassIdentifier: 
+  voicelines:
+  - {fileID: 8300000, guid: 71371bd6e209db746930139ec3d48581, type: 3}
+  - {fileID: 8300000, guid: 7e4ecb66320961448b9b4634289c8e44, type: 3}
+  - {fileID: 8300000, guid: ac76e727c8658f844970806004c67b91, type: 3}
+  - {fileID: 8300000, guid: 85464a7cfc5c0db40a10d549205c8c6e, type: 3}
+  - {fileID: 8300000, guid: 67f4938e9e0d62e4e8a73dd3942ba679, type: 3}
+  - {fileID: 8300000, guid: 5c044782758252e4b9ef9afbb3e2852f, type: 3}
+  subtitles:
+  - (Jumpscare)
+  - Time to face the consequences of your failure.
+  - Might as well face the facts, you were always destined to fail.
+  - You blinked.
+  - What is this new prison? Is it me trapped, or is it you? Perhaps it's us both.
+  - I may be missing my face, but even I could see this coming.
+  voicelineLength: 0
+  voicelineToPlay: 0

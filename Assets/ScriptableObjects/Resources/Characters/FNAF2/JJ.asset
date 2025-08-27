@@ -33,8 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: da859e18fd6075740b5d4a68acf01096, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 0840933f36ccce64f9ae59ae9f4673a1, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: e318761685af2524f9d884edb10d7bcc, type: 2}
   directory: Characters/FNAF2/JJ
-  firstGame: 2
-  animatronicClass: 3
-  skinClass: 0
+  winsNeeded: 0

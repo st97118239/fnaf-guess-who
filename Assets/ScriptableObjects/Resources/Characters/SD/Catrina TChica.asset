@@ -34,44 +34,6 @@ MonoBehaviour:
   fullBodySprite:
   - {fileID: 21300000, guid: 22db6dec976019f4b825508eb616c59f, type: 3}
   - {fileID: 21300000, guid: a2d68c424ea9cf941bdb9fcfeb85426b, type: 3}
-  voicelines:
-  - {fileID: 8300000, guid: 7fe671451ec65b246832144d3f95aa18, type: 3}
-  - {fileID: 8300000, guid: f07ed254fe6ed1043b783a390bbab716, type: 3}
-  - {fileID: 8300000, guid: a0160e6d2f426ad4fb5e81635c534156, type: 3}
-  - {fileID: 8300000, guid: 8f6e939add1ced54aa4c209d94ef99cc, type: 3}
-  - {fileID: 8300000, guid: 1b5044386e7a92648bc4059e4c922d73, type: 3}
-  - {fileID: 8300000, guid: a86dec6dad6598447ab7c38198b0700b, type: 3}
-  - {fileID: 8300000, guid: 79fd55870e569f34c85dbb8d5cff880c, type: 3}
-  - {fileID: 8300000, guid: 932debfead45afc4f9493364ee4a5479, type: 3}
-  - {fileID: 8300000, guid: e4297709011ae054fac5fedeb0c0ffa2, type: 3}
-  - {fileID: 8300000, guid: eacad49201c57b74ca87ea7188a9294e, type: 3}
-  - {fileID: 8300000, guid: 03e2277c7bdbef849856a74834072875, type: 3}
-  - {fileID: 8300000, guid: d703b2b3a80f5724895fbd29bd4266f7, type: 3}
-  - {fileID: 8300000, guid: 87ef362465c07914ebe6520f88e04d36, type: 3}
-  - {fileID: 8300000, guid: 346c16cf2fb14714ebcab1f03e804824, type: 3}
-  - {fileID: 8300000, guid: 2966b087322c33241af900900ea70cc6, type: 3}
-  - {fileID: 8300000, guid: 280b63855be4cd64884fb98c8ea3d67d, type: 3}
-  - {fileID: 8300000, guid: 8785c37b791328c4db0cf5dd2856f052, type: 3}
-  - {fileID: 8300000, guid: d432da6de24367d4a994e3f024c6d731, type: 3}
-  - {fileID: 8300000, guid: 488de137d2ca2c848a90b4789679f168, type: 3}
-  - {fileID: 8300000, guid: 587a56ed55a19cd4f901aa579c331c37, type: 3}
-  - {fileID: 8300000, guid: af93b35e87d8d2a408f91f244721cbf7, type: 3}
-  - {fileID: 8300000, guid: 7e9d84b4d5b145e4392ae0210d76430d, type: 3}
-  - {fileID: 8300000, guid: d2954f84a5ea33241ae312c6b9291287, type: 3}
-  - {fileID: 8300000, guid: 515c6adb1bdb26945bb0e4ae71d71294, type: 3}
-  - {fileID: 8300000, guid: a81e0b5972805534186e82be455b1bd8, type: 3}
-  - {fileID: 8300000, guid: e74aa4a08a227014b843028121d5795d, type: 3}
-  - {fileID: 8300000, guid: 2e45c207109e6d54f833ce600d2a0b0b, type: 3}
-  - {fileID: 8300000, guid: 990e3438b4f5a2943bc7e3ad2dfe8557, type: 3}
-  - {fileID: 8300000, guid: afbeeb25aa0b5a0438dc2c92890f1b49, type: 3}
-  - {fileID: 8300000, guid: ef5c93daaa7ebcb49ba58584f4eaed0e, type: 3}
-  - {fileID: 8300000, guid: ee9557ca1215d9744a188ee1a7c569c7, type: 3}
-  - {fileID: 8300000, guid: ac121741dec8c4d419a6f64f6e92f3f1, type: 3}
-  - {fileID: 8300000, guid: e6587a0681a1984408a3cc401ceb9e4c, type: 3}
-  - {fileID: 8300000, guid: ba42bd6058857154ba6331c835956224, type: 3}
-  - {fileID: 8300000, guid: c5137cf451d46d046908e2e7c98ac84e, type: 3}
-  - {fileID: 8300000, guid: 01dc54ce1de6dfa41983e7c8f36e5c14, type: 3}
-  - {fileID: 8300000, guid: a9ac0ed44d4ce1c44a30f4061d054ed8, type: 3}
-  - {fileID: 8300000, guid: 636f2b478d023e34189244eff75de8eb, type: 3}
+  voicelines: {fileID: 11400000, guid: 3cad61b0382c05b428ba6885f0f72729, type: 2}
   directory: Characters/SD/Catrina TChica
   winsNeeded: 15

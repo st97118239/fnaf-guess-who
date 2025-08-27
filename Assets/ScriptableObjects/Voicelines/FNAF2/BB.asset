@@ -10,11 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b32e17325068b854399ce2784b73de3b, type: 3}
-  m_Name: ChBonnie
+  m_Name: BB
   m_EditorClassIdentifier: 
   voicelines:
-  - {fileID: 8300000, guid: 7872edc4121b1d4459ef57b3ec2ac399, type: 3}
+  - {fileID: 8300000, guid: e8911f006b02ac84bbe5b9a44c50d087, type: 3}
+  - {fileID: 8300000, guid: e20754173acaea2479c2bbef8570414c, type: 3}
+  - {fileID: 8300000, guid: eec801346424c334c844b5418dcc8728, type: 3}
+  - {fileID: 8300000, guid: 9a68a32d2fdc9034782961bac684ed40, type: 3}
   subtitles:
   - (Jumpscare)
+  - (Laugh)
+  - Hello!
+  - Hi!
   voicelineLength: 0
   voicelineToPlay: 0

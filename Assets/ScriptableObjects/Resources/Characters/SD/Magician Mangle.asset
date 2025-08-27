@@ -33,6 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e26bea5ad6205a14b9ddbf62602a9f28, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: aa1f8bba9a7359c4f88a741e190452b2, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: 4006aae1a50722a49ad52f00db5a4c2f, type: 2}
   directory: Characters/SD/Magician Mangle
   winsNeeded: 32

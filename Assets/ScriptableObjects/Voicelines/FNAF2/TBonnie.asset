@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32e17325068b854399ce2784b73de3b, type: 3}
+  m_Name: TBonnie
+  m_EditorClassIdentifier: 
+  voicelines:
+  - {fileID: 8300000, guid: 71371bd6e209db746930139ec3d48581, type: 3}
+  - {fileID: 8300000, guid: 0002355c3205b36488a68acbcafce7d3, type: 3}
+  - {fileID: 8300000, guid: 5969534a77576ae40af061543e55ab3c, type: 3}
+  - {fileID: 8300000, guid: 6b7e7775a112e1543b09a172945d7610, type: 3}
+  - {fileID: 8300000, guid: 1cc487c505e31094d858478a00cdbbe4, type: 3}
+  - {fileID: 8300000, guid: 519f16148b3885c42986c2249c377d90, type: 3}
+  - {fileID: 8300000, guid: 03f22197a462c7845a2503f7931226f0, type: 3}
+  - {fileID: 8300000, guid: 6004fdb0d5befe4498e6dc4a040e3614, type: 3}
+  - {fileID: 8300000, guid: 56e8c4c35b4945a43bef3b0dc29d7a21, type: 3}
+  - {fileID: 8300000, guid: 15fc97d17ef3fb94b804f4db82b81fe4, type: 3}
+  - {fileID: 8300000, guid: caf29b1c0b1993f46b9b52c74059da90, type: 3}
+  - {fileID: 8300000, guid: e86e350ff72616c40bfbf36da2071651, type: 3}
+  - {fileID: 8300000, guid: 644bfded205eede479bcbd4b2b96940c, type: 3}
+  - {fileID: 8300000, guid: 9a154823c60fe8c4db2a7c486d812a8c, type: 3}
+  - {fileID: 8300000, guid: 5dcf6f6e827e4c74196b3ce5b574a97f, type: 3}
+  - {fileID: 8300000, guid: 25407ca4ac9a59f40bd4c4619c8f5f78, type: 3}
+  - {fileID: 8300000, guid: 2ddc18bb9094177468e4de9d34cf5417, type: 3}
+  - {fileID: 8300000, guid: 70b97e18b15d94c44ae9f8e1403a2925, type: 3}
+  - {fileID: 8300000, guid: a8a2df37e37ec404994cfdf31fbe7281, type: 3}
+  - {fileID: 8300000, guid: af1359eff9d33cc4db87a1596410929b, type: 3}
+  - {fileID: 8300000, guid: 540fcfdac33940f4983a173afa05e1b4, type: 3}
+  - {fileID: 8300000, guid: 7894c881d8c76a44eb563aee5049f3b7, type: 3}
+  - {fileID: 8300000, guid: 77863cd35de874d4b8265eeb5d2e7eb2, type: 3}
+  - {fileID: 8300000, guid: 00f063739710dc14bb912415cf2c747d, type: 3}
+  subtitles:
+  - (Jumpscare)
+  - (Jumpscare)
+  - I've been waiting so long for this chance, and now, it's finally here!
+  - This game of cat-and-person is delicious.
+  - Closer... closer now... Just a little closer...
+  - Now I'm a superstar.
+  - Now I'm a superstar.
+  - Ladies and gentlemen, the stage is now mine.
+  - This next part is totally going to hurt.
+  - This is my chance to shine, and your chace to fade away!
+  - There you are!
+  - Why ever is this creature... hiding from little old me?
+  - No kidding? You thought you could survive me?
+  - No kidding? You thought you could survive me?
+  - What do we have here, someone hiding from me?
+  - It's not my fault I'm so much more famous than you.
+  - Six... Seven... Five... Three... Four... Two... One.
+  - Aren't I just the shiniest?
+  - Did you actually think you, could hide from, me?
+  - Clear the stage, for the star of our show is now here!
+  - My star is rising and yours, sadly, is fizzling out!
+  - I can see you.
+  - Did you know that I used to be a real rockstar.
+  - Don't worry! This next part won't hurt a bit.
+  voicelineLength: 0
+  voicelineToPlay: 0

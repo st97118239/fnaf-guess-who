@@ -33,7 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5a2ca83a3a771c5498fbe7885974664e, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: b0fb812d0f6e72e4a82450ef39212b2b, type: 3}
-  voicelines:
-  - {fileID: 8300000, guid: 71371bd6e209db746930139ec3d48581, type: 3}
+  voicelines: {fileID: 11400000, guid: cc89d6e5aab4b574e8e23fa01a788077, type: 2}
   directory: Characters/FNAF2/WFreddy
   winsNeeded: 0

@@ -33,6 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 234e6af9101814247af6b90ed71529b9, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 1c4c9762ba83de9489a1396a84585eeb, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: 93615018448963d44b114f7def238130, type: 2}
   directory: Characters/SD/Ringmaster Foxy
   winsNeeded: 29

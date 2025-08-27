@@ -33,43 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ac2dfb72c07b85549a79aa0bb600889f, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: f1dccb056be996640b2d3cc241459253, type: 3}
-  voicelines:
-  - {fileID: 8300000, guid: dd6ab6dcd9754e24d8ad9b43802fda78, type: 3}
-  - {fileID: 8300000, guid: 042583c8923f7bc46a22ffb3b93877ce, type: 3}
-  - {fileID: 8300000, guid: 680354a023d61884c990592d728bf118, type: 3}
-  - {fileID: 8300000, guid: fa544dda8cb1cca459db85709c13bc14, type: 3}
-  - {fileID: 8300000, guid: dcc86a296d9db67479bf5de07a589ef8, type: 3}
-  - {fileID: 8300000, guid: bcc16a92c2831f647b11459344f79506, type: 3}
-  - {fileID: 8300000, guid: ce17f66f4ec93ed4dbd542e8611614e6, type: 3}
-  - {fileID: 8300000, guid: 6436eb8c03ac6e740b41969f68dc1281, type: 3}
-  - {fileID: 8300000, guid: 7ad41b2daaef2b144bfa500e7ff285ff, type: 3}
-  - {fileID: 8300000, guid: 8d62a6e84dade714597ab7fff6427da7, type: 3}
-  - {fileID: 8300000, guid: e382bc64a83ff5b42bd801a19f4634cf, type: 3}
-  - {fileID: 8300000, guid: 687a524d30363534db8027af7cd5c3bf, type: 3}
-  - {fileID: 8300000, guid: f967e7a3f8b163546a3c94e7370a36c4, type: 3}
-  - {fileID: 8300000, guid: 4b7fa80870eb24648bf7ea70dff2c389, type: 3}
-  - {fileID: 8300000, guid: bb01b94466397b0479bdaa0aa637808d, type: 3}
-  - {fileID: 8300000, guid: a81ef53be5eb6944b8f6c4998c183af2, type: 3}
-  - {fileID: 8300000, guid: 990a61d3650fc7e47bf5c2c2baf207f9, type: 3}
-  - {fileID: 8300000, guid: ea2535b4f6b9c504cbf155dad502a802, type: 3}
-  - {fileID: 8300000, guid: 0ec6279fb7a18e54897e202856938d93, type: 3}
-  - {fileID: 8300000, guid: 92254d809c325fd4b8dfc8c641f36728, type: 3}
-  - {fileID: 8300000, guid: 06ea7fbde6f12a7489d3262609b835f8, type: 3}
-  - {fileID: 8300000, guid: 2ef7cb1f9ca56834d8e002b5cb735f47, type: 3}
-  - {fileID: 8300000, guid: 923f98517a69d9c49ad8b0fbfc61a299, type: 3}
-  - {fileID: 8300000, guid: 4710b667e6df1bc48bda3c8d0b613c7b, type: 3}
-  - {fileID: 8300000, guid: 36becb32bb9859443b0739b5e2bf767e, type: 3}
-  - {fileID: 8300000, guid: 0e02b91e4610b3b4ea69520b113b0f70, type: 3}
-  - {fileID: 8300000, guid: b6ada85b383f1f1449ed9cf64717de7c, type: 3}
-  - {fileID: 8300000, guid: 1f0facdecfbd6b641a1f7b0943633594, type: 3}
-  - {fileID: 8300000, guid: ab32b29dbbdca7d4dbb5f0f60bbf0e81, type: 3}
-  - {fileID: 8300000, guid: 0cc5d4498e022eb409e121caf4af7645, type: 3}
-  - {fileID: 8300000, guid: d93ddf9ac5beb5c49b401778441844b1, type: 3}
-  - {fileID: 8300000, guid: 90a596c36a12e49438f47e3cc7c8d808, type: 3}
-  - {fileID: 8300000, guid: f44b35f3ff77a4d449599095a76eb3e9, type: 3}
-  - {fileID: 8300000, guid: 5b5ebfbe6939d7747b97fd7ffd8f29af, type: 3}
-  - {fileID: 8300000, guid: 1abc4c40e770fdd4fa0e0a8bd5aa7bac, type: 3}
-  - {fileID: 8300000, guid: 4a8da114bb0ebd547871673060a87929, type: 3}
-  - {fileID: 8300000, guid: 0b377125f77135849ad4e15d85e7b210, type: 3}
+  voicelines: {fileID: 11400000, guid: 93615018448963d44b114f7def238130, type: 2}
   directory: Characters/FNAF1/Foxy
   winsNeeded: 0

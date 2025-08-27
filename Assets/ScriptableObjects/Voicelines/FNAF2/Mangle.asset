@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32e17325068b854399ce2784b73de3b, type: 3}
+  m_Name: Mangle
+  m_EditorClassIdentifier: 
+  voicelines:
+  - {fileID: 8300000, guid: 71371bd6e209db746930139ec3d48581, type: 3}
+  - {fileID: 8300000, guid: 838d3c89e69070141889b7c19f30b28c, type: 3}
+  - {fileID: 8300000, guid: a7247d2d9c8acb048bf3efbf05713046, type: 3}
+  - {fileID: 8300000, guid: 9fc010b18abde2c4ebbf0c4b5560d569, type: 3}
+  - {fileID: 8300000, guid: dd377629ee68e5b498f9a79a2d4fc87a, type: 3}
+  - {fileID: 8300000, guid: d21d469a3560be04897ef9d31b22695b, type: 3}
+  - {fileID: 8300000, guid: ee3cc5d089fac414db39ae55bfa4f374, type: 3}
+  - {fileID: 8300000, guid: e17c098ea688cab4f870b303839bfd5f, type: 3}
+  - {fileID: 8300000, guid: a524d899d4e534048aa5a0d193d6fc06, type: 3}
+  - {fileID: 8300000, guid: 087e87b5e775ecd419028d2992c79bb2, type: 3}
+  - {fileID: 8300000, guid: 2465e294a01a2e14982c86fe2a25db37, type: 3}
+  - {fileID: 8300000, guid: bc6b6e65d5445f048b20efc30b4b9e84, type: 3}
+  - {fileID: 8300000, guid: cec627f49e659a449962bf34e9095441, type: 3}
+  - {fileID: 8300000, guid: 23fb40ecbf7b4b042ac2a74cce21ec10, type: 3}
+  - {fileID: 8300000, guid: f4d81d48af195fc4f9b1ec3dee6a2e4b, type: 3}
+  - {fileID: 8300000, guid: de9516e5dbeb8884aaa0d067fad6bc6e, type: 3}
+  - {fileID: 8300000, guid: 40f532bc847ecd84694e20e6d2e52d6a, type: 3}
+  - {fileID: 8300000, guid: a3f21abf45ca285419542e5e29a20d31, type: 3}
+  - {fileID: 8300000, guid: 5504af9d503a39644841272dd605fd21, type: 3}
+  - {fileID: 8300000, guid: 1062b9a1a0ca1194589d002b7348cd75, type: 3}
+  - {fileID: 8300000, guid: b21bdc81cc74eb44c8464f527fc19029, type: 3}
+  - {fileID: 8300000, guid: 8d7c38b7814d52d48b30fc6f6c54358c, type: 3}
+  - {fileID: 8300000, guid: 3baf13964c148af4f82becabd645bc7d, type: 3}
+  - {fileID: 8300000, guid: ee6317c64970a724ebbdd0c146c77018, type: 3}
+  - {fileID: 8300000, guid: bd0d2da1f6ba1e24880d73bb66e66591, type: 3}
+  - {fileID: 8300000, guid: fd80183b28f82ed4e87cec9feafdab4a, type: 3}
+  - {fileID: 8300000, guid: 5c08524efcb8eb149ae0cb0aa6d8afeb, type: 3}
+  - {fileID: 8300000, guid: 46746880ea2a4f14a93184c84ae6183d, type: 3}
+  - {fileID: 8300000, guid: 500df8c4058c54449a24ca0efe4ce52f, type: 3}
+  - {fileID: 8300000, guid: c450d71df08c4cc4cb543fa785bade92, type: 3}
+  - {fileID: 8300000, guid: ecafbed2070085540814e90b2cbec131, type: 3}
+  - {fileID: 8300000, guid: 68359158f7f773a46bc41d393233d3e8, type: 3}
+  - {fileID: 8300000, guid: 272c7c65c5c96334c8be7af5f20c98f8, type: 3}
+  - {fileID: 8300000, guid: 590e3e5260ac5a64fbb4f91f59c00990, type: 3}
+  - {fileID: 8300000, guid: 3649e69fd3d703a43aade2e249fd0eaa, type: 3}
+  - {fileID: 8300000, guid: fe3e0253f9193884686f6efe36329d82, type: 3}
+  - {fileID: 8300000, guid: 3704228ed45e0ff48b0274813f972414, type: 3}
+  - {fileID: 8300000, guid: 291a1843bdf88554280cdd631a83df3e, type: 3}
+  - {fileID: 8300000, guid: b131de96b4eaed94599a2c764e111239, type: 3}
+  - {fileID: 8300000, guid: d23e4435b62904f4bb49a1d7d5fbbc2b, type: 3}
+  - {fileID: 8300000, guid: dcc055332c61c814f885fdfa9040b3fe, type: 3}
+  - {fileID: 8300000, guid: 1c838a6949569db47b66c0b8753b385f, type: 3}
+  - {fileID: 8300000, guid: b229f0b3913e7a0459dcc12c7939f8b7, type: 3}
+  - {fileID: 8300000, guid: 9e58a08e14291c440862c3d60a69064e, type: 3}
+  - {fileID: 8300000, guid: a4b4d3b7f4e419c47bb63f3b6a6bf1a2, type: 3}
+  - {fileID: 8300000, guid: 73851807997b918439a7e0fbacbc5baa, type: 3}
+  - {fileID: 8300000, guid: aba865d92566cf545a3c1979691d1772, type: 3}
+  - {fileID: 8300000, guid: e4ce02a34a8ef304698fbc98bf5a12fa, type: 3}
+  - {fileID: 8300000, guid: 98675e060b61a6040b6c73bd977665e0, type: 3}
+  - {fileID: 8300000, guid: 094f01b437f397d4ea62502706f3d877, type: 3}
+  - {fileID: 8300000, guid: 5e732dccbd61a5c4d9243b257eef0092, type: 3}
+  - {fileID: 8300000, guid: f7df6015826e2944b8caab8dbeb045ad, type: 3}
+  - {fileID: 8300000, guid: bfe84a6bc28fc734fbe47467e0129b82, type: 3}
+  - {fileID: 8300000, guid: 3e00f3bc57a2dee479dcd9ff53617241, type: 3}
+  - {fileID: 8300000, guid: bdb02107d10356f4491f5a6d8be1c7a4, type: 3}
+  - {fileID: 8300000, guid: b0973111cbd5cdb4789c18d88f15ae35, type: 3}
+  - {fileID: 8300000, guid: b01e494531092be4eb55974a4ec06516, type: 3}
+  subtitles:
+  - (Jumpscare)
+  - (Jumpscare)
+  - Now I get to play take-apart-and-put-back-together! You won't feel a thing.
+  - I wanted to wait until just the right moment to drop in!
+  - It's so much more fun hanging out in here with you!
+  - Don't be afraid! Soon you will look just like me... Beautiful!
+  - He's here, and always watching... The one you shouldn't have killed.
+  - After all this is over, don't be a stranger!
+  - Another piece gone! I must find myself...
+  - Don't tell anyone... but they're all just jealous of how pretty I am...
+  - I am now so many pieces of people, all making me the fox I am today!
+  - I don't regret the experiences that have led me to be the fox that I am.
+  - I hope that piece wasn't important.
+  - I know I put that piece somewhere.
+  - I know it's been a long time, but don't you think the wait was worth it?
+  - I know they said I couldn't be put back together, but see how wrong they were?
+  - I MUST BE MADE WHOLE!!!
+  - I MUST FIND IT!!!
+  - I only wish this party had made me feel better!
+  - I really thought you would look a lot happier to see me.
+  - I've seen better days, but I know you won't let me down.
+  - I still feel so empty.
+  - 'It''s like I say: "You can''t keep a good fox apart!"'
+  - It is missing!
+  - It will all be over soon. So very, very soon.
+  - NO MORE!!!
+  - No... not again!
+  - No! Not another piece!
+  - Not again! I must find the piece!
+  - Now I have you all to myself...
+  - Now it's my turn to play take-apart-and-put-back-together.
+  - No, no, no, no, NO!
+  - Now... Wasn't that worth the wait?
+  - Oops... I think I dropped something...
+  - See? I can be put back together again...
+  - Shhh... just be still...
+  - So many friends... so little time... so many pieces of friends.
+  - So many pieces, so little time!
+  - Sorry I was late to the party. I'm so glad to be here, you know.
+  - There now, this won't hurt at all... There now, this will hurt a lot!
+  - This almost makes us yearn for the days of the Kid's Cove... Never again. Never.
+    Never, ever, never.
+  - Was that really the best you could do?
+  - We're going to have such terrible, wonderful fun.
+  - We are a perfect paragon of pleasing. We are a perfect paragon of perilous.
+  - We can hear you. We can smell you.
+  - Well, hello there, stranger.
+  - Well, hello there, stranger... Well, hello there, victim...
+  - We must be very quiet now. Shhh...
+  - What dropped off me now?!
+  - What was that, that dropped off me now?!
+  - Where did that piece go?
+  - Where? WHERE IS IT?!
+  - Why are you looking so scared? Don't you wanna be like me?
+  - Why, just staying in one piece feels like a full-time job...
+  - Why was I made only to fall apart like this?!
+  - You don't seem very happy to us... Perhaps it was something we said...
+  - You really went completely to pieces there!
+  voicelineLength: 0
+  voicelineToPlay: 0

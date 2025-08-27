@@ -33,8 +33,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1be88fb93783b264292e5cec604d1a8b, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: c6d4c61e10745314c8adbced5b885dec, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: 25f0341b6103c0e4485d060a258d39e0, type: 2}
   directory: Characters/FNAF2/Puppet
-  firstGame: 2
-  animatronicClass: 3
-  skinClass: 0
+  winsNeeded: 0

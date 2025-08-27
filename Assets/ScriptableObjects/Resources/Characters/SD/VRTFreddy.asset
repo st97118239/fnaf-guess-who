@@ -34,7 +34,6 @@ MonoBehaviour:
   fullBodySprite:
   - {fileID: 21300000, guid: 32b6af7f2e6d56b4b92d36121ae3c155, type: 3}
   - {fileID: 21300000, guid: 7a184a05768e8ee4389a6ce57cd39afb, type: 3}
-  voicelines:
-  - {fileID: 8300000, guid: f0a74225af375154a80567c9f485f6db, type: 3}
+  voicelines: {fileID: 11400000, guid: 1acb28f554005174f899a6722cfe5939, type: 2}
   directory: Characters/SD/VRTFreddy
   winsNeeded: 14
