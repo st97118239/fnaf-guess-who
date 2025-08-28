@@ -88,7 +88,7 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
 
         polaroid.Circle();
         isAccused = true;
-        gameScript.HasAccused();
+        gameScript.HasAccused(character);
     }
 
     public void CanLMB(bool can)

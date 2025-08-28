@@ -15,7 +15,7 @@ MonoBehaviour:
   voicelines:
   - {fileID: 8300000, guid: dc2c20ce5c9879c4b922315a796c6599, type: 3}
   subtitles:
-  - .gnir eht ni rednetnoc wen a worht dna ,gniht ykaens a od annog m'I .etanutrofnu
+  - .gnir eht ni rednetnoc wen a worht dna ,gniht ykaens a od annog m'I\n.etanutrofnu
     woH !ho-hU .etanutrofnu woH !ho-hU
   voicelineLength: 0
   voicelineToPlay: 0

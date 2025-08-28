@@ -21,6 +21,7 @@ public class Game : MonoBehaviour
     public List<CharSlot> possibleSlots;
     public List<CharSlot> crossedOff;
     public Character chosenCharacter;
+    public Character accusedCharacter;
     public Animator animator;
     public bool isInfoPanelShown;
     public Vector3 polaroidSpawnPos;
@@ -237,12 +238,21 @@ public class Game : MonoBehaviour
             chosenCharacter.voicelines.Play(audioManager.voicelines, subtitles);
     }
 
-    public void HasAccused()
+    public void HasAccused(Character accusedChar)
     {
+        accusedCharacter = accusedChar;
+        Invoke(nameof(PlayAccusedCharacterAudio), 0.1f);
+
         for (int i = 0; i < charSlots.Count; i++)
         {
             charSlots[i].CanLMB(false);
         }
+    }
+
+    private void PlayAccusedCharacterAudio()
+    {
+        if (accusedCharacter.voicelines)
+            accusedCharacter.voicelines.Play(audioManager.voicelines, subtitles);
     }
 
     public void ChangePolaroids()
@@ -265,7 +275,7 @@ public class Game : MonoBehaviour
     public void StartRound(bool hasToAccuse)
     {
         audioManager.soundEffects.PlayOneShot(audioManager.bellSFX);
-        if (possibleSlots.Count <= 2)
+        if (possibleSlots.Count <= 2 && gameManager.round != 1)
             characterSidebar.ChangeTurn(gameManager.turn, true);
         else
             characterSidebar.ChangeTurn(gameManager.turn, hasToAccuse);
@@ -325,6 +335,7 @@ public class Game : MonoBehaviour
         playerCharArray = new Character[0];
         opponentCharArray = new Character[0];
         chosenCharacter = null;
+        accusedCharacter = null;
         slotAmount = 0;
         gameManager.ResetGame();
 

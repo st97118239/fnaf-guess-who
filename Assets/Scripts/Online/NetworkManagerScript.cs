@@ -47,6 +47,8 @@ public class NetworkManagerScript : NetworkManager
     {
         if (game.player && game.player.forcedLeave)
             game.player.ForceRemoveConnection();
+        else if (game.player && gameManager.hasStarted && !gameManager.hasFinished)
+            game.player.ForceRemoveConnection();
 
         base.OnClientDisconnect();
         

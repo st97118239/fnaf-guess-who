@@ -3448,6 +3448,7 @@ MonoBehaviour:
   possibleSlots: []
   crossedOff: []
   chosenCharacter: {fileID: 0}
+  accusedCharacter: {fileID: 0}
   animator: {fileID: 601102080}
   isInfoPanelShown: 0
   polaroidSpawnPos: {x: -505.31, y: -127, z: 0}
@@ -8828,14 +8829,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Add skins for characters\nAdd audio to all characters\nMore characters\nPlay
-    voiceline when accuse char\nUpdate way to accuse\n- if 2 or less remaining, force
-    accuse\n- indicator that the opponent has accused\nRedo chracter unlocks\n- Levels?
-    Get xp from playing a game, \n  more xp from winning\n- Have a list that contains
-    the characters\n- Make it in the save if you unlocked it (use dir)\n- Add a note
-    that shows you your new characters\n- Add a popup when levelling up what new
-    chars you have\nAllow left clicking on a charPolaroid to add\nRadio where you
-    choose bgm\nMake Debug.Log's clearer"
+  m_text: "Add skins for characters\nAdd audio to all characters\nMore characters\nRedo
+    chracter unlocks\n- Levels? Get xp from playing a game, \n  more xp from winning\n-
+    Have a list that contains the characters\n- Make it in the save if you unlocked
+    it (use dir)\n- Add a note that shows you your new characters\n- Add a popup
+    when levelling up what new chars you have\nAllow left clicking on a charPolaroid
+    to add\nRadio where you choose bgm\nMake Debug.Log's clearer"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -32259,7 +32258,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  version: 90
+  version: 91
   hasStarted: 0
   round: 0
   turn: 0

@@ -16,9 +16,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d700f8d8abbeb3e4e9c004b289027a8c, type: 3}
   - {fileID: 8300000, guid: 90074812d427bbc4c8aaff4b3f472ce0, type: 3}
   subtitles:
-  - Uh-oh! How unfortunate. Uh-oh! How unfortunate. I'm gonna do a sneaky thing,
+  - Uh-oh! How unfortunate. Uh-oh! How unfortunate.\nI'm gonna do a sneaky thing,
     and throw a new contender in the ring.
-  - Uh-oh! How unfortunate. Uh-oh! How unfortunate. I know how much you like to fight,
-    so I'll add a new problem to you night!
+  - Uh-oh! How unfortunate. Uh-oh! How unfortunate.\nI know how much you like to
+    fight, so I'll add a new problem to you night!
   voicelineLength: 0
   voicelineToPlay: 0
