@@ -8805,8 +8805,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1221, y: -840}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 1991.9619, y: -1511.755}
+  m_SizeDelta: {x: 970.962, y: 721.755}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &661530952
 MonoBehaviour:
@@ -8828,14 +8828,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Add skins for characters\nAdd audio to all characters\nMore characters\nAdd
-    checkmark to pol when ready\nPlay voiceline when accuse char\nUpdate way to accuse\n-
-    if 2 or less remaining, force accuse\n- indicator that the opponent has accused\nRedo
-    chracter unlocks\n- Levels? Get xp from playing a game, \nmore xp from winning\n-
-    Have a list that contains the characters\n- Make it in the save if you unlocked
-    it (use dir)\n- Add a note that shows you your new characters\n- Add a popup
-    when levelling up what new chars you have\nAllow left clicking on a charPolaroid
-    to add\nRadio where you choose bgm\nMake Debug.Log's clearer"
+  m_text: "Add skins for characters\nAdd audio to all characters\nMore characters\nPlay
+    voiceline when accuse char\nUpdate way to accuse\n- if 2 or less remaining, force
+    accuse\n- indicator that the opponent has accused\nRedo chracter unlocks\n- Levels?
+    Get xp from playing a game, \n  more xp from winning\n- Have a list that contains
+    the characters\n- Make it in the save if you unlocked it (use dir)\n- Add a note
+    that shows you your new characters\n- Add a popup when levelling up what new
+    chars you have\nAllow left clicking on a charPolaroid to add\nRadio where you
+    choose bgm\nMake Debug.Log's clearer"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -21538,8 +21538,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1439, y: -925}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -1218.9209, y: -970.26447}
+  m_SizeDelta: {x: 420.0791, y: 95.2645}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1337747969
 MonoBehaviour:
@@ -32259,7 +32259,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  version: 89
+  version: 90
   hasStarted: 0
   round: 0
   turn: 0

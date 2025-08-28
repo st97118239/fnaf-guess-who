@@ -169,33 +169,33 @@ public class Game : MonoBehaviour
     {
         if (gameManager.round == 0 && !chosenCharacter)
         {
-            Debug.Log("Spawned player polaroids");
-
             slotAmount = playerCharArray.Length;
             charSlots = new List<CharSlot>(slotAmount);
 
             for (int i = 0; i < slotAmount; i++)
             {
-                GameObject slotObj = Instantiate(charSlotPrefab, emptySlots[i].transform.position, Quaternion.identity, emptySlots[i].transform);
-                charSlots.Add(slotObj.GetComponent<CharSlot>());
-                charSlots[i].Load(playerCharArray[i], this, false);
+                CharSlot slotChar = Instantiate(charSlotPrefab, emptySlots[i].transform.position, Quaternion.identity, emptySlots[i].transform).GetComponent<CharSlot>();
+                charSlots.Add(slotChar);
+                slotChar.Load(playerCharArray[i], this, false);
             }
 
-            possibleSlots = charSlots;
+            Debug.Log("Spawned player polaroids");
         }
         else
         {
-            Debug.Log("Spawned opponent polaroids");
-
             slotAmount = opponentCharArray.Length;
             charSlots = new List<CharSlot>(slotAmount);
+            possibleSlots = new List<CharSlot>(slotAmount);
 
             for (int i = 0; i < slotAmount; i++)
             {
-                GameObject slotObj = Instantiate(charSlotPrefab, emptySlots[i].transform.position, Quaternion.identity, emptySlots[i].transform);
-                charSlots.Add(slotObj.GetComponent<CharSlot>());
-                charSlots[i].Load(opponentCharArray[i], this, true);
+                CharSlot slotChar = Instantiate(charSlotPrefab, emptySlots[i].transform.position, Quaternion.identity, emptySlots[i].transform).GetComponent<CharSlot>();
+                charSlots.Add(slotChar);
+                possibleSlots.Add(slotChar);
+                slotChar.Load(opponentCharArray[i], this, true);
             }
+
+            Debug.Log("Spawned opponent polaroids");
         }
 
         Invoke(nameof(PlayEmptyFade), 0.3f);
@@ -267,6 +267,9 @@ public class Game : MonoBehaviour
         audioManager.soundEffects.PlayOneShot(audioManager.bellSFX);
         if (possibleSlots.Count <= 2)
             characterSidebar.ChangeTurn(gameManager.turn, true);
+        else
+            characterSidebar.ChangeTurn(gameManager.turn, hasToAccuse);
+
     }
 
     public void Done()

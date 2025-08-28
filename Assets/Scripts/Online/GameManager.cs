@@ -188,9 +188,8 @@ public class GameManager : NetworkBehaviour
         else
         {
             Debug.Log("It's now the other player's turn.");
+            player.game.characterSidebar.ChangeTurn(turn, hasToAccuse);
         }
-
-        player.game.characterSidebar.ChangeTurn(turn, hasToAccuse);
     }
 
     public void FinishedTurn(bool hasAccused)
