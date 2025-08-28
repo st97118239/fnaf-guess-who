@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,15 +10,18 @@ public class PlayerPolaroid : MonoBehaviour, IPointerClickHandler
 
     [SerializeField] private bool isOpponent;
     [SerializeField] private Polaroid pol;
+    [SerializeField] private TMP_Text levelText;
     [SerializeField] private float fadeTime = 0.4f;
     [SerializeField] private float checkmarkTime = 0.3f;
     [SerializeField] private MainPanel mainPanel;
 
     private string username;
     private Character character;
+    private int level;
 
     private bool fadeImage;
-    private bool fadeText;
+    private bool fadeName;
+    private bool fadeLevel;
 
     private Color nameColor;
     private Color normalNameColor = Color.black;
@@ -48,15 +52,19 @@ public class PlayerPolaroid : MonoBehaviour, IPointerClickHandler
             {
                 if (fadeImage)
                     pol.characterImage.color = Color.Lerp(Color.clear, Color.white, fillAmount);
-                if (fadeText)
+                if (fadeName)
                     pol.characterText.color = Color.Lerp(Color.clear, nameColor, fillAmount);
+                if (fadeLevel)
+                    levelText.color = Color.Lerp(Color.clear, Color.white, fillAmount);
             }
             else if(!fadeIn)
             {
                 if (fadeImage)
                     pol.characterImage.color = Color.Lerp(Color.white, Color.clear, fillAmount);
-                if (fadeText)
+                if (fadeName)
                     pol.characterText.color = Color.Lerp(nameColor, Color.clear, fillAmount);
+                if (fadeLevel)
+                    levelText.color = Color.Lerp(Color.white, Color.clear, fillAmount);
             }
 
             yield return null;
@@ -78,15 +86,35 @@ public class PlayerPolaroid : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void Load(string givenName, string givenCharDir, bool isDev, bool shouldFadeImage, bool shouldFadeText)
+    public void Load(Player player, bool usePlayer, bool shouldFadeImage, bool shouldFadeName, bool shouldFadeLevel)
     {
         if (shouldFadeImage)
             pol.characterImage.color = Color.clear;
-        if (shouldFadeText)
+        if (shouldFadeName)
             pol.characterText.color = Color.clear;
 
-        username = givenName;
-        character = Resources.Load<Character>(givenCharDir);
+        if (usePlayer)
+        {
+            username = player.name;
+            character = Resources.Load<Character>(player.avatar);
+            level = player.level;
+
+            if (player.isDev)
+                nameColor = devNameColor;
+            else
+                nameColor = normalNameColor;
+        }
+        else
+        {
+            username = mainPanel.username;
+            character = Resources.Load<Character>(mainPanel.avatar);
+            level = PlayerPrefs.GetInt("Level");
+
+            if (mainPanel.devManager.isUnlocked)
+                nameColor = devNameColor;
+            else
+                nameColor = normalNameColor;
+        }
 
         if (!character)
         {
@@ -98,14 +126,11 @@ public class PlayerPolaroid : MonoBehaviour, IPointerClickHandler
             pol.characterImage.sprite = character.polaroidSprite[0];
 
         pol.characterText.text = username;
+        levelText.text = level.ToString();
 
         fadeImage = shouldFadeImage;
-        fadeText = shouldFadeText;
-
-        if (isDev)
-            nameColor = devNameColor;
-        else
-            nameColor = normalNameColor;
+        fadeName = shouldFadeName;
+        fadeLevel = shouldFadeLevel;
 
         isLoaded = true;
 
@@ -117,13 +142,15 @@ public class PlayerPolaroid : MonoBehaviour, IPointerClickHandler
         if (!isLoaded)
             return;
 
-        username = string.Empty;
         character = null;
+        username = string.Empty;
+        level = 0;
 
         isLoaded = false;
 
         fadeImage = true;
-        fadeText = true;
+        fadeName = true;
+        fadeLevel = true;
 
         StartCoroutine(FadeImage(false));
     }

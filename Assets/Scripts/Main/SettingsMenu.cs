@@ -43,7 +43,7 @@ public class SettingsMenu : MonoBehaviour
 
         LoadSettings();
 
-        mainPanel.SetPlayerPolaroid(true, true);
+        mainPanel.SetPlayerPolaroid(true, true, true);
     }
 
     private void Update()
@@ -145,7 +145,7 @@ public class SettingsMenu : MonoBehaviour
         mainPanel.listPanel.charactersPanel.categoryIdx = settings.categoryIdx;
 
         if (isShown)
-            mainPanel.SetPlayerPolaroid(false, true);
+            mainPanel.SetPlayerPolaroid(false, true, false);
 
         Debug.Log("Loaded settings.");
     }

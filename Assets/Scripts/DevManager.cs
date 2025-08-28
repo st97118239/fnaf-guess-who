@@ -55,7 +55,7 @@ public class DevManager : MonoBehaviour
             isUnlocked = true;
             holdTimerBase = 0.05f;
             holdTimer = holdTimerBase;
-            mainPanel.SetPlayerPolaroid(false, true);
+            mainPanel.SetPlayerPolaroid(false, true, false);
         }
     }
 }

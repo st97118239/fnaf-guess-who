@@ -341,7 +341,7 @@ public class ListInfoPanel : MonoBehaviour
             listPanel.mainPanel.settingsMenu.settings.avatar = character.directory;
             listPanel.mainPanel.avatar = character.directory;
             listPanel.mainPanel.settingsMenu.Save();
-            listPanel.mainPanel.SetPlayerPolaroid(true, false);
+            listPanel.mainPanel.SetPlayerPolaroid(true, false, false);
 
             Hide();
         }

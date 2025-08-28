@@ -2,12 +2,21 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SaveManager : MonoBehaviour
 {
     public SaveData saveData;
 
+    public List<float> levelXPNeeded;
+
+    [SerializeField] private float bothWinXP;
+    [SerializeField] private float winXP;
+    [SerializeField] private float loseXp;
+    [SerializeField] private float bothLoseXP;
+
     [SerializeField] private MainPanel mainPanel;
+    [SerializeField] private Slider xpBar;
 
     [SerializeField] private ListDataChar listCharacters;
     [SerializeField] private ListData listPanelList;
@@ -26,6 +35,14 @@ public class SaveManager : MonoBehaviour
         Debug.Log("Playing on version " + PlayerPrefs.GetInt("Version"));
 
         mainPanel.versionNote.ChangeText("Version: " + mainPanel.gameManager.version);
+
+        if (PlayerPrefs.GetInt("Level") == 0)
+        {
+            PlayerPrefs.SetInt("Level", 1);
+            PlayerPrefs.SetFloat("XP", 0f);
+        }
+
+        SetXPBar();
 
         mainPanel.SpawnPosters();
     }
@@ -151,5 +168,65 @@ public class SaveManager : MonoBehaviour
                 Debug.Log("Last selected list: " + saveData.lists[i].name);
             }
         }
+    }
+
+    public void WinResults(bool playerWon, bool opponentWon)
+    {
+        if (playerWon && !opponentWon)
+            GiveXP(winXP);
+        else if (playerWon && opponentWon)
+            GiveXP(bothWinXP);
+        else if (!playerWon && opponentWon)
+            GiveXP(loseXp);
+        else if (!playerWon && !opponentWon)
+            GiveXP(bothLoseXP);
+    }
+
+    public void GiveXP(float xpAmount)
+    {
+        if (levelXPNeeded.Count <= PlayerPrefs.GetInt("Level"))
+        {
+            Debug.Log("Player is already max level.");
+            return;
+        }
+
+        PlayerPrefs.SetFloat("XP", PlayerPrefs.GetFloat("XP") + xpAmount);
+        Debug.Log("Gave the player " + xpAmount + " of XP. Player now has " + PlayerPrefs.GetFloat("XP") + " amount of XP.");
+
+        if (PlayerPrefs.GetFloat("XP") >= levelXPNeeded[PlayerPrefs.GetInt("Level")])
+            LevelUp();
+
+        SetXPBar();
+    }
+
+    private void SetXPBar()
+    {
+        if (PlayerPrefs.GetInt("Level") == 1)
+            xpBar.minValue = 0;
+        else
+            xpBar.minValue = levelXPNeeded[PlayerPrefs.GetInt("Level") - 1];
+
+        if (levelXPNeeded.Count <= PlayerPrefs.GetInt("Level"))
+            xpBar.maxValue = PlayerPrefs.GetFloat("XP");
+        else
+            xpBar.maxValue = levelXPNeeded[PlayerPrefs.GetInt("Level")];
+
+        xpBar.value = PlayerPrefs.GetFloat("XP");
+    }
+
+    private void LevelUp()
+    {
+        PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
+        Debug.Log("Player leveled up and is now level " + PlayerPrefs.GetInt("Level"));
+        mainPanel.SetPlayerPolaroid(false, false, true);
+    }
+
+    public void ResetLevel()
+    {
+        PlayerPrefs.SetInt("Level", 1);
+        PlayerPrefs.SetFloat("XP", 0);
+        SetXPBar();
+        Debug.Log("Reset player's level and XP.");
+        mainPanel.SetPlayerPolaroid(false, false, true);
     }
 }

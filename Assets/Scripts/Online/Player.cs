@@ -5,6 +5,7 @@ public class Player : NetworkBehaviour
 {
     [SyncVar] public string username;
     [SyncVar] public string avatar;
+    [SyncVar] public int level;
     [SyncVar] public int wins;
     [SyncVar] public int games;
     [SyncVar] public string chosenCharacter;
@@ -32,6 +33,7 @@ public class Player : NetworkBehaviour
             mainPanel = game.mainPanel;
             username = mainPanel.username;
             avatar = mainPanel.avatar;
+            level = PlayerPrefs.GetInt("Level");
             wins = PlayerPrefs.GetInt("Wins");
             games = PlayerPrefs.GetInt("Games");
             isDev = mainPanel.devManager.isUnlocked;

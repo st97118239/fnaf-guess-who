@@ -14,6 +14,7 @@ public class MainPanel : NetworkBehaviour
     public PlayerPanel playerPanel;
     public PopupPaper popupPaper;
     public SettingsMenu settingsMenu;
+    public SaveManager saveManager;
     public DevManager devManager;
 
     public Panels currentPanel;
@@ -84,15 +85,15 @@ public class MainPanel : NetworkBehaviour
         gameManager.SetList(selectedArray);
     }
 
-    public void SetPlayerPolaroid(bool fadeImage, bool fadeText)
+    public void SetPlayerPolaroid(bool fadeImage, bool fadeName, bool fadeLevel)
     {
-         playerPolaroids[0].Load(username, avatar, devManager.isUnlocked, fadeImage, fadeText);
+         playerPolaroids[0].Load(null, false, fadeImage, fadeName, fadeLevel);
     }
 
     public void SetOpponentPolaroid()
     {
         if (gameManager?.opponent)
-            playerPolaroids[1].Load(gameManager.opponent.username, gameManager.opponent.avatar, gameManager.opponent.isDev, true, true);
+            playerPolaroids[1].Load(gameManager.opponent, true, true, true, true);
         else
             playerPolaroids[1].Clear();
     }

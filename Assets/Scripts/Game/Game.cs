@@ -367,6 +367,8 @@ public class Game : MonoBehaviour
 
             if (p1Won)
                 PlayerPrefs.SetInt("Wins", PlayerPrefs.GetInt("Wins") + 1);
+
+            mainPanel.saveManager.WinResults(p1Won, p2Won);
         }
         else if (player.playerIdx == 2)
         {
@@ -381,6 +383,8 @@ public class Game : MonoBehaviour
 
             if (p2Won)
                 PlayerPrefs.SetInt("Wins", PlayerPrefs.GetInt("Wins") + 1);
+
+            mainPanel.saveManager.WinResults(p2Won, p1Won);
         }
 
         Character opponentChar = Resources.Load<Character>(opponentCharDirectory);
