@@ -281,4 +281,26 @@ public class CharactersPanel : MonoBehaviour
             emptySlots[i].Play(shouldReverse, shouldDestroyChildren, shouldDestroySelf);
         }
     }
+
+    public void CreateListAllChars()
+    {
+#if UNITY_EDITOR
+        CharacterList list = ScriptableObject.CreateInstance<CharacterList>();
+
+        list.characters = new();
+
+        for (int i = 0; i < categories.classCategories.Count; i++)
+        {
+            for (int j = 0; j < categories.classCategories[i].characters.Count; j++)
+            {
+                list.characters.Add(categories.classCategories[i].characters[j]);
+            }
+        }
+
+        list.listName = "All Characters";
+        list.version = PlayerPrefs.GetInt("Version");
+
+        AssetDatabase.CreateAsset(list, "Assets/ScriptableObjects/CharacterLists/All Characters.asset");
+#endif
+    }
 }
