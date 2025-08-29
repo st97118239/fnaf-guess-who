@@ -33,8 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9f08e474cd4044242b72ea2be29ebb1f, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: a90eedfa5c23358468395aaee26679c7, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/SB/GlBonnie
-  firstGame: 10
-  animatronicClass: 13
-  skinClass: 0
+  levelNeeded: 1
+  isUnlocked: 0

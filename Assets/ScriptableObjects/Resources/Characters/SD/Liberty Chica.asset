@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2c47a446cac808544b3577e00db1adcc, type: 3}
   voicelines: {fileID: 11400000, guid: 9ce2a548dc35f5d4d9eae8bd1a5bcd3b, type: 2}
   directory: Characters/SD/Liberty Chica
-  winsNeeded: 27
+  levelNeeded: 28

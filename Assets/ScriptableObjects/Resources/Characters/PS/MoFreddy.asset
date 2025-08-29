@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a611a1273fb081a44bfd7d2686179a93, type: 3}
   voicelines: []
   directory: Characters/PS/MoFreddy
-  winsNeeded: 0
+  levelNeeded: 1

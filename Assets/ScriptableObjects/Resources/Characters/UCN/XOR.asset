@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 75f4c92f3c1a00c45b8355bf5db54eac, type: 3}
   voicelines: {fileID: 11400000, guid: a92d6c3532d52d647ac11cc25c6c9917, type: 2}
   directory: Characters/UCN/XOR
-  winsNeeded: 10
+  levelNeeded: 11

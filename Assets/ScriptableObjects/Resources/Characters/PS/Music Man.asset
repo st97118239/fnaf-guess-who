@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ca605369e9eb9d48bc7a616a0100fab, type: 3}
   voicelines: {fileID: 11400000, guid: a0b392fa11fdbca4db7430208ead18ac, type: 2}
   directory: Characters/PS/Music Man
-  winsNeeded: 12
+  levelNeeded: 13

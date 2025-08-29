@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fff3a4c7291e00944a95d321023b9214, type: 3}
   voicelines: {fileID: 11400000, guid: e760cc6425a2ac9409abaa26fb9ecade, type: 2}
   directory: Characters/FNAF4/Freddles
-  winsNeeded: 0
+  levelNeeded: 1

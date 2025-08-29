@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 631f7c2a9ce3e5c499269b1fc507ce03, type: 3}
   voicelines: []
   directory: Characters/PS/Lefty
-  winsNeeded: 4
+  levelNeeded: 5

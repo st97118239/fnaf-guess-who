@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 74512d49e0989ba428240b8b75f6ac84, type: 3}
   voicelines: []
   directory: Characters/HW2/Fizz Bot
-  winsNeeded: 5
+  levelNeeded: 6

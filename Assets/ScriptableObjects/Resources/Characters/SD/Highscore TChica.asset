@@ -36,4 +36,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cf0d2838c070e124da222eb801870059, type: 3}
   voicelines: {fileID: 11400000, guid: 3cad61b0382c05b428ba6885f0f72729, type: 2}
   directory: Characters/SD/Highscore TChica
-  winsNeeded: 15
+  levelNeeded: 16

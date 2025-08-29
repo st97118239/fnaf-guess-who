@@ -28,7 +28,7 @@ public class EmptySlot : MonoBehaviour
 
         if (transform.childCount == 0)
         {
-            canvasGroup.alpha = shouldReverse ? 0 : 1;
+            //canvasGroup.alpha = shouldReverse ? 0 : 1;
 
             if (shouldDestroyChild)
             {
@@ -57,9 +57,11 @@ public class EmptySlot : MonoBehaviour
             }
         }
 
-        for (float i = 0; i <= fadeTime; i += Time.deltaTime)
+        float alphaToFade = shouldReverse ? canvasGroup.alpha : 1 - canvasGroup.alpha;
+        float amountToFade = alphaToFade / (fadeTime / 0.005f);
+        for (float i = 0; i <= fadeTime; i += 0.005f)
         {
-            canvasGroup.alpha = shouldReverse ? 1 - (i / fadeTime) : i / fadeTime;
+            canvasGroup.alpha += amountToFade * (shouldReverse ? -1 : 1);
 
             yield return null;
         }

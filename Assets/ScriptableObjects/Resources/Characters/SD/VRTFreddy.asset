@@ -36,4 +36,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7a184a05768e8ee4389a6ce57cd39afb, type: 3}
   voicelines: {fileID: 11400000, guid: 1acb28f554005174f899a6722cfe5939, type: 2}
   directory: Characters/SD/VRTFreddy
-  winsNeeded: 14
+  levelNeeded: 15

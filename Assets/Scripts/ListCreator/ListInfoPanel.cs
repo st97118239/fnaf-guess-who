@@ -151,7 +151,7 @@ public class ListInfoPanel : MonoBehaviour
         else
             audioNote.gameObject.SetActive(false);
 
-        if (listPanel.mainPanel.avatar == character.directory || listPanel.mainPanel.settingsMenu.isConnected || (character.winsNeeded > PlayerPrefs.GetInt("Wins") && !listPanel.devManager.unlockAllCharacters))
+        if (listPanel.mainPanel.avatar == character.directory || listPanel.mainPanel.settingsMenu.isConnected || (!character.isUnlocked && !listPanel.devManager.unlockAllCharacters))
         {
             avatarNote.Disable();
         }

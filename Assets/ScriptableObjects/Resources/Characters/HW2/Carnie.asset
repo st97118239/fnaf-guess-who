@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 86d76980bd749734c964ba6499c35cb2, type: 3}
   voicelines: []
   directory: Characters/HW2/Carnie
-  winsNeeded: 1
+  levelNeeded: 2

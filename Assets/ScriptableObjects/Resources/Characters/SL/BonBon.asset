@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dc043369ecb89b840b9bec064ac4a995, type: 3}
   voicelines: {fileID: 11400000, guid: 10c6a3db1c5346d419226e089efd1b58, type: 2}
   directory: Characters/SL/BonBon
-  winsNeeded: 0
+  levelNeeded: 1

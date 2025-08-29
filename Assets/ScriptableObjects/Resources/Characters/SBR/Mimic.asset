@@ -36,4 +36,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 48d8c3dc11c84354ba9d2720c1cf20b1, type: 3}
   voicelines: []
   directory: Characters/SBR/Mimic
-  winsNeeded: 3
+  levelNeeded: 4

@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d7400db5cc9931e42a75c70acf0e7833, type: 3}
   voicelines: []
   directory: Characters/SOTM/Mrs Helpful
-  winsNeeded: 6
+  levelNeeded: 7

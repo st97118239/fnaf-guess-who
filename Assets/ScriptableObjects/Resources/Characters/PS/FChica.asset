@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d54f7bd789588874e8b432620c78d881, type: 3}
   voicelines: {fileID: 11400000, guid: 541c62fab24b08d44a685bd021a337c3, type: 2}
   directory: Characters/PS/FChica
-  winsNeeded: 0
+  levelNeeded: 1

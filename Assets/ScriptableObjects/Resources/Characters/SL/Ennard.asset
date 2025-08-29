@@ -33,8 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e7fe6611c737e3247a5ec349fdac074b, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: a4dfd9a02246b034d98dc3cc0422a6ac, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/SL/Ennard
-  firstGame: 6
-  animatronicClass: 16
-  skinClass: 0
+  levelNeeded: 1
+  isUnlocked: 0

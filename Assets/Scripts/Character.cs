@@ -26,5 +26,6 @@ public class Character : ScriptableObject
     public Voicelines voicelines;
 
     public string directory;
-    public int winsNeeded;
+    public int levelNeeded;
+    public bool isUnlocked;
 }

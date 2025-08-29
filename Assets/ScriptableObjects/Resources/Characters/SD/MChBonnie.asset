@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6ac8e316029f0cc4bbda11ce95c93242, type: 3}
   voicelines: {fileID: 11400000, guid: fac9f26b9e787104dbd2d2672fa641aa, type: 2}
   directory: Characters/SD/MChBonnie
-  winsNeeded: 16
+  levelNeeded: 17

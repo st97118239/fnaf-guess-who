@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 31325e8ca123c9745aaa085df30b3d57, type: 3}
   voicelines: {fileID: 11400000, guid: 28698f45c8031ad4d9b7b621b41c03a0, type: 2}
   directory: Characters/FNAF2/WChica
-  winsNeeded: 0
+  levelNeeded: 1

@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 408672695a0cdc443be0baa0b16607e4, type: 3}
   voicelines: []
   directory: Characters/FNAF3/SpBonnie
-  winsNeeded: 3
+  levelNeeded: 4

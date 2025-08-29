@@ -36,4 +36,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 37e3278a953a9fa4499297bda3f5fcec, type: 3}
   voicelines: []
   directory: Characters/SD/Clown Springtrap
-  winsNeeded: 36
+  levelNeeded: 36

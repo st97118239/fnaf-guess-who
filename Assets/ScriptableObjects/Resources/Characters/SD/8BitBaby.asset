@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c7ca3246862526840874e2313890cb6c, type: 3}
   voicelines: {fileID: 11400000, guid: c10e77048265e304dac29f9dd720a20f, type: 2}
   directory: Characters/SD/8BitBaby
-  winsNeeded: 30
+  levelNeeded: 31

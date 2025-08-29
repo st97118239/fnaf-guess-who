@@ -33,8 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 04111d8a695c2cd428e8da91656e74f6, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 256d2a6eff347c84a89840b4da7bc7c6, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/SB/GlChica
-  firstGame: 10
-  animatronicClass: 13
-  skinClass: 0
+  levelNeeded: 1
+  isUnlocked: 0

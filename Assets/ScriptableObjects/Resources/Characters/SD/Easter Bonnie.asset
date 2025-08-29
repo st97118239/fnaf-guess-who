@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 130b41d40d5b1584ebc096afc45c559a, type: 3}
   voicelines: {fileID: 11400000, guid: fac9f26b9e787104dbd2d2672fa641aa, type: 2}
   directory: Characters/SD/Easter Bonnie
-  winsNeeded: 9
+  levelNeeded: 10

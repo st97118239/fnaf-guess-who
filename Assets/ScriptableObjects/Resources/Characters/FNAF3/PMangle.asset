@@ -37,4 +37,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5f89917d68c673e4aa97b8854f373241, type: 3}
   voicelines: {fileID: 11400000, guid: 418dd18ca19746244b85eee8b6125355, type: 2}
   directory: Characters/FNAF3/PMangle
-  winsNeeded: 0
+  levelNeeded: 1

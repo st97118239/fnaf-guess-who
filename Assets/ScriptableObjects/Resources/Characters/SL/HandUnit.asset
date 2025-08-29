@@ -36,4 +36,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3a9ec9ddf88f8b246bd320c8f248ee8a, type: 3}
   voicelines: []
   directory: Characters/SL/HandUnit
-  winsNeeded: 25
+  levelNeeded: 26

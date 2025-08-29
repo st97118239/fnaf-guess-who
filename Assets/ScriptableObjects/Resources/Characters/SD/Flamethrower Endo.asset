@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8dfbcd0d98a699047a3665f10142cb22, type: 3}
   voicelines: []
   directory: Characters/SD/Flamethrower Endo
-  winsNeeded: 17
+  levelNeeded: 18

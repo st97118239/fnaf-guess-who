@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d6fc3c39c53c03d4d82acf4425fe60cc, type: 3}
   voicelines: []
   directory: Characters/PS/RBonnie
-  winsNeeded: 2
+  levelNeeded: 3

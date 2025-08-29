@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e86338caa6d2dd14b879ce9650f41c24, type: 3}
   voicelines: []
   directory: Characters/SB/STAFF Bots/Alien Bot
-  winsNeeded: 4
+  levelNeeded: 5

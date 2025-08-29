@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1495a06d3a749544c8773252f30b21e4, type: 3}
   voicelines: []
   directory: Characters/SBR/Mask Bot
-  winsNeeded: 7
+  levelNeeded: 8

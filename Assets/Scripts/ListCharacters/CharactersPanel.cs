@@ -13,6 +13,8 @@ public class CharactersPanel : MonoBehaviour
     public CharacterCategory loadedCategory;
     public bool hasLoaded;
 
+    [SerializeField] private CharacterList allCharacters;
+    [SerializeField] private CharacterCategory newCharacters;
     [SerializeField] private Categories categories;
     [SerializeField] private GameObject grid;
 
@@ -135,15 +137,26 @@ public class CharactersPanel : MonoBehaviour
         Invoke(nameof(LoadCategories), fadeAnimDelay);
     }
 
+    public void NewNote()
+    {
+        newCharacters.characters.Clear();
+
+        int currentLevel = PlayerPrefs.GetInt("Level");
+
+        for (int i = 0; i < allCharacters.characters.Count; i++)
+        {
+            if (allCharacters.characters[i].levelNeeded == currentLevel)
+                newCharacters.characters.Add(allCharacters.characters[i]);
+        }
+
+        OpenCategoryFade(newCharacters);
+    }
+
     public void LoadCategoriesFade()
     {
         backNote.Disable();
 
-        PlayFadeAnim(true, true, false);
-
-        characterPolaroids?.Clear();
-
-        loadedCategory = null;
+        PlayFadeAnim(true, false, false);
 
         Invoke(nameof(LoadCategories), fadeAnimDelay);
     }
@@ -218,7 +231,7 @@ public class CharactersPanel : MonoBehaviour
     {
         categoryNote.Disable();
 
-        PlayFadeAnim(true, true, false);
+        PlayFadeAnim(true, false, false);
 
         loadedCategory = categoryToOpen;
         Invoke(nameof(OpenCategory), fadeAnimDelay);
@@ -228,7 +241,7 @@ public class CharactersPanel : MonoBehaviour
     {
         for (int i = 0; i < categoryNotes.Count; i++)
         {
-            Destroy(categoryNotes[i]);
+            Destroy(categoryNotes[i].gameObject);
         }
 
         categoryNotes.Clear();
@@ -239,9 +252,9 @@ public class CharactersPanel : MonoBehaviour
 
         for (int i = 0; i < characterAmount; i++)
         {
-            GameObject slotObj = Instantiate(characterPolaroidPrefab, emptySlots[i].transform.position, Quaternion.identity, emptySlots[i].transform);
-            characterPolaroids.Add(slotObj.GetComponent<CharacterPolaroid>());
-            characterPolaroids[i].Load(loadedCategory.characters[i], this, i);
+            CharacterPolaroid charPol = Instantiate(characterPolaroidPrefab, emptySlots[i].transform.position, Quaternion.identity, emptySlots[i].transform).GetComponent<CharacterPolaroid>();
+            characterPolaroids.Add(charPol);
+            charPol.Load(loadedCategory.characters[i], this, i);
         }
 
         RefreshMenuVar();

@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f6625c1dd8eb74145b7d1bafdb17dcc9, type: 3}
   voicelines: {fileID: 11400000, guid: 1810b739ba7431c44819a289aa10047d, type: 2}
   directory: Characters/SD/Shamrock Freddy
-  winsNeeded: 7
+  levelNeeded: 8

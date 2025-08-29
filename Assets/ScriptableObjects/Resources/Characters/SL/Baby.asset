@@ -36,4 +36,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: afb0670454de6094c8fb4e27cb56fd7a, type: 3}
   voicelines: {fileID: 11400000, guid: 2f07549629cc5c1488e68df626f72da3, type: 2}
   directory: Characters/SL/Baby
-  winsNeeded: 0
+  levelNeeded: 1

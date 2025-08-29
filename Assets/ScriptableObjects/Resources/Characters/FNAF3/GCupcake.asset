@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d5453a308485e2e4d84ad258087a07dd, type: 3}
   voicelines: []
   directory: Characters/FNAF3/GCupcake
-  winsNeeded: 30
+  levelNeeded: 31

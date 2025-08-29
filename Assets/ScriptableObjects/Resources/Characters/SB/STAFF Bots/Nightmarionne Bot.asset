@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1bd53794552ce1d42bf5c84a076bc9d6, type: 3}
   voicelines: []
   directory: Characters/SB/STAFF Bots/Nightmarionne Bot
-  winsNeeded: 12
+  levelNeeded: 13

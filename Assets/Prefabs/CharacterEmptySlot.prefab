@@ -64,5 +64,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 3256510230301515120}
   index: 0
   delay: 1
-  fadeTime: 0.4
+  floatDelay: 0.05
+  fadeTime: 0.2
   fadeAtStart: 0
+  useFloatDelay: 0

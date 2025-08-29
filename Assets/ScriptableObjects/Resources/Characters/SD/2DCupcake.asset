@@ -36,4 +36,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b561eae37cba16d4eb47f4cf6637cb44, type: 3}
   voicelines: []
   directory: Characters/SD/2DCupcake
-  winsNeeded: 25
+  levelNeeded: 26

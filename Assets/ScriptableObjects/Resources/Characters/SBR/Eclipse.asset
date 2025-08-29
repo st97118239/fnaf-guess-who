@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 709ad1492cd72e940907e7136a8dbf85, type: 3}
   voicelines: []
   directory: Characters/SBR/Eclipse
-  winsNeeded: 2
+  levelNeeded: 3

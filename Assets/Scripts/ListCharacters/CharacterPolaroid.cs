@@ -19,7 +19,7 @@ public class CharacterPolaroid : MonoBehaviour, IPointerClickHandler
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
-            if (character.winsNeeded <= PlayerPrefs.GetInt("Wins") || charactersPanel.listPanel.devManager.unlockAllCharacters)
+            if (character.isUnlocked || charactersPanel.listPanel.devManager.unlockAllCharacters)
                 RMB();
         }
     }
@@ -42,7 +42,7 @@ public class CharacterPolaroid : MonoBehaviour, IPointerClickHandler
     {
         int isInList = charactersPanel.listPanel.openedList.characters.FindIndex(d => d == character.directory);
 
-        if (isInList != -1 || (character.winsNeeded > PlayerPrefs.GetInt("Wins") && !charactersPanel.listPanel.devManager.unlockAllCharacters))
+        if (isInList != -1 || (!character.isUnlocked && !charactersPanel.listPanel.devManager.unlockAllCharacters))
         {
             polaroid.Disable();
             listPolaroid.characterCanAdd = false;

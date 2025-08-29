@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 622c6e73ad35bdc4b8349cc8e37a8cc0, type: 3}
   voicelines: []
   directory: Characters/SB/STAFF Bots/Nanny Bot
-  winsNeeded: 4
+  levelNeeded: 5

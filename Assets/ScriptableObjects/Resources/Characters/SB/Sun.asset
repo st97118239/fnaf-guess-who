@@ -33,8 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 234d9fdc293375643b49733d9a1a8e60, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 8eba6dc8a937c9943aed171778b9c658, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/SB/Sun
-  firstGame: 10
-  animatronicClass: 14
-  skinClass: 0
+  levelNeeded: 1
+  isUnlocked: 0

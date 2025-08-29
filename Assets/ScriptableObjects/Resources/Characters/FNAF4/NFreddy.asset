@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 95c0ecb17b4e9f3499cd450416978f37, type: 3}
   voicelines: {fileID: 11400000, guid: 2234752955a7e8341a7770183e3c9336, type: 2}
   directory: Characters/FNAF4/NFreddy
-  winsNeeded: 0
+  levelNeeded: 1

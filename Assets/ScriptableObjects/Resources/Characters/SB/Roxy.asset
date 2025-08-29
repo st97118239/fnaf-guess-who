@@ -33,8 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a16d44536f133a44a9145d7dbed84e81, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 4a01e0978165f6c4295db757ff847b05, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/SB/Roxy
-  firstGame: 10
-  animatronicClass: 13
-  skinClass: 0
+  levelNeeded: 1
+  isUnlocked: 0

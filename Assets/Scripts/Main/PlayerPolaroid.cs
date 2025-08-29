@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.UI.Button;
 
 public class PlayerPolaroid : MonoBehaviour, IPointerClickHandler
 {
@@ -27,14 +28,20 @@ public class PlayerPolaroid : MonoBehaviour, IPointerClickHandler
     private Color normalNameColor = Color.black;
     private Color devNameColor = new Color(172, 0, 0, 1);
 
+    [SerializeField]
+    private ButtonClickedEvent m_OnRightClick = new ButtonClickedEvent();
+
+    public ButtonClickedEvent onRightClick
+    {
+        get { return m_OnRightClick; }
+        set { m_OnRightClick = value; }
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            if (!mainPanel.playerPanel.isShown)
-            {
-                mainPanel.playerPanel.Show(isOpponent);
-            }
+            m_OnRightClick?.Invoke();
         }
     }
 
@@ -83,6 +90,14 @@ public class PlayerPolaroid : MonoBehaviour, IPointerClickHandler
             pol.polXImage.fillAmount = fill ? fillAmount : 1 - fillAmount;
 
             yield return null;
+        }
+    }
+
+    public void OnRightClick()
+    {
+        if (!mainPanel.playerPanel.isShown)
+        {
+            mainPanel.playerPanel.Show(isOpponent);
         }
     }
 

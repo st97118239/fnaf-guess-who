@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d7d68e65f0317ab4f8c8cebe84804a7c, type: 3}
   voicelines: {fileID: 11400000, guid: 9ce2a548dc35f5d4d9eae8bd1a5bcd3b, type: 2}
   directory: Characters/FNAF1/Chica
-  winsNeeded: 0
+  levelNeeded: 1

@@ -55,6 +55,9 @@ public class PlayerPanel : MonoBehaviour
         }
         else if (isOpponent)
         {
+            if (!gameManager.opponent)
+                return;
+
             avatar = Resources.Load<Character>(gameManager.opponent.avatar);
             username = gameManager.opponent.username;
             wins = gameManager.opponent.wins;

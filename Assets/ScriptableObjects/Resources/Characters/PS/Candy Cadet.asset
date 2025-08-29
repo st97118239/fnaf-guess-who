@@ -36,4 +36,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 21c712b68e7baaa4487d8ab0e47e6e82, type: 3}
   voicelines: []
   directory: Characters/PS/Candy Cadet
-  winsNeeded: 10
+  levelNeeded: 11

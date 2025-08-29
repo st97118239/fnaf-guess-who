@@ -41,7 +41,7 @@ public class CategoryNote : MonoBehaviour, IPointerClickHandler
 
         for (int i = 0; i < category.characters.Count; i++)
         {
-            if (category.characters[i].winsNeeded > PlayerPrefs.GetInt("Wins"))
+            if (!category.characters[i].isUnlocked)
                 amountLocked++;
         }
 

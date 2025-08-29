@@ -36,4 +36,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a0a265a313ae8e24ba19b894b86feefb, type: 3}
   voicelines: []
   directory: Characters/FNAF3/Springtrap
-  winsNeeded: 1
+  levelNeeded: 2

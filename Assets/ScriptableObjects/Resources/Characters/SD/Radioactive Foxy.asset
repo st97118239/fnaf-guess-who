@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 27c3628d337b7794986e78583995a28d, type: 3}
   voicelines: {fileID: 11400000, guid: 93615018448963d44b114f7def238130, type: 2}
   directory: Characters/SD/Radioactive Foxy
-  winsNeeded: 26
+  levelNeeded: 27

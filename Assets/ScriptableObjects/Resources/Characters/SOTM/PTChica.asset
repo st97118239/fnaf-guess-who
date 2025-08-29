@@ -36,4 +36,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b137a59b2d742684394ebee81826c83e, type: 3}
   voicelines: []
   directory: Characters/SOTM/PTChica
-  winsNeeded: 8
+  levelNeeded: 9

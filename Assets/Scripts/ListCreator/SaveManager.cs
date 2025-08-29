@@ -8,14 +8,14 @@ public class SaveManager : MonoBehaviour
 {
     public SaveData saveData;
 
-    public List<float> levelXPNeeded;
-
-    [SerializeField] private float bothWinXP;
-    [SerializeField] private float winXP;
-    [SerializeField] private float loseXp;
-    [SerializeField] private float bothLoseXP;
+    [SerializeField] private int bothWinXP;
+    [SerializeField] private int winXP;
+    [SerializeField] private int loseXp;
+    [SerializeField] private int bothLoseXP;
 
     [SerializeField] private MainPanel mainPanel;
+    [SerializeField] private ListPanel listPanel;
+    [SerializeField] private CharactersPanel characterPanel;
     [SerializeField] private Slider xpBar;
 
     [SerializeField] private ListDataChar listCharacters;
@@ -23,23 +23,26 @@ public class SaveManager : MonoBehaviour
     [SerializeField] private ListData listToSave;
 
     [SerializeField] private CharacterList defaultList;
-    [SerializeField] private ListPanel listPanel;
+    [SerializeField] private CharacterList allCharacters;
 
     private string savePath;
+    private float xpRequiredForNextLevel;
 
     private void Awake()
     {
-        if (PlayerPrefs.GetInt("Version") != listPanel.mainPanel.gameManager.version)
+        int version = PlayerPrefs.GetInt("Version");
+
+        if (version != listPanel.mainPanel.gameManager.version)
             PlayerPrefs.SetInt("Version", listPanel.mainPanel.gameManager.version);
 
-        Debug.Log("Playing on version " + PlayerPrefs.GetInt("Version"));
+        Debug.Log("Playing on version " + version);
 
         mainPanel.versionNote.ChangeText("Version: " + mainPanel.gameManager.version);
 
         if (PlayerPrefs.GetInt("Level") == 0)
         {
             PlayerPrefs.SetInt("Level", 1);
-            PlayerPrefs.SetFloat("XP", 0f);
+            PlayerPrefs.SetInt("XP", 0);
         }
 
         SetXPBar();
@@ -83,6 +86,8 @@ public class SaveManager : MonoBehaviour
         }
 
         LoadSelectedList();
+
+        UnlockCharacters();
     }
 
     private void ReplaceDefault()
@@ -170,6 +175,41 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    public void UnlockCharacters()
+    {
+        int currentLevel = PlayerPrefs.GetInt("Level");
+
+        for (int i = 0; i < allCharacters.characters.Count; i++)
+        {
+            if (currentLevel >= allCharacters.characters[i].levelNeeded)
+                allCharacters.characters[i].isUnlocked = true;
+            else
+                allCharacters.characters[i].isUnlocked = false;
+        }
+
+        bool isOnListPanel = false;
+
+        if (listPanel.hasListOpen && listPanel.menu == 1)
+            isOnListPanel = true;
+
+        if (characterPanel.hasLoaded)
+        {
+            if (characterPanel.loadedCategory == null)
+                characterPanel.LoadCategoriesFade();
+            else if (characterPanel.loadedCategory != null)
+                characterPanel.RefreshPolaroids();
+        }
+
+        if (isOnListPanel)
+            Invoke(nameof(ResetListPanelMenu), 0.8f);
+
+    }
+
+    public void ResetListPanelMenu()
+    {
+        listPanel.menu = 1;
+    }
+
     public void WinResults(bool playerWon, bool opponentWon)
     {
         if (playerWon && !opponentWon)
@@ -182,18 +222,25 @@ public class SaveManager : MonoBehaviour
             GiveXP(bothLoseXP);
     }
 
-    public void GiveXP(float xpAmount)
+    private int LevelXpNeeded(int currentLevel)
     {
-        if (levelXPNeeded.Count <= PlayerPrefs.GetInt("Level"))
-        {
-            Debug.Log("Player is already max level.");
-            return;
-        }
+        if (currentLevel < 1)
+            return 0;
 
-        PlayerPrefs.SetFloat("XP", PlayerPrefs.GetFloat("XP") + xpAmount);
-        Debug.Log("Gave the player " + xpAmount + " of XP. Player now has " + PlayerPrefs.GetFloat("XP") + " amount of XP.");
+        int neededXp = 0;
+        for (int i = 0; i < currentLevel; i++)
+            neededXp += (100 + 25 * i);
 
-        if (PlayerPrefs.GetFloat("XP") >= levelXPNeeded[PlayerPrefs.GetInt("Level")])
+        return neededXp;
+    }
+
+    public void GiveXP(int xpAmount)
+    {
+        int newXp = PlayerPrefs.GetInt("XP") + xpAmount;
+        PlayerPrefs.SetInt("XP", newXp);
+        Debug.Log("Gave the player " + xpAmount + " of XP. Player now has " + newXp + " amount of XP.");
+
+        if (newXp >= xpRequiredForNextLevel)
             LevelUp();
 
         SetXPBar();
@@ -201,32 +248,33 @@ public class SaveManager : MonoBehaviour
 
     private void SetXPBar()
     {
-        if (PlayerPrefs.GetInt("Level") == 1)
-            xpBar.minValue = 0;
-        else
-            xpBar.minValue = levelXPNeeded[PlayerPrefs.GetInt("Level") - 1];
+        int currentLevel = PlayerPrefs.GetInt("Level");
+        xpRequiredForNextLevel = LevelXpNeeded(currentLevel);
+        xpBar.minValue = LevelXpNeeded(currentLevel - 1);
+        xpBar.maxValue = xpRequiredForNextLevel;
 
-        if (levelXPNeeded.Count <= PlayerPrefs.GetInt("Level"))
-            xpBar.maxValue = PlayerPrefs.GetFloat("XP");
-        else
-            xpBar.maxValue = levelXPNeeded[PlayerPrefs.GetInt("Level")];
-
-        xpBar.value = PlayerPrefs.GetFloat("XP");
+        xpBar.value = PlayerPrefs.GetInt("XP");
     }
 
     private void LevelUp()
     {
-        PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
-        Debug.Log("Player leveled up and is now level " + PlayerPrefs.GetInt("Level"));
+        int newLevel = PlayerPrefs.GetInt("Level") + 1;
+        PlayerPrefs.SetInt("Level", newLevel);
+        Debug.Log("Player leveled up and is now level " + newLevel);
         mainPanel.SetPlayerPolaroid(false, false, true);
+
+        xpRequiredForNextLevel = LevelXpNeeded(newLevel);
+
+        UnlockCharacters();
     }
 
     public void ResetLevel()
     {
         PlayerPrefs.SetInt("Level", 1);
-        PlayerPrefs.SetFloat("XP", 0);
+        PlayerPrefs.SetInt("XP", 0);
         SetXPBar();
         Debug.Log("Reset player's level and XP.");
         mainPanel.SetPlayerPolaroid(false, false, true);
+        UnlockCharacters();
     }
 }

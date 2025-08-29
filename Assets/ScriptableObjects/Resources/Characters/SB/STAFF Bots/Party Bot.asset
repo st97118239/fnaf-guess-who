@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 97c2784f3284b1847a1a11a43f175f41, type: 3}
   voicelines: []
   directory: Characters/SB/STAFF Bots/Party Bot
-  winsNeeded: 6
+  levelNeeded: 7

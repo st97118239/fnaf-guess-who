@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a5709539bec3eb543ace4ed9bba74fb4, type: 3}
   voicelines: {fileID: 11400000, guid: 1810b739ba7431c44819a289aa10047d, type: 2}
   directory: Characters/SD/Firework Freddy
-  winsNeeded: 18
+  levelNeeded: 19

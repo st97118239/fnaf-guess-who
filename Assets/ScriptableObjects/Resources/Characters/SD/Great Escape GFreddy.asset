@@ -35,4 +35,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ece3dda0ac90aca4b9c0995117262b91, type: 3}
   voicelines: []
   directory: Characters/SD/Great Escape GFreddy
-  winsNeeded: 40
+  levelNeeded: 40
