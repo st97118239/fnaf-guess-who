@@ -7,6 +7,8 @@ public class DevClipboard : MonoBehaviour
     public bool isShown;
 
     [SerializeField] private DevManager devManager;
+    [SerializeField] private SaveManager saveManager;
+    [SerializeField] private MainPanel mainPanel;
     [SerializeField] private ListPanel listPanel;
     [SerializeField] private CharactersPanel characterPanel;
 
@@ -18,10 +20,12 @@ public class DevClipboard : MonoBehaviour
     [SerializeField] private Toggle unlockAllCharsToggle;
     [SerializeField] private TMP_InputField winsField;
     [SerializeField] private TMP_InputField gamesField;
+    [SerializeField] private TMP_InputField levelField;
+    [SerializeField] private Note saveCharsNote;
 
     private bool isUnlocked;
 
-    private void Awake()
+    private void Start()
     {
         paper2.SetActive(false);
     }
@@ -39,6 +43,7 @@ public class DevClipboard : MonoBehaviour
 
         winsField.text = PlayerPrefs.GetInt("Wins").ToString();
         gamesField.text = PlayerPrefs.GetInt("Games").ToString();
+        levelField.text = PlayerPrefs.GetInt("Level").ToString();
 
         clipboardAnimator.SetTrigger("PaperOpen");
         backgroundBlocker.SetActive(true);
@@ -86,6 +91,12 @@ public class DevClipboard : MonoBehaviour
         isUnlocked = true;
 
         paper2.SetActive(true);
+
+#if UNITY_EDITOR
+        saveCharsNote.Enable();
+#else
+        saveCharsNote.Disable();
+#endif
     }
 
     public void Save()
@@ -94,5 +105,10 @@ public class DevClipboard : MonoBehaviour
 
         PlayerPrefs.SetInt("Wins", int.Parse(winsField.text));
         PlayerPrefs.SetInt("Games", int.Parse(gamesField.text));
+
+        int levelFieldText = int.Parse(levelField.text);
+
+        if (PlayerPrefs.GetInt("Level") != levelFieldText)
+            saveManager.SetLevel(levelFieldText);
     }
 }

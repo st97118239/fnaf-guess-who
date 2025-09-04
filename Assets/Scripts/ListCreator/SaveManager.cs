@@ -268,6 +268,20 @@ public class SaveManager : MonoBehaviour
         UnlockCharacters();
     }
 
+    public void SetLevel(int givenLevel)
+    {
+        PlayerPrefs.SetInt("Level", givenLevel);
+        PlayerPrefs.SetInt("XP", LevelXpNeeded(givenLevel - 1));
+        Debug.Log("Player's level set to " + givenLevel);
+        mainPanel.SetPlayerPolaroid(false, false, true);
+
+        xpRequiredForNextLevel = LevelXpNeeded(givenLevel);
+
+        SetXPBar();
+
+        UnlockCharacters();
+    }
+
     public void ResetLevel()
     {
         PlayerPrefs.SetInt("Level", 1);

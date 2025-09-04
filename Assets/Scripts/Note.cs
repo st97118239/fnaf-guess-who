@@ -18,7 +18,7 @@ public class Note : MonoBehaviour
     [SerializeField] private bool startWithImage;
 
     [SerializeField] private float crossOffTime = 1;
-    [SerializeField] private Vector2 spawnRotation = new Vector2(-4f,4f);
+    [SerializeField] private Vector2 spawnRotation = new(-4f,4f);
 
     [SerializeField] private RectTransform rectTransform;
 
@@ -81,9 +81,10 @@ public class Note : MonoBehaviour
             return;
 
         noteXImage.fillOrigin = 0;
-        StartCoroutine(FadeImage(false, "UI/X", noteXImage));
         noteButton.interactable = true;
         isCrossedOff = false;
+        if (gameObject.activeSelf)
+            StartCoroutine(FadeImage(false, "UI/X", noteXImage));
     }
 
     public void Disable()
@@ -92,17 +93,19 @@ public class Note : MonoBehaviour
             return;
 
         noteXImage.fillOrigin = 0;
-        StartCoroutine(FadeImage(true, "UI/X", noteXImage));
         noteButton.interactable = false;
         isCrossedOff = true;
+        if (gameObject.activeSelf)
+            StartCoroutine(FadeImage(true, "UI/X", noteXImage));
     }
 
     public void Checkmark()
     {
         noteXImage.fillOrigin = 1;
-        StartCoroutine(FadeImage(true, "UI/Checkmark", noteXImage));
         noteButton.interactable = false;
         isCrossedOff = false;
+        if (gameObject.activeSelf)
+            StartCoroutine(FadeImage(true, "UI/Checkmark", noteXImage));
     }
 
     public void ChangeText(string txt)
