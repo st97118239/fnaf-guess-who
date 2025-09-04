@@ -1,6 +1,8 @@
+using System;
 using Mirror;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Game : MonoBehaviour
 {
@@ -33,6 +35,9 @@ public class Game : MonoBehaviour
     private int slotAmount;
     private float rndVoicelineTimer;
 
+    private static readonly int GameOpen = Animator.StringToHash("GameOpen");
+    private static readonly int GameClose = Animator.StringToHash("GameClose");
+
     private void Start()
     {
         rndVoicelineTimer = Random.Range(rndVoicelineTimerBase.x, rndVoicelineTimerBase.y);
@@ -40,83 +45,90 @@ public class Game : MonoBehaviour
 
     private void Update()
     {
-        if (gameManager.hasStarted && chosenCharacter && !gameManager.hasFinished)
+        if (!gameManager.hasStarted || !chosenCharacter || gameManager.hasFinished) 
+            return;
+
+        if (rndVoicelineTimer > 0)
+            rndVoicelineTimer -= Time.deltaTime;
+        else
         {
-            if (rndVoicelineTimer > 0)
-                rndVoicelineTimer -= Time.deltaTime;
-            else
-            {
-                rndVoicelineTimer = Random.Range(rndVoicelineTimerBase.x, rndVoicelineTimerBase.y);
+            rndVoicelineTimer = Random.Range(rndVoicelineTimerBase.x, rndVoicelineTimerBase.y);
 
-                Character rndChar = possibleSlots[Random.Range(0, possibleSlots.Count - 1)].character;
+            Character rndChar = possibleSlots[Random.Range(0, possibleSlots.Count - 1)].character;
 
-                if (rndChar.voicelines)
-                    rndChar.voicelines.Play(audioManager.voicelines, subtitles);
-            }
+            if (rndChar.voicelines)
+                rndChar.voicelines.Play(audioManager.voicelines, subtitles);
         }
     }
 
     public void LoadGame()
     {
-        for (int i = 0; i < emptySlots.Count; i++)
+        foreach (EmptySlot t in emptySlots)
         {
-            Destroy(emptySlots[i].gameObject);
+            Destroy(t.gameObject);
         }
 
         emptySlots.Clear();
 
         characterSidebar.doneNote.Disable();
         
-        if (player.playerIdx == 1)
+        switch (player.playerIdx)
         {
-            if (playerCharArray.Length == 0)
+            case 1:
             {
-                playerCharArray = new Character[gameManager.player1List.Length];
-
-                for (int i = 0; i < gameManager.player1List.Length; i++)
+                if (playerCharArray.Length == 0)
                 {
-                    playerCharArray[i] = Resources.Load<Character>(gameManager.player1List[i]);
+                    playerCharArray = new Character[gameManager.player1List.Length];
+
+                    for (int i = 0; i < gameManager.player1List.Length; i++)
+                    {
+                        playerCharArray[i] = Resources.Load<Character>(gameManager.player1List[i]);
+                    }
+
+                    Debug.Log("Added p1 to playerArray");
                 }
 
-                Debug.Log("Added p1 to playerArray");
+                if (opponentCharArray.Length == 0)
+                {
+                    opponentCharArray = new Character[gameManager.player2List.Length];
+
+                    for (int i = 0; i < gameManager.player2List.Length; i++)
+                    {
+                        opponentCharArray[i] = Resources.Load<Character>(gameManager.player2List[i]);
+                    }
+
+                    Debug.Log("Added p2 to opponentArray");
+                }
+
+                break;
             }
-
-            if (opponentCharArray.Length == 0)
+            case 2:
             {
-                opponentCharArray = new Character[gameManager.player2List.Length];
-
-                for (int i = 0; i < gameManager.player2List.Length; i++)
+                if (playerCharArray.Length == 0)
                 {
-                    opponentCharArray[i] = Resources.Load<Character>(gameManager.player2List[i]);
+                    playerCharArray = new Character[gameManager.player2List.Length];
+
+                    for (int i = 0; i < gameManager.player2List.Length; i++)
+                    {
+                        playerCharArray[i] = Resources.Load<Character>(gameManager.player2List[i]);
+                    }
+
+                    Debug.Log("Added p2 to playerArray");
                 }
 
-                Debug.Log("Added p2 to opponentArray");
-            }
-        }
-        else if (player.playerIdx == 2)
-        {
-            if (playerCharArray.Length == 0)
-            {
-                playerCharArray = new Character[gameManager.player2List.Length];
-
-                for (int i = 0; i < gameManager.player2List.Length; i++)
+                if (opponentCharArray.Length == 0)
                 {
-                    playerCharArray[i] = Resources.Load<Character>(gameManager.player2List[i]);
+                    opponentCharArray = new Character[gameManager.player1List.Length];
+
+                    for (int i = 0; i < gameManager.player1List.Length; i++)
+                    {
+                        opponentCharArray[i] = Resources.Load<Character>(gameManager.player1List[i]);
+                    }
+
+                    Debug.Log("Added p1 to opponentArray");
                 }
 
-                Debug.Log("Added p2 to playerArray");
-            }
-
-            if (opponentCharArray.Length == 0)
-            {
-                opponentCharArray = new Character[gameManager.player1List.Length];
-
-                for (int i = 0; i < gameManager.player1List.Length; i++)
-                {
-                    opponentCharArray[i] = Resources.Load<Character>(gameManager.player1List[i]);
-                }
-
-                Debug.Log("Added p1 to opponentArray");
+                break;
             }
         }
 
@@ -142,7 +154,7 @@ public class Game : MonoBehaviour
         infoPanel.chooseType = 1;
 
         mainPanel.currentPanel = Panels.Game;
-        animator.SetTrigger("GameOpen");
+        animator.SetTrigger(GameOpen);
 
         characterSidebar.turnNote.ChangeText("Pick suspect");
 
@@ -210,9 +222,9 @@ public class Game : MonoBehaviour
 
     private void PlayFadeAnim(bool shouldReverse, bool shouldDestroyChildren, bool shouldDestroySelf)
     {
-        for (int i = 0; i < emptySlots.Count; i++)
+        foreach (EmptySlot t in emptySlots)
         {
-            emptySlots[i].Play(shouldReverse, shouldDestroyChildren, shouldDestroySelf);
+            t.Play(shouldReverse, shouldDestroyChildren, shouldDestroySelf);
         }
     }
 
@@ -243,9 +255,9 @@ public class Game : MonoBehaviour
         accusedCharacter = accusedChar;
         Invoke(nameof(PlayAccusedCharacterAudio), 0.1f);
 
-        for (int i = 0; i < charSlots.Count; i++)
+        foreach (CharSlot t in charSlots)
         {
-            charSlots[i].CanLMB(false);
+            t.CanLMB(false);
         }
     }
 
@@ -259,7 +271,7 @@ public class Game : MonoBehaviour
     {
         PlayReverseFadeAnim();
 
-        Invoke(nameof(SpawnPolaroids), 0.7f);
+        Invoke(nameof(SpawnPolaroids), 1);
     }
 
     public void UpdateSidebar()
@@ -306,23 +318,8 @@ public class Game : MonoBehaviour
                 NetworkManager.singleton.StopClient();
         }
 
-        mainPanel.SpawnPosters();
+        mainPanel.Load();
 
-        mainPanel.currentPanel = Panels.MainPanel;
-        animator.SetTrigger("GameClose");
-
-        mainPanel.settingsMenu.isConnected = false;
-
-        mainPanel.playerPolaroids[0].Ready(false);
-        mainPanel.playerPolaroids[1].Ready(false);
-        mainPanel.SetOpponentPolaroid();
-        mainPanel.readyNote.Disable();
-        mainPanel.connectionNote.Enable();
-        mainPanel.hostNote.Enable();
-        mainPanel.quitNote.Enable();
-        mainPanel.connectionNote.ChangeText("Connect");
-
-        mainPanel.isInGame = false;
         Invoke(nameof(ResetGame), 1);
     }
 
@@ -332,16 +329,16 @@ public class Game : MonoBehaviour
         charSlots.Clear();
         possibleSlots.Clear();
         crossedOff.Clear();
-        playerCharArray = new Character[0];
-        opponentCharArray = new Character[0];
+        playerCharArray = Array.Empty<Character>();
+        opponentCharArray = Array.Empty<Character>();
         chosenCharacter = null;
         accusedCharacter = null;
         slotAmount = 0;
         gameManager.ResetGame();
 
-        for (int i = 0; i < emptySlots.Count; i++)
+        foreach (EmptySlot t in emptySlots)
         {
-            Destroy(emptySlots[i].gameObject);
+            Destroy(t.gameObject);
         }
 
         emptySlots.Clear();
@@ -354,37 +351,56 @@ public class Game : MonoBehaviour
     {
         PlayerPrefs.SetInt("Games", PlayerPrefs.GetInt("Games") + 1);
 
-        if (player.playerIdx == 1)
+        switch (player.playerIdx)
         {
-            if (p1Won && !p2Won)
-                winPanel.result = "You accused the correct suspect! And your opponent did not.";
-            else if (p1Won && p2Won)
-                winPanel.result = "You accused the correct suspect! But your opponent accused your suspect.";
-            else if (!p1Won && p2Won)
-                winPanel.result = "You did not accuse the correct suspect. But your opponent accused your suspect.";
-            else if (!p1Won && !p2Won)
-                winPanel.result = "You did not accuse the correct suspect. And neither did your opponent.";
+            case 1:
+            {
+                switch (p1Won)
+                {
+                    case true when !p2Won:
+                        winPanel.result = "You accused the correct suspect! And your opponent did not.";
+                        break;
+                    case true when p2Won:
+                        winPanel.result = "You accused the correct suspect! But your opponent accused your suspect.";
+                        break;
+                    case false when p2Won:
+                        winPanel.result = "You did not accuse the correct suspect. But your opponent accused your suspect.";
+                        break;
+                    case false when !p2Won:
+                        winPanel.result = "You did not accuse the correct suspect. And neither did your opponent.";
+                        break;
+                }
 
-            if (p1Won)
-                PlayerPrefs.SetInt("Wins", PlayerPrefs.GetInt("Wins") + 1);
+                if (p1Won)
+                    PlayerPrefs.SetInt("Wins", PlayerPrefs.GetInt("Wins") + 1);
 
-            mainPanel.saveManager.WinResults(p1Won, p2Won);
-        }
-        else if (player.playerIdx == 2)
-        {
-            if (p2Won && !p1Won)
-                winPanel.result = "You accused the correct suspect! And your opponent did not.";
-            else if (p2Won && p1Won)
-                winPanel.result = "You accused the correct suspect! But your opponent accused your suspect.";
-            else if (!p2Won && p1Won)
-                winPanel.result = "You did not accuse the correct suspect. But your opponent accused your suspect.";
-            else if (!p2Won && !p1Won)
-                winPanel.result = "You did not accuse the correct suspect. And neither did your opponent.";
+                mainPanel.saveManager.WinResults(p1Won, p2Won);
+                break;
+            }
+            case 2:
+            {
+                switch (p2Won)
+                {
+                    case true when !p1Won:
+                        winPanel.result = "You accused the correct suspect! And your opponent did not.";
+                        break;
+                    case true when p1Won:
+                        winPanel.result = "You accused the correct suspect! But your opponent accused your suspect.";
+                        break;
+                    case false when p1Won:
+                        winPanel.result = "You did not accuse the correct suspect. But your opponent accused your suspect.";
+                        break;
+                    case false when !p1Won:
+                        winPanel.result = "You did not accuse the correct suspect. And neither did your opponent.";
+                        break;
+                }
 
-            if (p2Won)
-                PlayerPrefs.SetInt("Wins", PlayerPrefs.GetInt("Wins") + 1);
+                if (p2Won)
+                    PlayerPrefs.SetInt("Wins", PlayerPrefs.GetInt("Wins") + 1);
 
-            mainPanel.saveManager.WinResults(p2Won, p1Won);
+                mainPanel.saveManager.WinResults(p2Won, p1Won);
+                break;
+            }
         }
 
         Character opponentChar = Resources.Load<Character>(opponentCharDirectory);

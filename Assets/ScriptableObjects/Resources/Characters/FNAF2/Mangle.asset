@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 4006aae1a50722a49ad52f00db5a4c2f, type: 2}
   directory: Characters/FNAF2/Mangle
   levelNeeded: 1
+  isUnlocked: 0

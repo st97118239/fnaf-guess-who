@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1775f0dce55867e43a98e88cd1fe9dc1, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 631f7c2a9ce3e5c499269b1fc507ce03, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/PS/Lefty
   levelNeeded: 5
+  isUnlocked: 0

@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8a6bba7a588ccf040b48bae2c62a1b3a, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 627695fea5d5332449787f9d33ddd575, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/PS/RChica
-  levelNeeded: 3
+  levelNeeded: 12
+  isUnlocked: 0

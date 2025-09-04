@@ -34,6 +34,7 @@ MonoBehaviour:
   fullBodySprite:
   - {fileID: 21300000, guid: 6291efa15340d1345936cd4412696361, type: 3}
   - {fileID: 21300000, guid: 4a5bdd5c3c2bce74b9e419d24a0d671b, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/SL/Little Joe
   levelNeeded: 7
+  isUnlocked: 0

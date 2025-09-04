@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 9ce2a548dc35f5d4d9eae8bd1a5bcd3b, type: 2}
   directory: Characters/FNAF1/Chica
   levelNeeded: 1
+  isUnlocked: 0

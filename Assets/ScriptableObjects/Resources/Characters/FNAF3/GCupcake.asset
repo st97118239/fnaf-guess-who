@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 126c803f715dd114da293594e4f930d1, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: d5453a308485e2e4d84ad258087a07dd, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/FNAF3/GCupcake
-  levelNeeded: 31
+  levelNeeded: 30
+  isUnlocked: 0

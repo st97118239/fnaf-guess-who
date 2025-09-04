@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: a0b392fa11fdbca4db7430208ead18ac, type: 2}
   directory: Characters/PS/Music Man
   levelNeeded: 13
+  isUnlocked: 0

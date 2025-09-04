@@ -34,6 +34,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 98aa095cd26a075488e6f90cbe8fe090, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 48d8c3dc11c84354ba9d2720c1cf20b1, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/SBR/Mimic
   levelNeeded: 4
+  isUnlocked: 0

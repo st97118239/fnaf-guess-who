@@ -27,6 +27,9 @@ public class PlayerPanel : MonoBehaviour
 
     private Animator animator;
 
+    private static readonly int FolderClose = Animator.StringToHash("FolderClose");
+    private static readonly int FolderOpen = Animator.StringToHash("FolderOpen");
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -45,24 +48,24 @@ public class PlayerPanel : MonoBehaviour
     {
         isOpponent = givenIsOpponent;
 
-        if (!isOpponent)
+        switch (isOpponent)
         {
-            avatar = Resources.Load<Character>(mainPanel.avatar);
-            username = mainPanel.username;
-            wins = PlayerPrefs.GetInt("Wins");
-            games = PlayerPrefs.GetInt("Games");
-            isDev = mainPanel.devManager.isUnlocked;
-        }
-        else if (isOpponent)
-        {
-            if (!gameManager.opponent)
+            case false:
+                avatar = Resources.Load<Character>(mainPanel.avatar);
+                username = mainPanel.username;
+                wins = PlayerPrefs.GetInt("Wins");
+                games = PlayerPrefs.GetInt("Games");
+                isDev = mainPanel.devManager.isUnlocked;
+                break;
+            case true when !gameManager.opponent:
                 return;
-
-            avatar = Resources.Load<Character>(gameManager.opponent.avatar);
-            username = gameManager.opponent.username;
-            wins = gameManager.opponent.wins;
-            games = gameManager.opponent.games;
-            isDev = gameManager.opponent.isDev;
+            case true:
+                avatar = Resources.Load<Character>(gameManager.opponent.avatar);
+                username = gameManager.opponent.username;
+                wins = gameManager.opponent.wins;
+                games = gameManager.opponent.games;
+                isDev = gameManager.opponent.isDev;
+                break;
         }
         
         if (avatar.polaroidSprite.Count > 0)
@@ -86,7 +89,7 @@ public class PlayerPanel : MonoBehaviour
 
     public void Close()
     {
-        animator.SetTrigger("FolderClose");
+        animator.SetTrigger(FolderClose);
         Invoke(nameof(DisableBackground), 0.6f);
         avatar = null;
         username = string.Empty;
@@ -106,10 +109,7 @@ public class PlayerPanel : MonoBehaviour
         texts[1].text = wins.ToString();
         texts[2].text = games.ToString();
 
-        if (isDev)
-            texts[3].gameObject.SetActive(true);
-        else
-            texts[3].gameObject.SetActive(false);
+        texts[3].gameObject.SetActive(isDev);
 
         lines[0].gameObject.SetActive(false);
 
@@ -128,7 +128,7 @@ public class PlayerPanel : MonoBehaviour
         lines[0].gameObject.SetActive(true);
 
         backgroundBlocker.SetActive(true);
-        animator.SetTrigger("FolderOpen");
+        animator.SetTrigger(FolderOpen);
 
         isShown = true;
     }

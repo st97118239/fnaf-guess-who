@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3345368440bad7e488fc11e91dd05989, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: e47925811929f7a4d8f40f16daf4f0d9, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/PS/RFreddy
-  levelNeeded: 3
+  levelNeeded: 12
+  isUnlocked: 0

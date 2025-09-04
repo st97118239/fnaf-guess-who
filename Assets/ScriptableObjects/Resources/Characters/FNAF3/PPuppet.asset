@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 9d781597f4f74ca4c95565197485ae38, type: 2}
   directory: Characters/FNAF3/PPuppet
   levelNeeded: 1
+  isUnlocked: 0

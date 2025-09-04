@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ListPanel : MonoBehaviour
@@ -6,6 +7,7 @@ public class ListPanel : MonoBehaviour
     public MainPanel mainPanel;
     public Game game;
     public SaveManager saveManager;
+    public ListSettings listSettings;
     public ListInfoPanel infoPanel;
     public ListData selectedList;
     public ListData openedList;
@@ -20,7 +22,6 @@ public class ListPanel : MonoBehaviour
     public int maxCharacters = 96;
 
     [SerializeField] private GameObject listGrid;
-    [SerializeField] private ListSettings listSettings;
     [SerializeField] private GameObject listNotePrefab;
     [SerializeField] private GameObject emptySlotPrefab;
     [SerializeField] private GameObject polaroidPrefab;
@@ -37,32 +38,33 @@ public class ListPanel : MonoBehaviour
     private int listAmount;
     private bool hasLoaded;
 
+    private static readonly int ListCreatorClose = Animator.StringToHash("ListCreatorClose");
+    private static readonly int ListCreatorOpen = Animator.StringToHash("ListCreatorOpen");
+    private static readonly int ListCharClose = Animator.StringToHash("ListCharClose");
+
     private void Awake()
     {
-        if (emptySlotAmount == 0)
-        {
-            emptySlotAmount = 96; // Set emptySlotAmount to max otherwise we get an error
-            Debug.LogWarning("emptySlotAmount is set to 0, please set an amount.");
-        }
+        if (emptySlotAmount != 0) 
+            return;
+
+        emptySlotAmount = 96; // Set emptySlotAmount to max otherwise we get an error
+        Debug.LogWarning("emptySlotAmount is set to 0, please set an amount.");
     }
 
     private void Update()
     {
-        if (mainPanel.currentPanel == Panels.ListPanel)
-        {
-            if (menu == 1 && !isInfoPanelShown && Input.GetKeyDown(KeyCode.Escape))
-                BackNote();
-        }
+        if (mainPanel.currentPanel != Panels.ListPanel)
+            return;
+
+        if (menu == 1 && !isInfoPanelShown && Input.GetKeyDown(KeyCode.Escape))
+            BackNote();
     }
 
     public void LoadPanel()
     {
         mainPanel.currentPanel = Panels.ListPanel;
 
-        if (fromCharacterPanel)
-            game.animator.SetTrigger("ListCharClose");
-        else
-            game.animator.SetTrigger("ListCreatorOpen");
+        game.animator.SetTrigger(fromCharacterPanel ? ListCharClose : ListCreatorOpen);
 
         fromCharacterPanel = false;
 
@@ -73,14 +75,14 @@ public class ListPanel : MonoBehaviour
     public void ClosePanel()
     {
         mainPanel.currentPanel = Panels.MainPanel;
-        game.animator.SetTrigger("ListCreatorClose");
+        game.animator.SetTrigger(ListCreatorClose);
     }
 
     private void PlayFadeAnim(bool shouldReverse, bool shouldDestroyChildren, bool shouldDestroySelf)
     {
-        for (int i = 0; i < emptySlots.Count; i++)
+        foreach (EmptySlot t in emptySlots)
         {
-            emptySlots[i].Play(shouldReverse, shouldDestroyChildren, shouldDestroySelf);
+            t.Play(shouldReverse, shouldDestroyChildren, shouldDestroySelf);
         }
     }
 
@@ -108,6 +110,26 @@ public class ListPanel : MonoBehaviour
 
     private void SpawnListNotes()
     {
+        if (listNotes != null)
+        {
+            foreach (ListNote note in listNotes.Where(note => note))
+            {
+                Destroy(note.gameObject);
+            }
+
+            listNotes.Clear();
+        }
+
+        if (polaroids != null)
+        {
+            foreach (ListPolaroid pol in polaroids.Where(pol => pol))
+            {
+                Destroy(pol.gameObject);
+            }
+
+            polaroids.Clear();
+        }
+
         listAmount = saveManager.saveData.lists.Count;
 
         listNotes = new List<ListNote>(listAmount);
@@ -131,16 +153,29 @@ public class ListPanel : MonoBehaviour
 
         openedList = list;
 
-        for (int i = 0; i < listNotes.Count; i++)
+        if (listNotes != null)
         {
-            Destroy(listNotes[i].gameObject);
+            foreach (ListNote note in listNotes.Where(note => note))
+            {
+                Destroy(note.gameObject);
+            }
+
+            listNotes.Clear();
         }
 
-        listNotes.Clear();
-
-        for (int i = 0; i < emptySlots.Count; i++)
+        if (polaroids != null)
         {
-            emptySlots[i].Reset();
+            foreach (ListPolaroid pol in polaroids.Where(pol => pol))
+            {
+                Destroy(pol.gameObject);
+            }
+
+            polaroids.Clear();
+        }
+
+        foreach (EmptySlot t in emptySlots)
+        {
+            t.Reset();
         }
 
         OpenListCharactersMenu();
@@ -184,6 +219,20 @@ public class ListPanel : MonoBehaviour
             return;
         }
 
+        foreach (ListPolaroid t in polaroids.Where(t => t))
+        {
+            Destroy(t.gameObject);
+        }
+
+        polaroids.Clear();
+
+        foreach (ListNote t in listNotes.Where(t => t))
+        {
+            Destroy(t.gameObject);
+        }
+
+        listNotes.Clear();
+
         polaroids = new List<ListPolaroid>(openedList.characters.Count);
 
         for (int i = 0; i < openedList.characters.Count; i++)
@@ -205,6 +254,20 @@ public class ListPanel : MonoBehaviour
 
     private void RefreshListsSpawn()
     {
+        foreach (ListPolaroid t in polaroids.Where(t => t))
+        {
+            Destroy(t.gameObject);
+        }
+
+        polaroids.Clear();
+
+        foreach (ListNote t in listNotes.Where(t => t))
+        {
+            Destroy(t.gameObject);
+        }
+
+        listNotes.Clear();
+
         listAmount = saveManager.saveData.lists.Count;
 
         listNotes = new List<ListNote>(listAmount);
@@ -238,17 +301,13 @@ public class ListPanel : MonoBehaviour
         selectNote.Disable();
         menu = 0;
 
-        polaroids.Clear();
-
         Invoke(nameof(SpawnListNotes), 0.7f);
     }
 
     public void BackNote()
     {
-        if (menu == 1)
-        {
+        if (menu == 1) 
             ListCharactersBack();
-        }
     }
 
     public void SelectNote()

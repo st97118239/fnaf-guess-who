@@ -80,9 +80,9 @@ public class SaveManager : MonoBehaviour
             ReplaceDefault();
         }
 
-        for (int i = 0; i < save.lists.Count; i++)
+        foreach (ListData t in save.lists)
         {
-            Debug.Log("Found list: " + save.lists[i].name);
+            Debug.Log("Found list: " + t.name);
         }
 
         LoadSelectedList();
@@ -133,11 +133,11 @@ public class SaveManager : MonoBehaviour
 
     public void RemoveList(int indexToRemove)
     {
-        if (indexToRemove != -1)
-        {
-            saveData.lists.RemoveAt(indexToRemove);
-            listPanel.RefreshLists();
-        }
+        if (indexToRemove == -1) 
+            return;
+
+        saveData.lists.RemoveAt(indexToRemove);
+        listPanel.RefreshLists();
     }
 
     public void CreateNewSave()
@@ -146,9 +146,9 @@ public class SaveManager : MonoBehaviour
 
         listCharacters.characters = new List<Character>();
 
-        for (int i = 0; i < defaultList.characters.Count; i++)
+        foreach (Character t in defaultList.characters)
         {
-            listCharacters.characters.Add(defaultList.characters[i]);
+            listCharacters.characters.Add(t);
         }
     }
 
@@ -165,13 +165,24 @@ public class SaveManager : MonoBehaviour
 
     private void LoadSelectedList()
     {
-        for (int i = 0; i < saveData.lists.Count; i++)
+        foreach (ListData t in saveData.lists.Where(t => t.selected))
         {
-            if (saveData.lists[i].selected)
-            {
-                listPanel.selectedList = saveData.lists[i];
-                Debug.Log("Last selected list: " + saveData.lists[i].name);
-            }
+            listPanel.selectedList = t;
+            Debug.Log("Last selected list: " + t.name);
+        }
+    }
+
+    public void DuplicateList(int indexOfList)
+    {
+        List<string> charactersToDuplicate = saveData.lists[indexOfList].characters;
+
+        listPanel.NewList();
+
+        listPanel.openedList.characters = new List<string>(charactersToDuplicate.Count);
+
+        foreach (string t in charactersToDuplicate)
+        {
+            listPanel.openedList.characters.Add(t);
         }
     }
 
@@ -179,18 +190,19 @@ public class SaveManager : MonoBehaviour
     {
         int currentLevel = PlayerPrefs.GetInt("Level");
 
-        for (int i = 0; i < allCharacters.characters.Count; i++)
+        foreach (Character t in allCharacters.characters)
         {
-            if (currentLevel >= allCharacters.characters[i].levelNeeded)
-                allCharacters.characters[i].isUnlocked = true;
-            else
-                allCharacters.characters[i].isUnlocked = false;
+            t.isUnlocked = currentLevel >= t.levelNeeded;
         }
 
-        bool isOnListPanel = false;
+        listPanel.charactersPanel.newCharacters.characters.Clear();
 
-        if (listPanel.hasListOpen && listPanel.menu == 1)
-            isOnListPanel = true;
+        foreach (Character t in allCharacters.characters.Where(t => t.levelNeeded == currentLevel))
+        {
+            listPanel.charactersPanel.newCharacters.characters.Add(t);
+        }
+
+        bool isOnListPanel = listPanel.hasListOpen && listPanel.menu == 1;
 
         if (characterPanel.hasLoaded)
         {
@@ -212,17 +224,26 @@ public class SaveManager : MonoBehaviour
 
     public void WinResults(bool playerWon, bool opponentWon)
     {
-        if (playerWon && !opponentWon)
-            GiveXP(winXP);
-        else if (playerWon && opponentWon)
-            GiveXP(bothWinXP);
-        else if (!playerWon && opponentWon)
-            GiveXP(loseXp);
-        else if (!playerWon && !opponentWon)
-            GiveXP(bothLoseXP);
+        switch (playerWon)
+        {
+            // ReSharper disable ConditionIsAlwaysTrueOrFalse
+            case true when !opponentWon:
+                GiveXP(winXP);
+                break;
+            case true when opponentWon:
+                GiveXP(bothWinXP);
+                break;
+            case false when opponentWon:
+                GiveXP(loseXp);
+                break;
+            case false when !opponentWon:
+                GiveXP(bothLoseXP);
+                break;
+        }
+        // ReSharper restore ConditionIsAlwaysTrueOrFalse
     }
 
-    private int LevelXpNeeded(int currentLevel)
+    private static int LevelXpNeeded(int currentLevel)
     {
         if (currentLevel < 1)
             return 0;
@@ -266,6 +287,8 @@ public class SaveManager : MonoBehaviour
         xpRequiredForNextLevel = LevelXpNeeded(newLevel);
 
         UnlockCharacters();
+
+        mainPanel.hasLevelledUp = true;
     }
 
     public void SetLevel(int givenLevel)

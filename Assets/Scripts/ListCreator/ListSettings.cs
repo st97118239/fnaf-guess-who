@@ -13,6 +13,7 @@ public class ListSettings : MonoBehaviour
 
     [SerializeField] private Note scriptableObjectNote;
     [SerializeField] private Note deleteNote;
+    [SerializeField] private Note duplicateNote;
 
     [SerializeField] private GameObject doubleNameErrorText;
 
@@ -29,6 +30,9 @@ public class ListSettings : MonoBehaviour
     private bool isShown;
     private bool cancel;
 
+    private static readonly int PaperOpen = Animator.StringToHash("PaperOpen");
+    private static readonly int PaperClose = Animator.StringToHash("PaperClose");
+
     private void Start()
     {
         characterListPath = "Assets/ScriptableObjects/CharacterLists/";
@@ -36,11 +40,11 @@ public class ListSettings : MonoBehaviour
 
     private void Update()
     {
-        if (isShown && Input.GetKeyDown(KeyCode.Escape))
-        {
-            cancel = true;
-            Close();
-        }
+        if (!isShown || !Input.GetKeyDown(KeyCode.Escape)) 
+            return;
+
+        cancel = true;
+        Close();
     }
 
     public void Open(bool newList, int listIdx)
@@ -55,6 +59,7 @@ public class ListSettings : MonoBehaviour
         {
             titleText.text = "New List";
             deleteNote.ChangeText("Cancel");
+            duplicateNote.Disable();
 
             if (listPanel.devManager.isUnlocked)
             {
@@ -67,6 +72,7 @@ public class ListSettings : MonoBehaviour
             titleText.text = "Edit List";
             nameField.text = listPanel.saveManager.saveData.lists[listIdx].name;
             deleteNote.ChangeText("Delete");
+            duplicateNote.Enable();
 
             if (listPanel.devManager.isUnlocked)
             {
@@ -75,7 +81,7 @@ public class ListSettings : MonoBehaviour
             }
         }
 
-        animator.SetTrigger("PaperOpen");
+        animator.SetTrigger(PaperOpen);
         backgroundBlocker.SetActive(true);
         audioManager.soundEffects.PlayOneShot(audioManager.clipboardSFX);
     }
@@ -86,19 +92,18 @@ public class ListSettings : MonoBehaviour
 
         if (cancel)
         {
-            animator.SetTrigger("PaperClose");
+            animator.SetTrigger(PaperClose);
             audioManager.soundEffects.PlayOneShot(audioManager.clipboardSFX);
             Invoke(nameof(DisableBackground), 0.6f);
             cancel = false;
             nameField.text = string.Empty;
             doubleNameErrorText.SetActive(false);
 
-            if (isNewList)
-            {
-                listPanel.openedList = null;
-                listPanel.saveManager.saveData.lists.RemoveAt(index);
-            }
-            index = 0;
+            if (!isNewList) 
+                return;
+
+            listPanel.openedList = null;
+            listPanel.saveManager.saveData.lists.RemoveAt(index);
 
             return;
         }
@@ -119,7 +124,7 @@ public class ListSettings : MonoBehaviour
         else
             listPanel.saveManager.saveData.lists[index].name = nameField.text;
 
-        animator.SetTrigger("PaperClose");
+        animator.SetTrigger(PaperClose);
         Invoke(nameof(DisableBackground), 0.6f);
 
         listPanel.saveManager.Save();
@@ -129,14 +134,26 @@ public class ListSettings : MonoBehaviour
         else
             listPanel.RefreshLists();
 
-        index = 0;
         nameField.text = string.Empty;
         doubleNameErrorText.SetActive(false);
     }
 
+    public void DuplicateNote()
+    {
+        cancel = true;
+        Close();
+
+        Invoke(nameof(DuplicateList), 0.9f);
+    }
+
+    private void DuplicateList()
+    {
+        listPanel.saveManager.DuplicateList(index);
+    }
+
     public void Delete()
     {
-        animator.SetTrigger("PaperClose");
+        animator.SetTrigger(PaperClose);
         Invoke(nameof(DisableBackground), 0.6f);
 
         if (isNewList)
@@ -164,9 +181,9 @@ public class ListSettings : MonoBehaviour
 
         characterList.characters = new(listToSave.characters.Count);
 
-        for (int i = 0; i < listToSave.characters.Count; i++)
+        foreach (string t in listToSave.characters)
         {
-            characterList.characters.Add(Resources.Load<Character>(listToSave.characters[i]));
+            characterList.characters.Add(Resources.Load<Character>(t));
         }
 
         characterList.listName = listToSave.name;

@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: cc89d6e5aab4b574e8e23fa01a788077, type: 2}
   directory: Characters/FNAF2/WFreddy
   levelNeeded: 1
+  isUnlocked: 0

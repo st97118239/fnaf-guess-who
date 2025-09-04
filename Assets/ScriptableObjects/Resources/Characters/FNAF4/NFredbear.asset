@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 65c6a95ae08a2df47813c13f889dba4a, type: 2}
   directory: Characters/FNAF4/NFredbear
   levelNeeded: 1
+  isUnlocked: 0

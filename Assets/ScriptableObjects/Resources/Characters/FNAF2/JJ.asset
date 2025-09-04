@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: e318761685af2524f9d884edb10d7bcc, type: 2}
   directory: Characters/FNAF2/JJ
   levelNeeded: 1
+  isUnlocked: 0

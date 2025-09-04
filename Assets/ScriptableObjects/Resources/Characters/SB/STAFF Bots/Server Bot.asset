@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 74c529cd17744dc498c4888323efe76c, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 3884519c3dc340c48997afaeebac9b2b, type: 3}
-  voicelines: []
-  directory: Characters/SB/STAFF Bots/Chef Bot
+  voicelines: {fileID: 0}
+  directory: Characters/SB/STAFF Bots/Server Bot
   levelNeeded: 5
+  isUnlocked: 0

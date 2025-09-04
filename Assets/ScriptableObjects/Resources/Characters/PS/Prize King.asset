@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6862d5adc1c15b542940111dfa8bbcde, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 86d7125fd19d24b4e9a47f119547e95c, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/PS/Prize King
-  levelNeeded: 11
+  levelNeeded: 24
+  isUnlocked: 0

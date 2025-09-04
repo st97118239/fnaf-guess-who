@@ -1,7 +1,7 @@
 public enum Error
 {
     None,
-    Unkown,
+    Unknown,
     NoConnection,
     MultipleHosts,
     ServerFull,

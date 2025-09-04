@@ -37,6 +37,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e6e9ff2a6aa24e14f8a01703e82f76e1, type: 3}
   - {fileID: 21300000, guid: ca261b21248da494fba8c6198a62f5ef, type: 3}
   - {fileID: 21300000, guid: 6884912d7a9eac24d8e840b1307325bc, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/PS/TatG
   levelNeeded: 11
+  isUnlocked: 0

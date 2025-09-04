@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 591266b4aa3452247a2c4da1925db705, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: d54f7bd789588874e8b432620c78d881, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/PS/FCupcake
   levelNeeded: 22
+  isUnlocked: 0

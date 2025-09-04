@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: fac9f26b9e787104dbd2d2672fa641aa, type: 2}
   directory: Characters/FNAF1/Bonnie
   levelNeeded: 1
+  isUnlocked: 0

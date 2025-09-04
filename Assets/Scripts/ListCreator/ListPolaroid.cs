@@ -43,10 +43,10 @@ public class ListPolaroid : MonoBehaviour, IPointerClickHandler
 
     private void RMB()
     {
-        if (!listPanel.isInfoPanelShown)
-        {
-            listPanel.infoPanel.polaroidSlot = this;
-            listPanel.ShowInfoPanel(character);
-        }
+        if (listPanel.isInfoPanelShown) 
+            return;
+
+        listPanel.infoPanel.polaroidSlot = this;
+        listPanel.ShowInfoPanel(character);
     }
 }

@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1559c4ecc35b2a64c9d6f87dcb7f67a2, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: d7d68e65f0317ab4f8c8cebe84804a7c, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/FNAF1/MrCupcake
-  levelNeeded: 21
+  levelNeeded: 20
+  isUnlocked: 0

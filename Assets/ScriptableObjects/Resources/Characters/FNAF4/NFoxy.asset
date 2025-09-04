@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 48db849a3d921b04eb5161ce469f74bd, type: 2}
   directory: Characters/FNAF4/NFoxy
   levelNeeded: 1
+  isUnlocked: 0

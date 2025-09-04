@@ -1,7 +1,5 @@
-using System.IO;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CharacterClipboard : MonoBehaviour
 {
@@ -16,8 +14,10 @@ public class CharacterClipboard : MonoBehaviour
 
     private int originalIndex;
     private int indexToMoveTo;
-    private string charDir;
     private bool isShown;
+
+    private static readonly int PaperOpen = Animator.StringToHash("PaperOpen");
+    private static readonly int PaperClose = Animator.StringToHash("PaperClose");
 
     private void Update()
     {
@@ -31,9 +31,8 @@ public class CharacterClipboard : MonoBehaviour
 
         errorText.SetActive(false);
         originalIndex = givenIndex;
-        charDir = givenCharDir;
         Load();
-        clipboardAnimator.SetTrigger("PaperOpen");
+        clipboardAnimator.SetTrigger(PaperOpen);
         backgroundBlocker.SetActive(true);
 
         audioManager.soundEffects.PlayOneShot(audioManager.clipboardSFX);
@@ -53,7 +52,7 @@ public class CharacterClipboard : MonoBehaviour
 
         Save();
 
-        clipboardAnimator.SetTrigger("PaperClose");
+        clipboardAnimator.SetTrigger(PaperClose);
         audioManager.soundEffects.PlayOneShot(audioManager.clipboardSFX);
         Invoke(nameof(DisableBackground), 0.6f);
         listPanel.RefreshCharactersMenu();

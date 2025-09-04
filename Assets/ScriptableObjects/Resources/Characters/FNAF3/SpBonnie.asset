@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5ac492bb27d797644a75370ce4ad2a3e, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 408672695a0cdc443be0baa0b16607e4, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/FNAF3/SpBonnie
-  levelNeeded: 4
+  levelNeeded: 3
+  isUnlocked: 0

@@ -34,11 +34,11 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
-            if (!gameScript.isInfoPanelShown)
-            {
-                gameScript.infoPanel.charSlot = this;
-                gameScript.ShowInfoPanel(character);
-            }
+            if (gameScript.isInfoPanelShown) 
+                return;
+
+            gameScript.infoPanel.charSlot = this;
+            gameScript.ShowInfoPanel(character);
         }
     }
 
@@ -93,9 +93,14 @@ public class CharSlot : MonoBehaviour, IPointerClickHandler
 
     public void CanLMB(bool can)
     {
-        if (can)
-            canLMB = true;
-        else if (!can)
-            canLMB = false;
+        switch (can)
+        {
+            case true:
+                canLMB = true;
+                break;
+            case false:
+                canLMB = false;
+                break;
+        }
     }
 }

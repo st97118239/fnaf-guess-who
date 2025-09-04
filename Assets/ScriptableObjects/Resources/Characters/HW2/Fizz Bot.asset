@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e822ac012024c9e4795ae7fb87b3126b, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 74512d49e0989ba428240b8b75f6ac84, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/HW2/Fizz Bot
   levelNeeded: 6
+  isUnlocked: 0

@@ -46,22 +46,28 @@ public class Player : NetworkBehaviour
 
             Debug.Log("Player object connected.");
         }
-        else if (!isServer)
+        else switch (isServer)
         {
-            if (gameManager.player1 == gameManager.player)
-            {
+            case false when gameManager.player1 == gameManager.player:
                 gameManager.opponent = gameManager.player2;
-            }
-            else if (gameManager.player2 == gameManager.player)
+                break;
+            case false:
             {
-                gameManager.opponent = gameManager.player1;
+                if (gameManager.player2 == gameManager.player)
+                {
+                    gameManager.opponent = gameManager.player1;
+                }
+
+                break;
             }
-        }
-        else if (isServer && isClient)
-        {
-            if (gameManager.player1 == gameManager.player)
+            case true when isClient:
             {
-                gameManager.opponent = gameManager.player2;
+                if (gameManager.player1 == gameManager.player)
+                {
+                    gameManager.opponent = gameManager.player2;
+                }
+
+                break;
             }
         }
     }
@@ -114,13 +120,13 @@ public class Player : NetworkBehaviour
     public void CanNotReady()
     {
         Debug.Log("Disabling ready");
-        mainPanel.DisabeReady();
+        mainPanel.DisableReady();
     }
     
     public void OpponentLeft()
     {
         isReadyToPlay = false;
-        mainPanel.popupPaper.Show(Error.OpponentLeft);
+        mainPanel.popupPaper.ShowError(Error.OpponentLeft);
     }
 
     public void RemoveConnection()
@@ -135,7 +141,7 @@ public class Player : NetworkBehaviour
             return;
 
         if (forcedLeave)
-            mainPanel.popupPaper.Show(Error.ServerFull);
+            mainPanel.popupPaper.ShowError(Error.ServerFull);
 
         mainPanel.connectionNote.ChangeText("Connect");
 
@@ -162,7 +168,7 @@ public class Player : NetworkBehaviour
         if (!mainPanel)
             return;
 
-        mainPanel.popupPaper.Show(Error.WrongVersion);
+        mainPanel.popupPaper.ShowError(Error.WrongVersion);
 
         mainPanel.connectionNote.ChangeText("Connect");
 
@@ -189,9 +195,9 @@ public class Player : NetworkBehaviour
         gameManager.opponent = null;
 
         if (gameManager.hasStarted)
-            mainPanel.popupPaper.Show(Error.OpponentLeft);
+            mainPanel.popupPaper.ShowError(Error.OpponentLeft);
         else if (!isHost)
-            mainPanel.popupPaper.Show(Error.HostLeft);
+            mainPanel.popupPaper.ShowError(Error.HostLeft);
 
         NetworkManager.singleton.StopClient();
         Debug.Log("Disconnected from server.");
@@ -248,10 +254,7 @@ public class Player : NetworkBehaviour
     {
         Debug.Log("Finished turn.");
 
-        if (accusedCharacter == string.Empty)
-            CmdFinishedTurn(false);
-        else
-            CmdFinishedTurn(true);
+        CmdFinishedTurn(accusedCharacter != string.Empty);
     }
 
     [Command]

@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: e24acf04e3daff746b66f5b0eeed64e3, type: 2}
   directory: Characters/SL/Ballora
   levelNeeded: 1
+  isUnlocked: 0

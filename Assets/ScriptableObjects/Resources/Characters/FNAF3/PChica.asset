@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 049749144c6336146a58e0cd66f9305d, type: 2}
   directory: Characters/FNAF3/PChica
   levelNeeded: 1
+  isUnlocked: 0

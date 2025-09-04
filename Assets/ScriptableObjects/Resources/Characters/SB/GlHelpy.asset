@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e76320b2ce010094fa48a8eae041703f, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: cc255cc97f0b32b4ba714773557de594, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/SB/GlHelpy
   levelNeeded: 9
+  isUnlocked: 0

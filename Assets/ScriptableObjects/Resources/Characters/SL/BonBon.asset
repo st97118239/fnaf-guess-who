@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 10c6a3db1c5346d419226e089efd1b58, type: 2}
   directory: Characters/SL/BonBon
   levelNeeded: 1
+  isUnlocked: 0

@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 5eb03f34f62e96c49b638b602e28ecf0, type: 2}
   directory: Characters/SL/FFreddy
   levelNeeded: 1
+  isUnlocked: 0

@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7ca536f99ad91504080cc829903dd36b, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 11bffa44a7500224bbf1b43f8b8e0e62, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/PS/Happy Frog
   levelNeeded: 1
+  isUnlocked: 0

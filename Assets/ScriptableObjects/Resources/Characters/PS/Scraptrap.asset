@@ -34,6 +34,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0f04cf1dbff0f8141843548d325feca5, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: de7cfc3e99552114bb40bcbb21939e5f, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/PS/Scraptrap
   levelNeeded: 1
+  isUnlocked: 0

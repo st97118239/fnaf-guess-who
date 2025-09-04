@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,13 +13,13 @@ public class CategoryNote : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (eventData.button == PointerEventData.InputButton.Left)
-        {
-            if (note.isCrossedOff || !canLMB)
-                return;
+        if (eventData.button != PointerEventData.InputButton.Left) 
+            return;
 
-            LMB();
-        }
+        if (note.isCrossedOff || !canLMB)
+            return;
+
+        LMB();
     }
 
     private void LMB()
@@ -37,13 +37,7 @@ public class CategoryNote : MonoBehaviour, IPointerClickHandler
         if (category.characters.Count == 0)
             note.Disable();
 
-        int amountLocked = 0;
-
-        for (int i = 0; i < category.characters.Count; i++)
-        {
-            if (!category.characters[i].isUnlocked)
-                amountLocked++;
-        }
+        int amountLocked = category.characters.Count(t => !t.isUnlocked);
 
         if (category.characters.Count == amountLocked && !charactersPanel.listPanel.devManager.unlockAllCharacters)
             note.Disable();

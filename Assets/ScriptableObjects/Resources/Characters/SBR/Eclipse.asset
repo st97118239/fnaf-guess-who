@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bb3951fea38b34541b06cd73cfdbdbd3, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 709ad1492cd72e940907e7136a8dbf85, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/SBR/Eclipse
   levelNeeded: 3
+  isUnlocked: 0

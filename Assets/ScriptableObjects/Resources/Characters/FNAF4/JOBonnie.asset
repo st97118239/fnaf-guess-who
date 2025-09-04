@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: c4a2a63433de5444c9e4d40ed58823b8, type: 2}
   directory: Characters/FNAF4/JOBonnie
   levelNeeded: 6
+  isUnlocked: 0

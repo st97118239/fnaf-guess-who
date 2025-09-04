@@ -34,6 +34,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fb45e680eefb8304fb96c41ec1d59121, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: ce82e4a2361f26049952601c1079e2b3, type: 3}
-  voicelines: []
+  voicelines: {fileID: 11400000, guid: 2f07549629cc5c1488e68df626f72da3, type: 2}
   directory: Characters/SD/Broiler Baby
   levelNeeded: 24
+  isUnlocked: 0

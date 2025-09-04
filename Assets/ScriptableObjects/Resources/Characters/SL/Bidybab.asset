@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 58d67b87c5fd63844a91c39316041ec7, type: 2}
   directory: Characters/SL/Bidybab
   levelNeeded: 1
+  isUnlocked: 0

@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 21c52e90804af3c47a6bfb6da30573e1, type: 2}
   directory: Characters/FNAF4/NChica
   levelNeeded: 1
+  isUnlocked: 0

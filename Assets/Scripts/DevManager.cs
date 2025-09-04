@@ -16,7 +16,7 @@ public class DevManager : MonoBehaviour
     [SerializeField] private float holdTimerBase;
     [SerializeField] private string devPassword;
 
-    [SerializeField] private TMP_InputField passworldField;
+    [SerializeField] private TMP_InputField passwordField;
 
     private float holdTimer;
 
@@ -43,19 +43,19 @@ public class DevManager : MonoBehaviour
 
     public void CheckPassword()
     {
-        string givenPassword = passworldField.text;
+        string givenPassword = passwordField.text;
         using SHA1Managed sha1 = new();
 
         byte[] hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(givenPassword));
         string encryptedPw = Convert.ToBase64String(hash);
 
-        if (encryptedPw == devPassword)
-        {
-            devClipboard.NextPage();
-            isUnlocked = true;
-            holdTimerBase = 0.05f;
-            holdTimer = holdTimerBase;
-            mainPanel.SetPlayerPolaroid(false, true, false);
-        }
+        if (encryptedPw != devPassword) 
+            return;
+
+        devClipboard.NextPage();
+        isUnlocked = true;
+        holdTimerBase = 0.05f;
+        holdTimer = holdTimerBase;
+        mainPanel.SetPlayerPolaroid(false, true, false);
     }
 }

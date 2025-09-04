@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b0d0073d10fef3f479a79400875e50d9, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: a611a1273fb081a44bfd7d2686179a93, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/PS/MoFreddy
   levelNeeded: 1
+  isUnlocked: 0

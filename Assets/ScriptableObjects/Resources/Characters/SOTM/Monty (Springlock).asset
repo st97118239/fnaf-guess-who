@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dabd82654f0555a4799525af2f6c0521, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 588e0f6c14833a74b9dfefc63a225118, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/SOTM/Monty (Springlock)
   levelNeeded: 1
+  isUnlocked: 0

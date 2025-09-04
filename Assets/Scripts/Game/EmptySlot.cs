@@ -28,8 +28,6 @@ public class EmptySlot : MonoBehaviour
 
         if (transform.childCount == 0)
         {
-            //canvasGroup.alpha = shouldReverse ? 0 : 1;
-
             if (shouldDestroyChild)
             {
                 foreach (Transform child in gameObject.transform)

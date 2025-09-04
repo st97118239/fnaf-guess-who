@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 373ad73ca4291954f8f460349504f17a, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: d6fc3c39c53c03d4d82acf4425fe60cc, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/PS/RBonnie
-  levelNeeded: 3
+  levelNeeded: 12
+  isUnlocked: 0

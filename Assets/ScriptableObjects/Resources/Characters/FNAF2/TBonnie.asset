@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 9f72c1db229ba054ba4caaac42d66133, type: 2}
   directory: Characters/FNAF2/TBonnie
   levelNeeded: 1
+  isUnlocked: 0

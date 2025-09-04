@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 840543e92aba7334ead2e09960d00e80, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 17d16e2c4fef086419a3bf007d9c1c7e, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/PS/Fruit Punch Clown
   levelNeeded: 11
+  isUnlocked: 0

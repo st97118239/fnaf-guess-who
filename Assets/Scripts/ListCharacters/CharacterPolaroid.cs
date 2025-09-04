@@ -8,6 +8,7 @@ public class CharacterPolaroid : MonoBehaviour, IPointerClickHandler
 
     [SerializeField] private Polaroid polaroid;
     [SerializeField] private ListPolaroid listPolaroid;
+    [SerializeField] private bool isInList;
 
     private CharactersPanel charactersPanel;
 
@@ -15,7 +16,8 @@ public class CharacterPolaroid : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            LMB();
+            if (character.isUnlocked || charactersPanel.listPanel.devManager.unlockAllCharacters)
+                LMB();
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
@@ -40,32 +42,46 @@ public class CharacterPolaroid : MonoBehaviour, IPointerClickHandler
 
     public void CheckIfCanAdd()
     {
-        int isInList = charactersPanel.listPanel.openedList.characters.FindIndex(d => d == character.directory);
+        int intIsInList = charactersPanel.listPanel.openedList.characters.FindIndex(d => d == character.directory);
 
-        if (isInList != -1 || (!character.isUnlocked && !charactersPanel.listPanel.devManager.unlockAllCharacters))
+        if (intIsInList != -1)
         {
             polaroid.Disable();
             listPolaroid.characterCanAdd = false;
+            isInList = true;
+        }
+        else if (!character.isUnlocked && !charactersPanel.listPanel.devManager.unlockAllCharacters)
+        {
+            polaroid.Disable();
+            listPolaroid.characterCanAdd = false;
+            isInList = false;
         }
         else
         {
             polaroid.Enable();
             listPolaroid.characterCanAdd = true;
+            isInList = false;
         }
     }
 
     private void LMB()
     {
+        if ((charactersPanel.listPanel.openedList.builtIn && !charactersPanel.listPanel.devManager.isUnlocked) || !charactersPanel.listPanel.hasListOpen || (!listPolaroid.characterCanAdd && !isInList) || charactersPanel.listPanel.openedList.characters.Count >= charactersPanel.listPanel.maxCharacters)
+            return;
 
+        if (!isInList)
+            charactersPanel.listPanel.AddCharacterToList(character);
+        else
+            charactersPanel.listPanel.RemoveCharacterFromList(character, listPolaroid.index);
     }
 
     private void RMB()
     {
-        if (!charactersPanel.listPanel.isInfoPanelShown)
-        {
-            charactersPanel.listPanel.menu = 2;
-            charactersPanel.listPanel.infoPanel.polaroidSlot = listPolaroid;
-            charactersPanel.listPanel.ShowInfoPanel(character);
-        }
+        if (charactersPanel.listPanel.isInfoPanelShown) 
+            return;
+
+        charactersPanel.listPanel.menu = 2;
+        charactersPanel.listPanel.infoPanel.polaroidSlot = listPolaroid;
+        charactersPanel.listPanel.ShowInfoPanel(character);
     }
 }

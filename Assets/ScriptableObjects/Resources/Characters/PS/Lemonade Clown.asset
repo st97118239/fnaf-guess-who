@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9f5968f34dc14924f8a5d195dadf7e61, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: b6949bc60b7f11942810831ad7891961, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/PS/Lemonade Clown
   levelNeeded: 11
+  isUnlocked: 0

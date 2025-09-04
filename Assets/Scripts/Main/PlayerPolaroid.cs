@@ -25,16 +25,16 @@ public class PlayerPolaroid : MonoBehaviour, IPointerClickHandler
     private bool fadeLevel;
 
     private Color nameColor;
-    private Color normalNameColor = Color.black;
-    private Color devNameColor = new Color(172, 0, 0, 1);
+    private readonly Color normalNameColor = Color.black;
+    private readonly Color devNameColor = new Color(172, 0, 0, 1);
 
     [SerializeField]
     private ButtonClickedEvent m_OnRightClick = new ButtonClickedEvent();
 
     public ButtonClickedEvent onRightClick
     {
-        get { return m_OnRightClick; }
-        set { m_OnRightClick = value; }
+        get => m_OnRightClick;
+        set => m_OnRightClick = value;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -55,23 +55,28 @@ public class PlayerPolaroid : MonoBehaviour, IPointerClickHandler
 
             float fillAmount = i / fadeTime;
             
-            if (fadeIn)
+            switch (fadeIn)
             {
-                if (fadeImage)
-                    pol.characterImage.color = Color.Lerp(Color.clear, Color.white, fillAmount);
-                if (fadeName)
-                    pol.characterText.color = Color.Lerp(Color.clear, nameColor, fillAmount);
-                if (fadeLevel)
-                    levelText.color = Color.Lerp(Color.clear, Color.white, fillAmount);
-            }
-            else if(!fadeIn)
-            {
-                if (fadeImage)
-                    pol.characterImage.color = Color.Lerp(Color.white, Color.clear, fillAmount);
-                if (fadeName)
-                    pol.characterText.color = Color.Lerp(nameColor, Color.clear, fillAmount);
-                if (fadeLevel)
-                    levelText.color = Color.Lerp(Color.white, Color.clear, fillAmount);
+                case true:
+                {
+                    if (fadeImage)
+                        pol.characterImage.color = Color.Lerp(Color.clear, Color.white, fillAmount);
+                    if (fadeName)
+                        pol.characterText.color = Color.Lerp(Color.clear, nameColor, fillAmount);
+                    if (fadeLevel)
+                        levelText.color = Color.Lerp(Color.clear, Color.white, fillAmount);
+                    break;
+                }
+                case false:
+                {
+                    if (fadeImage)
+                        pol.characterImage.color = Color.Lerp(Color.white, Color.clear, fillAmount);
+                    if (fadeName)
+                        pol.characterText.color = Color.Lerp(nameColor, Color.clear, fillAmount);
+                    if (fadeLevel)
+                        levelText.color = Color.Lerp(Color.white, Color.clear, fillAmount);
+                    break;
+                }
             }
 
             yield return null;
@@ -110,14 +115,11 @@ public class PlayerPolaroid : MonoBehaviour, IPointerClickHandler
 
         if (usePlayer)
         {
-            username = player.name;
+            username = player.username;
             character = Resources.Load<Character>(player.avatar);
             level = player.level;
 
-            if (player.isDev)
-                nameColor = devNameColor;
-            else
-                nameColor = normalNameColor;
+            nameColor = player.isDev ? devNameColor : normalNameColor;
         }
         else
         {
@@ -125,10 +127,7 @@ public class PlayerPolaroid : MonoBehaviour, IPointerClickHandler
             character = Resources.Load<Character>(mainPanel.avatar);
             level = PlayerPrefs.GetInt("Level");
 
-            if (mainPanel.devManager.isUnlocked)
-                nameColor = devNameColor;
-            else
-                nameColor = normalNameColor;
+            nameColor = mainPanel.devManager.isUnlocked ? devNameColor : normalNameColor;
         }
 
         if (!character)
@@ -172,9 +171,7 @@ public class PlayerPolaroid : MonoBehaviour, IPointerClickHandler
 
     public void Ready(bool toggle)
     {
-        if (toggle == true && !isReady)
-            StartCoroutine(Checkmark(toggle));
-        else if (toggle == false && isReady)
+        if ((toggle && !isReady) || (!toggle && isReady))
             StartCoroutine(Checkmark(toggle));
 
         isReady = toggle;

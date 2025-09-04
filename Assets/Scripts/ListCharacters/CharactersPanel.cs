@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,10 +12,10 @@ public class CharactersPanel : MonoBehaviour
     public float fadeAnimDelay = 0.7f;
 
     public CharacterCategory loadedCategory;
+    public CharacterCategory newCharacters;
     public bool hasLoaded;
 
     [SerializeField] private CharacterList allCharacters;
-    [SerializeField] private CharacterCategory newCharacters;
     [SerializeField] private Categories categories;
     [SerializeField] private GameObject grid;
 
@@ -35,20 +36,22 @@ public class CharactersPanel : MonoBehaviour
     private CategoryType categoryType;
     private List<CharacterCategory> category;
 
+    private static readonly int ListCharOpen = Animator.StringToHash("ListCharOpen");
+
     private void Update()
     {
-        if (listPanel.mainPanel.currentPanel == Panels.CharacterPanel)
-        {
-            if (listPanel.menu == 2 && !listPanel.isInfoPanelShown && Input.GetKeyDown(KeyCode.Escape))
-                BackNote();
-        }
+        if (listPanel.mainPanel.currentPanel != Panels.CharacterPanel) 
+            return;
+
+        if (listPanel.menu == 2 && !listPanel.isInfoPanelShown && Input.GetKeyDown(KeyCode.Escape))
+            BackNote();
     }
 
     public void OpenPanel()
     {
         listPanel.mainPanel.currentPanel = Panels.CharacterPanel;
 
-        listPanel.game.animator.SetTrigger("ListCharOpen");
+        listPanel.game.animator.SetTrigger(ListCharOpen);
 
         RefreshMenuVar();
 
@@ -72,10 +75,15 @@ public class CharactersPanel : MonoBehaviour
     {
         listPanel.mainPanel.currentPanel = Panels.ListPanel;
 
-        if (listPanel.hasListOpen)
-            listPanel.menu = 1;
-        else if (!listPanel.hasListOpen)
-            listPanel.menu = 0;
+        switch (listPanel.hasListOpen)
+        {
+            case true:
+                listPanel.menu = 1;
+                break;
+            case false:
+                listPanel.menu = 0;
+                break;
+        }
 
         listPanel.fromCharacterPanel = true;
         listPanel.LoadPanel();
@@ -94,13 +102,10 @@ public class CharactersPanel : MonoBehaviour
             emptySlots[i].index = i;
         }
 
-        if (categoryIdx == -1)
-            CategoryButton(1);
-        else
-        {
+        if (categoryIdx != -1)
             categoryIdx = settingsMenu.settings.categoryIdx - 1;
-            CategoryButton(1);
-        }
+
+        CategoryButton(1);
     }
 
     public void CategoryButton(int amountToAdd)
@@ -111,25 +116,30 @@ public class CharactersPanel : MonoBehaviour
 
         categoryIdx += amountToAdd;
 
-        if (categoryIdx > 2)
-            categoryIdx = 0;
-        else if (categoryIdx < 0)
-            categoryIdx = 2;
+        switch (categoryIdx)
+        {
+            case > 2:
+                categoryIdx = 0;
+                break;
+            case < 0:
+                categoryIdx = 2;
+                break;
+        }
 
-        if (categoryIdx == 0)
+        switch (categoryIdx)
         {
-            categoryType = CategoryType.AnimatronicClass;
-            categoryNote.ChangeText("Class");
-        }
-        else if (categoryIdx == 1)
-        {
-            categoryType = CategoryType.FirstGame;
-            categoryNote.ChangeText("Game");
-        }
-        else if (categoryIdx == 2)
-        {
-            categoryType = CategoryType.SkinType;
-            categoryNote.ChangeText("Skin");
+            case 0:
+                categoryType = CategoryType.AnimatronicClass;
+                categoryNote.ChangeText("Class");
+                break;
+            case 1:
+                categoryType = CategoryType.FirstGame;
+                categoryNote.ChangeText("Game");
+                break;
+            case 2:
+                categoryType = CategoryType.SkinType;
+                categoryNote.ChangeText("Skin");
+                break;
         }
 
         settingsMenu.Save();
@@ -139,16 +149,6 @@ public class CharactersPanel : MonoBehaviour
 
     public void NewNote()
     {
-        newCharacters.characters.Clear();
-
-        int currentLevel = PlayerPrefs.GetInt("Level");
-
-        for (int i = 0; i < allCharacters.characters.Count; i++)
-        {
-            if (allCharacters.characters[i].levelNeeded == currentLevel)
-                newCharacters.characters.Add(allCharacters.characters[i]);
-        }
-
         OpenCategoryFade(newCharacters);
     }
 
@@ -156,7 +156,7 @@ public class CharactersPanel : MonoBehaviour
     {
         backNote.Disable();
 
-        PlayFadeAnim(true, false, false);
+        PlayFadeAnim(true, true, false);
 
         Invoke(nameof(LoadCategories), fadeAnimDelay);
     }
@@ -167,9 +167,9 @@ public class CharactersPanel : MonoBehaviour
 
         if (loadedCategory)
         {
-            for (int i = 0; i < characterPolaroids.Count; i++)
+            foreach (CharacterPolaroid t in characterPolaroids.Where(t => t))
             {
-                Destroy(characterPolaroids[i].gameObject);
+                Destroy(t.gameObject);
             }
 
             characterPolaroids.Clear();
@@ -178,22 +178,22 @@ public class CharactersPanel : MonoBehaviour
 
         RefreshMenuVar();
 
-        if (categoryType == CategoryType.None)
-            return;
-        else if (categoryType == CategoryType.FirstGame)
+        switch (categoryType)
         {
-            loadedCategory = null;
-            category = categories.gameCategories;
-        }
-        else if (categoryType == CategoryType.AnimatronicClass)
-        {
-            loadedCategory = null;
-            category = categories.classCategories;
-        }
-        else if (categoryType == CategoryType.SkinType)
-        {
-            loadedCategory = null;
-            category = categories.skinCategories;
+            case CategoryType.None:
+                return;
+            case CategoryType.FirstGame:
+                loadedCategory = null;
+                category = categories.gameCategories;
+                break;
+            case CategoryType.AnimatronicClass:
+                loadedCategory = null;
+                category = categories.classCategories;
+                break;
+            case CategoryType.SkinType:
+                loadedCategory = null;
+                category = categories.skinCategories;
+                break;
         }
 
         categoryAmount = category.Count;
@@ -221,9 +221,9 @@ public class CharactersPanel : MonoBehaviour
 
     public void RecheckPolaroids()
     {
-        for (int i = 0; i < characterPolaroids.Count; i++)
+        foreach (CharacterPolaroid t in characterPolaroids)
         {
-            characterPolaroids[i].CheckIfCanAdd();
+            t.CheckIfCanAdd();
         }
     }
 
@@ -231,7 +231,7 @@ public class CharactersPanel : MonoBehaviour
     {
         categoryNote.Disable();
 
-        PlayFadeAnim(true, false, false);
+        PlayFadeAnim(true, true, false);
 
         loadedCategory = categoryToOpen;
         Invoke(nameof(OpenCategory), fadeAnimDelay);
@@ -239,9 +239,9 @@ public class CharactersPanel : MonoBehaviour
 
     private void OpenCategory()
     {
-        for (int i = 0; i < categoryNotes.Count; i++)
+        foreach (CategoryNote t in categoryNotes.Where(t => t))
         {
-            Destroy(categoryNotes[i].gameObject);
+            Destroy(t.gameObject);
         }
 
         categoryNotes.Clear();
@@ -266,19 +266,24 @@ public class CharactersPanel : MonoBehaviour
 
     public void BackNote()
     {
-        if (listPanel.hasListOpen)
-            listPanel.menu = 1;
-        else if (!listPanel.hasListOpen)
-            listPanel.menu = 0;
+        switch (listPanel.hasListOpen)
+        {
+            case true:
+                listPanel.menu = 1;
+                break;
+            case false:
+                listPanel.menu = 0;
+                break;
+        }
 
         LoadCategoriesFade();
     }
 
     private void PlayFadeAnim(bool shouldReverse, bool shouldDestroyChildren, bool shouldDestroySelf)
     {
-        for (int i = 0; i < emptySlots.Count; i++)
+        foreach (EmptySlot t in emptySlots)
         {
-            emptySlots[i].Play(shouldReverse, shouldDestroyChildren, shouldDestroySelf);
+            t.Play(shouldReverse, shouldDestroyChildren, shouldDestroySelf);
         }
     }
 
@@ -289,11 +294,45 @@ public class CharactersPanel : MonoBehaviour
 
         list.characters = new();
 
-        for (int i = 0; i < categories.classCategories.Count; i++)
+        foreach (CharacterCategory t in categories.classCategories)
         {
-            for (int j = 0; j < categories.classCategories[i].characters.Count; j++)
+            foreach (Character t1 in t.characters)
             {
-                list.characters.Add(categories.classCategories[i].characters[j]);
+                int isDuplicate = list.characters.FindIndex(l => l.directory == t1.directory);
+
+                if (isDuplicate == -1)
+                    list.characters.Add(t1);
+                else
+                    Debug.Log("Skipped " + t1.characterName);
+            }
+        }
+
+        foreach (CharacterCategory t in categories.gameCategories)
+        {
+            if (t.firstGame == FirstGame.SD)
+                continue;
+
+            foreach (Character t1 in t.characters)
+            {
+                int isDuplicate = list.characters.FindIndex(l => l.directory == t1.directory);
+
+                if (isDuplicate == -1)
+                    list.characters.Add(t1);
+                else
+                    Debug.Log("Skipped " + t1.characterName);
+            }
+        }
+
+        foreach (CharacterCategory t in categories.skinCategories)
+        {
+            foreach (Character t1 in t.characters)
+            {
+                int isDuplicate = list.characters.FindIndex(l => l.directory == t1.directory);
+
+                if (isDuplicate == -1)
+                    list.characters.Add(t1);
+                else
+                    Debug.Log("Skipped " + t1.characterName);
             }
         }
 

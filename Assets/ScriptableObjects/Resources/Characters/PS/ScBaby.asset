@@ -34,6 +34,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8b9cc9cbf12162f41bceac02cd833762, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: ab686e0e97f1aea429713f48a7846b73, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/PS/ScBaby
   levelNeeded: 1
+  isUnlocked: 0

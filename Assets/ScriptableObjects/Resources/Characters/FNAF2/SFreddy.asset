@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cb36d619c973e9541a6de15d2ecede91, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: c04bf410e0a202d44a2d34b4fc93e6d2, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/FNAF2/SFreddy
-  levelNeeded: 11
+  levelNeeded: 10
+  isUnlocked: 0

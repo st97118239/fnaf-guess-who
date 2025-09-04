@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b4d09bcc1f32dbb40804a893089cb705, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 1a1462f095b17a2489edb1a5f99fe785, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/PS/Pigpatch
   levelNeeded: 1
+  isUnlocked: 0

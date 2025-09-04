@@ -33,27 +33,24 @@ public class Note : MonoBehaviour
 
         if (noteXImage)
         {
-            if (startCrossedOff)
+            switch (startCrossedOff)
             {
-                noteXImage.fillAmount = 1;
-                isCrossedOff = true;
-                noteButton.interactable = false;
-            }
-            else if (!startCrossedOff)
-            {
-                noteXImage.fillAmount = 0;
-                isCrossedOff = false;
-                if (isButton)
-                    noteButton.interactable = true;
-                else
+                case true:
+                    noteXImage.fillAmount = 1;
+                    isCrossedOff = true;
                     noteButton.interactable = false;
+                    break;
+                case false:
+                {
+                    noteXImage.fillAmount = 0;
+                    isCrossedOff = false;
+                    noteButton.interactable = isButton;
+                    break;
+                }
             }
         }
 
-        if (startWithImage)
-            noteOverlayImage.fillAmount = 1;
-        else
-            noteOverlayImage.fillAmount = 0;
+        noteOverlayImage.fillAmount = startWithImage ? 1 : 0;
 
         rectTransform.localEulerAngles = new Vector3(0f, 0f, Random.Range(spawnRotation[0], spawnRotation[1]));
     }

@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3844bf23ad906014eb7195543a070ef2, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: d7400db5cc9931e42a75c70acf0e7833, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/SOTM/Mrs Helpful
-  levelNeeded: 7
+  levelNeeded: 10
+  isUnlocked: 0

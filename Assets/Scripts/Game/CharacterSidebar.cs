@@ -14,8 +14,10 @@ public class CharacterSidebar : MonoBehaviour
 
     [SerializeField] private Animator polaroidAnimator;
 
-
     private int suspectsLeft;
+
+    private static readonly int ChooseCharacter = Animator.StringToHash("ChooseCharacter");
+    private static readonly int PolaroidRemove = Animator.StringToHash("PolaroidRemove");
 
     private void Start()
     {
@@ -32,7 +34,7 @@ public class CharacterSidebar : MonoBehaviour
         slotPolaroid.characterImage.color = Color.white;
 
         slotPolaroid.polImage.gameObject.SetActive(true);
-        polaroidAnimator.SetTrigger("ChooseCharacter");
+        polaroidAnimator.SetTrigger(ChooseCharacter);
     }
 
     public void ReloadSidebarStats(int crossedOffCount, int totalAmountSuspects)
@@ -48,16 +50,13 @@ public class CharacterSidebar : MonoBehaviour
 
     public void ChangeTurn(int turn, bool hasToAccuse)
     {
-        if (gameScript.infoPanel.chooseType != 2)
-            gameScript.infoPanel.chooseType = 2;
+        gameScript.infoPanel.chooseType = 2;
 
         if (turn == gameScript.player.playerIdx)
         {
             turnNote.ChangeText("Your turn");
             if (!hasToAccuse)
-            {
                 doneNote.Enable();
-            }
         }
         else
         {
@@ -73,7 +72,7 @@ public class CharacterSidebar : MonoBehaviour
         slotPolaroid.characterImage.color = Color.clear;
         slotPolaroid.ChangeText(null);
         leaveNote.Disable();
-        polaroidAnimator.SetTrigger("PolaroidRemove");
+        polaroidAnimator.SetTrigger(PolaroidRemove);
 
         suspectsLeft = 0;
     }

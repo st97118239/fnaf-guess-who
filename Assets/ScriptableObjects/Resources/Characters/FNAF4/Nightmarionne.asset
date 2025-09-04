@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: aa3807b4f94f8b04c9c9aa143376fd9c, type: 2}
   directory: Characters/FNAF4/Nightmarionne
   levelNeeded: 1
+  isUnlocked: 0

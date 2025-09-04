@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 9c481b9fb931dc34abebd04ce40263cf, type: 2}
   directory: Characters/SL/FFoxy
   levelNeeded: 1
+  isUnlocked: 0

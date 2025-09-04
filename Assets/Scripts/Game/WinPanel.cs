@@ -26,6 +26,9 @@ public class WinPanel : MonoBehaviour
 
     private Animator animator;
 
+    private static readonly int FolderClose = Animator.StringToHash("FolderClose");
+    private static readonly int FolderOpen = Animator.StringToHash("FolderOpen");
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -68,7 +71,7 @@ public class WinPanel : MonoBehaviour
 
     public void Close()
     {
-        animator.SetTrigger("FolderClose");
+        animator.SetTrigger(FolderClose);
         audioManager.soundEffects.PlayOneShot(audioManager.folderCloseSFX);
         Invoke(nameof(DisableBackground), 0.6f);
         opponentChar = null;
@@ -105,7 +108,7 @@ public class WinPanel : MonoBehaviour
         lines[0].gameObject.SetActive(true);
 
         backgroundBlocker.SetActive(true);
-        animator.SetTrigger("FolderOpen");
+        animator.SetTrigger(FolderOpen);
         audioManager.soundEffects.PlayOneShot(audioManager.folderOpenSFX);
 
         isShown = true;

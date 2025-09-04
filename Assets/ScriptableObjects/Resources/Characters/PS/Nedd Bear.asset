@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 31b8e0a65036d324e995a2fa5add7f83, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 82903e230b3588a44bc4666188661813, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/PS/Nedd Bear
   levelNeeded: 1
+  isUnlocked: 0

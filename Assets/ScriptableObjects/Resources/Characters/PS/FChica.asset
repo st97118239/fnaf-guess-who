@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 541c62fab24b08d44a685bd021a337c3, type: 2}
   directory: Characters/PS/FChica
   levelNeeded: 1
+  isUnlocked: 0

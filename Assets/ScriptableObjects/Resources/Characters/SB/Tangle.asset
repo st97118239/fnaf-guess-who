@@ -34,6 +34,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4f5210c4ffb461b4fb1dbffeb4f7a2b4, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: ca6fe41b2213a72449e432da163377ac, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/SB/Tangle
-  levelNeeded: 2
+  levelNeeded: 1
+  isUnlocked: 0

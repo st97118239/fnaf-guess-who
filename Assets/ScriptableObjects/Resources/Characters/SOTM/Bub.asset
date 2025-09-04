@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 69fecee8329ece843bbe06b53b355890, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 832568a841f515f4daf73e6afbefe1c0, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/SOTM/Bub
-  levelNeeded: 5
+  levelNeeded: 4
+  isUnlocked: 0

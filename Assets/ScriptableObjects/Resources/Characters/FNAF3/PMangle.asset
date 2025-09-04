@@ -38,3 +38,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 418dd18ca19746244b85eee8b6125355, type: 2}
   directory: Characters/FNAF3/PMangle
   levelNeeded: 1
+  isUnlocked: 0

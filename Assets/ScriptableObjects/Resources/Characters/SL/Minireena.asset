@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 749d5d532c9723c46972a8435fef932d, type: 2}
   directory: Characters/SL/Minireena
   levelNeeded: 1
+  isUnlocked: 0

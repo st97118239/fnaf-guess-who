@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 828d86b6030f7fa48b632708ef350fdc, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 6ac490251074328459e0f48c0ac2ee7c, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/PS/Gumball Swivelhands
-  levelNeeded: 11
+  levelNeeded: 13
+  isUnlocked: 0

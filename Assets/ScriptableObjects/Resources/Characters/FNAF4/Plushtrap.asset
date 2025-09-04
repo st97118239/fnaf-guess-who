@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 75932f16c2a9d4b46994af8854ac6176, type: 2}
   directory: Characters/FNAF4/Plushtrap
   levelNeeded: 1
+  isUnlocked: 0

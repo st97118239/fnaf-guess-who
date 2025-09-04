@@ -34,7 +34,7 @@ public enum AnimatronicClass
     Funtime,
     Rockstar,
     Mediocre,
-    Hardmore,
+    Hardmode,
     Glamrock,
     Daycare,
     Endoskeleton,

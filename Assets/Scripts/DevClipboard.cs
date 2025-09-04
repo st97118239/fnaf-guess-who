@@ -25,6 +25,9 @@ public class DevClipboard : MonoBehaviour
 
     private bool isUnlocked;
 
+    private static readonly int PaperOpen = Animator.StringToHash("PaperOpen");
+    private static readonly int PaperClose = Animator.StringToHash("PaperClose");
+
     private void Start()
     {
         paper2.SetActive(false);
@@ -45,7 +48,7 @@ public class DevClipboard : MonoBehaviour
         gamesField.text = PlayerPrefs.GetInt("Games").ToString();
         levelField.text = PlayerPrefs.GetInt("Level").ToString();
 
-        clipboardAnimator.SetTrigger("PaperOpen");
+        clipboardAnimator.SetTrigger(PaperOpen);
         backgroundBlocker.SetActive(true);
 
         isShown = true;
@@ -53,14 +56,11 @@ public class DevClipboard : MonoBehaviour
 
     public void CloseClipboard()
     {
-        clipboardAnimator.SetTrigger("PaperClose");
+        clipboardAnimator.SetTrigger(PaperClose);
         Invoke(nameof(DisableBackground), 0.6f);
         Save();
 
-        bool isOnListPanel = false;
-
-        if (listPanel.hasListOpen && listPanel.menu == 1)
-            isOnListPanel = true;
+        bool isOnListPanel = listPanel.hasListOpen && listPanel.menu == 1;
 
         if (characterPanel.hasLoaded)
         {

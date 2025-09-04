@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 674701c034ec3784ea61fecad4091241, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: a439f9d5523e3344b9f8cb16b68c0913, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/PS/Orville
   levelNeeded: 1
+  isUnlocked: 0

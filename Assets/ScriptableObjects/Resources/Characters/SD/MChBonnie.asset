@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441aea49d4a82aa4fbf0bff8be8ba4e5, type: 3}
   m_Name: MChBonnie
   m_EditorClassIdentifier: 
-  characterName: Chocolate Bonnie
+  characterName: Molten Chocolate Bonnie
   pronouns: He/Him
   yearMade: 1970s
   yearBorn: 
@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: fac9f26b9e787104dbd2d2672fa641aa, type: 2}
   directory: Characters/SD/MChBonnie
   levelNeeded: 17
+  isUnlocked: 0

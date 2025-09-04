@@ -33,6 +33,13 @@ public class InfoPanel : MonoBehaviour
     private float paperTimer;
     private int bodyPaperClicksQueue;
 
+    private static readonly int FirstBack = Animator.StringToHash("FirstBack");
+    private static readonly int OthersBack = Animator.StringToHash("OthersBack");
+    private static readonly int FolderClose = Animator.StringToHash("FolderClose");
+    private static readonly int FirstNext = Animator.StringToHash("FirstNext");
+    private static readonly int OthersNext = Animator.StringToHash("OthersNext");
+    private static readonly int FolderOpen = Animator.StringToHash("FolderOpen");
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -57,10 +64,15 @@ public class InfoPanel : MonoBehaviour
         }
         else
         {
-            if (bodyPaperClicksQueue > 0)
-                BodyPapersNext(false);
-            else if (bodyPaperClicksQueue < 0)
-                BodyPapersBack(false);
+            switch (bodyPaperClicksQueue)
+            {
+                case > 0:
+                    BodyPapersNext(false);
+                    break;
+                case < 0:
+                    BodyPapersBack(false);
+                    break;
+            }
         }
     }
 
@@ -104,9 +116,9 @@ public class InfoPanel : MonoBehaviour
 
     public void Show(Character givenCharacter)
     {
-        for (int i = 0; i < bodyPapers.Count; i++)
+        foreach (BodyPaper t in bodyPapers)
         {
-            Destroy(bodyPapers[i].gameObject);
+            Destroy(t.gameObject);
         }
 
         bodyPapers.Clear();
@@ -114,9 +126,9 @@ public class InfoPanel : MonoBehaviour
 
         character = givenCharacter;
 
-        for (int i = 0; i < lines.Count; i++)
+        foreach (RectTransform t in lines)
         {
-            lines[i].gameObject.SetActive(true);
+            t.gameObject.SetActive(true);
         }
 
         if (character.polaroidSprite.Count > 0)
@@ -131,11 +143,11 @@ public class InfoPanel : MonoBehaviour
         {
             for (int i = character.fullBodySprite.Count - 1; i >= 0; i--)
             {
-                BodyPaper paper;
-                if (i == 0)
-                    paper = Instantiate(bodyPaperPrefab, bodyPaperParent.position, bodyPaperParent.rotation, bodyPaperParent).GetComponent<BodyPaper>();
-                else
-                    paper = Instantiate(bodyPaperPrefab, bodyPaperParent.position + bodyImageOffset, bodyPaperParent.rotation, bodyPaperParent).GetComponent<BodyPaper>();
+                BodyPaper paper = i == 0
+                    ? Instantiate(bodyPaperPrefab, bodyPaperParent.position, bodyPaperParent.rotation, bodyPaperParent)
+                        .GetComponent<BodyPaper>()
+                    : Instantiate(bodyPaperPrefab, bodyPaperParent.position + bodyImageOffset, bodyPaperParent.rotation,
+                        bodyPaperParent).GetComponent<BodyPaper>();
 
                 bodyPapers.Insert(0, paper);
                 paper.Load(character.fullBodySprite[i], i);
@@ -179,7 +191,7 @@ public class InfoPanel : MonoBehaviour
         else
             chooseNote.gameObject.SetActive(false);
 
-            bool hasAtLeastOneText = false;
+        bool hasAtLeastOneText = false;
         for (int i = 0; i < variables.Count; i++)
         {
             var fi = typeof(Character).GetField(variables[i]);
@@ -207,10 +219,8 @@ public class InfoPanel : MonoBehaviour
         {
             bodyPapersIdx--;
 
-            if (bodyPapers[bodyPapersIdx].index == 0)
-                bodyPapers[bodyPapersIdx].animator.SetTrigger("FirstBack");
-            else
-                bodyPapers[bodyPapersIdx].animator.SetTrigger("OthersBack");
+            bodyPapers[bodyPapersIdx].animator
+                .SetTrigger(bodyPapers[bodyPapersIdx].index == 0 ? FirstBack : OthersBack);
 
             needsToWait = true;
         }
@@ -223,7 +233,7 @@ public class InfoPanel : MonoBehaviour
         if (hasToWait)
             yield return new WaitForSeconds(0.75f);
 
-        animator.SetTrigger("FolderClose");
+        animator.SetTrigger(FolderClose);
         audioManager.soundEffects.PlayOneShot(audioManager.folderCloseSFX);
         Invoke(nameof(DisableBackground), 0.6f);
         character = null;
@@ -243,10 +253,8 @@ public class InfoPanel : MonoBehaviour
 
         if (!playPaperTimer && bodyPapersIdx < bodyPapers.Count - 1)
         {
-            if (bodyPapers[bodyPapersIdx].index == 0)
-                bodyPapers[bodyPapersIdx].animator.SetTrigger("FirstNext");
-            else
-                bodyPapers[bodyPapersIdx].animator.SetTrigger("OthersNext");
+            bodyPapers[bodyPapersIdx].animator
+                .SetTrigger(bodyPapers[bodyPapersIdx].index == 0 ? FirstNext : OthersNext);
 
             bodyPapersIdx++;
             bodyPaperClicksQueue--;
@@ -269,10 +277,8 @@ public class InfoPanel : MonoBehaviour
             bodyPapersIdx--;
             bodyPaperClicksQueue++;
 
-            if (bodyPapers[bodyPapersIdx].index == 0)
-                bodyPapers[bodyPapersIdx].animator.SetTrigger("FirstBack");
-            else
-                bodyPapers[bodyPapersIdx].animator.SetTrigger("OthersBack");
+            bodyPapers[bodyPapersIdx].animator
+                .SetTrigger(bodyPapers[bodyPapersIdx].index == 0 ? FirstBack : OthersBack);
 
             paperTimer = paperTimerBase;
             playPaperTimer = true;
@@ -286,10 +292,7 @@ public class InfoPanel : MonoBehaviour
     {
         for (int i = 0; i < lines.Count; i++)
         {
-            if (!string.IsNullOrEmpty(texts[i].text))
-                lines[i].gameObject.SetActive(true);
-            else
-                lines[i].gameObject.SetActive(false);
+            lines[i].gameObject.SetActive(!string.IsNullOrEmpty(texts[i].text));
         }
 
         lines[0].gameObject.SetActive(false);
@@ -309,7 +312,7 @@ public class InfoPanel : MonoBehaviour
         lines[0].gameObject.SetActive(true);
 
         backgroundBlocker.SetActive(true);
-        animator.SetTrigger("FolderOpen");
+        animator.SetTrigger(FolderOpen);
         audioManager.soundEffects.PlayOneShot(audioManager.folderOpenSFX);
 
         gameScript.isInfoPanelShown = true;
@@ -317,12 +320,15 @@ public class InfoPanel : MonoBehaviour
 
     public void ChooseCharacter()
     {
-        if (chooseType == 1)
-            gameScript.ChooseCharacter(character);
-        if (chooseType == 2)
+        switch (chooseType)
         {
-            charSlot.Accuse();
-            gameScript.player.Accuse(character);
+            case 1:
+                gameScript.ChooseCharacter(character);
+                break;
+            case 2:
+                charSlot.Accuse();
+                gameScript.player.Accuse(character);
+                break;
         }
 
         chooseNote.Disable();

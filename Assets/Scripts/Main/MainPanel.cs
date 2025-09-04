@@ -16,6 +16,7 @@ public class MainPanel : NetworkBehaviour
     public SettingsMenu settingsMenu;
     public SaveManager saveManager;
     public DevManager devManager;
+    public Animator animator;
 
     public Panels currentPanel;
 
@@ -35,20 +36,26 @@ public class MainPanel : NetworkBehaviour
     public bool isHost;
     public bool isReady;
     public bool isInGame;
+    public bool hasLevelledUp;
 
     [SerializeField] private List<Image> posters;
     [SerializeField] private List<Sprite> posterSprites;
 
     private readonly System.Random rnd = new();
 
+    private static readonly int GameClose = Animator.StringToHash("GameClose");
+
     private void Update()
     {
-        if (currentPanel == Panels.MainPanel && gameManager.opponent && gameManager.opponent.isReadyToPlay)
+        switch (currentPanel)
         {
-            playerPolaroids[1].Ready(true);
+            case Panels.MainPanel when gameManager.opponent && gameManager.opponent.isReadyToPlay:
+                playerPolaroids[1].Ready(true);
+                break;
+            case Panels.MainPanel when !gameManager.opponent && playerPolaroids[1].isReady:
+                playerPolaroids[1].Ready(false);
+                break;
         }
-        else if (currentPanel == Panels.MainPanel && !gameManager.opponent && playerPolaroids[1].isReady)
-            playerPolaroids[1].Ready(false);
     }
 
     public void SpawnPosters()
@@ -64,17 +71,46 @@ public class MainPanel : NetworkBehaviour
         }
     }
 
+    public void Load()
+    {
+        SpawnPosters();
+
+        currentPanel = Panels.MainPanel;
+        animator.SetTrigger(GameClose);
+
+        settingsMenu.isConnected = false;
+
+        playerPolaroids[0].Ready(false);
+        playerPolaroids[1].Ready(false);
+        SetOpponentPolaroid();
+        readyNote.Disable();
+        connectionNote.Enable();
+        hostNote.Enable();
+        quitNote.Enable();
+        connectionNote.ChangeText("Connect");
+
+        isInGame = false;
+
+        if (hasLevelledUp)
+            Invoke(nameof(LevelledUp), 1.2f);
+    }
+
+    private void LevelledUp()
+    {
+        popupPaper.ShowPopup(PopupTextType.LevelUp);
+    }
+
     public void ReadyUp()
     {
-        if (game.player.isLocalPlayer && !game.player.isReadyToPlay)
-        {
-            game.player.isReadyToPlay = true;
-            isReady = true;
-            Debug.Log("Player is ready.");
-            readyNote.Checkmark();
-            CreateArray();
-            playerPolaroids[0].Ready(true);
-        }
+        if (!game.player.isLocalPlayer || game.player.isReadyToPlay) 
+            return;
+
+        game.player.isReadyToPlay = true;
+        isReady = true;
+        Debug.Log("Player is ready.");
+        readyNote.Checkmark();
+        CreateArray();
+        playerPolaroids[0].Ready(true);
     }
 
     public void CreateArray()
@@ -102,47 +138,51 @@ public class MainPanel : NetworkBehaviour
     {
         connectionNote.Disable();
 
-        if (NetworkServer.active)
+        switch (NetworkServer.active)
         {
-            Debug.Log("Stopping host.");
-
-            if (isReady)
-                isReady = false;
-
-            popupPaper.canShow = false;
-            hostNote.Disable();
-            game.gameManager.DisconnectAll();
-            Invoke(nameof(TurnPopupPaperBackOn), 1f);
-        }
-        else if (!NetworkServer.active)
-        {
-            connectionNote.Disable();
-
-            Debug.Log("Starting host.");
-
-            isHost = true;
-
-            try
+            case true:
             {
-                NetworkManager.singleton.StartHost();
-                hostNote.ChangeText("Stop host");
-            }
-            catch (SocketException)
-            {
-                Debug.LogError("SocketException: Only one usage of each socket address (protocol/network address/port) is normally permitted.");
-                popupPaper.Show(Error.MultipleHosts);
                 Debug.Log("Stopping host.");
 
-                connectionNote.ChangeText("Connect");
+                if (isReady)
+                    isReady = false;
 
-                playerPolaroids[0].Ready(false);
-                playerPolaroids[1].Ready(false);
-                readyNote.Disable();
-                connectionNote.Enable();
-                hostNote.Enable();
-                quitNote.Enable();
-                settingsMenu.isConnected = false;
+                popupPaper.canShow = false;
+                hostNote.Disable();
+                game.gameManager.DisconnectAll();
+                Invoke(nameof(TurnPopupPaperBackOn), 1f);
+                break;
             }
+            case false:
+                connectionNote.Disable();
+
+                Debug.Log("Starting host.");
+
+                isHost = true;
+
+                try
+                {
+                    NetworkManager.singleton.StartHost();
+                    hostNote.ChangeText("Stop host");
+                }
+                catch (SocketException)
+                {
+                    Debug.LogError("SocketException: Only one usage of each socket address (protocol/network address/port) is normally permitted.");
+                    popupPaper.ShowError(Error.MultipleHosts);
+                    Debug.Log("Stopping host.");
+
+                    connectionNote.ChangeText("Connect");
+
+                    playerPolaroids[0].Ready(false);
+                    playerPolaroids[1].Ready(false);
+                    readyNote.Disable();
+                    connectionNote.Enable();
+                    hostNote.Enable();
+                    quitNote.Enable();
+                    settingsMenu.isConnected = false;
+                }
+
+                break;
         }
     }
     
@@ -186,29 +226,37 @@ public class MainPanel : NetworkBehaviour
 
     public void Connect()
     {
-        if (NetworkClient.isConnected)
+        switch (NetworkClient.isConnected)
         {
-            Debug.Log("Disconnecting from server.");
+            case true:
+            {
+                Debug.Log("Disconnecting from server.");
 
-            if (isReady)
-                isReady = false;
+                if (isReady)
+                    isReady = false;
 
-            connectionNote.Disable();
+                connectionNote.Disable();
 
-            if (game.gameManager.player.playerIdx == 1)
-                game.gameManager.player1.Disconnect();
-            else if (game.gameManager.player.playerIdx == 2)
-                game.gameManager.player2.Disconnect();
-        }
-        else if (!NetworkClient.isConnected)
-        {
-            connectionNote.Disable();
-            hostNote.Disable();
+                switch (game.gameManager.player.playerIdx)
+                {
+                    case 1:
+                        game.gameManager.player1.Disconnect();
+                        break;
+                    case 2:
+                        game.gameManager.player2.Disconnect();
+                        break;
+                }
+                break;
+            }
+            case false:
+                connectionNote.Disable();
+                hostNote.Disable();
 
-            NetworkManager.singleton.StartClient();
-            Debug.Log("Connecting to server.");
+                NetworkManager.singleton.StartClient();
+                Debug.Log("Connecting to server.");
 
-            Invoke(nameof(CheckConnection), 2);
+                Invoke(nameof(CheckConnection), 2);
+                break;
         }
     }
 
@@ -219,7 +267,7 @@ public class MainPanel : NetworkBehaviour
 
         Debug.Log("Can't connect.");
         NetworkManager.singleton.StopClient();
-        popupPaper.Show(Error.CantConnect);
+        popupPaper.ShowError(Error.CantConnect);
 
         hostNote.Enable();
         connectionNote.Enable();
@@ -238,7 +286,7 @@ public class MainPanel : NetworkBehaviour
 
         Debug.Log("Server is full.");
         NetworkManager.singleton.StopClient();
-        popupPaper.Show(Error.ServerFull);
+        popupPaper.ShowError(Error.ServerFull);
 
         hostNote.Enable();
         connectionNote.Enable();
@@ -271,7 +319,7 @@ public class MainPanel : NetworkBehaviour
         readyNote.Enable();
     }
 
-    public void DisabeReady()
+    public void DisableReady()
     {
         readyNote.Disable();
     }

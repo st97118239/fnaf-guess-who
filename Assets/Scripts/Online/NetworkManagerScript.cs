@@ -32,7 +32,7 @@ public class NetworkManagerScript : NetworkManager
         }
         else
         {
-            Debug.Log("Unkown Player disconnected.");
+            Debug.Log("Unknown Player disconnected.");
         }
 
         if (player.isHost)
@@ -45,9 +45,7 @@ public class NetworkManagerScript : NetworkManager
 
     public override void OnClientDisconnect()
     {
-        if (game.player && game.player.forcedLeave)
-            game.player.ForceRemoveConnection();
-        else if (game.player && gameManager.hasStarted && !gameManager.hasFinished)
+        if ((game.player && game.player.forcedLeave) || (game.player && gameManager.hasStarted && !gameManager.hasFinished))
             game.player.ForceRemoveConnection();
 
         base.OnClientDisconnect();
@@ -68,9 +66,9 @@ public class NetworkManagerScript : NetworkManager
         if (p1 && p2)
         {
             if (!gameManager.player1.isHost)
-                gameManager.player1.mainPanel.popupPaper.Show(Error.ServerDisconnected);
+                gameManager.player1.mainPanel.popupPaper.ShowError(Error.ServerDisconnected);
             else if (!gameManager.player2.isHost)
-                gameManager.player2.mainPanel.popupPaper.Show(Error.ServerDisconnected);
+                gameManager.player2.mainPanel.popupPaper.ShowError(Error.ServerDisconnected);
         }
 
         base.OnStopServer();

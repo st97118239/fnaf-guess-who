@@ -33,7 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 44b8b5c98bd88be4191ff365ab639189, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 6e8a74cb5f881394eb138bf4e81ee606, type: 3}
-  voicelines:
-  - {fileID: 8300000, guid: 698db505d006005468f52657be2dff97, type: 3}
+  voicelines: {fileID: 0}
   directory: Characters/SL/Fortune Teller
-  levelNeeded: 7
+  levelNeeded: 23
+  isUnlocked: 0

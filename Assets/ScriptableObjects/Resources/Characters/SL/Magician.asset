@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 79a0136cecb48bd4db39fbb97c84f6c8, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: de83e9494d5a25541a146740986d49d3, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/SL/Magician
-  levelNeeded: 7
+  levelNeeded: 10
+  isUnlocked: 0

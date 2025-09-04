@@ -29,6 +29,9 @@ public class SettingsMenu : MonoBehaviour
     private string settingsPath;
     private bool isShown;
 
+    private static readonly int PaperOpen = Animator.StringToHash("PaperOpen");
+    private static readonly int PaperClose = Animator.StringToHash("PaperClose");
+
     private void Start()
     {
         settingsPath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "Settings.json";
@@ -69,7 +72,7 @@ public class SettingsMenu : MonoBehaviour
             serverPortField.interactable = true;
         }
 
-        clipboardAnimator.SetTrigger("PaperOpen");
+        clipboardAnimator.SetTrigger(PaperOpen);
         backgroundBlocker.SetActive(true);
         audioManager.soundEffects.PlayOneShot(audioManager.clipboardSFX);
         isShown = true;
@@ -77,7 +80,7 @@ public class SettingsMenu : MonoBehaviour
 
     public void CloseSettings()
     {
-        clipboardAnimator.SetTrigger("PaperClose");
+        clipboardAnimator.SetTrigger(PaperClose);
         audioManager.soundEffects.PlayOneShot(audioManager.clipboardSFX);
         Invoke(nameof(DisableBackground), 0.6f);
         Save();

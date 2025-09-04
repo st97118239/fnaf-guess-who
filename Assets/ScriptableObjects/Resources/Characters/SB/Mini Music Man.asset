@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 069609fe1303fef4395ee793f53506ea, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: e3fc0ccbea3e6824f8f213f79ba5082d, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/SB/Mini Music Man
-  levelNeeded: 5
+  levelNeeded: 9
+  isUnlocked: 0

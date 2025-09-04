@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 04530d1ef1e2c564a897e0aaf912c03f, type: 2}
   directory: Characters/FNAF4/Nightmare
   levelNeeded: 1
+  isUnlocked: 0

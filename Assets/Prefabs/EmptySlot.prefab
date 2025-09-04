@@ -63,8 +63,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 3256510230301515120}
   index: 0
-  delay: 5
+  delay: 1
   floatDelay: 0.005
-  fadeTime: 0.3
+  fadeTime: 0.2
   fadeAtStart: 0
   useFloatDelay: 1

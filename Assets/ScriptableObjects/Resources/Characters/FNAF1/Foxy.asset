@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 93615018448963d44b114f7def238130, type: 2}
   directory: Characters/FNAF1/Foxy
   levelNeeded: 1
+  isUnlocked: 0

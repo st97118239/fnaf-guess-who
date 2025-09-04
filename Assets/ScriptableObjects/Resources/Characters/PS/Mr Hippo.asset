@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c1ea45cd6a4e0a046b1cbdb85f700fc2, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: ca982c390463a564cba1aff71c82fa5e, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/PS/Mr Hippo
   levelNeeded: 1
+  isUnlocked: 0

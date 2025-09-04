@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d8e8b712dacd0584fb890be2676054f4, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 0ec087d54967cf549802d3ed8633f470, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/HW2/Head Chef Bot
   levelNeeded: 7
+  isUnlocked: 0

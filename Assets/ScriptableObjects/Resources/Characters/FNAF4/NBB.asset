@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 426bfd735e08ce248a5b5dbe79157b8b, type: 2}
   directory: Characters/FNAF4/NBB
   levelNeeded: 1
+  isUnlocked: 0

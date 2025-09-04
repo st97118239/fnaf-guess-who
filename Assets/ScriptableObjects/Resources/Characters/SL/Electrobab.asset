@@ -33,8 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bdd7c8953fd7ac943b22326bc5dbed01, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 3009ae1be1d02f6459d9122e2efa6ce7, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/SL/Electrobab
-  firstGame: 6
-  animatronicClass: 9
-  skinClass: 0
+  levelNeeded: 1
+  isUnlocked: 0

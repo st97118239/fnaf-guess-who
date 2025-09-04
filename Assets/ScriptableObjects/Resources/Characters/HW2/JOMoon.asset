@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cf95e9f7015cbfb45b99f44e6cd03275, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 7fbd6738c7dbc3e47be9af16ce10fd8b, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/HW2/JOMoon
   levelNeeded: 4
+  isUnlocked: 0

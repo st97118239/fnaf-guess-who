@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 18c182c81b1d68347ade23f8f6d47e9a, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: 86d76980bd749734c964ba6499c35cb2, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/HW2/Carnie
   levelNeeded: 2
+  isUnlocked: 0

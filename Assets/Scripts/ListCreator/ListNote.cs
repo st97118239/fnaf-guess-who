@@ -24,10 +24,15 @@ public class ListNote : MonoBehaviour, IPointerClickHandler
 
     private void LMB()
     {
-        if (listNoteType == ListNoteType.Lists)
-            listPanel.OpenList(list);
-        else if (listNoteType == ListNoteType.AddList)
-            listPanel.NewList();
+        switch (listNoteType)
+        {
+            case ListNoteType.Lists:
+                listPanel.OpenList(list);
+                break;
+            case ListNoteType.AddList:
+                listPanel.NewList();
+                break;
+        }
 
         listPanel.mainPanel.audioManager.soundEffects.PlayOneShot(listPanel.mainPanel.audioManager.noteSFX);
     }
@@ -35,7 +40,7 @@ public class ListNote : MonoBehaviour, IPointerClickHandler
     private void RMB()
     {
         if (!list.builtIn || listPanel.devManager.isUnlocked)
-        listPanel.OpenSettings(index);
+            listPanel.OpenSettings(index);
     }
 
     public void LoadList(ListData givenList, ListPanel givenPanel, ListNoteType givenType, int givenIndex)

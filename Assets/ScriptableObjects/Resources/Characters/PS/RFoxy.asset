@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 46bce9016c0306c479ea73ed14b91584, type: 3}
   fullBodySprite:
   - {fileID: 21300000, guid: d3d84f900307c934bbd30ca3686ee8b6, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/PS/RFoxy
-  levelNeeded: 3
+  levelNeeded: 12
+  isUnlocked: 0

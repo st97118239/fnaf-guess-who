@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 66f78fe0d91525c408569eabcbbdb3ab, type: 2}
   directory: Characters/SL/Bonnet
   levelNeeded: 7
+  isUnlocked: 0

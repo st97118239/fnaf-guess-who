@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: 25f0341b6103c0e4485d060a258d39e0, type: 2}
   directory: Characters/FNAF2/Puppet
   levelNeeded: 1
+  isUnlocked: 0

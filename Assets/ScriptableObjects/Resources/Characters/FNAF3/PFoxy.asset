@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: dbb72502644aed14e97685f6a9b78ff8, type: 2}
   directory: Characters/FNAF3/PFoxy
   levelNeeded: 1
+  isUnlocked: 0

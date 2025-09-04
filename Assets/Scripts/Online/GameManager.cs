@@ -70,11 +70,11 @@ public class GameManager : NetworkBehaviour
             StartRound();
         }
 
-        if (round >= 0 && !hasFinished)
-        {
-            if (!player1 || !player2)
-                DisconnectAll();
-        }
+        if (round < 0 || hasFinished) 
+            return;
+
+        if (!player1 || !player2)
+            DisconnectAll();
     }
 
     [ClientRpc]
@@ -99,32 +99,38 @@ public class GameManager : NetworkBehaviour
     [Command(requiresAuthority = false)]
     private void CmdSetList(string[] givenArray, int givenIndex)
     {
-        if (givenIndex == 1)
+        switch (givenIndex)
         {
-            player1List = givenArray;
-        }
-        else if (givenIndex == 2)
-        {
-            player2List = givenArray;
+            case 1:
+                player1List = givenArray;
+                break;
+            case 2:
+                player2List = givenArray;
+                break;
         }
     }
 
     [Command(requiresAuthority = false)]
     public void CmdVersionCheck(int pIdx, int givenVersion)
     {
-        if (pIdx == 1)
-            player1Version = givenVersion;
-        else if (pIdx == 2)
-            player2Version = givenVersion;
+        switch (pIdx)
+        {
+            case 1:
+                player1Version = givenVersion;
+                break;
+            case 2:
+                player2Version = givenVersion;
+                break;
+        }
 
         if (!player2)
             return;
 
-        if (player1Version != 0 && player2Version != 0)
-        {
-            if (player1Version != player2Version)
-                player2.RpcVersionDisconnect();
-        }
+        if (player1Version == 0 || player2Version == 0) 
+            return;
+
+        if (player1Version != player2Version)
+            player2.RpcVersionDisconnect();
     }
 
     [Command(requiresAuthority = false)]
@@ -198,10 +204,15 @@ public class GameManager : NetworkBehaviour
 
         if (hasAccused)
         {
-            if (turn == 1)
-                Debug.Log("Player " + turn + " has accused " + player1AccusedCharacter);
-            else if (turn == 2)
-                Debug.Log("Player " + turn + " has accused " + player2AccusedCharacter);
+            switch (turn)
+            {
+                case 1:
+                    Debug.Log("Player " + turn + " has accused " + player1AccusedCharacter);
+                    break;
+                case 2:
+                    Debug.Log("Player " + turn + " has accused " + player2AccusedCharacter);
+                    break;
+            }
 
             if (needsToAccuse)
             {
@@ -213,38 +224,45 @@ public class GameManager : NetworkBehaviour
             needsToAccuse = true;
             round = -100;
 
-            if (turn == 1)
+            switch (turn)
             {
-                turn = 2;
-                RpcStartTurn(2, true);
-            }
-            else if (turn == 2)
-            {
-                turn = 1;
-                RpcStartTurn(1, true);
+                case 1:
+                    turn = 2;
+                    RpcStartTurn(2, true);
+                    break;
+                case 2:
+                    turn = 1;
+                    RpcStartTurn(1, true);
+                    break;
             }
         }
         else
         {
-            if (turn == 1)
+            switch (turn)
             {
-                turn = 2;
-                RpcStartTurn(2, false);
-            }
-            else if (turn == 2)
-            {
-                turn = 1;
-                RpcStartTurn(1, false);
+                case 1:
+                    turn = 2;
+                    RpcStartTurn(2, false);
+                    break;
+                case 2:
+                    turn = 1;
+                    RpcStartTurn(1, false);
+                    break;
             }
         }
     }
 
     public void Accuse(string characterDirectory)
     {
-        if (turn == 1)
-            player1AccusedCharacter = characterDirectory;
-        else if (turn == 2)
-            player2AccusedCharacter = characterDirectory;
+        switch (turn)
+        {
+            case 1:
+                player1AccusedCharacter = characterDirectory;
+                break;
+            case 2:
+                player2AccusedCharacter = characterDirectory;
+                break;
+        }
     }
 
     public void FinishGame()
@@ -312,10 +330,15 @@ public class GameManager : NetworkBehaviour
 
     public void PlayerChooseCharacter(int pIdx, string charDir)
     {
-        if (pIdx == 1)
-            player1ChosenCharacter = charDir;
-        else if (pIdx == 2)
-            player2ChosenCharacter = charDir;
+        switch (pIdx)
+        {
+            case 1:
+                player1ChosenCharacter = charDir;
+                break;
+            case 2:
+                player2ChosenCharacter = charDir;
+                break;
+        }
 
         Debug.Log("Player " + pIdx + " has chosen " + charDir);
     }
@@ -328,31 +351,35 @@ public class GameManager : NetworkBehaviour
         RpcDisableReady();
         RpcOpponentPolaroid();
 
-        if (!hasFinished && hasStarted)
-            DisconnectAll();
-        else if (!hasFinished && playerToRemove == 1 && player2 && !player1.isHost)
-            player2.OpponentLeft();
-        else if (!hasFinished && playerToRemove == 2 && player1)
-            player1.OpponentLeft();
-
-        if (playerToRemove == 1)
+        switch (hasFinished)
         {
-            player1 = null;
-            player1List = null;
-            player1AccusedCharacter = string.Empty;
-            player1ChosenCharacter = string.Empty;
-            player1Won = false;
-        }
-        else if (playerToRemove == 2)
-        {
-            player2 = null;
-            player2List = null;
-            player2AccusedCharacter = string.Empty;
-            player2ChosenCharacter = string.Empty;
-            player2Won = false;
+            case false when hasStarted:
+                DisconnectAll();
+                break;
+            case false when playerToRemove == 1 && player2 && !player1.isHost:
+                player2.OpponentLeft();
+                break;
+            case false when playerToRemove == 2 && player1:
+                player1.OpponentLeft();
+                break;
         }
 
-        if (hasFinished)
-            return;
+        switch (playerToRemove)
+        {
+            case 1:
+                player1 = null;
+                player1List = null;
+                player1AccusedCharacter = string.Empty;
+                player1ChosenCharacter = string.Empty;
+                player1Won = false;
+                break;
+            case 2:
+                player2 = null;
+                player2List = null;
+                player2AccusedCharacter = string.Empty;
+                player2ChosenCharacter = string.Empty;
+                player2Won = false;
+                break;
+        }
     }
 }

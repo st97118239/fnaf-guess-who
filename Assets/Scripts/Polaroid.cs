@@ -17,7 +17,7 @@ public class Polaroid : MonoBehaviour
     [SerializeField] private bool hasCircle;
 
     [SerializeField] private float fillTime = 1;
-    [SerializeField] private Vector2 spawnRotation = new Vector2(-4f, 4f);
+    [SerializeField] private Vector2 spawnRotation = new(-4f, 4f);
 
     [SerializeField] private RectTransform rectTransform;
 
@@ -25,15 +25,16 @@ public class Polaroid : MonoBehaviour
     {
         if (polXImage)
         {
-            if (startCrossedOff && polXImage.fillAmount == 0)
+            switch (startCrossedOff)
             {
-                isCrossedOff = false;
-                CrossOff();
-            }
-            else if (!startCrossedOff && polXImage.fillAmount == 1)
-            {
-                isCrossedOff = true;
-                CrossOff();
+                case true when polXImage.fillAmount == 0:
+                    isCrossedOff = false;
+                    CrossOff();
+                    break;
+                case false when Mathf.Approximately(polXImage.fillAmount, 1):
+                    isCrossedOff = true;
+                    CrossOff();
+                    break;
             }
         }
 
@@ -137,9 +138,6 @@ public class Polaroid : MonoBehaviour
         else
             characterImage.color = Color.clear;
 
-        if (character.characterName != string.Empty)
-            characterText.text = character.characterName;
-        else
-            characterText.text = string.Empty;
+        characterText.text = character.characterName != string.Empty ? character.characterName : string.Empty;
     }
 }

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -34,6 +33,13 @@ public class ListInfoPanel : MonoBehaviour
     private float paperTimer;
     private int bodyPaperClicksQueue;
 
+    private static readonly int FolderOpen = Animator.StringToHash("FolderOpen");
+    private static readonly int FirstNext = Animator.StringToHash("FirstNext");
+    private static readonly int OthersNext = Animator.StringToHash("OthersNext");
+    private static readonly int FirstBack = Animator.StringToHash("FirstBack");
+    private static readonly int OthersBack = Animator.StringToHash("OthersBack");
+    private static readonly int FolderClose = Animator.StringToHash("FolderClose");
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -58,10 +64,15 @@ public class ListInfoPanel : MonoBehaviour
         }
         else
         {
-            if (bodyPaperClicksQueue > 0)
-                BodyPapersNext(false);
-            else if (bodyPaperClicksQueue < 0)
-                BodyPapersBack(false);
+            switch (bodyPaperClicksQueue)
+            {
+                case > 0:
+                    BodyPapersNext(false);
+                    break;
+                case < 0:
+                    BodyPapersBack(false);
+                    break;
+            }
         }
     }
 
@@ -105,9 +116,9 @@ public class ListInfoPanel : MonoBehaviour
 
     public void Show(Character givenCharacter)
     {
-        for (int i = 0; i < bodyPapers.Count; i++)
+        foreach (BodyPaper t in bodyPapers)
         {
-            Destroy(bodyPapers[i].gameObject);
+            Destroy(t.gameObject);
         }
 
         bodyPapers.Clear();
@@ -115,9 +126,9 @@ public class ListInfoPanel : MonoBehaviour
 
         character = givenCharacter;
 
-        for (int i = 0; i < lines.Count; i++)
+        foreach (RectTransform t in lines)
         {
-            lines[i].gameObject.SetActive(true);
+            t.gameObject.SetActive(true);
         }
 
         if (character.polaroidSprite.Count > 0)
@@ -132,11 +143,11 @@ public class ListInfoPanel : MonoBehaviour
         {
             for (int i = character.fullBodySprite.Count - 1; i >= 0; i--)
             {
-                BodyPaper paper;
-                if (i == 0)
-                    paper = Instantiate(bodyPaperPrefab, bodyPaperParent.position, bodyPaperParent.rotation, bodyPaperParent).GetComponent<BodyPaper>();
-                else
-                    paper = Instantiate(bodyPaperPrefab, bodyPaperParent.position + bodyImageOffset, bodyPaperParent.rotation, bodyPaperParent).GetComponent<BodyPaper>();
+                BodyPaper paper = i == 0
+                    ? Instantiate(bodyPaperPrefab, bodyPaperParent.position, bodyPaperParent.rotation, bodyPaperParent)
+                        .GetComponent<BodyPaper>()
+                    : Instantiate(bodyPaperPrefab, bodyPaperParent.position + bodyImageOffset, bodyPaperParent.rotation,
+                        bodyPaperParent).GetComponent<BodyPaper>();
 
                 bodyPapers.Insert(0, paper);
                 paper.Load(character.fullBodySprite[i], i);
@@ -152,32 +163,36 @@ public class ListInfoPanel : MonoBehaviour
             audioNote.gameObject.SetActive(false);
 
         if (listPanel.mainPanel.avatar == character.directory || listPanel.mainPanel.settingsMenu.isConnected || (!character.isUnlocked && !listPanel.devManager.unlockAllCharacters))
-        {
             avatarNote.Disable();
-        }
         else
             avatarNote.Enable();
 
-        if (listPanel.menu == 1)
+        switch (listPanel.menu)
         {
-            chooseNote.ChangeText("Remove");
-            if (listPanel.openedList.builtIn && !listPanel.devManager.isUnlocked)
-                chooseNote.Disable();
-            else
-                chooseNote.Enable();
+            case 1:
+            {
+                chooseNote.ChangeText("Remove");
+                if (listPanel.openedList.builtIn && !listPanel.devManager.isUnlocked)
+                    chooseNote.Disable();
+                else
+                    chooseNote.Enable();
+                break;
+            }
+            case 2:
+            {
+                chooseNote.ChangeText("Add");
+                if ((listPanel.openedList.builtIn && !listPanel.devManager.isUnlocked) || !listPanel.hasListOpen || !polaroidSlot.characterCanAdd || listPanel.openedList.characters.Count >= listPanel.maxCharacters)
+                    chooseNote.Disable();
+                else
+                    chooseNote.Enable();
+                break;
+            }
+            default:
+                chooseNote.gameObject.SetActive(false);
+                break;
         }
-        else if (listPanel.menu == 2)
-        {
-            chooseNote.ChangeText("Add");
-            if ((listPanel.openedList.builtIn && !listPanel.devManager.isUnlocked) || !listPanel.hasListOpen || !polaroidSlot.characterCanAdd || listPanel.openedList.characters.Count >= listPanel.maxCharacters)
-                chooseNote.Disable();
-            else
-                chooseNote.Enable();
-        }
-        else
-            chooseNote.gameObject.SetActive(false);
 
-            bool hasAtLeastOneText = false;
+        bool hasAtLeastOneText = false;
         for (int i = 0; i < variables.Count; i++)
         {
             var fi = typeof(Character).GetField(variables[i]);
@@ -205,10 +220,7 @@ public class ListInfoPanel : MonoBehaviour
         {
             bodyPapersIdx--;
 
-            if (bodyPapers[bodyPapersIdx].index == 0)
-                bodyPapers[bodyPapersIdx].animator.SetTrigger("FirstBack");
-            else
-                bodyPapers[bodyPapersIdx].animator.SetTrigger("OthersBack");
+            bodyPapers[bodyPapersIdx].animator.SetTrigger(bodyPapers[bodyPapersIdx].index == 0 ? FirstBack : OthersBack);
 
             needsToWait = true;
         }
@@ -221,7 +233,7 @@ public class ListInfoPanel : MonoBehaviour
         if (hasToWait)
             yield return new WaitForSeconds(0.75f);
 
-        animator.SetTrigger("FolderClose");
+        animator.SetTrigger(FolderClose);
         audioManager.soundEffects.PlayOneShot(audioManager.folderCloseSFX);
         Invoke(nameof(DisableBackground), 0.6f);
         character = null;
@@ -246,10 +258,7 @@ public class ListInfoPanel : MonoBehaviour
 
         if (!playPaperTimer && bodyPapersIdx < bodyPapers.Count - 1)
         {
-            if (bodyPapers[bodyPapersIdx].index == 0)
-                bodyPapers[bodyPapersIdx].animator.SetTrigger("FirstNext");
-            else
-                bodyPapers[bodyPapersIdx].animator.SetTrigger("OthersNext");
+            bodyPapers[bodyPapersIdx].animator.SetTrigger(bodyPapers[bodyPapersIdx].index == 0 ? FirstNext : OthersNext);
 
             bodyPapersIdx++;
             bodyPaperClicksQueue--;
@@ -272,10 +281,7 @@ public class ListInfoPanel : MonoBehaviour
             bodyPapersIdx--;
             bodyPaperClicksQueue++;
 
-            if (bodyPapers[bodyPapersIdx].index == 0)
-                bodyPapers[bodyPapersIdx].animator.SetTrigger("FirstBack");
-            else
-                bodyPapers[bodyPapersIdx].animator.SetTrigger("OthersBack");
+            bodyPapers[bodyPapersIdx].animator.SetTrigger(bodyPapers[bodyPapersIdx].index == 0 ? FirstBack : OthersBack);
 
             paperTimer = paperTimerBase;
             playPaperTimer = true;
@@ -289,10 +295,7 @@ public class ListInfoPanel : MonoBehaviour
     {
         for (int i = 0; i < lines.Count; i++)
         {
-            if (!string.IsNullOrEmpty(texts[i].text))
-                lines[i].gameObject.SetActive(true);
-            else
-                lines[i].gameObject.SetActive(false);
+            lines[i].gameObject.SetActive(!string.IsNullOrEmpty(texts[i].text));
         }
 
         lines[0].gameObject.SetActive(false);
@@ -312,7 +315,7 @@ public class ListInfoPanel : MonoBehaviour
         lines[0].gameObject.SetActive(true);
 
         backgroundBlocker.SetActive(true);
-        animator.SetTrigger("FolderOpen");
+        animator.SetTrigger(FolderOpen);
         audioManager.soundEffects.PlayOneShot(audioManager.folderOpenSFX);
 
         listPanel.isInfoPanelShown = true;
@@ -320,30 +323,37 @@ public class ListInfoPanel : MonoBehaviour
 
     public void ChooseCharacter()
     {
-        if (listPanel.menu == 1 && (!listPanel.openedList.builtIn || listPanel.devManager.isUnlocked))
+        switch (listPanel.menu)
         {
-            listPanel.RemoveCharacterFromList(character, polaroidSlot.index);
+            case 1 when (!listPanel.openedList.builtIn || listPanel.devManager.isUnlocked):
+            {
+                listPanel.RemoveCharacterFromList(character, polaroidSlot.index);
 
-            Hide();
-        }
-        else if (listPanel.menu == 2 && (!listPanel.openedList.builtIn || listPanel.devManager.isUnlocked))
-        {
-            listPanel.AddCharacterToList(character);
+                if (listPanel.isInfoPanelShown)
+                    Hide();
+                break;
+            }
+            case 2 when (!listPanel.openedList.builtIn || listPanel.devManager.isUnlocked):
+            {
+                listPanel.AddCharacterToList(character);
 
-            Hide();
+                if (listPanel.isInfoPanelShown)
+                    Hide();
+                break;
+            }
         }
     }
 
     public void AvatarNote()
     {
-        if (listPanel.mainPanel.avatar != character.directory && !listPanel.mainPanel.settingsMenu.isConnected)
-        {
-            listPanel.mainPanel.settingsMenu.settings.avatar = character.directory;
-            listPanel.mainPanel.avatar = character.directory;
-            listPanel.mainPanel.settingsMenu.Save();
-            listPanel.mainPanel.SetPlayerPolaroid(true, false, false);
+        if (listPanel.mainPanel.avatar == character.directory || listPanel.mainPanel.settingsMenu.isConnected) 
+            return;
 
-            Hide();
-        }
+        listPanel.mainPanel.settingsMenu.settings.avatar = character.directory;
+        listPanel.mainPanel.avatar = character.directory;
+        listPanel.mainPanel.settingsMenu.Save();
+        listPanel.mainPanel.SetPlayerPolaroid(true, false, false);
+
+        Hide();
     }
 }

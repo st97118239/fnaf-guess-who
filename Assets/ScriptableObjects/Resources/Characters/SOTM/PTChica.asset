@@ -34,6 +34,7 @@ MonoBehaviour:
   fullBodySprite:
   - {fileID: 21300000, guid: c408fae9b2500d941b161e57c3b814b9, type: 3}
   - {fileID: 21300000, guid: b137a59b2d742684394ebee81826c83e, type: 3}
-  voicelines: []
+  voicelines: {fileID: 0}
   directory: Characters/SOTM/PTChica
   levelNeeded: 9
+  isUnlocked: 0

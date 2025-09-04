@@ -36,3 +36,4 @@ MonoBehaviour:
   voicelines: {fileID: 11400000, guid: d6bf4bbf8f03fd54a8f3ceaf518cc6ec, type: 2}
   directory: Characters/FNAF4/JOChica
   levelNeeded: 6
+  isUnlocked: 0
