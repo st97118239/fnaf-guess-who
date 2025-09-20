@@ -14,15 +14,20 @@ public class CharacterPolaroid : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (eventData.button == PointerEventData.InputButton.Left)
+        switch (eventData.button)
         {
-            if (character.isUnlocked || charactersPanel.listPanel.devManager.unlockAllCharacters)
-                LMB();
-        }
-        else if (eventData.button == PointerEventData.InputButton.Right)
-        {
-            if (character.isUnlocked || charactersPanel.listPanel.devManager.unlockAllCharacters)
-                RMB();
+            case PointerEventData.InputButton.Left:
+            {
+                if (character.isUnlocked || charactersPanel.listPanel.devManager.unlockAllCharacters)
+                    LMB();
+                break;
+            }
+            case PointerEventData.InputButton.Right:
+            {
+                if (character.isUnlocked || charactersPanel.listPanel.devManager.unlockAllCharacters)
+                    RMB();
+                break;
+            }
         }
     }
 
@@ -52,7 +57,7 @@ public class CharacterPolaroid : MonoBehaviour, IPointerClickHandler
         }
         else if (!character.isUnlocked && !charactersPanel.listPanel.devManager.unlockAllCharacters)
         {
-            polaroid.Disable();
+            polaroid.TearOff();
             listPolaroid.characterCanAdd = false;
             isInList = false;
         }

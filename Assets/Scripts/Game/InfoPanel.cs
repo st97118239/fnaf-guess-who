@@ -162,34 +162,35 @@ public class InfoPanel : MonoBehaviour
         else
             audioNote.gameObject.SetActive(false);
 
-        if (chooseType == 1)
+        switch (chooseType)
         {
-            chooseNote.gameObject.SetActive(true);
-            chooseNote.ChangeText("Lock in");
-            if (gameScript.chosenCharacter)
+            case 1:
             {
-                chooseNote.Disable();
+                chooseNote.gameObject.SetActive(true);
+                chooseNote.ChangeText("Lock in");
+                if (gameScript.chosenCharacter)
+                    chooseNote.Disable();
+                else
+                    chooseNote.Enable();
+
+                break;
             }
-            else
+            case 2:
             {
-                chooseNote.Enable();
+                chooseNote.gameObject.SetActive(true);
+                chooseNote.ChangeText("Accuse");
+                if (gameScript.player.accusedCharacter != string.Empty ||
+                    gameScript.gameManager.turn != gameScript.player.playerIdx || charSlot.isCrossedOff)
+                    chooseNote.Disable();
+                else
+                    chooseNote.Enable();
+
+                break;
             }
+            default:
+                chooseNote.gameObject.SetActive(false);
+                break;
         }
-        else if (chooseType == 2)
-        {
-            chooseNote.gameObject.SetActive(true);
-            chooseNote.ChangeText("Accuse");
-            if (gameScript.player.accusedCharacter != string.Empty || gameScript.gameManager.turn != gameScript.player.playerIdx || charSlot.isCrossedOff)
-            {
-                chooseNote.Disable();
-            }
-            else
-            {
-                chooseNote.Enable();
-            }
-        }
-        else
-            chooseNote.gameObject.SetActive(false);
 
         bool hasAtLeastOneText = false;
         for (int i = 0; i < variables.Count; i++)

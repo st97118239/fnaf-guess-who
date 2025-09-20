@@ -125,18 +125,18 @@ public class PopupPaper : MonoBehaviour
                 ShowError(error == Error.None ? Error.None : error);
                 break;
             case PopupTextType.LevelUp:
-                switch (mainPanel.listPanel.charactersPanel.newCharacters.characters.Count)
+                paperText.text = mainPanel.listPanel.charactersPanel.newCharacters.characters.Count switch
                 {
-                    case 1:
-                        paperText.text = "You levelled up and are now level" + PlayerPrefs.GetInt("Level") + ". And you have unlocked " + mainPanel.listPanel.charactersPanel.newCharacters.characters[0].characterName + "! You can add them to your list to play with them.";
-                        break;
-                    case > 1:
-                        paperText.text = "You levelled up and are now level" + PlayerPrefs.GetInt("Level") + ". And you have unlocked " + mainPanel.listPanel.charactersPanel.newCharacters.characters.Count + " new characters! You can add these to your list to play with them.";
-                        break;
-                    default:
-                        paperText.text = "You levelled up and are now level" + PlayerPrefs.GetInt("Level") + ". Congrats!";
-                        break;
-                }
+                    1 => "You levelled up and are now level " + PlayerPrefs.GetInt("Level") +
+                         ". And you have unlocked " +
+                         mainPanel.listPanel.charactersPanel.newCharacters.characters[0].characterName +
+                         "! You can add them to your list to play with them.",
+                    > 1 => "You levelled up and are now level " + PlayerPrefs.GetInt("Level") +
+                           ". And you have unlocked " +
+                           mainPanel.listPanel.charactersPanel.newCharacters.characters.Count +
+                           " new characters! You can add these to your list to play with them.",
+                    _ => "You levelled up and are now level " + PlayerPrefs.GetInt("Level") + ". Congrats!"
+                };
 
                 note.ChangeText("Return");
                 note.Enable();

@@ -7,12 +7,14 @@ public class Note : MonoBehaviour
 {
     public Button noteButton;
     public TMP_Text noteText;
+    public Image noteImage;
     public Image noteOverlayImage;
     public Image noteXImage;
 
     public bool isCrossedOff;
     public bool isImageOn;
 
+    [SerializeField] private Sprite tornOffSprite;
     [SerializeField] private bool isButton = true;
     [SerializeField] private bool startCrossedOff;
     [SerializeField] private bool startWithImage;
@@ -94,6 +96,19 @@ public class Note : MonoBehaviour
         isCrossedOff = true;
         if (gameObject.activeSelf)
             StartCoroutine(FadeImage(true, "UI/X", noteXImage));
+    }
+
+    public void TearOff()
+    {
+        if (isCrossedOff)
+            return;
+
+        noteOverlayImage.fillAmount = 0;
+        noteXImage.fillAmount = 0;
+        noteText.color = Color.clear;
+        noteImage.sprite = tornOffSprite;
+        noteButton.interactable = false;
+        isCrossedOff = true;
     }
 
     public void Checkmark()

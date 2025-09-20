@@ -287,11 +287,10 @@ public class Game : MonoBehaviour
     public void StartRound(bool hasToAccuse)
     {
         audioManager.soundEffects.PlayOneShot(audioManager.bellSFX);
-        if (possibleSlots.Count <= 2 && gameManager.round != 1)
+        if (possibleSlots.Count <= 2 && possibleSlots.Count != 0 && gameManager.round != 1)
             characterSidebar.ChangeTurn(gameManager.turn, true);
         else
             characterSidebar.ChangeTurn(gameManager.turn, hasToAccuse);
-
     }
 
     public void Done()

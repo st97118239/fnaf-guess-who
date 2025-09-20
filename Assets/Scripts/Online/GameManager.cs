@@ -60,13 +60,6 @@ public class GameManager : NetworkBehaviour
         if (round == 0 && player1ChosenCharacter != string.Empty && player2ChosenCharacter != string.Empty)
         {
             Debug.Log("Both players have chosen a character. Starting game.");
-            round = 1;
-            turn = 0;
-
-        }
-
-        if (round > 0 && turn == 0)
-        {
             StartRound();
         }
 
@@ -177,14 +170,15 @@ public class GameManager : NetworkBehaviour
 
     public void StartRound()
     {
-        turn = 1;
-        RpcStartTurn(1, false);
+        round = 1;
+        RpcStartTurn(Random.Range(1, 3), false);
     }
 
     [ClientRpc]
     public void RpcStartTurn(int playerTurn, bool hasToAccuse)
     {
         turn = playerTurn;
+        Debug.Log(playerTurn + ", " + hasToAccuse);
 
         if (player.playerIdx == turn)
         {
@@ -246,6 +240,7 @@ public class GameManager : NetworkBehaviour
                     break;
                 case 2:
                     turn = 1;
+                    round++;
                     RpcStartTurn(1, false);
                     break;
             }

@@ -98,6 +98,7 @@ public class MainPanel : NetworkBehaviour
     private void LevelledUp()
     {
         popupPaper.ShowPopup(PopupTextType.LevelUp);
+        hasLevelledUp = false;
     }
 
     public void ReadyUp()
@@ -214,7 +215,9 @@ public class MainPanel : NetworkBehaviour
     {
         NetworkManager.singleton.StopServer();
 
-        connectionNote.Disable();
+        Debug.Log("Host stopped.");
+
+        connectionNote.Enable();
 
         hostNote.ChangeText("Start host");
         hostNote.Enable();
