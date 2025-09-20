@@ -140,10 +140,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteButton: {fileID: 1158697169716760427}
   noteText: {fileID: 2028061977133402481}
+  noteImage: {fileID: 8518961126098211083}
   noteOverlayImage: {fileID: 7771447898839834551}
   noteXImage: {fileID: 5653542745414963770}
   isCrossedOff: 0
   isImageOn: 0
+  tornOffSprite: {fileID: 21300000, guid: c1b2306abc2874946856a271a1e0c18f, type: 3}
   isButton: 1
   startCrossedOff: 0
   startWithImage: 0
@@ -217,12 +219,12 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.3
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}

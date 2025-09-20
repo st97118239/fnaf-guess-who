@@ -12,8 +12,10 @@ public class Polaroid : MonoBehaviour
     public Image polXImage;
     public Character character;
 
+    [SerializeField] private Sprite tornOffSprite;
     [SerializeField] private bool startCrossedOff;
     [SerializeField] private bool isCrossedOff;
+    [SerializeField] private bool isTornOff;
     [SerializeField] private bool hasCircle;
 
     [SerializeField] private float fillTime = 1;
@@ -43,6 +45,9 @@ public class Polaroid : MonoBehaviour
 
     private IEnumerator FadeImage(bool fill, string image, bool imageDisabling)
     {
+        if (isTornOff)
+            yield break;
+
         yield return null;
 
         polXImage.sprite = Resources.Load<Sprite>("UI/" + image);
@@ -87,6 +92,22 @@ public class Polaroid : MonoBehaviour
         polButton.interactable = false;
     }
 
+    public void TearOff()
+    {
+        if (isCrossedOff)
+            return;
+
+        ChangeText("");
+        polXImage.fillAmount = 0;
+        characterImage.fillAmount = 0;
+        characterImage.color = Color.clear;
+        characterText.color = Color.clear;
+        polImage.sprite = tornOffSprite;
+        polButton.interactable = false;
+        isCrossedOff = true;
+        isTornOff = true;
+    }
+
     public void CrossOff()
     {
         if (hasCircle)
@@ -129,6 +150,9 @@ public class Polaroid : MonoBehaviour
     public void Load(Character givenCharacter)
     {
         character = givenCharacter;
+
+        if (isTornOff)
+            return;
 
         if (character.polaroidSprite[0])
         {

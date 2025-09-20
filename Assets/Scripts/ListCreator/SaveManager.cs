@@ -75,15 +75,11 @@ public class SaveManager : MonoBehaviour
             return;
         }
 
-        if (save.lists[0].version != defaultList.version)
-        {
+        if (save.lists[0].version != defaultList.version) 
             ReplaceDefault();
-        }
 
         foreach (ListData t in save.lists)
-        {
             Debug.Log("Found list: " + t.name);
-        }
 
         LoadSelectedList();
 
@@ -94,7 +90,10 @@ public class SaveManager : MonoBehaviour
     {
         CreateNewSave();
 
-        listToSave = saveData.lists[0];
+        if (saveData.lists[0].builtIn)
+            listToSave = saveData.lists[0];
+        else
+            saveData.lists.Insert(0, listToSave);
 
         listToSave.characters = defaultList.characters.Select(c => c.directory).ToList();
         listToSave.name = defaultList.name;

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5fafcccab872469d22cffc3eabe76, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
-  listName: Default
-  version: 76
+  listName: New Default
+  version: 97
   characters:
   - {fileID: 11400000, guid: 31536014749df334b912266093b73626, type: 2}
   - {fileID: 11400000, guid: a3ba5e0deea957945938f1229c1dd551, type: 2}
@@ -70,7 +70,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 260d730e5895d4d4893cedf6f02559d9, type: 2}
   - {fileID: 11400000, guid: a5cd613f978ce23499c1263a8a2d6c74, type: 2}
   - {fileID: 11400000, guid: ff0c870cb45e96d42a88609c76591f73, type: 2}
-  - {fileID: 11400000, guid: 1e7d3aad17cbdb645a7cbcc963a5db36, type: 2}
+  - {fileID: 11400000, guid: ccfb37dc873fc634faf99bb2d401000c, type: 2}
   - {fileID: 11400000, guid: 8892654cb38722443aa4663289155d26, type: 2}
   - {fileID: 11400000, guid: bb6b249d9023fa8419d299b099c00cfd, type: 2}
   - {fileID: 11400000, guid: e6872fb79f19b234ab726b14bb51f0ed, type: 2}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
@@ -75,15 +76,11 @@ public class CharactersPanel : MonoBehaviour
     {
         listPanel.mainPanel.currentPanel = Panels.ListPanel;
 
-        switch (listPanel.hasListOpen)
+        listPanel.menu = listPanel.hasListOpen switch
         {
-            case true:
-                listPanel.menu = 1;
-                break;
-            case false:
-                listPanel.menu = 0;
-                break;
-        }
+            true => 1,
+            false => 0
+        };
 
         listPanel.fromCharacterPanel = true;
         listPanel.LoadPanel();
@@ -180,6 +177,7 @@ public class CharactersPanel : MonoBehaviour
 
         switch (categoryType)
         {
+            default:
             case CategoryType.None:
                 return;
             case CategoryType.FirstGame:

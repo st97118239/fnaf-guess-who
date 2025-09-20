@@ -8975,8 +8975,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1991.9619, y: -973.38983}
-  m_SizeDelta: {x: 970.962, y: 183.3896}
+  m_AnchoredPosition: {x: 1991.9619, y: -1053.6016}
+  m_SizeDelta: {x: 970.962, y: 263.5515}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &661530952
 MonoBehaviour:
@@ -8998,14 +8998,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Add skins for characters
+  m_text: 'not all polaroids get reset when pressing done?
 
-    Add audio to all characters
+    Add skins for characters
+
+    Add
+    audio to all characters
 
     More characters
 
-    Radio
-    where you choose bgm'
+    Radio where you choose bgm'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9770,7 +9772,7 @@ MonoBehaviour:
     selected: 0
     version: 0
     characters: []
-  defaultList: {fileID: 11400000, guid: d2a71828494520a4c9fda4ddbef75459, type: 2}
+  defaultList: {fileID: 11400000, guid: 9d08a893e08fed240bbb51aec6481cd3, type: 2}
   allCharacters: {fileID: 11400000, guid: 82c1d2f36fa39f946927db6066c6626b, type: 2}
 --- !u!1 &694835115
 GameObject:
@@ -13089,6 +13091,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SaveAllCharsNote
       objectReference: {fileID: 0}
+    - target: {fileID: 8518961126098211083, guid: 6b9537fc45bdaf8418ca4f81cd847c91, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6583a681de5d22a4fa4814f88f96cf03, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33296,7 +33302,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  version: 96
+  version: 97
   hasStarted: 0
   round: 0
   turn: 0

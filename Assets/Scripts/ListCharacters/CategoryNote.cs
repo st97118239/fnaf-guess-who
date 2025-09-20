@@ -35,12 +35,12 @@ public class CategoryNote : MonoBehaviour, IPointerClickHandler
         category = givenCategory;
 
         if (category.characters.Count == 0)
-            note.Disable();
+            note.TearOff();
 
         int amountLocked = category.characters.Count(t => !t.isUnlocked);
 
         if (category.characters.Count == amountLocked && !charactersPanel.listPanel.devManager.unlockAllCharacters)
-            note.Disable();
+            note.TearOff();
 
         note.ChangeText(category.categoryName);
     }
